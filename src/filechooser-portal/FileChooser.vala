@@ -82,7 +82,6 @@ public class FileChooser : Object {
 
     private static Variant create_with_selection (List<GOF.File> selection) {
         var builder = new VariantBuilder (VariantType.STRING_ARRAY);
-        Variant[] uris = {};
         foreach (var file in selection) {
             builder.add ("s", file.uri);
         }
