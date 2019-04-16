@@ -30,17 +30,6 @@ private const GLib.OptionEntry[] options = {
     { null }
 };
 
-void on_bus_acquired (DBusConnection conn, string n) {
-    try {
-        const string name = "/org/freedesktop/portal/desktop";
-        var object = new FileChooser ();
-        conn.register_object (name, object);
-        debug ("FileChooser object registered with dbus connection name %s", name);
-    } catch (IOError e) {
-        error ("Could not register FileChooser service");
-    }   
-}
-
 int main (string[] args) {
     GLib.Intl.setlocale (GLib.LocaleCategory.ALL, "");
     /*GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
@@ -93,7 +82,7 @@ int main (string[] args) {
         GLib.BusType.SESSION,
         "org.freedesktop.impl.portal.desktop.pantheon",
         GLib.BusNameOwnerFlags.ALLOW_REPLACEMENT,
-        on_bus_acquired,
+        () => {},
         () => {},
         () => {}
     );
