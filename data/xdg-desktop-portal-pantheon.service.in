@@ -4,4 +4,4 @@ Description=Portal service (Pantheon implementation)
 [Service]
 Type=dbus
 BusName=org.freedesktop.impl.portal.desktop.pantheon
-ExecStart=@libexecdir@/xdg-desktop-portal-pantheon
+ExecStart=@LIBEXECDIR@/xdg-desktop-portal-pantheon
