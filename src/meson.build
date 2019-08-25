@@ -8,5 +8,5 @@ executable(
         gtk_dep
     ],
     install: true,
-    install_dir: get_option('libexecdir'),
+    install_dir: libexecdir,
 )

@@ -1,6 +1,6 @@
 install_data(
     'pantheon.portal',
-    install_dir: join_paths(get_option('datadir'), 'xdg-desktop-portal', 'portals')
+    install_dir: join_paths(datadir, 'xdg-desktop-portal', 'portals')
 )
 
 configure_file(
