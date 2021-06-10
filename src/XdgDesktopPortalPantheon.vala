@@ -30,11 +30,19 @@ private const GLib.OptionEntry[] options = {
     { null }
 };
 
+private void on_bus_acquired (DBusConnection connection, string name) {
+    try {
+        connection.register_object ("/org/freedesktop/portal/desktop", new Access.Portal (connection));
+    } catch (Error e) {
+        critical ("Unable to register the object: %s", e.message);
+    }
+}
+
 int main (string[] args) {
     GLib.Intl.setlocale (GLib.LocaleCategory.ALL, "");
-    /*GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-    GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-    GLib.Intl.textdomain (GETTEXT_PACKAGE);*/
+    GLib.Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.LOCALEDIR);
+    GLib.Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
+    GLib.Intl.textdomain (Config.GETTEXT_PACKAGE);
 
     /* Avoid pointless and confusing recursion */
     GLib.Environment.unset_variable ("GTK_USE_PORTAL");
@@ -56,13 +64,13 @@ int main (string[] args) {
         opt_context.add_main_entries (options, null);
         opt_context.parse (ref args);
     } catch (OptionError e) {
-        printerr ("error: %s\n", e.message);
-        printerr ("Try '%s --help' for more information.\n", args[0]);
+        printerr ("%s: %s\n", Environment.get_application_name (), e.message);
+        printerr ("Try \"%s --help\" for more information.\n", Environment.get_prgname ());
         return 1;
     }
 
     if (show_version) {
-        //print (PACKAGE_STRING "\n");
+        print ("0.0 \n");
         return 0;
     }
 
@@ -81,10 +89,10 @@ int main (string[] args) {
     var owner_id = GLib.Bus.own_name (
         GLib.BusType.SESSION,
         "org.freedesktop.impl.portal.desktop.pantheon",
-        GLib.BusNameOwnerFlags.ALLOW_REPLACEMENT,
-        () => {},
-        () => {},
-        () => {}
+        GLib.BusNameOwnerFlags.ALLOW_REPLACEMENT | (opt_replace ? GLib.BusNameOwnerFlags.REPLACE : 0),
+        on_bus_acquired,
+        () => { debug  ("org.freedesktop.impl.portal.desktop.panthon acquired"); },
+        () => { loop.quit (); }
     );
     loop.run ();
     GLib.Bus.unown_name (owner_id);

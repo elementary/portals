@@ -1,0 +1,4 @@
+namespace Config {
+    const string GETTEXT_PACKAGE = @GETTEXT_PACKAGE@;
+    const string LOCALEDIR = @LOCALEDIR@;
+}
