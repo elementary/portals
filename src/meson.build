@@ -11,6 +11,9 @@ executable(
     'ExternalWindow.vala',
     'Access/Portal.vala',
     'Access/Dialog.vala',
+    'AppChooser/Portal.vala',
+    'AppChooser/Dialog.vala',
+    'AppChooser/AppButton.vala',
     dependencies: [
         glib_dep,
         gobject_dep,
@@ -18,6 +21,7 @@ executable(
         gtk_dep,
         gdk_dep,
         granite_dep,
+        handy_dep
     ],
     install: true,
     install_dir: libexecdir,

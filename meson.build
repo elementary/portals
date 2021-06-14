@@ -13,6 +13,7 @@ gio_dep = dependency('gio-2.0')
 gtk_dep = dependency('gtk+-3.0')
 gdk_dep = dependency('gdk-x11-3.0')
 granite_dep = dependency('granite')
+handy_dep = dependency('libhandy-1')
 
 add_global_arguments(
     '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()),
