@@ -23,7 +23,7 @@ private static bool opt_verbose = false;
 private static bool opt_replace = false;
 private static bool show_version = false;
 
-private const GLib.OptionEntry[] options = {
+private const GLib.OptionEntry[] OPTIONS_ENTRIES = {
     { "verbose", 'v', 0, OptionArg.NONE, ref opt_verbose, "Print debug information during command processing", null },
     { "replace", 'r', 0, OptionArg.NONE, ref opt_replace, "Replace a running instance", null },
     { "version", 0, 0, OptionArg.NONE, ref show_version, "Show program version", null },
@@ -33,6 +33,10 @@ private const GLib.OptionEntry[] options = {
 private void on_bus_acquired (DBusConnection connection, string name) {
     try {
         connection.register_object ("/org/freedesktop/portal/desktop", new Access.Portal (connection));
+        debug ("Access Portal registed!");
+
+        connection.register_object ("/org/freedesktop/portal/desktop", new AppChooser.Portal (connection));
+        debug ("AppChooser Portal registred!");
     } catch (Error e) {
         critical ("Unable to register the object: %s", e.message);
     }
@@ -61,7 +65,7 @@ int main (string[] args) {
             + "\n"
             + "Please report issues at https://github.com/elementary/xdg-desktop-portal-pantheon/issues"
         );
-        opt_context.add_main_entries (options, null);
+        opt_context.add_main_entries (OPTIONS_ENTRIES, null);
         opt_context.parse (ref args);
     } catch (OptionError e) {
         printerr ("%s: %s\n", Environment.get_application_name (), e.message);
@@ -91,7 +95,7 @@ int main (string[] args) {
         "org.freedesktop.impl.portal.desktop.pantheon",
         GLib.BusNameOwnerFlags.ALLOW_REPLACEMENT | (opt_replace ? GLib.BusNameOwnerFlags.REPLACE : 0),
         on_bus_acquired,
-        () => { debug  ("org.freedesktop.impl.portal.desktop.panthon acquired"); },
+        () => { debug ("org.freedesktop.impl.portal.desktop.panthon acquired"); },
         () => { loop.quit (); }
     );
     loop.run ();

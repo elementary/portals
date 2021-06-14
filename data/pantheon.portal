@@ -1,4 +1,4 @@
 [portal]
 DBusName=org.freedesktop.impl.portal.desktop.pantheon
-Interfaces=org.freedesktop.impl.portal.Access;
+Interfaces=org.freedesktop.impl.portal.Access;org.freedesktop.impl.portal.AppChooser;
 UseIn=pantheon
