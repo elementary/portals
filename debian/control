@@ -13,5 +13,7 @@ Standards-Version: 4.1.1
 Package: io.elementary.portals
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Provides:
+ xdg-desktop-portal-backend
 Description: Flatpak portals for Pantheon
  An implementation of XDG Flatpak portals for elementary OS and Pantheon
