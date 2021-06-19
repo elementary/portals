@@ -43,7 +43,7 @@ public class AppChooser.Portal : Object {
             choose_application.callback ();
         });
 
-        dialog.choiced.connect ((app_id) => {
+        dialog.chosen.connect ((app_id) => {
             dialog.disconnect (destroy_id);
 
             _results["choice"] = app_id.replace (".desktop", "");

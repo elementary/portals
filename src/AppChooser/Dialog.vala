@@ -5,23 +5,23 @@
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
 public class AppChooser.Dialog : Hdy.Window {
-    public string app_id { get; construct; }
-    private DBusConnection connection;
-    private uint register_id;
+    public signal void chosen (string app_id);
 
-    private HashTable<string, AppButton> buttons;
+    public string sender_app_id { get; construct; }
+
     private AppButton selected;
-
+    private DBusConnection connection;
     private Gtk.Image mime_icon;
     private Gtk.Label primary_label;
     private Gtk.Label secondary_label;
-
+    private HashTable<string, AppButton> buttons;
     private Hdy.Carousel carousel;
+    private uint register_id;
     private weak Gtk.Box last_box;
 
     public string filename {
         set {
-            primary_label.label = "Open '%s' With\u2026".printf (value);
+            primary_label.label = "Open “%s” with…".printf (value);
         }
     }
 
@@ -49,10 +49,12 @@ public class AppChooser.Dialog : Hdy.Window {
         }
     }
 
-    public signal void choiced (string app_id);
+    public Dialog (DBusConnection conn, ObjectPath handle, string sender_app_id, string parent_window) {
+        Object (
+            sender_app_id: sender_app_id,
+            resizable: false
+        );
 
-    public Dialog (DBusConnection conn, ObjectPath handle, string app_id, string parent_window) {
-        Object (app_id: app_id, default_width: 700, resizable: false);
         connection = conn;
 
         try {
@@ -75,15 +77,13 @@ public class AppChooser.Dialog : Hdy.Window {
     }
 
     construct {
-        buttons = new HashTable<string, AppButton> (str_hash, str_equal);
-        AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
         Hdy.init ();
 
-        var handle = new Hdy.WindowHandle ();
+        buttons = new HashTable<string, AppButton> (str_hash, str_equal);
+        AppInfo? info = sender_app_id == "" ? null : new DesktopAppInfo (sender_app_id + ".desktop");
 
-        primary_label = new Gtk.Label ("Open File With\u2026") {
+        primary_label = new Gtk.Label ("Open file with…") {
              max_width_chars = 50,
-             selectable = false,
              hexpand = true,
              wrap = true,
              xalign = 0
@@ -99,7 +99,6 @@ public class AppChooser.Dialog : Hdy.Window {
             xalign = 0
 
         };
-        secondary_label.label += "Choose one of the applications below to handle it";
 
         mime_icon = new Gtk.Image () {
             gicon = ContentType.get_icon ("text/plain"),
@@ -109,8 +108,8 @@ public class AppChooser.Dialog : Hdy.Window {
         var overlay = new Gtk.Overlay () {
             valign = Gtk.Align.START
         };
-
         overlay.add (mime_icon);
+
         if (info != null) {
             var badge = new Gtk.Image.from_gicon (info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR) {
                 halign = Gtk.Align.END,
@@ -122,28 +121,16 @@ public class AppChooser.Dialog : Hdy.Window {
 
         carousel = new Hdy.Carousel () {
             allow_long_swipes = true,
-            allow_mouse_drag = true,
-            expand = true
+            allow_mouse_drag = true
         };
 
         var switcher = new Hdy.CarouselIndicatorDots () {
             carousel = carousel
         };
 
-        var cancel = new Gtk.Button.with_label ("Cancel");
-        var select = new Gtk.Button.with_label ("Select");
-        select.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
-            layout_style = Gtk.ButtonBoxStyle.END,
-            valign = Gtk.Align.END,
-            margin_top = 12,
-            expand = true,
-            spacing = 6
+        var cancel = new Gtk.Button.with_label ("Cancel") {
+            halign = Gtk.Align.END
         };
-
-        button_box.add (cancel);
-        button_box.add (select);
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
@@ -151,22 +138,21 @@ public class AppChooser.Dialog : Hdy.Window {
             row_spacing = 6,
             margin = 12
         };
-
         grid.attach (overlay, 0, 0, 1, 2);
         grid.attach (primary_label, 1, 0);
         grid.attach (secondary_label, 1, 1);
-        grid.attach (carousel, 0, 3, 2);
-        grid.attach (switcher, 0, 4, 2);
-        grid.attach (button_box, 1, 5);
+        grid.attach (carousel, 0, 2, 2);
+        grid.attach (switcher, 0, 3, 2);
+        grid.attach (cancel, 1, 4);
 
+        var handle = new Hdy.WindowHandle ();
         handle.add (grid);
         add (handle);
 
-        select.clicked.connect (() => choiced (selected.info.get_id ()));
-        cancel.clicked.connect (() => choiced (""));
+        cancel.clicked.connect (() => chosen (""));
 
         // close the dialog after a selection;
-        choiced.connect_after (() => destroy ());
+        chosen.connect_after (() => destroy ());
 
         destroy.connect (() => {
             if (register_id != 0) {
@@ -190,19 +176,23 @@ public class AppChooser.Dialog : Hdy.Window {
         last_box = box;
     }
 
-    private void add_choice (string choice) {
-        var button = new AppButton (choice);
-        button.clicked.connect (() => { selected = button; });
-        buttons[choice] = button;
+    private void add_choice (string app_id) {
+        var button = new AppButton (app_id);
+        buttons[app_id] = button;
+
         last_box.add (button);
+
+        button.clicked.connect (() => {
+            chosen (button.app_id);
+        });
     }
 
 
     [DBus (visible = false)]
-    public void update_choices (string[] choices) {
-        foreach (var choice in choices) {
-            if (!(choice in buttons)) {
-                add_choice (choice);
+    public void update_choices (string[] app_ids) {
+        foreach (var app_id in app_ids) {
+            if (!(app_id in buttons) && app_id != sender_app_id) {
+                add_choice (app_id);
             }
         }
     }
