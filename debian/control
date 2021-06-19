@@ -1,0 +1,15 @@
+Source: io.elementary.portals
+Section: x11
+Priority: optional
+Maintainer: elementary, Inc. <builds@elementary.io>
+Build-Depends: debhelper (>= 10.5.1),
+               libgtk-3-dev,
+               meson,
+               valac (>= 0.40.0)
+Standards-Version: 4.1.1
+
+Package: io.elementary.portals
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Flatpak portals for Pantheon
+ An implementation of XDG Flatpak portals for elementary OS and Pantheon
