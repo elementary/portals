@@ -52,6 +52,14 @@ int main (string[] args) {
     GLib.Environment.unset_variable ("GTK_USE_PORTAL");
 
     Gtk.init (ref args);
+    var granite_settings = Granite.Settings.get_default ();
+    var gtk_settings = Gtk.Settings.get_default ();
+
+    gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+    granite_settings.notify["perfers-color-scheme"].connect (() => {
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+    });
 
     try {
         var opt_context = new OptionContext ("- portal backends");
