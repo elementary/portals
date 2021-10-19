@@ -72,8 +72,6 @@ public class AppChooser.Portal : Object {
         var destroy_id = dialog.destroy.connect_after (() => {
             _results["choice"] = "";
             choose_application.callback ();
-
-
         });
 
         dialog.choiced.connect ((app_id) => {
