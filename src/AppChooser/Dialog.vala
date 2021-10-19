@@ -13,9 +13,6 @@ public class AppChooser.Dialog : Hdy.Window {
     // The ID of the app sending the request
     public string app_id { get; construct; }
 
-    // The object path of this specific request handler
-    public ObjectPath handle { get; construct; }
-
     public string parent_window { get; construct; }
 
     // The app id that was selected the last time
@@ -33,7 +30,6 @@ public class AppChooser.Dialog : Hdy.Window {
     private weak Gtk.Box last_box;
 
     public Dialog (
-        ObjectPath handle,
         string app_id,
         string parent_window,
         string last_choice,
@@ -41,7 +37,6 @@ public class AppChooser.Dialog : Hdy.Window {
         string filename
     ) {
         Object (
-            handle: handle,
             app_id: app_id,
             parent_window: parent_window,
             last_choice: last_choice,

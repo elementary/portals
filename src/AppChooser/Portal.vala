@@ -39,7 +39,6 @@ public class AppChooser.Portal : Object {
         }
 
         var dialog = new AppChooser.Dialog (
-            handle,
             app_id,
             parent_window,
             last_choice,
