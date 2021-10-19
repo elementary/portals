@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-[DBus (name = "org.freedesktop.impl.portal.AppChooser")]
+[DBus (name = "org.freedesktop.impl.portal.Request")]
 public class AppChooser.Dialog : Hdy.Window {
     public signal void choiced (string app_id);
 
