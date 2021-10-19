@@ -78,7 +78,7 @@ public class AppChooser.Dialog : Hdy.Window {
 
         var secondary_text = _("An application requested to open a file.");
         if (info != null) {
-            _("“%s” requested to open a file.").printf (info.get_display_name ());
+            _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
         }
 
         var secondary_label = new Gtk.Label (secondary_text) {
