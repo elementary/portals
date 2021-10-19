@@ -22,25 +22,58 @@ public class AppChooser.Portal : Object {
         out uint response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
-        var dialog = new Dialog (connection, handle, app_id, parent_window);
+        string last_choice = "";
+        string content_type = "";
+        string filename = "";
 
         if ("last_choice" in options && options["last_choice"].is_of_type (VariantType.STRING)) {
-            dialog.last_choice = options["last_choice"].get_string ();
-        } if ("modal" in options && options["modal"].is_of_type (VariantType.BOOLEAN)) {
+            last_choice = options["last_choice"].get_string ();
+        }
+
+        if ("content_type" in options && options["content_type"].is_of_type (VariantType.STRING)) {
+            content_type = options["content_type"].get_string ();
+        }
+
+        if ("filename" in options && options["filename"].is_of_type (VariantType.STRING)) {
+            filename = options["filename"].get_string ();
+        }
+
+        var dialog = new AppChooser.Dialog (
+            handle,
+            app_id,
+            parent_window,
+            last_choice,
+            content_type,
+            filename
+        );
+
+        if ("modal" in options && options["modal"].is_of_type (VariantType.BOOLEAN)) {
             dialog.modal = options["modal"].get_boolean ();
-        } if ("content_type" in options && options["content_type"].is_of_type (VariantType.STRING)) {
-            dialog.content_type = options["content_type"].get_string ();
-        } if ("filename" in options && options["filename"].is_of_type (VariantType.STRING)) {
-            dialog.filename = options["filename"].get_string ();
         }
 
         dialog.update_choices (choices);
+
+        try {
+            dialog.register_id = connection.register_object<Dialog> (handle, dialog);
+        } catch (Error e) {
+            critical (e.message);
+        }
+
+
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
         uint _response = 2;
+
+        dialog.destroy.connect (() => {
+            if (dialog.register_id != 0) {
+                connection.unregister_object (dialog.register_id);
+            }
+        });
 
         var destroy_id = dialog.destroy.connect_after (() => {
             _results["choice"] = "";
             choose_application.callback ();
+
+
         });
 
         dialog.choiced.connect ((app_id) => {
