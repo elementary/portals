@@ -201,7 +201,7 @@ public class AppChooser.Dialog : Hdy.Window {
             }
         }
 
-        if (last_choice != null && last_choice != "" && !(last_choice in buttons)) {
+        if (last_choice != "" && !(last_choice in buttons)) {
             if (carousel.n_pages == 0) {
                 create_box ();
             }
