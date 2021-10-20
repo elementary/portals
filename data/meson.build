@@ -23,3 +23,12 @@ configure_file(
     install: true,
     install_dir: systemd_systemduserunitdir
 )
+
+i18n.merge_file(
+    input: 'portals.appdata.xml.in',
+    output: 'io.elementary.portals.appdata.xml',
+    po_dir: join_paths(meson.source_root(), 'po', 'extra'),
+    type: 'xml',
+    install: true,
+    install_dir: join_paths(get_option('datadir'), 'metainfo'),
+)
