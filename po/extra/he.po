@@ -8,37 +8,41 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-20 14:02-0700\n"
-"PO-Revision-Date: 2021-10-20 14:02-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-10-20 21:27+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/portals-"
+"extra/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/portals.appdata.xml.in:7
 msgid "Portals"
-msgstr ""
+msgstr "שערי גישה"
 
 #: data/portals.appdata.xml.in:8
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "גישה ליכולות המערכת בצורה מאובטחת"
 
 #: data/portals.appdata.xml.in:10
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 msgstr ""
+"שערי גישה מספק מנשקי API ליישומים מאובטחים שמאפשרים להם לגשת ליכולות במערכת "
+"תוך בקשת הסכמה מודעת."
 
 #: data/portals.appdata.xml.in:15
 msgid "First release!"
-msgstr ""
+msgstr "מהדורה ראשונה!"
 
 #: data/portals.appdata.xml.in:17
 msgid "Add OpenURI Portal"
-msgstr ""
+msgstr "הוספת שער גישה OpenURI"
 
 #: data/portals.appdata.xml.in:24
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary בע״מ"
