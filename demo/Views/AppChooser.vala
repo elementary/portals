@@ -48,69 +48,36 @@ public class PortalsDemo.Views.AppChooser: Gtk.Grid {
     }
 
     private void choose_app_for_resource_name (string resource_name) {
-        var choose_app_dialog = new Dialog ((Gtk.Window) get_toplevel (), resource_name);
-        var app_info = choose_app_dialog.get_chosen_app_info ();
-    }
-
-
-    private class Dialog: Object {
-        private Gtk.AppChooserDialog dialog;
-        private Gtk.CheckButton check_default;
-
-        public string file_name_to_open { get; construct; }
-        public Gtk.Window parent { get; construct; }
-
-        public Dialog (Gtk.Window? parent, string file_name_to_open) {
-            Object (parent: parent, file_name_to_open: file_name_to_open);
+        var resource_file = File.new_for_uri ("resource:///io/elementary/portals/demo/" + resource_name);
+        if (!resource_file.query_exists (null)) {
+            warning ("Resource file '%s' not found.", resource_name);
+            return;
         }
 
-        construct {
-            var resource_file = File.new_for_uri ("resource:///io/elementary/portals/demo/" + file_name_to_open);
-            if (!resource_file.query_exists (null)) {
-                warning ("Resource file '%s' not found.", file_name_to_open);
-                return;
-            }
+        // Generate unknown file extension appendix to make sure we don't have a default
+        // application set for this, which in turn forces the AppChooser portal to be
+        // opened for each and every request:
+        var unknown_file_extension_appendix = "%lx".printf ((long) new GLib.DateTime.now_utc ().to_unix ());
 
-            GLib.File file_to_open;
-            try {
-                file_to_open = File.new_for_path ("%s/%s".printf (Environment.get_tmp_dir (), file_name_to_open));
-                resource_file.copy (file_to_open, GLib.FileCopyFlags.OVERWRITE);
-            } catch (Error e) {
-                warning ("Error copying resource file '%s': %s", file_name_to_open, e.message);
-            }
-
-            dialog = new Gtk.AppChooserDialog (
-                parent,
-                Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                file_to_open
-            ) {
-                deletable = false
-            };
-
-            var app_chooser = dialog.get_widget () as Gtk.AppChooserWidget;
-            app_chooser.show_recommended = true;
-
-            check_default = new Gtk.CheckButton.with_label ("Set as default") {
-                active = true,
-                margin_start = 12,
-                margin_bottom = 6
-            };
-            check_default.show ();
-
-            dialog.get_content_area ().add (check_default);
-            dialog.show ();
+        GLib.File file_to_open;
+        try {
+            file_to_open = File.new_for_path ("%s/%s%s".printf (
+                Environment.get_tmp_dir (),
+                resource_name,
+                unknown_file_extension_appendix
+            ));
+            resource_file.copy (file_to_open, GLib.FileCopyFlags.OVERWRITE);
+        } catch (Error e) {
+            warning ("Error copying resource file '%s': %s", resource_name, e.message);
+            return;
         }
 
-        public AppInfo? get_chosen_app_info () {
-            GLib.AppInfo? app = null;
-
-            int response = dialog.run ();
-            if (response == Gtk.ResponseType.OK) {
-                app = dialog.get_app_info ();
-            }
-            dialog.destroy ();
-
-            return app;
+        var file_uri_to_open = file_to_open.get_uri ();
+        try {
+            GLib.AppInfo.launch_default_for_uri (file_uri_to_open, null);
+        } catch (Error e) {
+            warning ("Error open file uri '%s': %s", file_uri_to_open, e.message);
+            return;
         }
     }
 }
