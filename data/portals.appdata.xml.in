@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2021 elementary, Inc. <contact@elementary.io> -->
+<component>
+  <id>io.elementary.portals</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>Portals</name>
+  <summary>Access system features in a secure way</summary>
+  <description>
+    <p>Portals provide APIs to secure apps which enable them to access system features while requiring informed consent.</p>
+  </description>
+  <releases>
+    <release version="1.0.0" date="2021-10-30" urgency="medium">
+      <description>
+        <p>First release!</p>
+        <ul>
+          <li>Add OpenURI Portal</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
+   <translation type="gettext">xdg-desktop-portal-pantheon</translation>
+  <developer_name>elementary, Inc.</developer_name>
+  <url type="homepage">https://elementary.io</url>
+  <url type="bugtracker">https://github.com/elementary/portals/issues</url>
+</component>

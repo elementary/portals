@@ -1,5 +1,7 @@
 project('xdg-desktop-portal-pantheon', 'c', 'vala')
 
+i18n = import('i18n')
+
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libexecdir = join_paths(prefix, get_option('libexecdir'))
@@ -26,4 +28,5 @@ conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf_data.set_quoted('LOCALEDIR', localedir)
 
 subdir('data')
+subdir('po')
 subdir('src')
