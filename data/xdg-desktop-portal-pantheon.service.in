@@ -1,5 +1,7 @@
 [Unit]
 Description=Portal service (Pantheon implementation)
+Requires=io.elementary.settings-daemon.xdg-desktop-portal.service
+After=io.elementary.settings-daemon.xdg-desktop-portal.service
 
 [Service]
 Type=dbus
