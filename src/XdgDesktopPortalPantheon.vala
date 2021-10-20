@@ -42,6 +42,17 @@ private void on_bus_acquired (DBusConnection connection, string name) {
     }
 }
 
+private void on_name_acquired () {
+    debug ("org.freedesktop.impl.portal.desktop.panthon acquired");
+    var granite_settings = Granite.Settings.get_default ();
+    var gtk_settings = Gtk.Settings.get_default ();
+
+    gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+    granite_settings.notify["prefers-color-scheme"].connect (() => {
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+    });
+}
+
 int main (string[] args) {
     GLib.Intl.setlocale (GLib.LocaleCategory.ALL, "");
     GLib.Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.LOCALEDIR);
@@ -52,14 +63,6 @@ int main (string[] args) {
     GLib.Environment.unset_variable ("GTK_USE_PORTAL");
 
     Gtk.init (ref args);
-    var granite_settings = Granite.Settings.get_default ();
-    var gtk_settings = Gtk.Settings.get_default ();
-
-    gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-
-    granite_settings.notify["perfers-color-scheme"].connect (() => {
-        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-    });
 
     try {
         var opt_context = new OptionContext ("- portal backends");
@@ -103,7 +106,7 @@ int main (string[] args) {
         "org.freedesktop.impl.portal.desktop.pantheon",
         GLib.BusNameOwnerFlags.ALLOW_REPLACEMENT | (opt_replace ? GLib.BusNameOwnerFlags.REPLACE : 0),
         on_bus_acquired,
-        () => { debug ("org.freedesktop.impl.portal.desktop.panthon acquired"); },
+        on_name_acquired,
         () => { loop.quit (); }
     );
     loop.run ();
