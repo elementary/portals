@@ -10,8 +10,6 @@ public class PortalsDemo.MainWindow: Gtk.ApplicationWindow {
     }
 
     construct {
-        title = "Portals Demo";
-
         var appchooser_view = new Views.AppChooser ();
 
         var main_stack = new Gtk.Stack ();
@@ -32,5 +30,8 @@ public class PortalsDemo.MainWindow: Gtk.ApplicationWindow {
         set_default_size (900, 600);
         set_size_request (750, 500);
         set_titlebar (headerbar);
+        title = "Portals Demo";
+
+        show_all ();
     }
 }
