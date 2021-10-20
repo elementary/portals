@@ -73,7 +73,7 @@ public class AppChooser.Dialog : Hdy.Window {
 
         var secondary_text = _("An application requested to open a file.");
         if (info != null) {
-            _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
+            secondary_text = _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
         }
 
         var secondary_label = new Gtk.Label (secondary_text) {
@@ -147,15 +147,17 @@ public class AppChooser.Dialog : Hdy.Window {
 
         add (window_handle);
 
-        if (parent_window != "") {
-            var parent = ExternalWindow.from_handle (parent_window);
+        realize.connect (() => {
+            if (parent_window != "") {
+                var parent = ExternalWindow.from_handle (parent_window);
 
-            if (parent == null) {
-                warning ("Failed to associate portal window with parent window %s", parent_window);
-            } else {
-                parent.set_parent_of (get_window ());
+                if (parent == null) {
+                    warning ("Failed to associate portal window with parent window %s", parent_window);
+                } else {
+                    parent.set_parent_of (get_window ());
+                }
             }
-        }
+        });
 
         select.clicked.connect (() => choiced (selected.info.get_id ()));
         cancel.clicked.connect (() => choiced (""));
