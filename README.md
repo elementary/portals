@@ -1,4 +1,5 @@
 # Pantheon XDG Desktop Portals
+[![Translation status](https://l10n.elementary.io/widgets/desktop/-/portals/svg-badge.svg)](https://l10n.elementary.io/engage/desktop/)
 
 ## Building, Testing, and Installation
 
