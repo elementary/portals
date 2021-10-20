@@ -54,17 +54,14 @@ public class PortalsDemo.Views.AppChooser: Gtk.Grid {
             return;
         }
 
-        // Generate unknown file extension appendix to make sure we don't have a default
-        // application set for this, which in turn forces the AppChooser portal to be
-        // opened for each and every request:
-        var unknown_file_extension_appendix = "%lx".printf ((long) new GLib.DateTime.now_utc ().to_unix ());
-
+        // To trigger the AppChooser portal, we first need to copy the
+        // file outside of the Flatpak sandbox. We do this by copying
+        // it to the user's Downloads directory:
         GLib.File file_to_open;
         try {
-            file_to_open = File.new_for_path ("%s/%s%s".printf (
-                Environment.get_tmp_dir (),
-                resource_name,
-                unknown_file_extension_appendix
+            file_to_open = File.new_for_path ("%s/%s".printf (
+                Environment.get_user_special_dir (GLib.UserDirectory.DOWNLOAD),
+                resource_name
             ));
             resource_file.copy (file_to_open, GLib.FileCopyFlags.OVERWRITE);
         } catch (Error e) {
@@ -72,6 +69,9 @@ public class PortalsDemo.Views.AppChooser: Gtk.Grid {
             return;
         }
 
+        // Since the file is now outside of the sandbox in the user's
+        // Downloads directory, we are no able to open it - which triggers
+        // the AppChooser portal:
         var file_uri_to_open = file_to_open.get_uri ();
         try {
             GLib.AppInfo.launch_default_for_uri (file_uri_to_open, null);

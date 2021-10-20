@@ -21,6 +21,11 @@ To start the demo application, execute the following:
 
     flatpak run io.elementary.portals.demo
 
+**IMPORTANT:** Make sure xdg-desktop-portal running, otherwise
+this demo app won't work as expected:
+
+    /usr/libexec/xdg-desktop-portal
+
 ## Uninstall
 
 Run the `flatpak` command to remove the application once your done with testing:
