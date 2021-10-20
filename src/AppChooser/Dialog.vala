@@ -199,10 +199,6 @@ public class AppChooser.Dialog : Hdy.Window {
         }
 
         if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
-            if (carousel.n_pages == 0) {
-                create_box ();
-            }
-
             add_choice (last_choice);
             selected = buttons[last_choice];
             buttons[last_choice].grab_focus ();
