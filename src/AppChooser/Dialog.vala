@@ -193,12 +193,12 @@ public class AppChooser.Dialog : Hdy.Window {
     [DBus (visible = false)]
     public void update_choices (string[] choices) {
         foreach (var choice in choices) {
-            if (!(choice in buttons)) {
+            if (!(choice in buttons) && choice != app_id) {
                 add_choice (choice);
             }
         }
 
-        if (last_choice != "" && !(last_choice in buttons)) {
+        if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
             if (carousel.n_pages == 0) {
                 create_box ();
             }
