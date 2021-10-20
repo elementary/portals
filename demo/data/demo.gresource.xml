@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/elementary/portals/demo/">
+    <file compressed="true">appchooser-demo.txt</file>
+    <file compressed="true">appchooser-demo.png</file>
+    <file compressed="true">appchooser-demo.pdf</file>
+  </gresource>
+</gresources>
