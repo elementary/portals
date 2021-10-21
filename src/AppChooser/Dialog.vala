@@ -24,10 +24,9 @@ public class AppChooser.Dialog : Hdy.Window {
     // The filename to choose an app for. That this is just a basename, without a path
     public string filename { get; construct; }
 
-    private AppButton selected;
     private HashTable<string, AppButton> buttons;
-    private Hdy.Carousel carousel;
-    private weak Gtk.Box last_box;
+    private Gtk.Button open_button;
+    private Gtk.ListBox listbox;
 
     public Dialog (
         string app_id,
@@ -103,30 +102,40 @@ public class AppChooser.Dialog : Hdy.Window {
             overlay.add_overlay (badge);
         }
 
-        carousel = new Hdy.Carousel () {
-            allow_long_swipes = true,
-            allow_mouse_drag = true,
+        var placeholder = new Granite.Widgets.AlertView (
+            _("No installed apps can open %s").printf (content_description),
+            _("New apps can be installed from AppCenter"),
+            "application-default-icon"
+        );
+        placeholder.show_all ();
+
+        listbox = new Gtk.ListBox () {
             expand = true
         };
+        listbox.set_placeholder (placeholder);
 
-        var switcher = new Hdy.CarouselIndicatorDots () {
-            carousel = carousel
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        scrolled_window.add (listbox);
+
+        var frame = new Gtk.Frame (null);
+        frame.add (scrolled_window);
+
+        var cancel = new Gtk.Button.with_label (_("Cancel"));
+
+        open_button = new Gtk.Button.with_label (_("Open")) {
+            can_default = true,
+            has_default = true
         };
-
-        var cancel = new Gtk.Button.with_label ("Cancel");
-        var select = new Gtk.Button.with_label ("Select");
-        select.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
             layout_style = Gtk.ButtonBoxStyle.END,
-            valign = Gtk.Align.END,
             margin_top = 12,
-            expand = true,
             spacing = 6
         };
 
         button_box.add (cancel);
-        button_box.add (select);
+        button_box.add (open_button);
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
@@ -138,14 +147,15 @@ public class AppChooser.Dialog : Hdy.Window {
         grid.attach (overlay, 0, 0, 1, 2);
         grid.attach (primary_label, 1, 0);
         grid.attach (secondary_label, 1, 1);
-        grid.attach (carousel, 0, 3, 2);
-        grid.attach (switcher, 0, 4, 2);
-        grid.attach (button_box, 1, 5);
+        grid.attach (frame, 0, 3, 2);
+        grid.attach (button_box, 1, 4);
 
         var window_handle = new Hdy.WindowHandle ();
         window_handle.add (grid);
 
         add (window_handle);
+        default_height = 400;
+        default_width = 350;
 
         realize.connect (() => {
             if (parent_window != "") {
@@ -159,34 +169,20 @@ public class AppChooser.Dialog : Hdy.Window {
             }
         });
 
-        select.clicked.connect (() => choiced (selected.info.get_id ()));
+        listbox.row_activated.connect ((row) => {
+            choiced (((AppChooser.AppButton) row).app_id);
+        });
+
+        open_button.clicked.connect (() => choiced (((AppChooser.AppButton)listbox.get_selected_row).app_id));
         cancel.clicked.connect (() => choiced (""));
 
         // close the dialog after a selection;
         choiced.connect_after (() => destroy ());
-
-        create_box ();
-    }
-
-    private void create_box () {
-        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        box.add.connect_after (() => {
-            if (box.get_children ().length () == 5) {
-                create_box ();
-            }
-        });
-
-        carousel.insert (box, -1);
-        last_box = box;
     }
 
     private void add_choice (string choice) {
         buttons[choice] = new AppButton (choice);
-        buttons[choice].clicked.connect (() => {
-            selected = buttons[choice];
-        });
-
-        last_box.add (buttons[choice]);
+        listbox.add (buttons[choice]);
     }
 
 
@@ -197,12 +193,14 @@ public class AppChooser.Dialog : Hdy.Window {
                 add_choice (choice);
             }
         }
+        listbox.show_all ();
 
         if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
             add_choice (last_choice);
-            selected = buttons[last_choice];
             buttons[last_choice].grab_focus ();
         }
+
+        open_button.sensitive = listbox.get_children ().length () > 0;
     }
 
     [DBus (name = "Close")]
