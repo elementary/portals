@@ -5,73 +5,44 @@
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
 public class AppChooser.Dialog : Hdy.Window {
+    public signal void choiced (string app_id);
+
+    // The ID used to register this dialog on the DBusConnection
+    public uint register_id { get; set; default = 0; }
+
+    // The ID of the app sending the request
     public string app_id { get; construct; }
-    private DBusConnection connection;
-    private uint register_id;
 
-    private HashTable<string, AppButton> buttons;
+    public string parent_window { get; construct; }
+
+    // The app id that was selected the last time
+    public string last_choice { get; construct; }
+
+    // The content type to choose an application for
+    public string content_type { get; construct ; }
+
+    // The filename to choose an app for. That this is just a basename, without a path
+    public string filename { get; construct; }
+
     private AppButton selected;
-
-    private Gtk.Image mime_icon;
-    private Gtk.Label primary_label;
-    private Gtk.Label secondary_label;
-
+    private HashTable<string, AppButton> buttons;
     private Hdy.Carousel carousel;
     private weak Gtk.Box last_box;
 
-    public string filename {
-        set {
-            primary_label.label = "Open '%s' With\u2026".printf (value);
-        }
-    }
-
-    public string content_type {
-        set {
-            mime_icon.gicon = ContentType.get_icon (value);
-            secondary_label.label = secondary_label.label.replace (
-                "a file",
-                "a %s".printf (ContentType.get_description (value))
-            );
-        }
-    }
-
-    public string last_choice {
-        set {
-            if (value != null && value != "" && !(value in buttons)) {
-                if (carousel.n_pages == 0) {
-                    create_box ();
-                }
-
-                add_choice (value);
-                selected = buttons[value];
-                buttons[value].grab_focus ();
-            }
-        }
-    }
-
-    public signal void choiced (string app_id);
-
-    public Dialog (DBusConnection conn, ObjectPath handle, string app_id, string parent_window) {
-        Object (app_id: app_id, default_width: 700, resizable: false);
-        connection = conn;
-
-        try {
-            register_id = connection.register_object<Dialog> (handle, this);
-        } catch (Error e) {
-            critical (e.message);
-        }
-
-        realize ();
-
-        if (parent_window != "") {
-            var parent = ExternalWindow.from_handle (parent_window);
-
-            if (parent == null) {
-                warning ("Failed to associate portal window with parent window %s", parent_window);
-            } else {
-                parent.set_parent_of (get_window ());
-            }
-        }
+    public Dialog (
+        string app_id,
+        string parent_window,
+        string last_choice,
+        string content_type,
+        string filename
+    ) {
+        Object (
+            app_id: app_id,
+            parent_window: parent_window,
+            last_choice: last_choice,
+            content_type: content_type,
+            filename: filename
+        );
     }
 
     construct {
@@ -79,9 +50,19 @@ public class AppChooser.Dialog : Hdy.Window {
         AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
         Hdy.init ();
 
-        var handle = new Hdy.WindowHandle ();
+        var primary_text = "Open file with…";
+        if (filename != "") {
+            primary_text = "Open “%s” with…".printf (filename);
+        }
 
-        primary_label = new Gtk.Label ("Open File With\u2026") {
+        var content_description = ContentType.get_description ("text/plain");
+        var content_icon = ContentType.get_icon ("text/plain");
+        if (content_type != "") {
+            content_description = ContentType.get_description (content_type);
+            content_icon = ContentType.get_icon (content_type);
+        }
+
+        var primary_label = new Gtk.Label (primary_text) {
              max_width_chars = 50,
              selectable = false,
              hexpand = true,
@@ -90,27 +71,29 @@ public class AppChooser.Dialog : Hdy.Window {
         };
         primary_label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
 
-        secondary_label = new Gtk.Label (null) {
-            label = "%s requested to open a file. ".printf (info.get_display_name () ?? "An Application"),
+        var secondary_text = _("An application requested to open a file.");
+        if (info != null) {
+            secondary_text = _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
+        }
+
+        var secondary_label = new Gtk.Label (secondary_text) {
             max_width_chars = 50,
             margin_bottom = 18,
             use_markup = true,
             wrap = true,
             xalign = 0
-
         };
-        secondary_label.label += "Choose one of the applications below to handle it";
 
-        mime_icon = new Gtk.Image () {
-            gicon = ContentType.get_icon ("text/plain"),
+        var mime_icon = new Gtk.Image () {
+            gicon = content_icon ,
             icon_size = Gtk.IconSize.DIALOG
         };
 
         var overlay = new Gtk.Overlay () {
             valign = Gtk.Align.START
         };
-
         overlay.add (mime_icon);
+
         if (info != null) {
             var badge = new Gtk.Image.from_gicon (info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR) {
                 halign = Gtk.Align.END,
@@ -159,21 +142,28 @@ public class AppChooser.Dialog : Hdy.Window {
         grid.attach (switcher, 0, 4, 2);
         grid.attach (button_box, 1, 5);
 
-        handle.add (grid);
-        add (handle);
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (grid);
+
+        add (window_handle);
+
+        realize.connect (() => {
+            if (parent_window != "") {
+                var parent = ExternalWindow.from_handle (parent_window);
+
+                if (parent == null) {
+                    warning ("Failed to associate portal window with parent window %s", parent_window);
+                } else {
+                    parent.set_parent_of (get_window ());
+                }
+            }
+        });
 
         select.clicked.connect (() => choiced (selected.info.get_id ()));
         cancel.clicked.connect (() => choiced (""));
 
         // close the dialog after a selection;
         choiced.connect_after (() => destroy ());
-
-        destroy.connect (() => {
-            if (register_id != 0) {
-                connection.unregister_object (register_id);
-                register_id = 0;
-            }
-        });
 
         create_box ();
     }
@@ -191,19 +181,27 @@ public class AppChooser.Dialog : Hdy.Window {
     }
 
     private void add_choice (string choice) {
-        var button = new AppButton (choice);
-        button.clicked.connect (() => { selected = button; });
-        buttons[choice] = button;
-        last_box.add (button);
+        buttons[choice] = new AppButton (choice);
+        buttons[choice].clicked.connect (() => {
+            selected = buttons[choice];
+        });
+
+        last_box.add (buttons[choice]);
     }
 
 
     [DBus (visible = false)]
     public void update_choices (string[] choices) {
         foreach (var choice in choices) {
-            if (!(choice in buttons)) {
+            if (!(choice in buttons) && choice != app_id) {
                 add_choice (choice);
             }
+        }
+
+        if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
+            add_choice (last_choice);
+            selected = buttons[last_choice];
+            buttons[last_choice].grab_focus ();
         }
     }
 

@@ -1,0 +1,46 @@
+# Japanese translations for extra package.
+# Copyright (C) 2021 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-21 00:08+0000\n"
+"PO-Revision-Date: 2021-10-21 00:08+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals-"
+"extra/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.4.2\n"
+
+#: data/portals.appdata.xml.in:7
+msgid "Portals"
+msgstr "ポータル"
+
+#: data/portals.appdata.xml.in:8
+msgid "Access system features in a secure way"
+msgstr "安全な方法でシステムの機能にアクセスします"
+
+#: data/portals.appdata.xml.in:10
+msgid ""
+"Portals provide APIs to secure apps which enable them to access system "
+"features while requiring informed consent."
+msgstr ""
+
+#: data/portals.appdata.xml.in:15
+msgid "First release!"
+msgstr "最初のリリース！"
+
+#: data/portals.appdata.xml.in:17
+msgid "Add OpenURI Portal"
+msgstr "OpenURI ポータルを追加"
+
+#: data/portals.appdata.xml.in:24
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
