@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-21 00:08+0000\n"
-"PO-Revision-Date: 2021-10-21 08:12+0000\n"
+"PO-Revision-Date: 2021-10-21 17:04+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals/"
 "tr/>\n"
@@ -25,13 +25,13 @@ msgstr "Erişimi Engelle"
 
 #: src/Access/Dialog.vala:77
 msgid "Grant Access"
-msgstr ""
+msgstr "Erişim İzni Ver"
 
 #: src/AppChooser/Dialog.vala:74
 msgid "An application requested to open a file."
-msgstr ""
+msgstr "Uygulama bir dosyayı açmak istedi."
 
 #: src/AppChooser/Dialog.vala:76
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "“%s” bir %s açmak istedi."
