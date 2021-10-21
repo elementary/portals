@@ -70,7 +70,7 @@ public class AppChooser.Dialog : Hdy.Window {
         };
         primary_label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
 
-        var secondary_text = _("An application requested to open a file.");
+        var secondary_text = _("An application requested to open a %s.").printf (content_description);
         if (info != null) {
             secondary_text = _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
         }
