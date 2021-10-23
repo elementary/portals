@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-22 18:12+0000\n"
-"PO-Revision-Date: 2021-10-21 04:37+0000\n"
+"PO-Revision-Date: 2021-10-23 06:29+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/portals/"
 "de/>\n"
@@ -28,10 +28,9 @@ msgid "Grant Access"
 msgstr "Zugriff gewähren"
 
 #: src/AppChooser/Dialog.vala:73
-#, fuzzy, c-format
-#| msgid "An application requested to open a file."
+#, c-format
 msgid "An application requested to open a %s."
-msgstr "Eine Anwendung möchte eine Datei öffnen."
+msgstr "Eine Anwendung möchte eine %s öffnen."
 
 #: src/AppChooser/Dialog.vala:75
 #, c-format
@@ -41,16 +40,16 @@ msgstr "»%s« möchte eine »%s« öffnen."
 #: src/AppChooser/Dialog.vala:106
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Keine der installierten Anwendungen kann %s öffnen"
 
 #: src/AppChooser/Dialog.vala:107
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Weitere Anwendungen können im AppCenter installiert werden"
 
 #: src/AppChooser/Dialog.vala:123
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: src/AppChooser/Dialog.vala:125
 msgid "Open"
-msgstr ""
+msgstr "Öffnen"
