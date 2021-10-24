@@ -24,7 +24,7 @@ To start the demo application, execute the following:
 **IMPORTANT:** Make sure xdg-desktop-portal running, otherwise
 this demo app won't work as expected:
 
-    /usr/libexec/xdg-desktop-portal
+    /usr/libexec/xdg-desktop-portal -r
 
 ## Uninstall
 
