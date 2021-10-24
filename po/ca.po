@@ -7,28 +7,50 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-21 00:08+0000\n"
-"PO-Revision-Date: 2021-10-20 14:02-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2021-10-22 18:12+0000\n"
+"PO-Revision-Date: 2021-10-21 17:02+0000\n"
+"Last-Translator: David M <rbndavid@gmail.com>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/portals/"
+"ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: src/Access/Dialog.vala:75
 msgid "Deny Access"
-msgstr ""
+msgstr "Denega-hi l'accés"
 
 #: src/Access/Dialog.vala:77
 msgid "Grant Access"
-msgstr ""
+msgstr "Permet-hi l'accés"
 
-#: src/AppChooser/Dialog.vala:74
-msgid "An application requested to open a file."
-msgstr ""
+#: src/AppChooser/Dialog.vala:73
+#, fuzzy, c-format
+#| msgid "An application requested to open a file."
+msgid "An application requested to open a %s."
+msgstr "Una aplicació ha demanat obrir un fitxer."
 
-#: src/AppChooser/Dialog.vala:76
+#: src/AppChooser/Dialog.vala:75
 #, c-format
 msgid "“%s” requested to open a %s."
+msgstr "%s ha demanat obrir això: %s."
+
+#: src/AppChooser/Dialog.vala:106
+#, c-format
+msgid "No installed apps can open %s"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:107
+msgid "New apps can be installed from AppCenter"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:123
+msgid "Cancel"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:125
+msgid "Open"
 msgstr ""

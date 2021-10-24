@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xdg-desktop-portal-pantheon package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xdg-desktop-portal-pantheon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-22 18:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: io\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Access/Dialog.vala:75
+msgid "Deny Access"
+msgstr ""
+
+#: src/Access/Dialog.vala:77
+msgid "Grant Access"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:73
+#, c-format
+msgid "An application requested to open a %s."
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:75
+#, c-format
+msgid "“%s” requested to open a %s."
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:106
+#, c-format
+msgid "No installed apps can open %s"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:107
+msgid "New apps can be installed from AppCenter"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:123
+msgid "Cancel"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:125
+msgid "Open"
+msgstr ""

@@ -3,36 +3,30 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-public class AppChooser.AppButton : Gtk.Button {
-    public AppInfo info { get; construct; }
+public class AppChooser.AppButton : Gtk.ListBoxRow {
+    public string app_id { get; construct; }
 
     public AppButton (string app_id) {
-        Object (info: new DesktopAppInfo (app_id + ".desktop"));
+        Object (app_id: app_id);
     }
 
     construct {
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        var app_info = new DesktopAppInfo (app_id + ".desktop");
 
         var icon = new Gtk.Image () {
-            gicon = info.get_icon () ?? new ThemedIcon ("x-application-default"),
-            icon_size = Gtk.IconSize.DIALOG,
-            margin_top = 9,
-            margin_end = 6,
-            margin_start = 6
+            gicon = app_info.get_icon () ?? new ThemedIcon ("application-default-icon"),
+            icon_size = Gtk.IconSize.DND
         };
 
-        var name = new Gtk.Label (info.get_display_name ()) {
-            halign = Gtk.Align.CENTER,
-            justify = Gtk.Justification.CENTER,
-            lines = 2,
-            max_width_chars = 16,
-            width_chars = 16,
-            wrap_mode = Pango.WrapMode.WORD_CHAR
+        var name = new Gtk.Label (app_info.get_display_name ()) {
+            ellipsize = Pango.EllipsizeMode.END
         };
-        name.set_ellipsize (Pango.EllipsizeMode.END);
 
-        var grid = new Gtk.Box (Gtk.Orientation.VERTICAL, 6) {
-            halign = Gtk.Align.CENTER
+        var grid = new Gtk.Grid () {
+            column_spacing = 6,
+            margin = 3,
+            margin_start = 6,
+            margin_end = 6
         };
         grid.add (icon);
         grid.add (name);

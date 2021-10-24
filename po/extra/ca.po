@@ -7,37 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-21 00:08+0000\n"
-"PO-Revision-Date: 2021-10-20 14:02-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2021-10-22 18:12+0000\n"
+"PO-Revision-Date: 2021-10-21 17:05+0000\n"
+"Last-Translator: David M <rbndavid@gmail.com>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/portals-"
+"extra/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/portals.appdata.xml.in:7
 msgid "Portals"
-msgstr ""
+msgstr "Portals"
 
 #: data/portals.appdata.xml.in:8
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "Accediu a les funcions del sistema d'una manera segura"
 
 #: data/portals.appdata.xml.in:10
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 msgstr ""
+"Els Portals proporcionen API per assegurar les aplicacions que permeten "
+"accedir a les funcions del sistema i que requereixen un consentiment "
+"informat."
 
 #: data/portals.appdata.xml.in:15
 msgid "First release!"
-msgstr ""
+msgstr "Primera versió!"
 
 #: data/portals.appdata.xml.in:17
 msgid "Add OpenURI Portal"
-msgstr ""
+msgstr "Afegeix el Portal OpenURI"
 
 #: data/portals.appdata.xml.in:24
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
