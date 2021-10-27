@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 18:12+0000\n"
+"POT-Creation-Date: 2021-10-27 20:51+0000\n"
 "PO-Revision-Date: 2021-10-21 17:05+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals-"
@@ -36,13 +36,21 @@ msgstr ""
 "erişmelerini sağlayan uygulamaları güvenli hale getirmek için API'lar sağlar."
 
 #: data/portals.appdata.xml.in:15
+msgid "Fixes:"
+msgstr ""
+
+#: data/portals.appdata.xml.in:17
+msgid "Prevent delay after logging in"
+msgstr ""
+
+#: data/portals.appdata.xml.in:23
 msgid "First release!"
 msgstr " "
 
-#: data/portals.appdata.xml.in:17
+#: data/portals.appdata.xml.in:25
 msgid "Add OpenURI Portal"
 msgstr " "
 
-#: data/portals.appdata.xml.in:24
+#: data/portals.appdata.xml.in:32
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
