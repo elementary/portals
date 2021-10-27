@@ -44,13 +44,26 @@ private void on_bus_acquired (DBusConnection connection, string name) {
 
 private void on_name_acquired () {
     debug ("org.freedesktop.impl.portal.desktop.panthon acquired");
-    var granite_settings = Granite.Settings.get_default ();
-    var gtk_settings = Gtk.Settings.get_default ();
 
-    gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-    granite_settings.notify["prefers-color-scheme"].connect (() => {
+    // We're probably being started by xdg-desktop-portal, which won't be fully initialised until all the backends have loaded.
+    // Granite depends on the settings portal to get the style preference, but can't DBus activate it because it's already starting.
+    // The settings portal can't fully start because it's waiting on us, so break the cyclic nonsense by watching for xdg-desktop-portal
+    // appearing before binding the style scheme
+    uint watch_id = 0;
+    watch_id = Bus.watch_name (BusType.SESSION, "org.freedesktop.portal.Desktop", BusNameWatcherFlags.NONE, () => {
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
         gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
+
+        if (watch_id != 0) {
+            Bus.unwatch_name (watch_id);
+        }
     });
+
 }
 
 int main (string[] args) {
