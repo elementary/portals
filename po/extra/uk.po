@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-27 20:51+0000\n"
-"PO-Revision-Date: 2021-10-21 00:08+0000\n"
+"PO-Revision-Date: 2021-10-28 00:57+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/uk/>\n"
@@ -38,11 +38,11 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:15
 msgid "Fixes:"
-msgstr ""
+msgstr "Виправлення:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Prevent delay after logging in"
-msgstr ""
+msgstr "Запобігання затримці після входу"
 
 #: data/portals.appdata.xml.in:23
 msgid "First release!"
