@@ -1,3 +1,14 @@
+io.elementary.portals (1.0.1) focal; urgency=medium
+
+  * Release 1.0.1 (#36)
+  * Update translation files
+  * Update translation template
+  * Update appdata.xml for #34 (#35)
+  * Watch for xdg-desktop-portal starting before binding style scheme
+    (#34)
+
+ -- elementary, Inc. <builds@elementary.io>  Thu, 28 Oct 2021 08:08:50 +0000
+
 io.elementary.portals (1.0.0) focal; urgency=medium
 
   * no changes since last release.
