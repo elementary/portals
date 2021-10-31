@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-27 20:51+0000\n"
-"PO-Revision-Date: 2021-10-21 17:05+0000\n"
+"PO-Revision-Date: 2021-10-31 13:57+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/ca/>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,11 +38,11 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:15
 msgid "Fixes:"
-msgstr ""
+msgstr "Correccions:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Prevent delay after logging in"
-msgstr ""
+msgstr "S'evita el retard després d'iniciar sessió"
 
 #: data/portals.appdata.xml.in:23
 msgid "First release!"
