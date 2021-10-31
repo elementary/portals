@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 18:12+0000\n"
-"PO-Revision-Date: 2021-10-21 00:08+0000\n"
+"POT-Creation-Date: 2021-10-27 20:51+0000\n"
+"PO-Revision-Date: 2021-10-28 00:57+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/uk/>\n"
@@ -37,13 +37,21 @@ msgstr ""
 "системних можливостей, але вимагають явної згоди."
 
 #: data/portals.appdata.xml.in:15
+msgid "Fixes:"
+msgstr "Виправлення:"
+
+#: data/portals.appdata.xml.in:17
+msgid "Prevent delay after logging in"
+msgstr "Запобігання затримці після входу"
+
+#: data/portals.appdata.xml.in:23
 msgid "First release!"
 msgstr "Перший випуск!"
 
-#: data/portals.appdata.xml.in:17
+#: data/portals.appdata.xml.in:25
 msgid "Add OpenURI Portal"
 msgstr "Додати портал OpenURI"
 
-#: data/portals.appdata.xml.in:24
+#: data/portals.appdata.xml.in:32
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

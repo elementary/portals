@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 18:12+0000\n"
-"PO-Revision-Date: 2021-10-21 17:04+0000\n"
+"POT-Creation-Date: 2021-10-27 20:51+0000\n"
+"PO-Revision-Date: 2021-10-25 22:41+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals/"
 "ja/>\n"
@@ -28,10 +28,9 @@ msgid "Grant Access"
 msgstr "アクセスを許可"
 
 #: src/AppChooser/Dialog.vala:73
-#, fuzzy, c-format
-#| msgid "An application requested to open a file."
+#, c-format
 msgid "An application requested to open a %s."
-msgstr "アプリがファイルを開こうとしています。"
+msgstr "アプリが %s を開こうとしています。"
 
 #: src/AppChooser/Dialog.vala:75
 #, c-format
@@ -41,16 +40,16 @@ msgstr "“%s” が %s を開こうとしています。"
 #: src/AppChooser/Dialog.vala:106
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "%s を開くアプリがインストールされていません"
 
 #: src/AppChooser/Dialog.vala:107
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "AppCenter からアプリをインストールできます"
 
 #: src/AppChooser/Dialog.vala:123
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: src/AppChooser/Dialog.vala:125
 msgid "Open"
-msgstr ""
+msgstr "開く"

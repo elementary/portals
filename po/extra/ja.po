@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 18:12+0000\n"
-"PO-Revision-Date: 2021-10-21 17:05+0000\n"
+"POT-Creation-Date: 2021-10-27 20:51+0000\n"
+"PO-Revision-Date: 2021-10-29 21:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/ja/>\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,13 +36,21 @@ msgstr ""
 "クセスできる API を提供します。"
 
 #: data/portals.appdata.xml.in:15
+msgid "Fixes:"
+msgstr "修正点:"
+
+#: data/portals.appdata.xml.in:17
+msgid "Prevent delay after logging in"
+msgstr "ログイン後の遅延を修正"
+
+#: data/portals.appdata.xml.in:23
 msgid "First release!"
 msgstr "最初のリリース！"
 
-#: data/portals.appdata.xml.in:17
+#: data/portals.appdata.xml.in:25
 msgid "Add OpenURI Portal"
 msgstr "OpenURI ポータルを追加"
 
-#: data/portals.appdata.xml.in:24
+#: data/portals.appdata.xml.in:32
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
