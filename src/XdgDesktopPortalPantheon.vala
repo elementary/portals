@@ -37,6 +37,9 @@ private void on_bus_acquired (DBusConnection connection, string name) {
 
         connection.register_object ("/org/freedesktop/portal/desktop", new AppChooser.Portal (connection));
         debug ("AppChooser Portal registred!");
+
+        connection.register_object ("/org/freedesktop/portal/desktop", new Share.Portal (connection));
+        debug ("Share Portal registred!");
     } catch (Error e) {
         critical ("Unable to register the object: %s", e.message);
     }
