@@ -13,7 +13,7 @@ You'll need the following dependencies to successfully build the demo applicatio
 
 Run `flatpak-builder` to build and install the application:
 
-    flatpak-builder build io.elementary.portals.demo.yml --user --install --force-clean
+    flatpak-builder build demo/io.elementary.portals.demo.yml --user --install --force-clean
 
 ## Run
 
