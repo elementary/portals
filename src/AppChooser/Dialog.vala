@@ -175,7 +175,7 @@ public class AppChooser.Dialog : Hdy.Window {
             choiced (((AppChooser.AppButton) row).app_id);
         });
 
-        open_button.clicked.connect (() => choiced (((AppChooser.AppButton)listbox.get_selected_row).app_id));
+        open_button.clicked.connect (() => choiced (((AppChooser.AppButton) listbox.get_selected_row ()).app_id));
         cancel.clicked.connect (() => choiced (""));
 
         // close the dialog after a selection;
