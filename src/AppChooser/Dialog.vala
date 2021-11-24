@@ -154,8 +154,10 @@ public class AppChooser.Dialog : Hdy.Window {
         window_handle.add (grid);
 
         add (window_handle);
+        type_hint = Gdk.WindowTypeHint.DIALOG;
         default_height = 400;
         default_width = 350;
+        modal = true;
 
         realize.connect (() => {
             if (parent_window != "") {
