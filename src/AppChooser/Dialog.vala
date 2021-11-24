@@ -123,8 +123,7 @@ public class AppChooser.Dialog : Hdy.Window {
         var cancel = new Gtk.Button.with_label (_("Cancel"));
 
         open_button = new Gtk.Button.with_label (_("Open")) {
-            can_default = true,
-            has_default = true
+            can_default = true
         };
         open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
@@ -158,6 +157,8 @@ public class AppChooser.Dialog : Hdy.Window {
         default_height = 400;
         default_width = 350;
         modal = true;
+
+        open_button.grab_default ();
 
         realize.connect (() => {
             if (parent_window != "") {
