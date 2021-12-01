@@ -1,17 +1,15 @@
 /*
- *
- *
+ * SPDX-FileCopyrightText: 2021 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
 public class Access.Dialog : Granite.MessageDialog {
-    private DBusConnection connection;
-    private string parent_handle;
-    private uint register_id;
+    public uint register_id { get; set; default = 0; }
 
-    private Gtk.Button grant_button;
-    private Gtk.Button deny_button;
-    private Gtk.Box box;
+    public string parent_window { get; construct; }
+
+    public string app_id { get; construct; }
 
     public string deny_label {
         set {
@@ -25,134 +23,82 @@ public class Access.Dialog : Granite.MessageDialog {
         }
     }
 
-    public HashTable<unowned string, string> choices { get; private set; }
-
-    public Dialog (
-        DBusConnection conn,
-        ObjectPath handle,
-        string app_id,
-        string parent_window,
-        string title,
-        string sub_title,
-        string body
-    ) {
-        Object (
-            primary_text: title,
-            secondary_text: sub_title,
-            image_icon : new ThemedIcon ("dialog-information"),
-            buttons: Gtk.ButtonsType.NONE,
-            resizable: false,
-            skip_taskbar_hint: true
-        );
-
-        connection = conn;
-        try {
-            register_id = connection.register_object<Dialog> (handle, this);
-        } catch (Error e) {
-            critical (e.message);
-        }
-
-        if (body != "") {
-            box.pack_start (new Gtk.Label (body), false, false);
-        }
-
-        realize ();
-
-        if (parent_window != "") {
-            var parent = ExternalWindow.from_handle (parent_window);
-            if (parent == null) {
-                warning ("Failed to associate portal window with parent window %s", parent_handle);
-            } else {
-                parent.set_parent_of (get_window ());
+    public string body {
+        set {
+            if (value != "") {
+                secondary_text += "\n\n" + value;
             }
         }
     }
 
+    private Gtk.Button grant_button;
+    private Gtk.Button deny_button;
+    private List<Choice> choices;
+    private Gtk.Box box;
+
+    public Dialog (string app_id, string parent_window, string icon) {
+        Object (
+            app_id: app_id,
+            parent_window: parent_window,
+            image_icon: new ThemedIcon (icon),
+            buttons: Gtk.ButtonsType.NONE
+        );
+    }
+
     construct {
-        set_keep_above (true);
+        skip_taskbar_hint = true;
+        resizable = false;
         modal = true;
 
-        deny_button = add_button (_("Deny Access"), Gtk.ResponseType.CANCEL) as Gtk.Button;
+        choices = new List<Choice> ();
+        set_keep_above (true);
 
+        if (app_id != "") {
+            badge_icon = new DesktopAppInfo (app_id + ".desktop").get_icon ();
+        }
+
+        deny_button = add_button (_("Deny Access"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         grant_button = add_button (_("Grant Access"), Gtk.ResponseType.OK) as Gtk.Button;
         grant_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         set_default (deny_button);
 
-        choices = new HashTable<unowned string, string> (str_hash, str_equal);
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        custom_bin.add (box);
+        custom_bin.child = box;
+        box.show ();
 
-        response.connect_after (() => {
-            destroy ();
-        });
+        if (parent_window != "") {
+            realize.connect (() => {
+                try {
+                    var parent = ExternalWindow.from_handle (parent_window);
+                    parent.set_parent_of (get_window ());
+                } catch (Error e) {
+                    warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
+                }
+            });
+        }
 
-        destroy.connect (() => {
-            if (register_id != 0) {
-                connection.unregister_object (register_id);
-                register_id = 0;
+        show.connect (() => {
+            var window = get_window ();
+            if (window == null) {
+                return;
             }
+
+            window.focus (Gdk.CURRENT_TIME);
         });
+
+        response.connect_after (destroy);
     }
 
     [DBus (visible = false)]
-    public void add_choice (Variant choice) {
-        unowned string id, label, selected;
-        Variant options;
+    public void add_choice (Choice choice) {
+        choices.append (choice);
+        box.add (choice);
+    }
 
-        choice.get ("(&s&s@a(ss)&s)", out id, out label, out options, out selected);
-
-        if (options.n_children () > 0) {
-            var group_label = new Gtk.Label (label);
-            Gtk.RadioButton group = null;
-
-            group_label.get_style_context ().add_class ("dim-label");
-            box.add (group_label);
-
-            for (size_t i = 0; i < options.n_children (); ++i) {
-                unowned string option_id, option_label;
-
-                options.get_child (i, "(&s&s)", out option_id, out option_label);
-                var button = new Gtk.RadioButton.with_label_from_widget (group, option_label) {
-                    active = selected == option_id
-                };
-
-                button.set_data<string> ("choice-id", id);
-                button.set_data<string> ("option-id", option_id);
-                button.toggled.connect (() => {
-                    if (button.active) {
-                        choices.set (
-                            button.get_data<string> ("choice-id"),
-                            button.get_data<string> ("option-id")
-                        );
-                    }
-                });
-
-                button.show ();
-                box.add (button);
-
-                if (group == null) {
-                    group = button;
-                }
-            }
-        } else {
-            var button = new Gtk.CheckButton.with_label (label) {
-                active = bool.parse (selected)
-            };
-
-            button.set_data<string> ("choice-id", id);
-            button.toggled.connect (() => {
-                choices.set (
-                    button.get_data<string> ("choice-id"),
-                    button.active.to_string ()
-                );
-            });
-
-            button.show_all ();
-            box.add (button);
-        }
-
-        choices[id] = selected;
+    [DBus (visible = false)]
+    public unowned List<Choice> get_choices () {
+        return choices;
     }
 
     [DBus (name = "Close")]

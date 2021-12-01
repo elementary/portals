@@ -1,6 +1,6 @@
 /*
- *
- *
+ * SPDX-FileCopyrightText: 2021 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
 [DBus (name = "org.freedesktop.impl.portal.Access")]
@@ -22,44 +22,67 @@ public class Access.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
+        string icon = "dialog-information";
 
-        var dialog = new Dialog (
-            connection,
-            handle,
-            app_id,
-            parent_window,
-            title,
-            sub_title,
-            body
-        );
-
-        if ("modal" in options && options["modal"].is_of_type (VariantType.BOOLEAN)) {
-            dialog.modal = options["modal"].get_boolean ();
-        } if ("deny_label" in options && options["deny_label"].is_of_type (VariantType.STRING)) {
-            dialog.deny_label = options["deny_label"].get_string ();
-        } if ("grant_label" in options && options["grant_label"].is_of_type (VariantType.STRING)) {
-            dialog.grant_label = options["grant_label"].get_string ();
-        } if ("icon" in options && options["icon"].is_of_type (VariantType.STRING)) {
+        if ("icon" in options) {
             // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
-            dialog.image_icon = new ThemedIcon (options["icon"].get_string ().replace ("-symbolic", ""));
+            icon = options["icon"].get_string ().replace ("-symbolic", "");
         }
 
-        if ("choices" in options && options["choices"].is_of_type (new VariantType ("a(ssa(ss)s)"))) {
-            var choices = options["choices"];
+        var dialog = new Dialog (app_id, parent_window, icon) {
+            primary_text = title,
+            secondary_text = sub_title,
+            body = body
+        };
 
-            for (size_t i = 0; i < choices.n_children (); ++i) {
-                dialog.add_choice (choices.get_child_value (i));
+        if ("modal" in options) {
+            dialog.modal = options["modal"].get_boolean ();
+        }
+
+        if ("deny_label" in options) {
+            dialog.deny_label = options["deny_label"].get_string ();
+        }
+
+        if ("grant_label" in options) {
+            dialog.grant_label = options["grant_label"].get_string ();
+        }
+
+        if ("choices" in options) {
+            var choices_iter = options["choices"].iterator ();
+            Variant choice_variant;
+
+            while ((choice_variant = choices_iter.next_value ()) != null) {
+                dialog.add_choice (new Choice.from_variant (choice_variant));
             }
+        }
+
+        try {
+            dialog.register_id = connection.register_object (handle, dialog);
+        } catch (Error e) {
+            critical (e.message);
         }
 
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
         uint _response = 2;
 
+        dialog.destroy.connect (() => {
+            if (dialog.register_id != 0) {
+                connection.unregister_object (dialog.register_id);
+                dialog.register_id = 0;
+            }
+        });
+
         dialog.response.connect ((id) => {
-            switch ((Gtk.ResponseType) id) {
+            switch (id) {
                 case Gtk.ResponseType.OK:
+                    VariantBuilder choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
+
+                    dialog.get_choices ().foreach ((choice) => {
+                        choices_builder.add ("(ss)", choice.name, choice.selected);
+                    });
+
+                    _results["choices"] = choices_builder.end ();
                     _response = 0;
-                    _results["choices"] = dialog.choices;
                     break;
                 case Gtk.ResponseType.CANCEL:
                     _response = 1;
@@ -74,6 +97,7 @@ public class Access.Portal : Object {
 
         dialog.show_all ();
         yield;
+
         results = _results;
         response = _response;
     }
