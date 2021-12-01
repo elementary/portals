@@ -11,6 +11,7 @@ executable(
     'ExternalWindow.vala',
     'Access/Portal.vala',
     'Access/Dialog.vala',
+    'Access/Choice.vala',
     'AppChooser/Portal.vala',
     'AppChooser/Dialog.vala',
     'AppChooser/AppButton.vala',
