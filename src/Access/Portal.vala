@@ -22,14 +22,19 @@ public class Access.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
+        Dialog.ButtonAction action = Dialog.ButtonAction.SUGGESTED;
         string icon = "dialog-information";
+
+        if ("destructive" in options && options["destructive"].get_boolean ()) {
+            action = Dialog.ButtonAction.DESTRUCTIVE;
+        }
 
         if ("icon" in options) {
             // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
             icon = options["icon"].get_string ().replace ("-symbolic", "");
         }
 
-        var dialog = new Dialog (app_id, parent_window, icon) {
+        var dialog = new Dialog (action, app_id, parent_window, icon) {
             primary_text = title,
             secondary_text = sub_title,
             body = body
