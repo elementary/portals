@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-27 20:51+0000\n"
-"PO-Revision-Date: 2022-01-10 18:13+0000\n"
+"PO-Revision-Date: 2022-01-11 03:35+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/cs/>\n"
@@ -38,19 +38,19 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:15
 msgid "Fixes:"
-msgstr ""
+msgstr "Opravy:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Prevent delay after logging in"
-msgstr ""
+msgstr "Zabráněno prodlevě po přihlášení se"
 
 #: data/portals.appdata.xml.in:23
 msgid "First release!"
-msgstr ""
+msgstr "Prvotní vydání!"
 
 #: data/portals.appdata.xml.in:25
 msgid "Add OpenURI Portal"
-msgstr ""
+msgstr "Přidán portál pro otevírání URI"
 
 #: data/portals.appdata.xml.in:32
 msgid "elementary, Inc."
