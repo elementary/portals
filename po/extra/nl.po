@@ -8,45 +8,50 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-27 20:51+0000\n"
-"PO-Revision-Date: 2021-10-20 14:02-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-01-15 13:42+0000\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/portals.appdata.xml.in:7
 msgid "Portals"
-msgstr ""
+msgstr "Portalen"
 
 #: data/portals.appdata.xml.in:8
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "Neem toegang to systeemfunctionaliteit op een veilige manier"
 
 #: data/portals.appdata.xml.in:10
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 msgstr ""
+"Protalen levert APIs om applicaties te beveiligen die deze gebruiken, het "
+"stelt apps in staat om toegang te vragen tot systeemfunctionaliteit door "
+"middel van toestemming van de gebruiker."
 
 #: data/portals.appdata.xml.in:15
 msgid "Fixes:"
-msgstr ""
+msgstr "Fixes:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Prevent delay after logging in"
-msgstr ""
+msgstr "Voorkom vertraging na het inloggen"
 
 #: data/portals.appdata.xml.in:23
 msgid "First release!"
-msgstr ""
+msgstr "Eerste uitgave!"
 
 #: data/portals.appdata.xml.in:25
 msgid "Add OpenURI Portal"
-msgstr ""
+msgstr "Voeg OpenURI portaal toe"
 
 #: data/portals.appdata.xml.in:32
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
