@@ -5,7 +5,14 @@
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
 public class Access.Dialog : Granite.MessageDialog {
+    public enum ButtonAction {
+        SUGGESTED,
+        DESTRUCTIVE
+    }
+
     public uint register_id { get; set; default = 0; }
+
+    public ButtonAction action { get; construct; }
 
     public string parent_window { get; construct; }
 
@@ -36,8 +43,9 @@ public class Access.Dialog : Granite.MessageDialog {
     private List<Choice> choices;
     private Gtk.Box box;
 
-    public Dialog (string app_id, string parent_window, string icon) {
+    public Dialog (ButtonAction action, string app_id, string parent_window, string icon) {
         Object (
+            action: action,
             app_id: app_id,
             parent_window: parent_window,
             image_icon: new ThemedIcon (icon),
@@ -51,6 +59,7 @@ public class Access.Dialog : Granite.MessageDialog {
         modal = true;
 
         choices = new List<Choice> ();
+        set_role ("AccessDialog"); // used in Gala.CloseDialog
         set_keep_above (true);
 
         if (app_id != "") {
@@ -59,9 +68,15 @@ public class Access.Dialog : Granite.MessageDialog {
 
         deny_button = add_button (_("Deny Access"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         grant_button = add_button (_("Grant Access"), Gtk.ResponseType.OK) as Gtk.Button;
-        grant_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        unowned var grant_context = grant_button.get_style_context ();
 
-        set_default (deny_button);
+        if (action == ButtonAction.SUGGESTED) {
+            grant_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            set_default (grant_button);
+        } else {
+            grant_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            set_default (deny_button);
+        }
 
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
         custom_bin.child = box;
