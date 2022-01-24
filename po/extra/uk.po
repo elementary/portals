@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 20:52+0000\n"
-"PO-Revision-Date: 2021-10-28 00:57+0000\n"
+"PO-Revision-Date: 2022-01-24 23:13+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/uk/>\n"
@@ -38,11 +38,11 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:15
 msgid "New Features:"
-msgstr ""
+msgstr "Нові функції:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Add a desctructive action option for access portals"
-msgstr ""
+msgstr "Додано опції деструктивної дії для доступу до порталів"
 
 #: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
@@ -50,15 +50,19 @@ msgstr "Виправлення:"
 
 #: data/portals.appdata.xml.in:21
 msgid "Fix a crash when opening apps in the AppChooser portal"
-msgstr ""
+msgstr "Усунуто збої при відкритті застосунків через портал вибору застосунків"
 
 #: data/portals.appdata.xml.in:22
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
+"Виправлено фокусування вікна та положення для доступу до порталів без "
+"батьківського вікна"
 
 #: data/portals.appdata.xml.in:23
 msgid "Set AppChoser portal as a modal dialog for proper animations"
 msgstr ""
+"Портал вибору застосунків установлено модальним вікном для правильної "
+"анімації"
 
 #: data/portals.appdata.xml.in:31
 msgid "Prevent delay after logging in"
