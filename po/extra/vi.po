@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-27 20:51+0000\n"
+"POT-Creation-Date: 2022-01-24 20:52+0000\n"
 "PO-Revision-Date: 2021-10-20 14:02-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -32,21 +32,41 @@ msgid ""
 msgstr ""
 
 #: data/portals.appdata.xml.in:15
-msgid "Fixes:"
+msgid "New Features:"
 msgstr ""
 
 #: data/portals.appdata.xml.in:17
-msgid "Prevent delay after logging in"
+msgid "Add a desctructive action option for access portals"
+msgstr ""
+
+#: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
+msgid "Fixes:"
+msgstr ""
+
+#: data/portals.appdata.xml.in:21
+msgid "Fix a crash when opening apps in the AppChooser portal"
+msgstr ""
+
+#: data/portals.appdata.xml.in:22
+msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 
 #: data/portals.appdata.xml.in:23
+msgid "Set AppChoser portal as a modal dialog for proper animations"
+msgstr ""
+
+#: data/portals.appdata.xml.in:31
+msgid "Prevent delay after logging in"
+msgstr ""
+
+#: data/portals.appdata.xml.in:37
 msgid "First release!"
 msgstr ""
 
-#: data/portals.appdata.xml.in:25
+#: data/portals.appdata.xml.in:39
 msgid "Add OpenURI Portal"
 msgstr ""
 
-#: data/portals.appdata.xml.in:32
+#: data/portals.appdata.xml.in:46
 msgid "elementary, Inc."
 msgstr ""

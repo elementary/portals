@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-27 20:51+0000\n"
+"POT-Creation-Date: 2022-01-24 20:52+0000\n"
 "PO-Revision-Date: 2021-11-01 07:03+0000\n"
 "Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -35,21 +35,41 @@ msgstr ""
 "门户网站为安全应用程序提供API，使其能够在需要知情同意的情况下访问系统功能。"
 
 #: data/portals.appdata.xml.in:15
+msgid "New Features:"
+msgstr ""
+
+#: data/portals.appdata.xml.in:17
+msgid "Add a desctructive action option for access portals"
+msgstr ""
+
+#: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
 msgstr "修复："
 
-#: data/portals.appdata.xml.in:17
+#: data/portals.appdata.xml.in:21
+msgid "Fix a crash when opening apps in the AppChooser portal"
+msgstr ""
+
+#: data/portals.appdata.xml.in:22
+msgid "Fix window focus and position for Access portals with no parent window"
+msgstr ""
+
+#: data/portals.appdata.xml.in:23
+msgid "Set AppChoser portal as a modal dialog for proper animations"
+msgstr ""
+
+#: data/portals.appdata.xml.in:31
 msgid "Prevent delay after logging in"
 msgstr "防止登录后延迟"
 
-#: data/portals.appdata.xml.in:23
+#: data/portals.appdata.xml.in:37
 msgid "First release!"
 msgstr "第一次发布！"
 
-#: data/portals.appdata.xml.in:25
+#: data/portals.appdata.xml.in:39
 msgid "Add OpenURI Portal"
 msgstr "添加OpenURI门户"
 
-#: data/portals.appdata.xml.in:32
+#: data/portals.appdata.xml.in:46
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
