@@ -10,6 +10,20 @@
     <p>Portals provide APIs to secure apps which enable them to access system features while requiring informed consent.</p>
   </description>
   <releases>
+    <release version="1.1.0" date="2022-01-23" urgency="medium">
+      <description>
+        <p>New Features:</p>
+        <ul>
+          <li>Add a desctructive action option for access portals</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix a crash when opening apps in the AppChooser portal</li>
+          <li>Fix window focus and position for Access portals with no parent window</li>
+          <li>Set AppChoser portal as a modal dialog for proper animations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.1" date="2021-10-28" urgency="medium">
       <description>
         <p>Fixes:</p>
