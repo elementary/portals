@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-27 20:51+0000\n"
+"POT-Creation-Date: 2022-01-24 20:52+0000\n"
 "PO-Revision-Date: 2021-10-25 22:41+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: src/Access/Dialog.vala:75
+#: src/Access/Dialog.vala:69
 msgid "Deny Access"
 msgstr "Hozzáférés megtagadása"
 
-#: src/Access/Dialog.vala:77
+#: src/Access/Dialog.vala:70
 msgid "Grant Access"
 msgstr "Hozzáférés megadása"
 
