@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 20:52+0000\n"
-"PO-Revision-Date: 2021-11-05 10:14+0000\n"
-"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
-"Language-Team: German <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/de/>\n"
+"PO-Revision-Date: 2022-01-25 03:08+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:15
 msgid "New Features:"
-msgstr ""
+msgstr "Neue Funktionen:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Add a desctructive action option for access portals"
