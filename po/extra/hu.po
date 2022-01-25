@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 20:52+0000\n"
-"PO-Revision-Date: 2021-12-25 23:12+0000\n"
+"PO-Revision-Date: 2022-01-25 16:51+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/hu/>\n"
@@ -32,14 +32,17 @@ msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 msgstr ""
+"A Portálok API-okat biztosítanak ahhoz, hogy az alkalmazások biztonságosan "
+"érhessenek el rendszerfunkciókat, miközben erről tájékoztatnak és "
+"beleegyezést kérnek."
 
 #: data/portals.appdata.xml.in:15
 msgid "New Features:"
-msgstr ""
+msgstr "Új funkciók:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Add a desctructive action option for access portals"
-msgstr ""
+msgstr "Destruktív akció a hozzáférési portálokhoz"
 
 #: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
@@ -48,26 +51,29 @@ msgstr "Javítások:"
 #: data/portals.appdata.xml.in:21
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr ""
+"Javítva egy összeomlás az alkalmazásválasztó portálban való választáskor"
 
 #: data/portals.appdata.xml.in:22
 msgid "Fix window focus and position for Access portals with no parent window"
-msgstr ""
+msgstr "A szülőablakkal nem rendelkező portálok helyzete és fókusza javítva"
 
 #: data/portals.appdata.xml.in:23
 msgid "Set AppChoser portal as a modal dialog for proper animations"
 msgstr ""
+"Az alkalmazásválasztó portál egy modális dialógusablak lett a megfelelő "
+"animációk érdekében"
 
 #: data/portals.appdata.xml.in:31
 msgid "Prevent delay after logging in"
-msgstr ""
+msgstr "Bejelentkezés utáni késleltetés megelőzése"
 
 #: data/portals.appdata.xml.in:37
 msgid "First release!"
-msgstr ""
+msgstr "Első kiadás!"
 
 #: data/portals.appdata.xml.in:39
 msgid "Add OpenURI Portal"
-msgstr ""
+msgstr "OpenURI Portal hozzáadva"
 
 #: data/portals.appdata.xml.in:46
 msgid "elementary, Inc."
