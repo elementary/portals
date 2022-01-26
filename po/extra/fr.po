@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 09:34+0000\n"
-"PO-Revision-Date: 2022-01-25 11:33+0000\n"
+"PO-Revision-Date: 2022-01-26 13:07+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/fr/>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,8 +41,6 @@ msgid "New Features:"
 msgstr "Nouvelles fonctionnalités :"
 
 #: data/portals.appdata.xml.in:17
-#, fuzzy
-#| msgid "Add a desctructive action option for access portals"
 msgid "Add a destructive action option for access portals"
 msgstr "Ajout d'une option d'action destructrice pour les portails d'accès"
 
@@ -63,8 +61,6 @@ msgstr ""
 "portails d'accès sans fenêtre parente"
 
 #: data/portals.appdata.xml.in:23
-#, fuzzy
-#| msgid "Set AppChoser portal as a modal dialog for proper animations"
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "Le portail de sélection d'application est désormais une boîte de dialogue "
