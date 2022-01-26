@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 09:34+0000\n"
-"PO-Revision-Date: 2022-01-24 23:13+0000\n"
+"PO-Revision-Date: 2022-01-26 14:21+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/uk/>\n"
@@ -41,8 +41,6 @@ msgid "New Features:"
 msgstr "Нові функції:"
 
 #: data/portals.appdata.xml.in:17
-#, fuzzy
-#| msgid "Add a desctructive action option for access portals"
 msgid "Add a destructive action option for access portals"
 msgstr "Додано опції деструктивної дії для доступу до порталів"
 
@@ -61,8 +59,6 @@ msgstr ""
 "батьківського вікна"
 
 #: data/portals.appdata.xml.in:23
-#, fuzzy
-#| msgid "Set AppChoser portal as a modal dialog for proper animations"
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "Портал вибору застосунків установлено модальним вікном для правильної "
