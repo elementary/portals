@@ -10,7 +10,7 @@
     <p>Portals provide APIs to secure apps which enable them to access system features while requiring informed consent.</p>
   </description>
   <releases>
-    <release version="1.1.0" date="2022-01-23" urgency="medium">
+    <release version="1.1.0" date="2022-01-24" urgency="medium">
       <description>
         <p>New Features:</p>
         <ul>
