@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 20:52+0000\n"
+"POT-Creation-Date: 2022-01-26 09:34+0000\n"
 "PO-Revision-Date: 2022-01-11 03:35+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/desktop/portals-"
@@ -41,7 +41,7 @@ msgid "New Features:"
 msgstr ""
 
 #: data/portals.appdata.xml.in:17
-msgid "Add a desctructive action option for access portals"
+msgid "Add a destructive action option for access portals"
 msgstr ""
 
 #: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
@@ -57,7 +57,7 @@ msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 
 #: data/portals.appdata.xml.in:23
-msgid "Set AppChoser portal as a modal dialog for proper animations"
+msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 
 #: data/portals.appdata.xml.in:31
