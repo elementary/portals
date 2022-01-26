@@ -20,7 +20,7 @@
         <ul>
           <li>Fix a crash when opening apps in the AppChooser portal</li>
           <li>Fix window focus and position for Access portals with no parent window</li>
-          <li>Set AppChoser portal as a modal dialog for proper animations</li>
+          <li>Set AppChooser portal as a modal dialog for proper animations</li>
         </ul>
       </description>
     </release>
