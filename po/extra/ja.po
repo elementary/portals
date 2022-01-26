@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 20:52+0000\n"
-"PO-Revision-Date: 2021-10-29 21:12+0000\n"
+"PO-Revision-Date: 2022-01-26 08:53+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/ja/>\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:15
 msgid "New Features:"
-msgstr ""
+msgstr "新機能:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Add a desctructive action option for access portals"
-msgstr ""
+msgstr "アクセスポータルに破壊的なアクションを行うオプションを追加"
 
 #: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
@@ -49,15 +49,15 @@ msgstr "修正点:"
 
 #: data/portals.appdata.xml.in:21
 msgid "Fix a crash when opening apps in the AppChooser portal"
-msgstr ""
+msgstr "アプリ選択ポータルからアプリを開く際にクラッシュしないように修正"
 
 #: data/portals.appdata.xml.in:22
 msgid "Fix window focus and position for Access portals with no parent window"
-msgstr ""
+msgstr "親ウィンドウのないアクセスポータルウィンドウが、フォーカスされ正しい位置に表示されるように修正"
 
 #: data/portals.appdata.xml.in:23
 msgid "Set AppChoser portal as a modal dialog for proper animations"
-msgstr ""
+msgstr "アプリ選択ポータルをモーダルダイアログに変更し、適切にアニメーション表示されるように修正"
 
 #: data/portals.appdata.xml.in:31
 msgid "Prevent delay after logging in"
