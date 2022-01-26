@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-27 20:51+0000\n"
-"PO-Revision-Date: 2021-10-31 13:57+0000\n"
+"POT-Creation-Date: 2022-01-26 09:34+0000\n"
+"PO-Revision-Date: 2022-01-26 13:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/ca/>\n"
@@ -37,21 +37,45 @@ msgstr ""
 "informat."
 
 #: data/portals.appdata.xml.in:15
+msgid "New Features:"
+msgstr "Característiques noves:"
+
+#: data/portals.appdata.xml.in:17
+msgid "Add a destructive action option for access portals"
+msgstr "Addició d'una opció d'acció destructiva per als portals d'accés"
+
+#: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
 msgstr "Correccions:"
 
-#: data/portals.appdata.xml.in:17
+#: data/portals.appdata.xml.in:21
+msgid "Fix a crash when opening apps in the AppChooser portal"
+msgstr "Correcció d'un error en obrir aplicacions al portal AppChooser"
+
+#: data/portals.appdata.xml.in:22
+msgid "Fix window focus and position for Access portals with no parent window"
+msgstr ""
+"Correcció de l'enfocament i la posició de la finestra per als portals "
+"d'Accés sense finestra principal"
+
+#: data/portals.appdata.xml.in:23
+msgid "Set AppChooser portal as a modal dialog for proper animations"
+msgstr ""
+"S'estableix el portal AppChooser com a diàleg modal per a animacions "
+"adequades."
+
+#: data/portals.appdata.xml.in:31
 msgid "Prevent delay after logging in"
 msgstr "S'evita el retard després d'iniciar sessió"
 
-#: data/portals.appdata.xml.in:23
+#: data/portals.appdata.xml.in:37
 msgid "First release!"
 msgstr "Primera versió!"
 
-#: data/portals.appdata.xml.in:25
+#: data/portals.appdata.xml.in:39
 msgid "Add OpenURI Portal"
 msgstr "Afegeix el Portal OpenURI"
 
-#: data/portals.appdata.xml.in:32
+#: data/portals.appdata.xml.in:46
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-27 20:51+0000\n"
+"POT-Creation-Date: 2022-01-26 09:34+0000\n"
 "PO-Revision-Date: 2021-12-22 23:10+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
-"Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/"
-"portals-extra/tr/>\n"
+"Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals-"
+"extra/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,21 +36,41 @@ msgstr ""
 "erişmelerini sağlayan uygulamaları güvenli hale getirmek için API'lar sağlar."
 
 #: data/portals.appdata.xml.in:15
+msgid "New Features:"
+msgstr ""
+
+#: data/portals.appdata.xml.in:17
+msgid "Add a destructive action option for access portals"
+msgstr ""
+
+#: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
 msgstr "Düzeltmeler:"
 
-#: data/portals.appdata.xml.in:17
-msgid "Prevent delay after logging in"
+#: data/portals.appdata.xml.in:21
+msgid "Fix a crash when opening apps in the AppChooser portal"
+msgstr ""
+
+#: data/portals.appdata.xml.in:22
+msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 
 #: data/portals.appdata.xml.in:23
+msgid "Set AppChooser portal as a modal dialog for proper animations"
+msgstr ""
+
+#: data/portals.appdata.xml.in:31
+msgid "Prevent delay after logging in"
+msgstr ""
+
+#: data/portals.appdata.xml.in:37
 msgid "First release!"
 msgstr "İlk sürüm!"
 
-#: data/portals.appdata.xml.in:25
+#: data/portals.appdata.xml.in:39
 msgid "Add OpenURI Portal"
 msgstr ""
 
-#: data/portals.appdata.xml.in:32
+#: data/portals.appdata.xml.in:46
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
