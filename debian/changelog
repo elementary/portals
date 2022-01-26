@@ -1,3 +1,17 @@
+io.elementary.portals (1.1.0) focal; urgency=medium
+
+  * Release 1.1.0 (#46)
+  * Update translation files
+  * Update translation template
+  * AppData: Fix typos (#47)
+  * Access: add modifications for use in gala's CloseDialog (#44)
+  * Access: Restructure Code (#41)
+  * AppChooser: fix warning
+  * AppChooser: fix open button callback
+  * AppChooser: set dialog type hint and modal
+
+ -- elementary, Inc. <builds@elementary.io>  Wed, 26 Jan 2022 18:03:36 +0000
+
 io.elementary.portals (1.0.1) focal; urgency=medium
 
   * Release 1.0.1 (#36)
