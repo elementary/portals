@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 09:34+0000\n"
-"PO-Revision-Date: 2022-01-25 16:51+0000\n"
+"PO-Revision-Date: 2022-01-27 22:43+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/hu/>\n"
@@ -41,10 +41,8 @@ msgid "New Features:"
 msgstr "Új funkciók:"
 
 #: data/portals.appdata.xml.in:17
-#, fuzzy
-#| msgid "Add a desctructive action option for access portals"
 msgid "Add a destructive action option for access portals"
-msgstr "Destruktív akció a hozzáférési portálokhoz"
+msgstr "Destruktív művelet a hozzáférési portálokhoz"
 
 #: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
@@ -60,8 +58,6 @@ msgid "Fix window focus and position for Access portals with no parent window"
 msgstr "A szülőablakkal nem rendelkező portálok helyzete és fókusza javítva"
 
 #: data/portals.appdata.xml.in:23
-#, fuzzy
-#| msgid "Set AppChoser portal as a modal dialog for proper animations"
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "Az alkalmazásválasztó portál egy modális dialógusablak lett a megfelelő "
