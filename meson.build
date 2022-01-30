@@ -1,4 +1,4 @@
-project('xdg-desktop-portal-pantheon', 'c', 'vala')
+project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '1.1.0')
 
 i18n = import('i18n')
 
@@ -26,6 +26,7 @@ conf_data = configuration_data()
 conf_data.set('LIBEXECDIR', libexecdir)
 conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf_data.set_quoted('LOCALEDIR', localedir)
+conf_data.set_quoted('VERSION', meson.project_version())
 
 subdir('data')
 subdir('po')

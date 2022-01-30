@@ -98,8 +98,12 @@ int main (string[] args) {
     }
 
     if (show_version) {
-        print ("0.0 \n");
+        print ("%s \n", Config.VERSION);
         return 0;
+    }
+
+    if (opt_verbose) {
+        GLib.Environment.set_variable ("G_MESSAGES_DEBUG", "all", false);
     }
 
     GLib.Environment.set_prgname ("xdg-desktop-portal-pantheon");
