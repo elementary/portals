@@ -14,6 +14,7 @@ gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
 gtk_dep = dependency('gtk+-3.0')
 gdk_dep = [ dependency('gdk-x11-3.0'), dependency('gdk-wayland-3.0') ]
+x11_dep = dependency('x11')
 granite_dep = dependency('granite')
 handy_dep = dependency('libhandy-1')
 

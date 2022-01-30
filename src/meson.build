@@ -21,6 +21,7 @@ executable(
         gio_dep,
         gtk_dep,
         gdk_dep,
+        x11_dep,
         granite_dep,
         handy_dep
     ],

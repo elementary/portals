@@ -52,10 +52,10 @@ public interface ExternalWindow : GLib.Object {
 public class ExternalWindowX11 : ExternalWindow, GLib.Object {
     private static Gdk.Display? x11_display = null;
 
-    private Gdk.Window foreign_gdk_window;
+    private X.Window foreign_window;
 
     public ExternalWindowX11 (string handle) throws GLib.IOError {
-        var display = get_x11_display ();
+        unowned var display = get_x11_display ();
         if (display == null) {
             throw new IOError.FAILED ("No X display connection, ignoring X11 parent");
         }
@@ -65,13 +65,10 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
             throw new IOError.FAILED ("Failed to reference external X11 window, invalid XID %s", handle);
         }
 
-        foreign_gdk_window = new Gdk.X11.Window.foreign_for_display ((Gdk.X11.Display)display, xid);
-        if (foreign_gdk_window == null) {
-            throw new IOError.FAILED ("Failed to create foreign window for XID %d", xid);
-        }
+        foreign_window = xid;
     }
 
-    private static Gdk.Display get_x11_display () {
+    private static unowned Gdk.Display get_x11_display () {
         if (x11_display != null) {
             return x11_display;
         }
@@ -88,7 +85,22 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
     }
 
     public void set_parent_of (Gdk.Window child_window) {
-        child_window.set_transient_for (foreign_gdk_window);
+        unowned var display = (Gdk.X11.Display) get_x11_display ();
+        unowned var x_display = display.get_xdisplay ();
+        var child_xid = ((Gdk.X11.Window) child_window).get_xid ();
+
+        x_display.set_transient_for_hint (child_xid, foreign_window);
+
+        var atom = Gdk.X11.get_xatom_by_name_for_display (display, "_NET_WM_WINDOW_TYPE_DIALOG");
+        x_display.change_property (
+            child_xid,
+            Gdk.X11.get_xatom_by_name_for_display (display, "_NET_WM_WINDOW_TYPE"),
+            X.XA_ATOM,
+            32,
+            X.PropMode.Replace,
+            (uchar[]) atom,
+            1
+        );
     }
 }
 
