@@ -1,5 +1,5 @@
 /*-
- * Copyright 2021 elementary LLC <https://elementary.io>
+ * Copyright 2021-2022 elementary LLC <https://elementary.io>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -22,27 +22,17 @@
 public interface ExternalWindow : GLib.Object {
     public abstract void set_parent_of (Gdk.Window child_window);
 
-    public static ExternalWindow? from_handle (string handle) {
+    public static ExternalWindow? from_handle (string handle) throws GLib.IOError {
         const string X11_PREFIX = "x11:";
         const string WAYLAND_PREFIX = "wayland:";
         ExternalWindow? external_window = null;
 
         if (handle.has_prefix (X11_PREFIX)) {
-            try {
-                external_window = new ExternalWindowX11 (handle.substring (X11_PREFIX.length));
-            } catch (Error e) {
-                warning ("Error getting external X11 window: %s", e.message);
-                return null;
-            }
+            external_window = new ExternalWindowX11 (handle.substring (X11_PREFIX.length));
         } else if (handle.has_prefix (WAYLAND_PREFIX)) {
-            try {
-                external_window = new ExternalWindowWayland (handle.substring (WAYLAND_PREFIX.length));
-            } catch (Error e) {
-                warning ("Error getting external Wayland window: %s", e.message);
-                return null;
-            }
+            external_window = new ExternalWindowWayland (handle.substring (WAYLAND_PREFIX.length));
         } else {
-            warning ("Unhandled parent window type %s", handle);
+            throw new IOError.FAILED ("Unhandled window type");
         }
 
         return external_window;
