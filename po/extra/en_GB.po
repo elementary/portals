@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 09:34+0000\n"
-"PO-Revision-Date: 2021-11-03 03:54+0000\n"
-"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
+"PO-Revision-Date: 2022-02-03 15:04+0000\n"
+"Last-Translator: Joel Jose <joel750jose@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "desktop/portals-extra/en_GB/>\n"
 "Language: en_GB\n"
@@ -37,11 +37,11 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:15
 msgid "New Features:"
-msgstr ""
+msgstr "New Features:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Add a destructive action option for access portals"
-msgstr ""
+msgstr "Add a destructive action option for access portals"
 
 #: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
 msgid "Fixes:"
@@ -49,15 +49,15 @@ msgstr "Fixes:"
 
 #: data/portals.appdata.xml.in:21
 msgid "Fix a crash when opening apps in the AppChooser portal"
-msgstr ""
+msgstr "Fix a crash when opening apps in the AppChooser portal"
 
 #: data/portals.appdata.xml.in:22
 msgid "Fix window focus and position for Access portals with no parent window"
-msgstr ""
+msgstr "Fix window focus and position for Access portals with no parent window"
 
 #: data/portals.appdata.xml.in:23
 msgid "Set AppChooser portal as a modal dialog for proper animations"
-msgstr ""
+msgstr "Set AppChooser portal as a modal dialog for proper animations"
 
 #: data/portals.appdata.xml.in:31
 msgid "Prevent delay after logging in"
