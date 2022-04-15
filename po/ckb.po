@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 09:34+0000\n"
-"PO-Revision-Date: 2022-04-04 21:19+0000\n"
+"PO-Revision-Date: 2022-04-15 22:18+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
 "desktop/portals/ckb/>\n"
@@ -21,30 +21,30 @@ msgstr ""
 
 #: src/Access/Dialog.vala:69
 msgid "Deny Access"
-msgstr ""
+msgstr "ڕێگریکردن لە دەستگەیشتن"
 
 #: src/Access/Dialog.vala:70
 msgid "Grant Access"
-msgstr ""
+msgstr "ڕێگەدان بە دەستگەیشتن"
 
 #: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "بەرنامەیەک داوای کردنەوەی %s دەکات."
 
 #: src/AppChooser/Dialog.vala:75
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "\"%s\" داوای کردنەوەی %s کردووە."
 
 #: src/AppChooser/Dialog.vala:106
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "هیچ بەرنامەیەکی دامەزراو ناتوانێت %s بکاتەوە"
 
 #: src/AppChooser/Dialog.vala:107
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "دەکرێت بەرنامەی تازە لە ئەپ سەنتەرەوە دابمەزرێن"
 
 #: src/AppChooser/Dialog.vala:123
 msgid "Cancel"
@@ -52,4 +52,4 @@ msgstr "هەڵوەشاندنەوە"
 
 #: src/AppChooser/Dialog.vala:125
 msgid "Open"
-msgstr ""
+msgstr "کردنەوە"
