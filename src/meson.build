@@ -20,9 +20,7 @@ executable(
         gobject_dep,
         gio_dep,
         gtk_dep,
-        gdk_dep,
         granite_dep,
-        handy_dep
     ],
     install: true,
     install_dir: libexecdir,
