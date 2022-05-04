@@ -75,7 +75,7 @@ int main (string[] args) {
     /* Avoid pointless and confusing recursion */
     GLib.Environment.unset_variable ("GTK_USE_PORTAL");
 
-    Gtk.init (ref args);
+    Gtk.init ();
 
     try {
         var opt_context = new OptionContext ("- portal backends");

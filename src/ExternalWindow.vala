@@ -20,7 +20,7 @@
  */
 
 public interface ExternalWindow : GLib.Object {
-    public abstract void set_parent_of (Gdk.Window child_window);
+    public abstract void set_parent_of (Gdk.Surface child_window);
 
     public static ExternalWindow? from_handle (string handle) {
         const string X11_PREFIX = "x11:";
@@ -45,7 +45,7 @@ public interface ExternalWindow : GLib.Object {
 public class ExternalWindowX11 : ExternalWindow, GLib.Object {
     private static Gdk.Display? x11_display = null;
 
-    private Gdk.Window foreign_gdk_window;
+    private Gdk.Surface foreign_gdk_window;
 
     public ExternalWindowX11 (string handle) throws GLib.IOError {
         var display = get_x11_display ();
@@ -58,7 +58,7 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
             throw new IOError.FAILED ("Failed to reference external X11 window, invalid XID %s", handle);
         }
 
-        foreign_gdk_window = new Gdk.X11.Window.foreign_for_display ((Gdk.X11.Display)display, xid);
+        foreign_gdk_window = null; // TODO: new Gdk.X11.Surface.foreign_for_display ((Gdk.X11.Display)display, xid);
         if (foreign_gdk_window == null) {
             throw new IOError.FAILED ("Failed to create foreign window for XID %d", xid);
         }
@@ -80,7 +80,7 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
         return x11_display;
     }
 
-    public void set_parent_of (Gdk.Window child_window) {
-        child_window.set_transient_for (foreign_gdk_window);
+    public void set_parent_of (Gdk.Surface child_window) {
+        // TODO: child_window.set_transient_for (foreign_gdk_window);
     }
 }

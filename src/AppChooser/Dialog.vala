@@ -4,7 +4,7 @@
  */
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
-public class AppChooser.Dialog : Hdy.Window {
+public class AppChooser.Dialog : Gtk.Window {
     public signal void choiced (string app_id);
 
     // The ID used to register this dialog on the DBusConnection
@@ -47,7 +47,6 @@ public class AppChooser.Dialog : Hdy.Window {
     construct {
         buttons = new HashTable<string, AppButton> (str_hash, str_equal);
         AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
-        Hdy.init ();
 
         var primary_text = "Open file with…";
         if (filename != "") {
