@@ -54,13 +54,21 @@ public class Access.Dialog : Granite.MessageDialog {
     }
 
     construct {
-        skip_taskbar_hint = true;
+        unowned var surface = get_surface ();
+        if (surface is Gdk.X11.Surface) {
+            unowned var x11_surface = (Gdk.X11.Surface) surface;
+            x11_surface.set_skip_taskbar_hint (true);
+        }
+        
         resizable = false;
         modal = true;
 
         choices = new List<Choice> ();
-        set_role ("AccessDialog"); // used in Gala.CloseDialog
-        set_keep_above (true);
+        // TODO: Gtk4 Migration: wm_role seems to be completely removed
+        // set_role ("AccessDialog"); // used in Gala.CloseDialog
+
+        // TODO: Gtk4 Migration: https://valadoc.org/gtk4/Gdk.ToplevelState.html
+        // set_keep_above (true);
 
         if (app_id != "") {
             badge_icon = new DesktopAppInfo (app_id + ".desktop").get_icon ();
@@ -68,18 +76,20 @@ public class Access.Dialog : Granite.MessageDialog {
 
         deny_button = add_button (_("Deny Access"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         grant_button = add_button (_("Grant Access"), Gtk.ResponseType.OK) as Gtk.Button;
-        unowned var grant_context = grant_button.get_style_context ();
+        // unowned var grant_context = grant_button.get_style_context ();
 
         if (action == ButtonAction.SUGGESTED) {
-            grant_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-            set_default (grant_button);
+            // TODO: Gtk4 Migration: Gtk.STYLE_CLASS_SUGGESTED_ACTION is gone
+            grant_button.add_css_class ("suggested-action");
+            set_default_widget (grant_button);
         } else {
-            grant_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-            set_default (deny_button);
+            // TODO: Gtk4 Migration: Gtk.GTK_STYLE_CLASS_DESTRUCTIVE_ACTION is gone
+            grant_button.add_css_class ("destructive-action");
+            set_default_widget (deny_button);
         }
 
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        custom_bin.child = box;
+        custom_bin.append (box);
         box.show ();
 
         if (parent_window != "") {
@@ -108,7 +118,7 @@ public class Access.Dialog : Granite.MessageDialog {
     [DBus (visible = false)]
     public void add_choice (Choice choice) {
         choices.append (choice);
-        box.add (choice);
+        box.append (choice);
     }
 
     [DBus (visible = false)]
