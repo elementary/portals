@@ -84,14 +84,13 @@ public class AppChooser.Dialog : Gtk.Window {
 
         var mime_icon = new Gtk.Image () {
             gicon = content_icon,
-            // TODO: Gtk4 Migrate
-            // icon_size = Gtk.IconSize.DIALOG
+            icon_size = Gtk.IconSize.LARGE
         };
 
         var overlay = new Gtk.Overlay () {
             valign = Gtk.Align.START
         };
-        overlay.add_overlay (mime_icon);
+        overlay.child = mime_icon;
 
         if (info != null) {
             var badge = new Gtk.Image.from_gicon (info.get_icon ()) {
@@ -128,8 +127,7 @@ public class AppChooser.Dialog : Gtk.Window {
         open_button.add_css_class ("suggested-action");
 
         var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
-            // TODO: Gtk4 Migration
-            // layout_style = Gtk.ButtonBoxStyle.END,
+            halign = Gtk.Align.END,
             margin_top = 12
         };
 
