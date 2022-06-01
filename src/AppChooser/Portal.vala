@@ -62,13 +62,13 @@ public class AppChooser.Portal : Object {
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
         uint _response = 2;
 
-        dialog.destroy.connect (() => {
+        ((Gtk.Widget) dialog).destroy.connect (() => {
             if (dialog.register_id != 0) {
                 connection.unregister_object (dialog.register_id);
             }
         });
 
-        var destroy_id = dialog.destroy.connect_after (() => {
+        var destroy_id = ((Gtk.Widget) dialog).destroy.connect_after (() => {
             _results["choice"] = "";
             choose_application.callback ();
         });
@@ -83,7 +83,8 @@ public class AppChooser.Portal : Object {
         });
 
         handles[handle] = dialog;
-        dialog.show_all ();
+        // TODO: Gtk4 Migration
+        // dialog.show_all ();
         yield;
 
         results = _results;

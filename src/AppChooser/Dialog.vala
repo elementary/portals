@@ -67,7 +67,7 @@ public class AppChooser.Dialog : Gtk.Window {
              wrap = true,
              xalign = 0
         };
-        primary_label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+        primary_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
         var secondary_text = _("An application requested to open a %s.").printf (content_description);
         if (info != null) {
@@ -83,17 +83,18 @@ public class AppChooser.Dialog : Gtk.Window {
         };
 
         var mime_icon = new Gtk.Image () {
-            gicon = content_icon ,
-            icon_size = Gtk.IconSize.DIALOG
+            gicon = content_icon,
+            // TODO: Gtk4 Migrate
+            // icon_size = Gtk.IconSize.DIALOG
         };
 
         var overlay = new Gtk.Overlay () {
             valign = Gtk.Align.START
         };
-        overlay.add (mime_icon);
+        overlay.add_overlay (mime_icon);
 
         if (info != null) {
-            var badge = new Gtk.Image.from_gicon (info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR) {
+            var badge = new Gtk.Image.from_gicon (info.get_icon ()) {
                 halign = Gtk.Align.END,
                 valign = Gtk.Align.END
             };
@@ -101,45 +102,49 @@ public class AppChooser.Dialog : Gtk.Window {
             overlay.add_overlay (badge);
         }
 
-        var placeholder = new Granite.Widgets.AlertView (
-            _("No installed apps can open %s").printf (content_description),
-            _("New apps can be installed from AppCenter"),
-            "application-default-icon"
-        );
-        placeholder.show_all ();
+        var placeholder = new Granite.Placeholder (_("No installed apps can open %s").printf (content_description)) {
+            description = _("New apps can be installed from AppCenter"),
+            icon = new ThemedIcon ("application-default-icon")
+        };
+        // TODO: Gtk4 Migration
+        // placeholder.show_all ();
 
         listbox = new Gtk.ListBox () {
-            expand = true
+            vexpand = true
         };
         listbox.set_placeholder (placeholder);
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.add (listbox);
+        var scrolled_window = new Gtk.ScrolledWindow ();
+        scrolled_window.child = listbox;
 
         var frame = new Gtk.Frame (null);
-        frame.add (scrolled_window);
+        frame.child = scrolled_window;
 
         var cancel = new Gtk.Button.with_label (_("Cancel"));
 
         open_button = new Gtk.Button.with_label (_("Open")) {
-            can_default = true
+            receives_default = true
         };
-        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        // TODO: Gtk4 Migration: Gtk.STYLE_CLASS_SUGGESTED_ACTION is gone
+        open_button.add_css_class ("suggested-action");
 
-        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
-            layout_style = Gtk.ButtonBoxStyle.END,
-            margin_top = 12,
-            spacing = 6
+        var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
+            // TODO: Gtk4 Migration
+            // layout_style = Gtk.ButtonBoxStyle.END,
+            margin_top = 12
         };
 
-        button_box.add (cancel);
-        button_box.add (open_button);
+        button_box.append (cancel);
+        button_box.append (open_button);
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
             column_spacing = 12,
             row_spacing = 6,
-            margin = 12
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12
         };
 
         grid.attach (overlay, 0, 0, 1, 2);
@@ -148,25 +153,27 @@ public class AppChooser.Dialog : Gtk.Window {
         grid.attach (frame, 0, 3, 2);
         grid.attach (button_box, 1, 4);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (grid);
+        var window_handle = new Gtk.WindowHandle ();
+        window_handle.child = grid;
 
-        add (window_handle);
-        type_hint = Gdk.WindowTypeHint.DIALOG;
+        child = window_handle;
+        // TODO: Gtk4 Migration
+        // type_hint = Gdk.WindowTypeHint.DIALOG;
+
         default_height = 400;
         default_width = 350;
         modal = true;
 
-        open_button.grab_default ();
+        set_default_widget (open_button);
 
-        realize.connect (() => {
+        ((Gtk.Widget) this).realize.connect (() => {
             if (parent_window != "") {
                 var parent = ExternalWindow.from_handle (parent_window);
 
                 if (parent == null) {
                     warning ("Failed to associate portal window with parent window %s", parent_window);
                 } else {
-                    parent.set_parent_of (get_window ());
+                    parent.set_parent_of (get_surface ());
                 }
             }
         });
@@ -184,7 +191,7 @@ public class AppChooser.Dialog : Gtk.Window {
 
     private void add_choice (string choice) {
         buttons[choice] = new AppButton (choice);
-        listbox.add (buttons[choice]);
+        listbox.append (buttons[choice]);
     }
 
 
@@ -195,14 +202,15 @@ public class AppChooser.Dialog : Gtk.Window {
                 add_choice (choice);
             }
         }
-        listbox.show_all ();
+        // TODO: Gtk4 Migration
+        // listbox.show_all ();
 
         if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
             add_choice (last_choice);
             buttons[last_choice].grab_focus ();
         }
 
-        open_button.sensitive = listbox.get_children ().length () > 0;
+        open_button.sensitive = listbox.get_row_at_index (0) != null;
     }
 
     [DBus (name = "Close")]

@@ -93,10 +93,10 @@ public class Access.Dialog : Granite.MessageDialog {
         box.show ();
 
         if (parent_window != "") {
-            realize.connect (() => {
+            ((Gtk.Widget) this).realize.connect (() => {
                 try {
                     var parent = ExternalWindow.from_handle (parent_window);
-                    parent.set_parent_of (get_window ());
+                    parent.set_parent_of (get_surface ());
                 } catch (Error e) {
                     warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }
@@ -104,12 +104,13 @@ public class Access.Dialog : Granite.MessageDialog {
         }
 
         show.connect (() => {
-            var window = get_window ();
-            if (window == null) {
-                return;
-            }
+            // TODO: Gtk4 Migration
+            //  var window = get_window ();
+            //  if (window == null) {
+            //      return;
+            //  }
 
-            window.focus (Gdk.CURRENT_TIME);
+            //  window.focus (Gdk.CURRENT_TIME);
         });
 
         response.connect_after (destroy);

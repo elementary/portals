@@ -15,7 +15,8 @@ public class AppChooser.AppButton : Gtk.ListBoxRow {
 
         var icon = new Gtk.Image () {
             gicon = app_info.get_icon () ?? new ThemedIcon ("application-default-icon"),
-            icon_size = Gtk.IconSize.DND
+            // TODO: Gtk4 Migrate
+            // icon_size = Gtk.IconSize.DND
         };
 
         var name = new Gtk.Label (app_info.get_display_name ()) {
@@ -24,13 +25,14 @@ public class AppChooser.AppButton : Gtk.ListBoxRow {
 
         var grid = new Gtk.Grid () {
             column_spacing = 6,
-            margin = 3,
+            margin_top = 3,
+            margin_bottom = 3,
             margin_start = 6,
             margin_end = 6
         };
-        grid.add (icon);
-        grid.add (name);
+        grid.attach (icon, 0, 0);
+        grid.attach (name, 0, 1);
 
-        add (grid);
+        child = grid;
     }
 }

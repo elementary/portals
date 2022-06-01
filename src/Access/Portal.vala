@@ -70,7 +70,7 @@ public class Access.Portal : Object {
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
         uint _response = 2;
 
-        dialog.destroy.connect (() => {
+        ((Gtk.Widget) dialog).unrealize.connect (() => {
             if (dialog.register_id != 0) {
                 connection.unregister_object (dialog.register_id);
                 dialog.register_id = 0;
@@ -100,7 +100,8 @@ public class Access.Portal : Object {
             access_dialog.callback ();
         });
 
-        dialog.show_all ();
+        // TODO: Gtk4 Migration
+        // dialog.show_all ();
         yield;
 
         results = _results;
