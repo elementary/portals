@@ -59,7 +59,7 @@ public class Access.Dialog : Granite.MessageDialog {
             unowned var x11_surface = (Gdk.X11.Surface) surface;
             x11_surface.set_skip_taskbar_hint (true);
         }
-        
+
         resizable = false;
         modal = true;
 
