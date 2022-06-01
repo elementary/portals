@@ -5,7 +5,7 @@
 
 [DBus (name = "org.freedesktop.impl.portal.AppChooser")]
 public class AppChooser.Portal : Object {
-    private HashTable<ObjectPath, Dialog> handles;
+    private HashTable<ObjectPath, Dialog> handles;      
     private DBusConnection connection;
 
     public Portal (DBusConnection connection) {
@@ -83,8 +83,7 @@ public class AppChooser.Portal : Object {
         });
 
         handles[handle] = dialog;
-        // TODO: Gtk4 Migration
-        // dialog.show_all ();
+        dialog.show ();
         yield;
 
         results = _results;

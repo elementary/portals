@@ -100,8 +100,7 @@ public class Access.Portal : Object {
             access_dialog.callback ();
         });
 
-        // TODO: Gtk4 Migration
-        // dialog.show_all ();
+        dialog.show ();
         yield;
 
         results = _results;

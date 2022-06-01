@@ -106,8 +106,7 @@ public class AppChooser.Dialog : Gtk.Window {
             description = _("New apps can be installed from AppCenter"),
             icon = new ThemedIcon ("application-default-icon")
         };
-        // TODO: Gtk4 Migration
-        // placeholder.show_all ();
+        placeholder.show ();
 
         listbox = new Gtk.ListBox () {
             vexpand = true
@@ -202,8 +201,7 @@ public class AppChooser.Dialog : Gtk.Window {
                 add_choice (choice);
             }
         }
-        // TODO: Gtk4 Migration
-        // listbox.show_all ();
+        listbox.show ();
 
         if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
             add_choice (last_choice);
