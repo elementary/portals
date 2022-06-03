@@ -96,7 +96,7 @@ public class Access.Dialog : Granite.MessageDialog {
             ((Gtk.Widget) this).realize.connect (() => {
                 try {
                     var parent = ExternalWindow.from_handle (parent_window);
-                    parent.set_parent_of (get_surface ());
+                    parent.set_parent_of (this);
                 } catch (Error e) {
                     warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }

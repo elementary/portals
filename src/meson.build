@@ -21,6 +21,7 @@ executable(
         gio_dep,
         gtk_dep,
         granite_dep,
+        x11_dep
     ],
     install: true,
     install_dir: libexecdir,

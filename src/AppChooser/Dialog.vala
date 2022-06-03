@@ -170,7 +170,7 @@ public class AppChooser.Dialog : Gtk.Window {
                 if (parent == null) {
                     warning ("Failed to associate portal window with parent window %s", parent_window);
                 } else {
-                    parent.set_parent_of (get_surface ());
+                    parent.set_parent_of (this);
                 }
             }
         });

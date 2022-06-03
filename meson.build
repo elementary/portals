@@ -14,6 +14,7 @@ gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
 gtk_dep = dependency('gtk4')
 granite_dep = dependency('granite-7')
+x11_dep = dependency('x11')
 
 add_global_arguments(
     '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()),

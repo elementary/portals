@@ -20,18 +20,13 @@
  */
 
 public interface ExternalWindow : GLib.Object {
-    public abstract void set_parent_of (Gdk.Surface child_window);
+    public abstract void set_parent_of (Gtk.Window child_window) throws IOError;
 
     public static ExternalWindow? from_handle (string handle) {
         const string X11_PREFIX = "x11:";
         if (handle.has_prefix (X11_PREFIX)) {
-            try {
-                var external_window_x11 = new ExternalWindowX11 (handle.substring (X11_PREFIX.length));
-                return external_window_x11;
-            } catch (Error e) {
-                warning ("Error getting external X11 window: %s", e.message);
-                return null;
-            }
+            var external_window_x11 = new ExternalWindowX11 (handle.substring (X11_PREFIX.length));
+            return external_window_x11;
         }
 
         // TODO: Handle Wayland
@@ -43,44 +38,37 @@ public interface ExternalWindow : GLib.Object {
 }
 
 public class ExternalWindowX11 : ExternalWindow, GLib.Object {
-    private static Gdk.Display? x11_display = null;
 
-    private Gdk.Surface foreign_gdk_window;
+    public string handle { get; construct; }
+    private X.Window? parent_window = null;
 
-    public ExternalWindowX11 (string handle) throws GLib.IOError {
-        var display = get_x11_display ();
-        if (display == null) {
-            throw new IOError.FAILED ("No X display connection, ignoring X11 parent");
-        }
+    public ExternalWindowX11 (string handle) {
+        Object (handle: handle);
+    }
 
+    construct {
         int xid;
-        if (!int.try_parse (handle, out xid, null, 16)) {
+        int.try_parse (handle, out xid, null, 16);
+        parent_window = (X.Window) xid;
+    }
+
+    public void set_parent_of (Gtk.Window child_window) throws IOError {
+        if (parent_window == null) {
             throw new IOError.FAILED ("Failed to reference external X11 window, invalid XID %s", handle);
         }
 
-        foreign_gdk_window = null; // TODO: new Gdk.X11.Surface.foreign_for_display ((Gdk.X11.Display)display, xid);
-        if (foreign_gdk_window == null) {
-            throw new IOError.FAILED ("Failed to create foreign window for XID %d", xid);
-        }
-    }
+        unowned var child_surface = (Gdk.X11.Surface) child_window.get_surface ();
+        unowned var child_display = (Gdk.X11.Display) child_surface.get_display ();
+        unowned var child_xdisplay = child_display.get_xdisplay ();
 
-    private static Gdk.Display get_x11_display () {
-        if (x11_display != null) {
-            return x11_display;
-        }
-
-        Gdk.set_allowed_backends ("x11");
-        x11_display = Gdk.Display.open ("");
-        Gdk.set_allowed_backends ("*");
-
-        if (x11_display == null) {
-            warning ("Failed to open X11 display");
-        }
-
-        return x11_display;
-    }
-
-    public void set_parent_of (Gdk.Surface child_window) {
-        // TODO: child_window.set_transient_for (foreign_gdk_window);
+        // Render dialog on top of parent_window:
+        X.WindowAttributes parent_window_attributes;
+        child_xdisplay.get_window_attributes (parent_window, out parent_window_attributes);
+        child_xdisplay.reparent_window (
+            child_surface.get_xid (),
+            parent_window,
+            (parent_window_attributes.width - child_window.default_width) / 2,
+            (parent_window_attributes.height - child_window.default_height) / 2
+        );
     }
 }
