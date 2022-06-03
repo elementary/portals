@@ -20,7 +20,7 @@
  */
 
 public interface ExternalWindow : GLib.Object {
-    public abstract void set_parent_of (Gtk.Window child_window) throws IOError;
+    public abstract void set_parent_of (Gtk.Window child_window);
 
     public static ExternalWindow? from_handle (string handle) {
         const string X11_PREFIX = "x11:";
@@ -48,13 +48,15 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
 
     construct {
         int xid;
-        int.try_parse (handle, out xid, null, 16);
-        parent_window = (X.Window) xid;
+        if (int.try_parse (handle, out xid, null, 16)) {
+            parent_window = (X.Window) xid;
+        }
     }
 
-    public void set_parent_of (Gtk.Window child_window) throws IOError {
+    public void set_parent_of (Gtk.Window child_window) {
         if (parent_window == null) {
-            throw new IOError.FAILED ("Failed to reference external X11 window, invalid XID %s", handle);
+            warning ("Failed to reference external X11 window, invalid XID %s", handle);
+            return;
         }
 
         unowned var child_surface = (Gdk.X11.Surface) child_window.get_surface ();
