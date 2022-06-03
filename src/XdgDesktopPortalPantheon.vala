@@ -33,17 +33,17 @@ private const GLib.OptionEntry[] OPTIONS_ENTRIES = {
 private void on_bus_acquired (DBusConnection connection, string name) {
     try {
         connection.register_object ("/org/freedesktop/portal/desktop", new Access.Portal (connection));
-        debug ("Access Portal registed!");
+        debug ("Access Portal registered!");
 
         connection.register_object ("/org/freedesktop/portal/desktop", new AppChooser.Portal (connection));
-        debug ("AppChooser Portal registred!");
+        debug ("AppChooser Portal registered!");
     } catch (Error e) {
         critical ("Unable to register the object: %s", e.message);
     }
 }
 
 private void on_name_acquired () {
-    debug ("org.freedesktop.impl.portal.desktop.panthon acquired");
+    debug ("org.freedesktop.impl.portal.desktop.pantheon acquired");
 
     // We're probably being started by xdg-desktop-portal, which won't be fully initialised until all the backends have loaded.
     // Granite depends on the settings portal to get the style preference, but can't DBus activate it because it's already starting.
