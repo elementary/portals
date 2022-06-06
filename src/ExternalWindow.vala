@@ -1,5 +1,5 @@
 /*-
- * Copyright 2021 elementary LLC <https://elementary.io>
+ * Copyright 2021-2022 elementary LLC <https://elementary.io>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,58 +19,74 @@
  * Authored by: David Hewitt <davidmhewitt@gmail.com>
  */
 
-public interface ExternalWindow : GLib.Object {
-    public abstract void set_parent_of (Gtk.Window child_window);
+ public interface ExternalWindow : GLib.Object {
+    public abstract void set_parent_of (Gdk.Surface child_surface);
 
-    public static ExternalWindow? from_handle (string handle) {
+    public static ExternalWindow? from_handle (string handle) throws GLib.IOError {
         const string X11_PREFIX = "x11:";
+        ExternalWindow? external_window = null;
+
         if (handle.has_prefix (X11_PREFIX)) {
-            var external_window_x11 = new ExternalWindowX11 (handle.substring (X11_PREFIX.length));
-            return external_window_x11;
+            external_window = new ExternalWindowX11 (handle.substring (X11_PREFIX.length));
+        } else {
+            throw new IOError.FAILED ("Unhandled window type");
         }
 
-        // TODO: Handle Wayland
-
-        warning ("Unhandled parent window type %s", handle);
-
-        return null;
+        return external_window;
     }
 }
 
 public class ExternalWindowX11 : ExternalWindow, GLib.Object {
+    private static Gdk.Display? x11_display = null;
 
-    public string handle { get; construct; }
-    private X.Window? parent_window = null;
+    private X.Window foreign_window;
 
-    public ExternalWindowX11 (string handle) {
-        Object (handle: handle);
-    }
+    public ExternalWindowX11 (string handle) throws GLib.IOError {
+        unowned var display = get_x11_display ();
+        if (display == null) {
+            throw new IOError.FAILED ("No X display connection, ignoring X11 parent");
+        }
 
-    construct {
         int xid;
-        if (int.try_parse (handle, out xid, null, 16)) {
-            parent_window = (X.Window) xid;
+        if (!int.try_parse (handle, out xid, null, 16)) {
+            throw new IOError.FAILED ("Failed to reference external X11 window, invalid XID %s", handle);
         }
+
+        foreign_window = xid;
     }
 
-    public void set_parent_of (Gtk.Window child_window) {
-        if (parent_window == null) {
-            warning ("Failed to reference external X11 window, invalid XID %s", handle);
-            return;
+    private static unowned Gdk.Display get_x11_display () {
+        if (x11_display != null) {
+            return x11_display;
         }
 
-        unowned var child_surface = (Gdk.X11.Surface) child_window.get_surface ();
-        unowned var child_display = (Gdk.X11.Display) child_surface.get_display ();
-        unowned var child_xdisplay = child_display.get_xdisplay ();
+        Gdk.set_allowed_backends ("x11");
+        x11_display = Gdk.Display.open ("");
+        Gdk.set_allowed_backends ("*");
 
-        // Render dialog on top of parent_window:
-        X.WindowAttributes parent_window_attributes;
-        child_xdisplay.get_window_attributes (parent_window, out parent_window_attributes);
-        child_xdisplay.reparent_window (
-            child_surface.get_xid (),
-            parent_window,
-            (parent_window_attributes.width - child_window.default_width) / 2,
-            (parent_window_attributes.height - child_window.default_height) / 2
+        if (x11_display == null) {
+            warning ("Failed to open X11 display");
+        }
+
+        return x11_display;
+    }
+
+    public void set_parent_of (Gdk.Surface child_surface) {
+        unowned var display = (Gdk.X11.Display) get_x11_display ();
+        unowned var x_display = display.get_xdisplay ();
+        var child_xid = ((Gdk.X11.Surface) child_surface).get_xid ();
+
+        x_display.set_transient_for_hint (child_xid, foreign_window);
+
+        var dialog_atom = display.get_xatom_by_name ("_NET_WM_WINDOW_TYPE_DIALOG");
+        x_display.change_property (
+            child_xid,
+            display.get_xatom_by_name ("_NET_WM_WINDOW_TYPE"),
+            X.XA_ATOM,
+            32,
+            X.PropMode.Replace,
+            (uchar[]) dialog_atom,
+            1
         );
     }
 }
