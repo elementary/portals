@@ -154,23 +154,21 @@ public class AppChooser.Dialog : Gtk.Window {
         window_handle.child = grid;
 
         child = window_handle;
-        // TODO: Gtk4 Migration
-        // type_hint = Gdk.WindowTypeHint.DIALOG;
 
         default_height = 400;
         default_width = 350;
         modal = true;
 
+        set_decorated (false);
         set_default_widget (open_button);
 
         ((Gtk.Widget) this).realize.connect (() => {
             if (parent_window != "") {
-                var parent = ExternalWindow.from_handle (parent_window);
-
-                if (parent == null) {
-                    warning ("Failed to associate portal window with parent window %s", parent_window);
-                } else {
-                    parent.set_parent_of (this);
+                try {
+                    var parent = ExternalWindow.from_handle (parent_window);
+                    parent.set_parent_of (get_surface ());
+                } catch (Error e) {
+                    warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }
             }
         });

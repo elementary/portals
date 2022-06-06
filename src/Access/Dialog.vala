@@ -64,11 +64,6 @@ public class Access.Dialog : Granite.MessageDialog {
         modal = true;
 
         choices = new List<Choice> ();
-        // TODO: Gtk4 Migration: wm_role seems to be completely removed
-        // set_role ("AccessDialog"); // used in Gala.CloseDialog
-
-        // TODO: Gtk4 Migration: https://valadoc.org/gtk4/Gdk.ToplevelState.html
-        // set_keep_above (true);
 
         if (app_id != "") {
             badge_icon = new DesktopAppInfo (app_id + ".desktop").get_icon ();
@@ -76,14 +71,11 @@ public class Access.Dialog : Granite.MessageDialog {
 
         deny_button = add_button (_("Deny Access"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         grant_button = add_button (_("Grant Access"), Gtk.ResponseType.OK) as Gtk.Button;
-        // unowned var grant_context = grant_button.get_style_context ();
 
         if (action == ButtonAction.SUGGESTED) {
-            // TODO: Gtk4 Migration: Gtk.STYLE_CLASS_SUGGESTED_ACTION is gone
             grant_button.add_css_class ("suggested-action");
             set_default_widget (grant_button);
         } else {
-            // TODO: Gtk4 Migration: Gtk.GTK_STYLE_CLASS_DESTRUCTIVE_ACTION is gone
             grant_button.add_css_class ("destructive-action");
             set_default_widget (deny_button);
         }
@@ -96,22 +88,12 @@ public class Access.Dialog : Granite.MessageDialog {
             ((Gtk.Widget) this).realize.connect (() => {
                 try {
                     var parent = ExternalWindow.from_handle (parent_window);
-                    parent.set_parent_of (this);
+                    parent.set_parent_of (get_surface ());
                 } catch (Error e) {
                     warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }
             });
         }
-
-        show.connect (() => {
-            // TODO: Gtk4 Migration
-            //  var window = get_window ();
-            //  if (window == null) {
-            //      return;
-            //  }
-
-            //  window.focus (Gdk.CURRENT_TIME);
-        });
 
         response.connect_after (destroy);
     }
