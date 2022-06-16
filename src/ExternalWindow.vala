@@ -125,7 +125,7 @@ public class ExternalWindowWayland : ExternalWindow, GLib.Object {
     }
 
     public void set_parent_of (Gdk.Surface child_surface) {
-        if (!((Gdk.Wayland.Surface) child_surface).set_transient_for_exported (handle)) {
+        if (!((Gdk.Wayland.Toplevel) child_surface).set_transient_for_exported (handle)) {
             warning ("Failed to set portal window transient for external parent");
         }
     }
