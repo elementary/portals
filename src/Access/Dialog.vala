@@ -84,7 +84,10 @@ public class Access.Dialog : Granite.MessageDialog {
         custom_bin.append (box);
         box.show ();
 
-        if (parent_window != "") {
+        if (parent_window == "") {
+            warning ("Unknown parent window: The portal dialog might appear at the wrong spot because we can't assign a transient parent.");
+
+        } else {
             ((Gtk.Widget) this).realize.connect (() => {
                 try {
                     var parent = ExternalWindow.from_handle (parent_window);
