@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-16 10:31+0000\n"
-"PO-Revision-Date: 2022-01-26 14:21+0000\n"
+"PO-Revision-Date: 2022-06-16 15:24+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/uk/>\n"
@@ -42,7 +42,7 @@ msgstr "Нові функції:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Support dialog parenting on wayland"
-msgstr ""
+msgstr "Підтримка діалогового вікна вкладеності на wayland"
 
 #: data/portals.appdata.xml.in:25
 msgid "Add a destructive action option for access portals"
