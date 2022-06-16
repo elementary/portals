@@ -19,8 +19,8 @@ executable(
         glib_dep,
         gobject_dep,
         gio_dep,
-        gtk_dep,
         granite_dep,
+        gtk_dep,
         x11_dep
     ],
     install: true,

@@ -24,10 +24,13 @@
 
     public static ExternalWindow? from_handle (string handle) throws GLib.IOError {
         const string X11_PREFIX = "x11:";
+        const string WAYLAND_PREFIX = "wayland:";
         ExternalWindow? external_window = null;
 
         if (handle.has_prefix (X11_PREFIX)) {
             external_window = new ExternalWindowX11 (handle.substring (X11_PREFIX.length));
+        } else if (handle.has_prefix (WAYLAND_PREFIX)) {
+            external_window = new ExternalWindowWayland (handle.substring (WAYLAND_PREFIX.length));
         } else {
             throw new IOError.FAILED ("Unhandled window type");
         }
@@ -88,5 +91,42 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
             (uchar[]) dialog_atom,
             1
         );
+    }
+}
+
+public class ExternalWindowWayland : ExternalWindow, GLib.Object {
+    private static Gdk.Display? wayland_display = null;
+
+    private string handle;
+
+    public ExternalWindowWayland (string handle) throws GLib.IOError {
+        var display = get_wayland_display ();
+        if (display == null) {
+            throw new IOError.FAILED ("No Wayland display connection, ignoring Wayland parent");
+        }
+
+        this.handle = handle;
+    }
+
+    private static unowned Gdk.Display? get_wayland_display () {
+        if (wayland_display != null) {
+            return wayland_display;
+        }
+
+        Gdk.set_allowed_backends ("wayland");
+        wayland_display = Gdk.Display.open (null);
+        Gdk.set_allowed_backends (null);
+
+        if (wayland_display == null) {
+            warning ("Failed to open Wayland display");
+        }
+
+        return wayland_display;
+    }
+
+    public void set_parent_of (Gdk.Surface child_surface) {
+        if (!((Gdk.Wayland.Surface) child_surface).set_transient_for_exported (handle)) {
+            warning ("Failed to set portal window transient for external parent");
+        }
     }
 }
