@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 09:34+0000\n"
+"POT-Creation-Date: 2022-06-16 10:31+0000\n"
 "PO-Revision-Date: 2022-01-26 13:07+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/"
-"portals-extra/he/>\n"
+"Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/portals-"
+"extra/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,42 +35,46 @@ msgstr ""
 "שערי גישה מספק מנשקי API ליישומים מאובטחים שמאפשרים להם לגשת ליכולות במערכת "
 "תוך בקשת הסכמה מודעת."
 
-#: data/portals.appdata.xml.in:15
+#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:23
 msgid "New Features:"
 msgstr "יכולות חדשות:"
 
 #: data/portals.appdata.xml.in:17
+msgid "Support dialog parenting on wayland"
+msgstr ""
+
+#: data/portals.appdata.xml.in:25
 msgid "Add a destructive action option for access portals"
 msgstr "הוספת אפשרות פעולה הרסנית לשערי גישה"
 
-#: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
+#: data/portals.appdata.xml.in:27 data/portals.appdata.xml.in:37
 msgid "Fixes:"
 msgstr "תיקונים:"
 
-#: data/portals.appdata.xml.in:21
+#: data/portals.appdata.xml.in:29
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr "תיקון קריסה בעת פתיחת יישומים בשער בוחר היישומים"
 
-#: data/portals.appdata.xml.in:22
+#: data/portals.appdata.xml.in:30
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr "תוקן מיקוד ומיקום חלון לשערי גישה ללא חלון הורה"
 
-#: data/portals.appdata.xml.in:23
+#: data/portals.appdata.xml.in:31
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr "שער בוחר היישומים הוגדר כחלונית לוכדת לטובת הנפשה הולמת"
 
-#: data/portals.appdata.xml.in:31
+#: data/portals.appdata.xml.in:39
 msgid "Prevent delay after logging in"
 msgstr "נמנענ השהיה אחרי הכניסה"
 
-#: data/portals.appdata.xml.in:37
+#: data/portals.appdata.xml.in:45
 msgid "First release!"
 msgstr "מהדורה ראשונה!"
 
-#: data/portals.appdata.xml.in:39
+#: data/portals.appdata.xml.in:47
 msgid "Add OpenURI Portal"
 msgstr "הוספת שער גישה OpenURI"
 
-#: data/portals.appdata.xml.in:46
+#: data/portals.appdata.xml.in:54
 msgid "elementary, Inc."
 msgstr "elementary בע״מ."

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 09:34+0000\n"
+"POT-Creation-Date: 2022-06-16 10:31+0000\n"
 "PO-Revision-Date: 2022-01-26 13:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
-"portals-extra/ca/>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/portals-"
+"extra/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,46 +36,50 @@ msgstr ""
 "accedir a les funcions del sistema i que requereixen un consentiment "
 "informat."
 
-#: data/portals.appdata.xml.in:15
+#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:23
 msgid "New Features:"
 msgstr "Característiques noves:"
 
 #: data/portals.appdata.xml.in:17
+msgid "Support dialog parenting on wayland"
+msgstr ""
+
+#: data/portals.appdata.xml.in:25
 msgid "Add a destructive action option for access portals"
 msgstr "Addició d'una opció d'acció destructiva per als portals d'accés"
 
-#: data/portals.appdata.xml.in:19 data/portals.appdata.xml.in:29
+#: data/portals.appdata.xml.in:27 data/portals.appdata.xml.in:37
 msgid "Fixes:"
 msgstr "Correccions:"
 
-#: data/portals.appdata.xml.in:21
+#: data/portals.appdata.xml.in:29
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr "Correcció d'un error en obrir aplicacions al portal AppChooser"
 
-#: data/portals.appdata.xml.in:22
+#: data/portals.appdata.xml.in:30
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 "Correcció de l'enfocament i la posició de la finestra per als portals "
 "d'Accés sense finestra principal"
 
-#: data/portals.appdata.xml.in:23
+#: data/portals.appdata.xml.in:31
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "S'estableix el portal AppChooser com a diàleg modal per a animacions "
 "adequades."
 
-#: data/portals.appdata.xml.in:31
+#: data/portals.appdata.xml.in:39
 msgid "Prevent delay after logging in"
 msgstr "S'evita el retard després d'iniciar sessió"
 
-#: data/portals.appdata.xml.in:37
+#: data/portals.appdata.xml.in:45
 msgid "First release!"
 msgstr "Primera versió!"
 
-#: data/portals.appdata.xml.in:39
+#: data/portals.appdata.xml.in:47
 msgid "Add OpenURI Portal"
 msgstr "Afegeix el Portal OpenURI"
 
-#: data/portals.appdata.xml.in:46
+#: data/portals.appdata.xml.in:54
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
