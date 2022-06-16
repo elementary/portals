@@ -160,17 +160,15 @@ public class AppChooser.Dialog : Hdy.Window {
 
         open_button.grab_default ();
 
-        realize.connect (() => {
-            if (parent_window != "") {
-                var parent = ExternalWindow.from_handle (parent_window);
-
-                if (parent == null) {
-                    warning ("Failed to associate portal window with parent window %s", parent_window);
-                } else {
-                    parent.set_parent_of (get_window ());
+        if (parent_window != "") {
+            realize.connect (() => {
+                try {
+                    ExternalWindow.from_handle (parent_window).set_parent_of (get_window ());
+                } catch (Error e) {
+                    warning ("Failed to associate portal window with parent window %s: %s", parent_window, e.message);
                 }
-            }
-        });
+            });
+        }
 
         listbox.row_activated.connect ((row) => {
             choiced (((AppChooser.AppButton) row).app_id);

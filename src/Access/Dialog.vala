@@ -85,8 +85,7 @@ public class Access.Dialog : Granite.MessageDialog {
         if (parent_window != "") {
             realize.connect (() => {
                 try {
-                    var parent = ExternalWindow.from_handle (parent_window);
-                    parent.set_parent_of (get_window ());
+                    ExternalWindow.from_handle (parent_window).set_parent_of (get_window ());
                 } catch (Error e) {
                     warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }
