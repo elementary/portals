@@ -5,7 +5,7 @@
 
 [DBus (name = "org.freedesktop.impl.portal.AppChooser")]
 public class AppChooser.Portal : Object {
-    private HashTable<ObjectPath, Dialog> handles;      
+    private HashTable<ObjectPath, Dialog> handles;
     private DBusConnection connection;
 
     public Portal (DBusConnection connection) {
