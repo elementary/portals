@@ -90,8 +90,6 @@ public class Access.Dialog : Granite.MessageDialog {
                 warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
             }
         });
-
-        response.connect_after (destroy);
     }
 
     [DBus (visible = false)]

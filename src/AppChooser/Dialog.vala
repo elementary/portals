@@ -26,6 +26,7 @@ public class AppChooser.Dialog : Gtk.Window {
 
     private HashTable<string, AppButton> buttons;
     private Gtk.Button open_button;
+    private Gtk.Button cancel_button;
     private Gtk.ListBox listbox;
 
     public Dialog (
@@ -118,7 +119,7 @@ public class AppChooser.Dialog : Gtk.Window {
         var frame = new Gtk.Frame (null);
         frame.child = scrolled_window;
 
-        var cancel = new Gtk.Button.with_label (_("Cancel"));
+        cancel_button = new Gtk.Button.with_label (_("Cancel"));
 
         open_button = new Gtk.Button.with_label (_("Open")) {
             receives_default = true
@@ -130,7 +131,7 @@ public class AppChooser.Dialog : Gtk.Window {
             margin_top = 12
         };
 
-        button_box.append (cancel);
+        button_box.append (cancel_button);
         button_box.append (open_button);
 
         var grid = new Gtk.Grid () {
@@ -173,10 +174,7 @@ public class AppChooser.Dialog : Gtk.Window {
         });
 
         open_button.clicked.connect (() => choiced (((AppChooser.AppButton) listbox.get_selected_row ()).app_id));
-        cancel.clicked.connect (() => choiced (""));
-
-        // close the dialog after a selection;
-        choiced.connect_after (() => destroy ());
+        cancel_button.clicked.connect (() => choiced (""));
     }
 
     private void add_choice (string choice) {
@@ -204,6 +202,6 @@ public class AppChooser.Dialog : Gtk.Window {
 
     [DBus (name = "Close")]
     public void on_close () throws DBusError, IOError {
-        destroy ();
+        cancel_button.clicked ();
     }
 }

@@ -58,24 +58,10 @@ public class AppChooser.Portal : Object {
             critical (e.message);
         }
 
-
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
         uint _response = 2;
 
-        ((Gtk.Widget) dialog).destroy.connect (() => {
-            if (dialog.register_id != 0) {
-                connection.unregister_object (dialog.register_id);
-            }
-        });
-
-        var destroy_id = ((Gtk.Widget) dialog).destroy.connect_after (() => {
-            _results["choice"] = "";
-            choose_application.callback ();
-        });
-
         dialog.choiced.connect ((app_id) => {
-            dialog.disconnect (destroy_id);
-
             _results["choice"] = app_id.replace (".desktop", "");
             _response = app_id == "" ? 1 : 0;
 
@@ -83,8 +69,11 @@ public class AppChooser.Portal : Object {
         });
 
         handles[handle] = dialog;
-        dialog.show ();
+        dialog.present ();
         yield;
+
+        connection.unregister_object (dialog.register_id);
+        dialog.destroy ();
 
         results = _results;
         response = _response;

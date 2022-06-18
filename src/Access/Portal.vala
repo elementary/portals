@@ -100,8 +100,11 @@ public class Access.Portal : Object {
             access_dialog.callback ();
         });
 
-        dialog.show ();
+        dialog.present ();
         yield;
+
+        connection.unregister_object (dialog.register_id);
+        dialog.destroy ();
 
         results = _results;
         response = _response;
