@@ -54,12 +54,6 @@ public class Access.Dialog : Granite.MessageDialog {
     }
 
     construct {
-        unowned var surface = get_surface ();
-        if (surface is Gdk.X11.Surface) {
-            unowned var x11_surface = (Gdk.X11.Surface) surface;
-            x11_surface.set_skip_taskbar_hint (true);
-        }
-
         resizable = false;
         modal = true;
 
@@ -84,18 +78,25 @@ public class Access.Dialog : Granite.MessageDialog {
         custom_bin.append (box);
         box.show ();
 
-        if (parent_window == "") {
-            warning ("Unknown parent window: The portal dialog might appear at the wrong spot because we can't assign a transient parent.");
+        ((Gtk.Widget) this).realize.connect (() => {
+            unowned var surface = get_surface ();
 
-        } else {
-            ((Gtk.Widget) this).realize.connect (() => {
+            if (surface is Gdk.X11.Surface) {
+                unowned var x11_surface = (Gdk.X11.Surface) surface;
+                x11_surface.set_skip_taskbar_hint (true);
+            }
+
+            if (parent_window == "") {
+                warning ("Unknown parent window: The portal dialog might appear at the wrong spot because we can't assign a transient parent.");
+
+            } else {
                 try {
-                    ExternalWindow.from_handle (parent_window).set_parent_of (get_surface ());
+                    ExternalWindow.from_handle (parent_window).set_parent_of (surface);
                 } catch (Error e) {
                     warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }
-            });
-        }
+            }
+        });
 
         response.connect_after (destroy);
     }

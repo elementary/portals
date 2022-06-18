@@ -160,18 +160,18 @@ public class AppChooser.Dialog : Gtk.Window {
         default_width = 350;
         default_widget = open_button;
 
-        if (parent_window == "") {
-            warning ("Unknown parent window: The portal dialog might appear at the wrong spot because we can't assign a transient parent.");
+        ((Gtk.Widget) this).realize.connect (() => {
+            if (parent_window == "") {
+                warning ("Unknown parent window: The portal dialog might appear at the wrong spot because we can't assign a transient parent.");
 
-        } else {
-            ((Gtk.Widget) this).realize.connect (() => {
+            } else {
                 try {
                     ExternalWindow.from_handle (parent_window).set_parent_of (get_surface ());
                 } catch (Error e) {
                     warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }
-            });
-        }
+            }
+        });
 
         listbox.row_activated.connect ((row) => {
             choiced (((AppChooser.AppButton) row).app_id);
