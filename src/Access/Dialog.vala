@@ -41,7 +41,6 @@ public class Access.Dialog : Granite.MessageDialog {
     private Gtk.Button grant_button;
     private Gtk.Button deny_button;
     private List<Choice> choices;
-    private Gtk.Box box;
 
     public Dialog (ButtonAction action, string app_id, string parent_window, string icon) {
         Object (
@@ -74,9 +73,8 @@ public class Access.Dialog : Granite.MessageDialog {
             default_widget = deny_button;
         }
 
-        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        custom_bin.append (box);
-        box.show ();
+        custom_bin.orientation = Gtk.Orientation.VERTICAL;
+        custom_bin.spacing = 6;
 
         ((Gtk.Widget) this).realize.connect (() => {
             unowned var surface = get_surface ();
@@ -104,7 +102,7 @@ public class Access.Dialog : Granite.MessageDialog {
     [DBus (visible = false)]
     public void add_choice (Choice choice) {
         choices.append (choice);
-        box.append (choice);
+        custom_bin.append (choice);
     }
 
     [DBus (visible = false)]
