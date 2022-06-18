@@ -74,10 +74,10 @@ public class Access.Dialog : Granite.MessageDialog {
 
         if (action == ButtonAction.SUGGESTED) {
             grant_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
-            set_default_widget (grant_button);
+            default_widget = grant_button;
         } else {
             grant_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
-            set_default_widget (deny_button);
+            default_widget = deny_button;
         }
 
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);

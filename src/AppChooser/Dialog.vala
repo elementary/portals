@@ -154,12 +154,11 @@ public class AppChooser.Dialog : Gtk.Window {
 
         child = window_handle;
 
+        modal = true;
+        decorated = false;
         default_height = 400;
         default_width = 350;
-        modal = true;
-
-        set_decorated (false);
-        set_default_widget (open_button);
+        default_widget = open_button;
 
         if (parent_window == "") {
             warning ("Unknown parent window: The portal dialog might appear at the wrong spot because we can't assign a transient parent.");
