@@ -19,7 +19,7 @@
  * Authored by: David Hewitt <davidmhewitt@gmail.com>
  */
 
- public interface ExternalWindow : GLib.Object {
+public interface ExternalWindow : GLib.Object {
     public abstract void set_parent_of (Gdk.Surface child_surface);
 
     public static ExternalWindow? from_handle (string handle) throws GLib.IOError {
