@@ -8,46 +8,48 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-16 10:31+0000\n"
-"PO-Revision-Date: 2021-10-20 14:02-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-06-18 22:03+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
+"portals/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: src/Access/Dialog.vala:69
 msgid "Deny Access"
-msgstr ""
+msgstr "Nekt tilgang"
 
 #: src/Access/Dialog.vala:70
 msgid "Grant Access"
-msgstr ""
+msgstr "Innvilg tilgang"
 
 #: src/AppChooser/Dialog.vala:73
-#, c-format
+#, c-format, fuzzy
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "Et program har bedt om å åpne %s."
 
 #: src/AppChooser/Dialog.vala:75
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "«%s» forespurte åpning av %s."
 
 #: src/AppChooser/Dialog.vala:106
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Ingen installerte programmer kan åpne %s"
 
 #: src/AppChooser/Dialog.vala:107
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Nye programmer kan installeres fra AppSenter"
 
 #: src/AppChooser/Dialog.vala:123
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/AppChooser/Dialog.vala:125
 msgid "Open"
-msgstr ""
+msgstr "Åpne"
