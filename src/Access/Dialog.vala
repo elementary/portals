@@ -73,10 +73,10 @@ public class Access.Dialog : Granite.MessageDialog {
         grant_button = add_button (_("Grant Access"), Gtk.ResponseType.OK) as Gtk.Button;
 
         if (action == ButtonAction.SUGGESTED) {
-            grant_button.add_css_class ("suggested-action");
+            grant_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
             set_default_widget (grant_button);
         } else {
-            grant_button.add_css_class ("destructive-action");
+            grant_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
             set_default_widget (deny_button);
         }
 

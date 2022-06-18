@@ -123,8 +123,7 @@ public class AppChooser.Dialog : Gtk.Window {
         open_button = new Gtk.Button.with_label (_("Open")) {
             receives_default = true
         };
-        // TODO: Gtk4 Migration: Gtk.STYLE_CLASS_SUGGESTED_ACTION is gone
-        open_button.add_css_class ("suggested-action");
+        open_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
             halign = Gtk.Align.END,
