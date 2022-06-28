@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-16 10:31+0000\n"
-"PO-Revision-Date: 2022-01-27 22:43+0000\n"
+"PO-Revision-Date: 2022-06-28 16:33+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/hu/>\n"
@@ -42,7 +42,7 @@ msgstr "Új funkciók:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Support dialog parenting on wayland"
-msgstr ""
+msgstr "Dialógusok szülői felügyelet alá helyezésének támogatása waylanden"
 
 #: data/portals.appdata.xml.in:25
 msgid "Add a destructive action option for access portals"
