@@ -31,7 +31,7 @@ msgstr "Дать доступ"
 #: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "An application requested to open a %s."
-msgstr "Приложение запросило открытие %s."
+msgstr "Приложение запросило открыть %s."
 
 #: src/AppChooser/Dialog.vala:75
 #, c-format
