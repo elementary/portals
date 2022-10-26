@@ -15,6 +15,7 @@
         <p>New Features:</p>
         <ul>
           <li>Support dialog parenting on wayland</li>
+          <li>Updated translations</li>
         </ul>
       </description>
     </release>
