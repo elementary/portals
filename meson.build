@@ -1,4 +1,4 @@
-project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '1.1.0')
+project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '1.2.0')
 
 i18n = import('i18n')
 
