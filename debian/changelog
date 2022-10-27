@@ -1,3 +1,13 @@
+io.elementary.portals (1.2.0) focal; urgency=medium
+
+  * Release 1.2.0 (#57)
+  * Update translation files
+  * Update translation template
+  * Updates for ExternalWindow (#54)
+  * make --verbose works (#50)
+
+ -- elementary, Inc. <builds@elementary.io>  Thu, 27 Oct 2022 16:45:06 +0000
+
 io.elementary.portals (1.1.0) focal; urgency=medium
 
   * Release 1.1.0 (#46)
