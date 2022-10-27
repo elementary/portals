@@ -10,7 +10,7 @@ on:
 jobs:
   release_deb:
     name: Release (Deb)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     if: github.event.pull_request.merged == true && true == contains(join(github.event.pull_request.labels.*.name), 'Release')
 
@@ -25,4 +25,4 @@ jobs:
          GIT_USER_NAME: "elementaryBot"
          GIT_USER_EMAIL: "builds@elementary.io"
        with:
-         release_branch: 'odin'
+         release_branch: 'horus'
