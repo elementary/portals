@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 10:31+0000\n"
+"POT-Creation-Date: 2022-10-26 01:29+0000\n"
 "PO-Revision-Date: 2022-02-03 15:04+0000\n"
 "Last-Translator: Joel Jose <joel750jose@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -35,7 +35,7 @@ msgstr ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 
-#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:23
+#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:24
 msgid "New Features:"
 msgstr "New Features:"
 
@@ -43,38 +43,42 @@ msgstr "New Features:"
 msgid "Support dialog parenting on wayland"
 msgstr ""
 
-#: data/portals.appdata.xml.in:25
+#: data/portals.appdata.xml.in:18
+msgid "Updated translations"
+msgstr ""
+
+#: data/portals.appdata.xml.in:26
 msgid "Add a destructive action option for access portals"
 msgstr "Add a destructive action option for access portals"
 
-#: data/portals.appdata.xml.in:27 data/portals.appdata.xml.in:37
+#: data/portals.appdata.xml.in:28 data/portals.appdata.xml.in:38
 msgid "Fixes:"
 msgstr "Fixes:"
 
-#: data/portals.appdata.xml.in:29
+#: data/portals.appdata.xml.in:30
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr "Fix a crash when opening apps in the AppChooser portal"
 
-#: data/portals.appdata.xml.in:30
+#: data/portals.appdata.xml.in:31
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr "Fix window focus and position for Access portals with no parent window"
 
-#: data/portals.appdata.xml.in:31
+#: data/portals.appdata.xml.in:32
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr "Set AppChooser portal as a modal dialog for proper animations"
 
-#: data/portals.appdata.xml.in:39
+#: data/portals.appdata.xml.in:40
 msgid "Prevent delay after logging in"
 msgstr "Prevent delay after logging in"
 
-#: data/portals.appdata.xml.in:45
+#: data/portals.appdata.xml.in:46
 msgid "First release!"
 msgstr "First release!"
 
-#: data/portals.appdata.xml.in:47
+#: data/portals.appdata.xml.in:48
 msgid "Add OpenURI Portal"
 msgstr "Add OpenURI Portal"
 
-#: data/portals.appdata.xml.in:54
+#: data/portals.appdata.xml.in:55
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
