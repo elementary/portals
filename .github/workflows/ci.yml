@@ -9,13 +9,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     container:
       image: elementary/docker:next-unstable
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install Dependencies
       run: |
         apt update
@@ -23,7 +23,6 @@ jobs:
     - name: Build
       run: |
         meson build
-        ninja -C build
         ninja -C build install
 
   lint:
