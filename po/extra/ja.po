@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 10:31+0000\n"
+"POT-Creation-Date: 2022-10-26 01:29+0000\n"
 "PO-Revision-Date: 2022-08-20 10:41+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
-"portals-extra/ja/>\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals-"
+"extra/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,50 +35,55 @@ msgstr ""
 "“ポータル”は、安全なアプリが事前にユーザーからの許可を得てシステムの機能にア"
 "クセスできる API を提供します。"
 
-#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:23
+#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:24
 msgid "New Features:"
 msgstr "新機能:"
 
 #: data/portals.appdata.xml.in:17
 msgid "Support dialog parenting on wayland"
-msgstr "Wayland において、ポータルダイアログを親ウィンドウの上に表示できるように修正"
+msgstr ""
+"Wayland において、ポータルダイアログを親ウィンドウの上に表示できるように修正"
 
-#: data/portals.appdata.xml.in:25
+#: data/portals.appdata.xml.in:18
+msgid "Updated translations"
+msgstr ""
+
+#: data/portals.appdata.xml.in:26
 msgid "Add a destructive action option for access portals"
 msgstr "アクセスポータルに破壊的なアクションを行うオプションを追加"
 
-#: data/portals.appdata.xml.in:27 data/portals.appdata.xml.in:37
+#: data/portals.appdata.xml.in:28 data/portals.appdata.xml.in:38
 msgid "Fixes:"
 msgstr "修正点:"
 
-#: data/portals.appdata.xml.in:29
+#: data/portals.appdata.xml.in:30
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr "アプリ選択ポータルからアプリを開く際にクラッシュしないように修正"
 
-#: data/portals.appdata.xml.in:30
+#: data/portals.appdata.xml.in:31
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 "親ウィンドウのないアクセスポータルウィンドウが、フォーカスされ正しい位置に表"
 "示されるように修正"
 
-#: data/portals.appdata.xml.in:31
+#: data/portals.appdata.xml.in:32
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "アプリ選択ポータルをモーダルダイアログに変更し、適切にアニメーション表示され"
 "るように修正"
 
-#: data/portals.appdata.xml.in:39
+#: data/portals.appdata.xml.in:40
 msgid "Prevent delay after logging in"
 msgstr "ログイン後の遅延を修正"
 
-#: data/portals.appdata.xml.in:45
+#: data/portals.appdata.xml.in:46
 msgid "First release!"
 msgstr "最初のリリース！"
 
-#: data/portals.appdata.xml.in:47
+#: data/portals.appdata.xml.in:48
 msgid "Add OpenURI Portal"
 msgstr "OpenURI ポータルを追加"
 
-#: data/portals.appdata.xml.in:54
+#: data/portals.appdata.xml.in:55
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
