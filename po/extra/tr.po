@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-26 01:29+0000\n"
-"PO-Revision-Date: 2022-02-10 15:32+0000\n"
+"PO-Revision-Date: 2022-11-07 17:57+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
-"Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/tr/>\n"
+"Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: data/portals.appdata.xml.in:18
 msgid "Updated translations"
-msgstr ""
+msgstr "Çeviriler güncellendi"
 
 #: data/portals.appdata.xml.in:26
 msgid "Add a destructive action option for access portals"
