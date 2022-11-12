@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-26 01:29+0000\n"
-"PO-Revision-Date: 2022-06-16 15:24+0000\n"
+"PO-Revision-Date: 2022-10-27 18:57+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/uk/>\n"
@@ -46,7 +46,7 @@ msgstr "Підтримка діалогового вікна вкладенос�
 
 #: data/portals.appdata.xml.in:18
 msgid "Updated translations"
-msgstr ""
+msgstr "Оновлені переклади"
 
 #: data/portals.appdata.xml.in:26
 msgid "Add a destructive action option for access portals"
