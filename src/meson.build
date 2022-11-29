@@ -15,6 +15,8 @@ executable(
     'AppChooser/Portal.vala',
     'AppChooser/Dialog.vala',
     'AppChooser/AppButton.vala',
+    'Share/Dialog.vala',
+    'Share/Portal.vala',
     dependencies: [
         glib_dep,
         gobject_dep,
