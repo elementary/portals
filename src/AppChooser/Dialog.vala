@@ -49,9 +49,9 @@ public class AppChooser.Dialog : Hdy.Window {
         AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
         Hdy.init ();
 
-        var primary_text = "Open file with…";
+        var primary_text = _("Open file with…");
         if (filename != "") {
-            primary_text = "Open “%s” with…".printf (filename);
+            primary_text = _("Open “%s” with…").printf (filename);
         }
 
         var content_description = ContentType.get_description ("text/plain");
