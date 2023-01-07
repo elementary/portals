@@ -110,7 +110,8 @@ public class AppChooser.Dialog : Hdy.Window {
         placeholder.show_all ();
 
         listbox = new Gtk.ListBox () {
-            expand = true,
+            vexpand = true,
+            hexpand = true,
             activate_on_single_click = false
         };
         listbox.set_placeholder (placeholder);
@@ -166,17 +167,13 @@ public class AppChooser.Dialog : Hdy.Window {
         var window_handle_bottom = new Hdy.WindowHandle ();
         window_handle_bottom.add (button_box);
 
-        var grid = new Gtk.Grid () {
-            orientation = Gtk.Orientation.VERTICAL,
-            column_spacing = 12,
-            row_spacing = 6
-        };
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
 
-        grid.attach (window_handle_top, 0, 0);
-        grid.attach (content_grid, 0, 1);
-        grid.attach (window_handle_bottom, 0, 2);
+        box.pack_start (window_handle_top, false, false);
+        box.pack_start (content_grid);
+        box.pack_start (window_handle_bottom, false, false);
 
-        add (grid);
+        add (box);
         type_hint = Gdk.WindowTypeHint.DIALOG;
         default_height = 400;
         default_width = 350;
