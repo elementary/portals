@@ -128,18 +128,6 @@ public class AppChooser.Dialog : Hdy.Window {
         };
         open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
-            layout_style = Gtk.ButtonBoxStyle.END,
-            margin = 12,
-            spacing = 6
-        };
-
-        button_box.add (cancel);
-        button_box.add (open_button);
-
-        var window_handle_bottom = new Hdy.WindowHandle ();
-        window_handle_bottom.add (button_box);
-
         var top_grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
             column_spacing = 12,
@@ -165,6 +153,18 @@ public class AppChooser.Dialog : Hdy.Window {
         };
 
         content_grid.attach (frame, 0, 0);
+
+        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
+            layout_style = Gtk.ButtonBoxStyle.END,
+            margin = 12,
+            spacing = 6
+        };
+
+        button_box.add (cancel);
+        button_box.add (open_button);
+
+        var window_handle_bottom = new Hdy.WindowHandle ();
+        window_handle_bottom.add (button_box);
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
