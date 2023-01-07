@@ -110,7 +110,8 @@ public class AppChooser.Dialog : Hdy.Window {
         placeholder.show_all ();
 
         listbox = new Gtk.ListBox () {
-            expand = true
+            expand = true,
+            activate_on_single_click = false
         };
         listbox.set_placeholder (placeholder);
 
@@ -136,23 +137,44 @@ public class AppChooser.Dialog : Hdy.Window {
         button_box.add (cancel);
         button_box.add (open_button);
 
-        var grid = new Gtk.Grid () {
+        var title_grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
             column_spacing = 12,
             row_spacing = 6,
-            margin = 12
+            margin_start = 12,
+            margin_end = 12,
+            margin_top = 12
         };
 
-        grid.attach (overlay, 0, 0, 1, 2);
-        grid.attach (primary_label, 1, 0);
-        grid.attach (secondary_label, 1, 1);
-        grid.attach (frame, 0, 3, 2);
-        grid.attach (button_box, 1, 4);
+        title_grid.attach (overlay, 0, 0, 1, 2);
+        title_grid.attach (primary_label, 1, 0);
+        title_grid.attach (secondary_label, 1, 1);
 
         var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (grid);
+        window_handle.add (title_grid);
 
-        add (window_handle);
+        var content_grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL,
+            column_spacing = 12,
+            row_spacing = 6,
+            margin_start = 12,
+            margin_end = 12,
+            margin_bottom = 12
+        };
+
+        content_grid.attach (frame, 0, 0, 2);
+        content_grid.attach (button_box, 1, 1);
+
+        var grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL,
+            column_spacing = 12,
+            row_spacing = 6
+        };
+
+        grid.attach (window_handle, 0, 0);
+        grid.attach (content_grid, 0, 1);
+
+        add (grid);
         type_hint = Gdk.WindowTypeHint.DIALOG;
         default_height = 400;
         default_width = 350;
