@@ -130,14 +130,17 @@ public class AppChooser.Dialog : Hdy.Window {
 
         var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
             layout_style = Gtk.ButtonBoxStyle.END,
-            margin_top = 12,
+            margin = 12,
             spacing = 6
         };
 
         button_box.add (cancel);
         button_box.add (open_button);
 
-        var title_grid = new Gtk.Grid () {
+        var window_handle_bottom = new Hdy.WindowHandle ();
+        window_handle_bottom.add (button_box);
+
+        var top_grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
             column_spacing = 12,
             row_spacing = 6,
@@ -146,24 +149,22 @@ public class AppChooser.Dialog : Hdy.Window {
             margin_top = 12
         };
 
-        title_grid.attach (overlay, 0, 0, 1, 2);
-        title_grid.attach (primary_label, 1, 0);
-        title_grid.attach (secondary_label, 1, 1);
+        top_grid.attach (overlay, 0, 0, 1, 2);
+        top_grid.attach (primary_label, 1, 0);
+        top_grid.attach (secondary_label, 1, 1);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (title_grid);
+        var window_handle_top = new Hdy.WindowHandle ();
+        window_handle_top.add (top_grid);
 
         var content_grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
             column_spacing = 12,
             row_spacing = 6,
             margin_start = 12,
-            margin_end = 12,
-            margin_bottom = 12
+            margin_end = 12
         };
 
-        content_grid.attach (frame, 0, 0, 2);
-        content_grid.attach (button_box, 1, 1);
+        content_grid.attach (frame, 0, 0);
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
@@ -171,8 +172,9 @@ public class AppChooser.Dialog : Hdy.Window {
             row_spacing = 6
         };
 
-        grid.attach (window_handle, 0, 0);
+        grid.attach (window_handle_top, 0, 0);
         grid.attach (content_grid, 0, 1);
+        grid.attach (window_handle_bottom, 0, 2);
 
         add (grid);
         type_hint = Gdk.WindowTypeHint.DIALOG;
