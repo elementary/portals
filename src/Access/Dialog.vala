@@ -36,8 +36,8 @@ public class Access.Dialog : Granite.MessageDialog {
         }
     }
 
-    private Gtk.Button grant_button;
-    private Gtk.Button deny_button;
+    private unowned Gtk.Button grant_button;
+    private unowned Gtk.Button deny_button;
     private List<Choice> choices;
 
     public Dialog (ButtonAction action, string app_id, string parent_window, string icon) {
@@ -73,27 +73,23 @@ public class Access.Dialog : Granite.MessageDialog {
 
         custom_bin.orientation = Gtk.Orientation.VERTICAL;
         custom_bin.spacing = 6;
+    }
+
+    public override void show () {
+        ((Gtk.Widget) base).realize ();
+
+        unowned var toplevel = (Gdk.Toplevel) get_surface ();
 
         if (parent_window != "") {
-            ((Gtk.Widget) this).realize.connect (() => {
-                unowned var surface = get_surface ();
-
-                if (surface is Gdk.X11.Surface) {
-                    unowned var x11_surface = (Gdk.X11.Surface) surface;
-                    x11_surface.set_skip_taskbar_hint (true);
-                }
-
-                try {
-                    ExternalWindow.from_handle (parent_window).set_parent_of (surface);
-                } catch (Error e) {
-                    warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
-                }
-            });
+            try {
+                ExternalWindow.from_handle (parent_window).set_parent_of (toplevel);
+            } catch (Error e) {
+                warning ("Failed to associate portal window with parent '%s': %s", parent_window, e.message);
+            }
         }
 
-        show.connect (() => {
-            present_with_time (Gdk.CURRENT_TIME);
-        });
+        base.show ();
+        toplevel.focus (Gdk.CURRENT_TIME);
     }
 
     [DBus (visible = false)]
