@@ -26,7 +26,6 @@ public class AppChooser.Dialog : Gtk.Window {
 
     private HashTable<string, AppButton> buttons;
     private Gtk.Button open_button;
-    private Gtk.Button cancel_button;
     private Gtk.ListBox listbox;
 
     public Dialog (
@@ -122,7 +121,7 @@ public class AppChooser.Dialog : Gtk.Window {
             child = scrolled_window
         };
 
-        cancel_button = new Gtk.Button.with_label (_("Cancel"));
+        var cancel_button = new Gtk.Button.with_label (_("Cancel"));
 
         open_button = new Gtk.Button.with_label (_("Open")) {
             receives_default = true
