@@ -92,6 +92,11 @@ public class Access.Dialog : Granite.MessageDialog {
         toplevel.focus (Gdk.CURRENT_TIME);
     }
 
+    public override void close () {
+        response (Gtk.ResponseType.CANCEL);
+        base.close ();
+    }
+
     [DBus (visible = false)]
     public void add_choice (Choice choice) {
         choices.append (choice);
