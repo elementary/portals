@@ -159,10 +159,9 @@ public class AppChooser.Dialog : Gtk.Window {
         child = window_handle;
 
         // We need to hide the title area
-        var null_title = new Gtk.Grid () {
+        titlebar = new Gtk.Grid () {
             visible = false
         };
-        set_titlebar (null_title);
 
         modal = true;
         default_height = 400;
