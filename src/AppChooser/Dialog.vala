@@ -163,13 +163,15 @@ public class AppChooser.Dialog : Gtk.Window {
         default_width = 350;
         default_widget = open_button;
 
-        ((Gtk.Widget) this).realize.connect (() => {
-            try {
-                ExternalWindow.from_handle (parent_window).set_parent_of (get_surface ());
-            } catch (Error e) {
-                warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
-            }
-        });
+        if (parent_window != "") {
+            ((Gtk.Widget) this).realize.connect (() => {
+                try {
+                    ExternalWindow.from_handle (parent_window).set_parent_of (get_surface ());
+                } catch (Error e) {
+                    warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
+                }
+            });
+        }
 
         listbox.row_activated.connect ((row) => {
             choiced (((AppChooser.AppButton) row).app_id);
