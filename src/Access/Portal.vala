@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2021 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2021-2023 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
@@ -24,6 +24,7 @@ public class Access.Portal : Object {
     ) throws DBusError, IOError {
         Dialog.ButtonAction action = Dialog.ButtonAction.SUGGESTED;
         string icon = "dialog-information";
+        uint register_id = 0;
 
         if ("destructive" in options && options["destructive"].get_boolean ()) {
             action = Dialog.ButtonAction.DESTRUCTIVE;
@@ -62,7 +63,7 @@ public class Access.Portal : Object {
         }
 
         try {
-            dialog.register_id = connection.register_object (handle, dialog);
+            register_id = connection.register_object (handle, dialog);
         } catch (Error e) {
             critical (e.message);
         }
@@ -96,7 +97,7 @@ public class Access.Portal : Object {
         dialog.present ();
         yield;
 
-        connection.unregister_object (dialog.register_id);
+        connection.unregister_object (register_id);
         dialog.destroy ();
 
         results = _results;

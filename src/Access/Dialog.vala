@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2021 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2021-2023 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
@@ -9,8 +9,6 @@ public class Access.Dialog : Granite.MessageDialog {
         SUGGESTED,
         DESTRUCTIVE
     }
-
-    public uint register_id { get; set; default = 0; }
 
     public ButtonAction action { get; construct; }
 
