@@ -62,19 +62,13 @@ public class Access.Portal : Object {
             }
         }
 
-        try {
-            register_id = connection.register_object (handle, dialog);
-        } catch (Error e) {
-            critical (e.message);
-        }
-
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
-        uint _response = 2;
+        var _response = 2;
 
         dialog.response.connect ((id) => {
             switch (id) {
                 case Gtk.ResponseType.OK:
-                    VariantBuilder choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
+                    var choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
 
                     dialog.get_choices ().foreach ((choice) => {
                         choices_builder.add ("(ss)", choice.name, choice.selected);
@@ -83,9 +77,11 @@ public class Access.Portal : Object {
                     _results["choices"] = choices_builder.end ();
                     _response = 0;
                     break;
+
                 case Gtk.ResponseType.CANCEL:
                     _response = 1;
                     break;
+
                 case Gtk.ResponseType.DELETE_EVENT:
                     _response = 2;
                     break;
@@ -93,6 +89,12 @@ public class Access.Portal : Object {
 
             access_dialog.callback ();
         });
+
+        try {
+            register_id = connection.register_object (handle, dialog);
+        } catch (Error e) {
+            critical (e.message);
+        }
 
         dialog.present ();
         yield;
