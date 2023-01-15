@@ -95,7 +95,8 @@ public class AppChooser.Dialog : Gtk.Window {
         if (info != null) {
             var badge = new Gtk.Image.from_gicon (info.get_icon ()) {
                 halign = Gtk.Align.END,
-                valign = Gtk.Align.END
+                valign = Gtk.Align.END,
+                pixel_size = 24
             };
 
             overlay.add_overlay (badge);
@@ -191,7 +192,6 @@ public class AppChooser.Dialog : Gtk.Window {
                 add_choice (choice);
             }
         }
-        listbox.show ();
 
         if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
             add_choice (last_choice);
@@ -203,6 +203,6 @@ public class AppChooser.Dialog : Gtk.Window {
 
     [DBus (name = "Close")]
     public void on_close () throws DBusError, IOError {
-        cancel_button.clicked ();
+        choiced ("");
     }
 }
