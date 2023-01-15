@@ -92,8 +92,9 @@ public class Access.Portal : Object {
 
         try {
             register_id = connection.register_object (handle, dialog);
-        } catch (Error e) {
-            critical (e.message);
+        } catch (IOError e) {
+            warning (e.message);
+            throw new DBusError.OBJECT_PATH_IN_USE (e.message);
         }
 
         dialog.present ();
