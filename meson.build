@@ -14,6 +14,8 @@ gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
 granite_dep = dependency('granite-7')
 gtk_dep = dependency('gtk4')
+gtk_x11_dep = dependency('gtk4-x11')
+wayland_dep = dependency('gtk4-wayland')
 x11_dep = dependency('x11')
 
 add_project_arguments(
