@@ -4,9 +4,8 @@
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
-* libgranite-dev >= 6.0.0
-* libhandy-1
-* libgtk-3.0-dev
+* libgranite-7-dev
+* gtk4
 * libvte-2.91-dev
 * meson
 * valac

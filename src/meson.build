@@ -13,11 +13,11 @@ executable(
         glib_dep,
         gobject_dep,
         gio_dep,
-        gtk_dep,
-        gdk_dep,
-        x11_dep,
         granite_dep,
-        handy_dep
+        gtk_dep,
+        gtk_x11_dep,
+        wayland_dep,
+        x11_dep
     ],
     install: true,
     install_dir: libexecdir

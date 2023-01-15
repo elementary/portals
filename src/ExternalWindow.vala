@@ -20,7 +20,7 @@
  */
 
 public interface ExternalWindow : GLib.Object {
-    public abstract void set_parent_of (Gdk.Window child_window);
+    public abstract void set_parent_of (Gdk.Surface child_surface);
 
     public static ExternalWindow? from_handle (string handle) throws GLib.IOError {
         const string X11_PREFIX = "x11:";
@@ -64,8 +64,8 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
         }
 
         Gdk.set_allowed_backends ("x11");
-        x11_display = Gdk.Display.open (null);
-        Gdk.set_allowed_backends (null);
+        x11_display = Gdk.Display.open ("");
+        Gdk.set_allowed_backends ("*");
 
         if (x11_display == null) {
             warning ("Failed to open X11 display");
@@ -74,21 +74,21 @@ public class ExternalWindowX11 : ExternalWindow, GLib.Object {
         return x11_display;
     }
 
-    public void set_parent_of (Gdk.Window child_window) {
+    public void set_parent_of (Gdk.Surface child_surface) {
         unowned var display = (Gdk.X11.Display) get_x11_display ();
         unowned var x_display = display.get_xdisplay ();
-        var child_xid = ((Gdk.X11.Window) child_window).get_xid ();
+        var child_xid = ((Gdk.X11.Surface) child_surface).get_xid ();
 
         x_display.set_transient_for_hint (child_xid, foreign_window);
 
-        var atom = Gdk.X11.get_xatom_by_name_for_display (display, "_NET_WM_WINDOW_TYPE_DIALOG");
+        var dialog_atom = display.get_xatom_by_name ("_NET_WM_WINDOW_TYPE_DIALOG");
         x_display.change_property (
             child_xid,
-            Gdk.X11.get_xatom_by_name_for_display (display, "_NET_WM_WINDOW_TYPE"),
+            display.get_xatom_by_name ("_NET_WM_WINDOW_TYPE"),
             X.XA_ATOM,
             32,
             X.PropMode.Replace,
-            (uchar[]) atom,
+            (uchar[]) dialog_atom,
             1
         );
     }
@@ -114,8 +114,8 @@ public class ExternalWindowWayland : ExternalWindow, GLib.Object {
         }
 
         Gdk.set_allowed_backends ("wayland");
-        wayland_display = Gdk.Display.open (null);
-        Gdk.set_allowed_backends (null);
+        wayland_display = Gdk.Display.open ("");
+        Gdk.set_allowed_backends ("*");
 
         if (wayland_display == null) {
             warning ("Failed to open Wayland display");
@@ -124,8 +124,8 @@ public class ExternalWindowWayland : ExternalWindow, GLib.Object {
         return wayland_display;
     }
 
-    public void set_parent_of (Gdk.Window child_window) {
-        if (!((Gdk.Wayland.Window) child_window).set_transient_for_exported (handle)) {
+    public void set_parent_of (Gdk.Surface child_surface) {
+        if (!((Gdk.Wayland.Toplevel) child_surface).set_transient_for_exported (handle)) {
             warning ("Failed to set portal window transient for external parent");
         }
     }

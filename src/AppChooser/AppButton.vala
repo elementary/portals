@@ -15,22 +15,17 @@ public class AppChooser.AppButton : Gtk.ListBoxRow {
 
         var icon = new Gtk.Image () {
             gicon = app_info.get_icon () ?? new ThemedIcon ("application-default-icon"),
-            icon_size = Gtk.IconSize.DND
+            icon_size = Gtk.IconSize.LARGE
         };
 
         var name = new Gtk.Label (app_info.get_display_name ()) {
             ellipsize = Pango.EllipsizeMode.END
         };
 
-        var grid = new Gtk.Grid () {
-            column_spacing = 6,
-            margin = 3,
-            margin_start = 6,
-            margin_end = 6
-        };
-        grid.add (icon);
-        grid.add (name);
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+        box.append (icon);
+        box.append (name);
 
-        add (grid);
+        child = box;
     }
 }

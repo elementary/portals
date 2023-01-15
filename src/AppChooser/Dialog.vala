@@ -4,7 +4,7 @@
  */
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
-public class AppChooser.Dialog : Hdy.Window {
+public class AppChooser.Dialog : Gtk.Window {
     public signal void choiced (string app_id);
 
     // The ID used to register this dialog on the DBusConnection
@@ -47,7 +47,6 @@ public class AppChooser.Dialog : Hdy.Window {
     construct {
         buttons = new HashTable<string, AppButton> (str_hash, str_equal);
         AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
-        Hdy.init ();
 
         var primary_text = _("Open file with…");
         if (filename != "") {
@@ -68,7 +67,7 @@ public class AppChooser.Dialog : Hdy.Window {
              wrap = true,
              xalign = 0
         };
-        primary_label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+        primary_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
         var secondary_text = _("An application requested to open a %s.").printf (content_description);
         if (info != null) {
@@ -83,89 +82,101 @@ public class AppChooser.Dialog : Hdy.Window {
             xalign = 0
         };
 
-        var mime_icon = new Gtk.Image () {
-            gicon = content_icon ,
-            icon_size = Gtk.IconSize.DIALOG
+        var mime_icon = new Gtk.Image.from_gicon (content_icon) {
+            pixel_size = 48
         };
 
         var overlay = new Gtk.Overlay () {
+            child = mime_icon,
             valign = Gtk.Align.START
         };
-        overlay.add (mime_icon);
 
         if (info != null) {
-            var badge = new Gtk.Image.from_gicon (info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR) {
+            var badge = new Gtk.Image.from_gicon (info.get_icon ()) {
                 halign = Gtk.Align.END,
-                valign = Gtk.Align.END
+                valign = Gtk.Align.END,
+                pixel_size = 24
             };
 
             overlay.add_overlay (badge);
         }
 
-        var placeholder = new Granite.Widgets.AlertView (
-            _("No installed apps can open %s").printf (content_description),
-            _("New apps can be installed from AppCenter"),
-            "application-default-icon"
-        );
-        placeholder.show_all ();
+        var placeholder = new Granite.Placeholder (_("No installed apps can open %s").printf (content_description)) {
+            description = _("New apps can be installed from AppCenter"),
+            icon = new ThemedIcon ("application-default-icon")
+        };
 
         listbox = new Gtk.ListBox () {
-            expand = true
+            hexpand = true,
+            vexpand = true
         };
+        listbox.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         listbox.set_placeholder (placeholder);
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.add (listbox);
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = listbox
+        };
 
-        var frame = new Gtk.Frame (null);
-        frame.add (scrolled_window);
+        var frame = new Gtk.Frame (null) {
+            child = scrolled_window
+        };
 
-        var cancel = new Gtk.Button.with_label (_("Cancel"));
+        var cancel_button = new Gtk.Button.with_label (_("Cancel"));
 
         open_button = new Gtk.Button.with_label (_("Open")) {
-            can_default = true
+            receives_default = true
         };
-        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        open_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
-        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
-            layout_style = Gtk.ButtonBoxStyle.END,
-            margin_top = 12,
-            spacing = 6
+        var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            halign = Gtk.Align.END
         };
-
-        button_box.add (cancel);
-        button_box.add (open_button);
+        button_box.append (cancel_button);
+        button_box.append (open_button);
+        button_box.add_css_class ("dialog-action-area");
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
             column_spacing = 12,
-            row_spacing = 6,
-            margin = 12
+            row_spacing = 6
         };
 
         grid.attach (overlay, 0, 0, 1, 2);
         grid.attach (primary_label, 1, 0);
         grid.attach (secondary_label, 1, 1);
         grid.attach (frame, 0, 3, 2);
-        grid.attach (button_box, 1, 4);
+        grid.add_css_class (Granite.STYLE_CLASS_DIALOG_CONTENT_AREA);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (grid);
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        box.append (grid);
+        box.append (button_box);
+        box.add_css_class ("dialog-vbox");
 
-        add (window_handle);
-        type_hint = Gdk.WindowTypeHint.DIALOG;
+        var window_handle = new Gtk.WindowHandle () {
+            child = box
+        };
+
+        child = window_handle;
+
+        // We need to hide the title area
+        titlebar = new Gtk.Grid () {
+            visible = false
+        };
+
+        modal = true;
         default_height = 400;
         default_width = 350;
-        modal = true;
+        default_widget = open_button;
 
-        open_button.grab_default ();
+        add_css_class ("dialog");
+        add_css_class (Granite.STYLE_CLASS_MESSAGE_DIALOG);
 
         if (parent_window != "") {
-            realize.connect (() => {
+            ((Gtk.Widget) this).realize.connect (() => {
                 try {
-                    ExternalWindow.from_handle (parent_window).set_parent_of (get_window ());
+                    ExternalWindow.from_handle (parent_window).set_parent_of (get_surface ());
                 } catch (Error e) {
-                    warning ("Failed to associate portal window with parent window %s: %s", parent_window, e.message);
+                    warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
                 }
             });
         }
@@ -175,15 +186,12 @@ public class AppChooser.Dialog : Hdy.Window {
         });
 
         open_button.clicked.connect (() => choiced (((AppChooser.AppButton) listbox.get_selected_row ()).app_id));
-        cancel.clicked.connect (() => choiced (""));
-
-        // close the dialog after a selection;
-        choiced.connect_after (() => destroy ());
+        cancel_button.clicked.connect (() => choiced (""));
     }
 
     private void add_choice (string choice) {
         buttons[choice] = new AppButton (choice);
-        listbox.add (buttons[choice]);
+        listbox.append (buttons[choice]);
     }
 
 
@@ -194,18 +202,17 @@ public class AppChooser.Dialog : Hdy.Window {
                 add_choice (choice);
             }
         }
-        listbox.show_all ();
 
         if (last_choice != "" && !(last_choice in buttons) && last_choice != app_id) {
             add_choice (last_choice);
             buttons[last_choice].grab_focus ();
         }
 
-        open_button.sensitive = listbox.get_children ().length () > 0;
+        open_button.sensitive = listbox.get_row_at_index (0) != null;
     }
 
     [DBus (name = "Close")]
     public void on_close () throws DBusError, IOError {
-        destroy ();
+        choiced ("");
     }
 }

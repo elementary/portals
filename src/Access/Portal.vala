@@ -70,13 +70,6 @@ public class Access.Portal : Object {
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
         uint _response = 2;
 
-        dialog.destroy.connect (() => {
-            if (dialog.register_id != 0) {
-                connection.unregister_object (dialog.register_id);
-                dialog.register_id = 0;
-            }
-        });
-
         dialog.response.connect ((id) => {
             switch (id) {
                 case Gtk.ResponseType.OK:
@@ -100,8 +93,11 @@ public class Access.Portal : Object {
             access_dialog.callback ();
         });
 
-        dialog.show_all ();
+        dialog.present ();
         yield;
+
+        connection.unregister_object (dialog.register_id);
+        dialog.destroy ();
 
         results = _results;
         response = _response;
