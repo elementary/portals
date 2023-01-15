@@ -83,15 +83,14 @@ public class AppChooser.Dialog : Gtk.Window {
             xalign = 0
         };
 
-        var mime_icon = new Gtk.Image () {
-            gicon = content_icon,
-            icon_size = Gtk.IconSize.LARGE
+        var mime_icon = new Gtk.Image.from_gicon (content_icon) {
+            pixel_size = 48
         };
 
         var overlay = new Gtk.Overlay () {
+            child = mime_icon,
             valign = Gtk.Align.START
         };
-        overlay.child = mime_icon;
 
         if (info != null) {
             var badge = new Gtk.Image.from_gicon (info.get_icon ()) {
@@ -106,18 +105,20 @@ public class AppChooser.Dialog : Gtk.Window {
             description = _("New apps can be installed from AppCenter"),
             icon = new ThemedIcon ("application-default-icon")
         };
-        placeholder.show ();
 
         listbox = new Gtk.ListBox () {
+            hexpand = true,
             vexpand = true
         };
         listbox.set_placeholder (placeholder);
 
-        var scrolled_window = new Gtk.ScrolledWindow ();
-        scrolled_window.child = listbox;
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = listbox
+        };
 
-        var frame = new Gtk.Frame (null);
-        frame.child = scrolled_window;
+        var frame = new Gtk.Frame (null) {
+            child = scrolled_window
+        };
 
         cancel_button = new Gtk.Button.with_label (_("Cancel"));
 
@@ -130,7 +131,6 @@ public class AppChooser.Dialog : Gtk.Window {
             halign = Gtk.Align.END,
             margin_top = 12
         };
-
         button_box.append (cancel_button);
         button_box.append (open_button);
 
@@ -150,8 +150,9 @@ public class AppChooser.Dialog : Gtk.Window {
         grid.attach (frame, 0, 3, 2);
         grid.attach (button_box, 1, 4);
 
-        var window_handle = new Gtk.WindowHandle ();
-        window_handle.child = grid;
+        var window_handle = new Gtk.WindowHandle () {
+            child = grid
+        };
 
         child = window_handle;
 

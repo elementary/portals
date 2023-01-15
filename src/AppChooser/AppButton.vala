@@ -22,16 +22,16 @@ public class AppChooser.AppButton : Gtk.ListBoxRow {
             ellipsize = Pango.EllipsizeMode.END
         };
 
-        var grid = new Gtk.Grid () {
-            column_spacing = 6,
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
             margin_top = 3,
+            margin_end = 6,
             margin_bottom = 3,
-            margin_start = 6,
-            margin_end = 6
-        };
-        grid.attach (icon, 0, 0);
-        grid.attach (name, 1, 0);
+            margin_start = 6
 
-        child = grid;
+        };
+        box.append (icon);
+        box.append (name);
+
+        child = box;
     }
 }
