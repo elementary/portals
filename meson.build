@@ -1,11 +1,11 @@
-project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '1.2.0')
+project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '1.2.0', meson_version: '>=0.58')
 
 i18n = import('i18n')
 
 prefix = get_option('prefix')
-datadir = join_paths(prefix, get_option('datadir'))
-libexecdir = join_paths(prefix, get_option('libexecdir'))
-localedir = join_paths(prefix, get_option('localedir'))
+datadir = prefix / get_option('datadir')
+libexecdir = prefix / get_option('libexecdir')
+localedir = prefix / get_option('localedir')
 
 systemd_dep = dependency('systemd')
 
@@ -23,7 +23,7 @@ add_project_arguments(
     language: 'vala'
 )
 
-add_global_arguments(
+add_project_arguments(
     '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()),
     language: 'c'
 )

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 01:29+0000\n"
+"POT-Creation-Date: 2023-01-06 16:21+0000\n"
 "PO-Revision-Date: 2021-11-01 02:39+0000\n"
 "Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -26,6 +26,15 @@ msgstr "拒绝访问"
 #: src/Access/Dialog.vala:70
 msgid "Grant Access"
 msgstr "授予访问权限"
+
+#: src/AppChooser/Dialog.vala:52
+msgid "Open file with…"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:54
+#, c-format
+msgid "Open “%s” with…"
+msgstr ""
 
 #: src/AppChooser/Dialog.vala:73
 #, c-format

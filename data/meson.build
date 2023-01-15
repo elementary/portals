@@ -1,6 +1,6 @@
 install_data(
     'pantheon.portal',
-    install_dir: join_paths(datadir, 'xdg-desktop-portal', 'portals')
+    install_dir: datadir / 'xdg-desktop-portal' / 'portals'
 )
 
 configure_file(
@@ -8,12 +8,12 @@ configure_file(
     output: '@BASENAME@',
     configuration: conf_data,
     install: true,
-    install_dir: join_paths(datadir, 'dbus-1', 'services')
+    install_dir: datadir / 'dbus-1' / 'services'
 )
 
-systemd_systemduserunitdir = get_option('systemduserunitdir')
-if systemd_systemduserunitdir == ''
-    systemd_systemduserunitdir = systemd_dep.get_pkgconfig_variable('systemduserunitdir', define_variable: ['prefix', prefix])
+systemduserunitdir = get_option('systemduserunitdir')
+if systemduserunitdir == ''
+    systemduserunitdir = systemd_dep.get_variable('systemduserunitdir', pkgconfig_define: [ 'prefix', prefix ])
 endif
 
 configure_file(
@@ -21,14 +21,14 @@ configure_file(
     output: '@BASENAME@',
     configuration: conf_data,
     install: true,
-    install_dir: systemd_systemduserunitdir
+    install_dir: systemduserunitdir
 )
 
 i18n.merge_file(
     input: 'portals.appdata.xml.in',
     output: 'io.elementary.portals.appdata.xml',
-    po_dir: join_paths(meson.source_root(), 'po', 'extra'),
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'xml',
     install: true,
-    install_dir: join_paths(get_option('datadir'), 'metainfo'),
+    install_dir: datadir / 'metainfo'
 )
