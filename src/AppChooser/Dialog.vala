@@ -129,31 +129,32 @@ public class AppChooser.Dialog : Gtk.Window {
         };
         open_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
-        var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
-            halign = Gtk.Align.END,
-            margin_top = 12
+        var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            halign = Gtk.Align.END
         };
         button_box.append (cancel_button);
         button_box.append (open_button);
+        button_box.add_css_class ("dialog-action-area");
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
             column_spacing = 12,
-            row_spacing = 6,
-            margin_top = 12,
-            margin_bottom = 12,
-            margin_start = 12,
-            margin_end = 12
+            row_spacing = 6
         };
 
         grid.attach (overlay, 0, 0, 1, 2);
         grid.attach (primary_label, 1, 0);
         grid.attach (secondary_label, 1, 1);
         grid.attach (frame, 0, 3, 2);
-        grid.attach (button_box, 1, 4);
+        grid.add_css_class (Granite.STYLE_CLASS_DIALOG_CONTENT_AREA);
+
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        box.append (grid);
+        box.append (button_box);
+        box.add_css_class ("dialog-vbox");
 
         var window_handle = new Gtk.WindowHandle () {
-            child = grid
+            child = box
         };
 
         child = window_handle;
@@ -163,6 +164,9 @@ public class AppChooser.Dialog : Gtk.Window {
         default_height = 400;
         default_width = 350;
         default_widget = open_button;
+
+        add_css_class ("dialog");
+        add_css_class (Granite.STYLE_CLASS_MESSAGE_DIALOG);
 
         if (parent_window != "") {
             ((Gtk.Widget) this).realize.connect (() => {
