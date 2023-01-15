@@ -22,13 +22,7 @@ public class AppChooser.AppButton : Gtk.ListBoxRow {
             ellipsize = Pango.EllipsizeMode.END
         };
 
-        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
-            margin_top = 3,
-            margin_end = 6,
-            margin_bottom = 3,
-            margin_start = 6
-
-        };
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
         box.append (icon);
         box.append (name);
 
