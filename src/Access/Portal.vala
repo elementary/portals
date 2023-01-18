@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2021 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2021-2023 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
@@ -24,6 +24,7 @@ public class Access.Portal : Object {
     ) throws DBusError, IOError {
         Dialog.ButtonAction action = Dialog.ButtonAction.SUGGESTED;
         string icon = "dialog-information";
+        uint register_id = 0;
 
         if ("destructive" in options && options["destructive"].get_boolean ()) {
             action = Dialog.ButtonAction.DESTRUCTIVE;
@@ -61,19 +62,13 @@ public class Access.Portal : Object {
             }
         }
 
-        try {
-            dialog.register_id = connection.register_object (handle, dialog);
-        } catch (Error e) {
-            critical (e.message);
-        }
-
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
-        uint _response = 2;
+        var _response = 2;
 
         dialog.response.connect ((id) => {
             switch (id) {
                 case Gtk.ResponseType.OK:
-                    VariantBuilder choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
+                    var choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
 
                     dialog.get_choices ().foreach ((choice) => {
                         choices_builder.add ("(ss)", choice.name, choice.selected);
@@ -82,9 +77,11 @@ public class Access.Portal : Object {
                     _results["choices"] = choices_builder.end ();
                     _response = 0;
                     break;
+
                 case Gtk.ResponseType.CANCEL:
                     _response = 1;
                     break;
+
                 case Gtk.ResponseType.DELETE_EVENT:
                     _response = 2;
                     break;
@@ -93,10 +90,17 @@ public class Access.Portal : Object {
             access_dialog.callback ();
         });
 
+        try {
+            register_id = connection.register_object (handle, dialog);
+        } catch (IOError e) {
+            warning (e.message);
+            throw new DBusError.OBJECT_PATH_IN_USE (e.message);
+        }
+
         dialog.present ();
         yield;
 
-        connection.unregister_object (dialog.register_id);
+        connection.unregister_object (register_id);
         dialog.destroy ();
 
         results = _results;
