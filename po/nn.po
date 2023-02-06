@@ -8,55 +8,57 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-06 16:21+0000\n"
-"PO-Revision-Date: 2021-10-20 14:02-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-02-07 09:25+0000\n"
+"Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
+"Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/"
+"desktop/portals/nn/>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: src/Access/Dialog.vala:69
 msgid "Deny Access"
-msgstr ""
+msgstr "Ikkje gje tilgang"
 
 #: src/Access/Dialog.vala:70
 msgid "Grant Access"
-msgstr ""
+msgstr "Gje tilgang"
 
 #: src/AppChooser/Dialog.vala:52
 msgid "Open file with…"
-msgstr ""
+msgstr "Opna fila med…"
 
 #: src/AppChooser/Dialog.vala:54
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Opna \"%s\" med…"
 
 #: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "Ein applikasjon ynskjer å opna ein %s."
 
 #: src/AppChooser/Dialog.vala:75
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "\"%s\" ynskjer å opna ein %s."
 
 #: src/AppChooser/Dialog.vala:106
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Du har ingen innstallerte appar som kan opna %s"
 
 #: src/AppChooser/Dialog.vala:107
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Nye appar kan du installera i AppCenter"
 
 #: src/AppChooser/Dialog.vala:123
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/AppChooser/Dialog.vala:125
 msgid "Open"
-msgstr ""
+msgstr "Opna"
