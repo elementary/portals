@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-06 16:21+0000\n"
-"PO-Revision-Date: 2022-06-18 22:03+0000\n"
+"PO-Revision-Date: 2023-02-14 13:25+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
 "portals/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: src/Access/Dialog.vala:69
 msgid "Deny Access"
@@ -28,13 +28,14 @@ msgid "Grant Access"
 msgstr "Innvilg tilgang"
 
 #: src/AppChooser/Dialog.vala:52
+#, fuzzy
 msgid "Open file with…"
-msgstr ""
+msgstr "Åpne filen med …"
 
 #: src/AppChooser/Dialog.vala:54
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Åpne «%s» med …"
 
 #: src/AppChooser/Dialog.vala:73
 #, fuzzy, c-format
