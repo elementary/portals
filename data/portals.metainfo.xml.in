@@ -34,6 +34,7 @@
       <issues>
         <issue url="https://github.com/elementary/portals/issues/52">AppChooser doesn't work with mouse</issue>
         <issue url="https://github.com/elementary/portals/pull/59">AppChooser: Make primary text translatable</issue>
+      </issues>
     </release>
 
     <release version="1.2.0" data="2022-10-25" urgency="medium">
