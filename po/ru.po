@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-06 16:21+0000\n"
+"POT-Creation-Date: 2023-02-21 19:59+0000\n"
 "PO-Revision-Date: 2023-01-08 17:25+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/portals/"
@@ -20,46 +20,46 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14.2\n"
 
-#: src/Access/Dialog.vala:69
+#: src/Access/Dialog.vala:63
 msgid "Deny Access"
 msgstr "Отклонить запрос"
 
-#: src/Access/Dialog.vala:70
+#: src/Access/Dialog.vala:64
 msgid "Grant Access"
 msgstr "Дать доступ"
 
-#: src/AppChooser/Dialog.vala:52
+#: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
 msgstr "Открыть файл с помощью…"
 
-#: src/AppChooser/Dialog.vala:54
+#: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Открыть «%s» с помощью…"
 
-#: src/AppChooser/Dialog.vala:73
+#: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "An application requested to open a %s."
 msgstr "Приложение запросило открыть %s."
 
-#: src/AppChooser/Dialog.vala:75
+#: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
 msgstr "Приложение «%s» запросило открыть %s."
 
-#: src/AppChooser/Dialog.vala:106
+#: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Ни одно из установленных приложений не может открыть %s"
 
-#: src/AppChooser/Dialog.vala:107
+#: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
 msgstr "Новые приложения можно установить из AppCenter"
 
-#: src/AppChooser/Dialog.vala:123
+#: src/AppChooser/Dialog.vala:124
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/AppChooser/Dialog.vala:125
+#: src/AppChooser/Dialog.vala:126
 msgid "Open"
 msgstr "Открыть"
