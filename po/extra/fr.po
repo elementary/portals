@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-06 16:21+0000\n"
+"POT-Creation-Date: 2023-02-21 19:59+0000\n"
 "PO-Revision-Date: 2022-11-09 14:29+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/portals-"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.14.2\n"
 
-#: data/portals.appdata.xml.in:7
+#: data/portals.metainfo.xml.in:10
 msgid "Portals"
 msgstr "Portails"
 
-#: data/portals.appdata.xml.in:8
+#: data/portals.metainfo.xml.in:11
 msgid "Access system features in a secure way"
 msgstr "Accédez à des fonctionnalités de système de façon sécurisée"
 
-#: data/portals.appdata.xml.in:10
+#: data/portals.metainfo.xml.in:13
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
@@ -36,56 +36,57 @@ msgstr ""
 "l'accès aux fonctionnalités du système après avoir demandé un consentement "
 "éclairé."
 
-#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:24
+#: data/portals.metainfo.xml.in:22
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:42
+#: data/portals.metainfo.xml.in:52
 msgid "New Features:"
 msgstr "Nouvelles fonctionnalités :"
 
-#: data/portals.appdata.xml.in:17
-msgid "Support dialog parenting on wayland"
-msgstr "Prise en charge de la hiérarchisation des fenêtres sur wayland"
-
-#: data/portals.appdata.xml.in:18
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:45
 msgid "Updated translations"
 msgstr "Mise à jour des traductions"
 
-#: data/portals.appdata.xml.in:26
+#: data/portals.metainfo.xml.in:44
+msgid "Support dialog parenting on wayland"
+msgstr "Prise en charge de la hiérarchisation des fenêtres sur wayland"
+
+#: data/portals.metainfo.xml.in:54
 msgid "Add a destructive action option for access portals"
 msgstr "Ajout d'une option d'action destructrice pour les portails d'accès"
 
-#: data/portals.appdata.xml.in:28 data/portals.appdata.xml.in:38
+#: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:67
 msgid "Fixes:"
 msgstr "Corrections :"
 
-#: data/portals.appdata.xml.in:30
+#: data/portals.metainfo.xml.in:58
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr ""
 "Correction d'un plantage lors de l'ouverture d'applications via le portail "
 "de sélection d'application"
 
-#: data/portals.appdata.xml.in:31
+#: data/portals.metainfo.xml.in:59
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 "Correction de la mise au point et de la position de la fenêtre pour les "
 "portails d'accès sans fenêtre parente"
 
-#: data/portals.appdata.xml.in:32
+#: data/portals.metainfo.xml.in:60
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "Le portail de sélection d'application est désormais une boîte de dialogue "
 "pour des animations plus appropriées"
 
-#: data/portals.appdata.xml.in:40
+#: data/portals.metainfo.xml.in:69
 msgid "Prevent delay after logging in"
 msgstr "Correction d'un éventuel délai après la connexion"
 
-#: data/portals.appdata.xml.in:46
+#: data/portals.metainfo.xml.in:76
 msgid "First release!"
 msgstr "Première version !"
 
-#: data/portals.appdata.xml.in:48
+#: data/portals.metainfo.xml.in:78
 msgid "Add OpenURI Portal"
 msgstr "Ajout du portail OpenURI"
-
-#: data/portals.appdata.xml.in:55
-msgid "elementary, Inc."
-msgstr "elementary, Inc."

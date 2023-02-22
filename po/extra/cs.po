@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-06 16:21+0000\n"
+"POT-Creation-Date: 2023-02-21 19:59+0000\n"
 "PO-Revision-Date: 2022-02-02 18:36+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/desktop/portals-"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/portals.appdata.xml.in:7
+#: data/portals.metainfo.xml.in:10
 msgid "Portals"
 msgstr "Portály"
 
-#: data/portals.appdata.xml.in:8
+#: data/portals.metainfo.xml.in:11
 msgid "Access system features in a secure way"
 msgstr "Bezpečný přístup k funkcím systému"
 
-#: data/portals.appdata.xml.in:10
+#: data/portals.metainfo.xml.in:13
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
@@ -36,52 +36,53 @@ msgstr ""
 "kterým umožní přístup k funkcím systému a přitom vyžaduje informovaný "
 "souhlas."
 
-#: data/portals.appdata.xml.in:15 data/portals.appdata.xml.in:24
+#: data/portals.metainfo.xml.in:22
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:42
+#: data/portals.metainfo.xml.in:52
 msgid "New Features:"
 msgstr "Nové funkce:"
 
-#: data/portals.appdata.xml.in:17
-msgid "Support dialog parenting on wayland"
-msgstr ""
-
-#: data/portals.appdata.xml.in:18
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:45
 msgid "Updated translations"
 msgstr ""
 
-#: data/portals.appdata.xml.in:26
+#: data/portals.metainfo.xml.in:44
+msgid "Support dialog parenting on wayland"
+msgstr ""
+
+#: data/portals.metainfo.xml.in:54
 msgid "Add a destructive action option for access portals"
 msgstr "Přidány volby pro destruktivní akce pro přístupové portály"
 
-#: data/portals.appdata.xml.in:28 data/portals.appdata.xml.in:38
+#: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:67
 msgid "Fixes:"
 msgstr "Opravy:"
 
-#: data/portals.appdata.xml.in:30
+#: data/portals.metainfo.xml.in:58
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr "Opraven pád při otevírání aplikací v portálu AppChooser"
 
-#: data/portals.appdata.xml.in:31
+#: data/portals.metainfo.xml.in:59
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 "Opraveno zaměření okna a pozice pro přístupové portály postrádající "
 "nadřazené okno"
 
-#: data/portals.appdata.xml.in:32
+#: data/portals.metainfo.xml.in:60
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr "Nastaven AppChooser portál jako modální dialog a tím správné animace"
 
-#: data/portals.appdata.xml.in:40
+#: data/portals.metainfo.xml.in:69
 msgid "Prevent delay after logging in"
 msgstr "Zabráněno prodlevě po přihlášení se"
 
-#: data/portals.appdata.xml.in:46
+#: data/portals.metainfo.xml.in:76
 msgid "First release!"
 msgstr "Prvotní vydání!"
 
-#: data/portals.appdata.xml.in:48
+#: data/portals.metainfo.xml.in:78
 msgid "Add OpenURI Portal"
 msgstr "Přidán portál pro otevírání URI"
-
-#: data/portals.appdata.xml.in:55
-msgid "elementary, Inc."
-msgstr "elementary, Inc."

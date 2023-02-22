@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-06 16:21+0000\n"
+"POT-Creation-Date: 2023-02-21 19:59+0000\n"
 "PO-Revision-Date: 2022-04-15 22:18+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -19,46 +19,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: src/Access/Dialog.vala:69
+#: src/Access/Dialog.vala:63
 msgid "Deny Access"
 msgstr "ڕێگریکردن لە دەستگەیشتن"
 
-#: src/Access/Dialog.vala:70
+#: src/Access/Dialog.vala:64
 msgid "Grant Access"
 msgstr "ڕێگەدان بە دەستگەیشتن"
 
-#: src/AppChooser/Dialog.vala:52
+#: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:54
+#: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:73
+#: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "An application requested to open a %s."
 msgstr "بەرنامەیەک داوای کردنەوەی %s دەکات."
 
-#: src/AppChooser/Dialog.vala:75
+#: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
 msgstr "\"%s\" داوای کردنەوەی %s کردووە."
 
-#: src/AppChooser/Dialog.vala:106
+#: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "هیچ بەرنامەیەکی دامەزراو ناتوانێت %s بکاتەوە"
 
-#: src/AppChooser/Dialog.vala:107
+#: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
 msgstr "دەکرێت بەرنامەی تازە لە ئەپ سەنتەرەوە دابمەزرێن"
 
-#: src/AppChooser/Dialog.vala:123
+#: src/AppChooser/Dialog.vala:124
 msgid "Cancel"
 msgstr "هەڵوەشاندنەوە"
 
-#: src/AppChooser/Dialog.vala:125
+#: src/AppChooser/Dialog.vala:126
 msgid "Open"
 msgstr "کردنەوە"
