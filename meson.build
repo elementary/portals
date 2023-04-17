@@ -13,9 +13,18 @@ glib_dep = dependency('glib-2.0')
 gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
 granite_dep = dependency('granite-7')
-gtk_dep = dependency('gtk4')
-gtk_x11_dep = dependency('gtk4-x11')
-wayland_dep = dependency('gtk4-wayland')
+
+gtk_deps = [
+    dependency('gtk4')
+]
+
+if meson.get_compiler('vala').version().version_compare('>=0.56.1')
+    gtk_deps += [
+        dependency('gtk4-x11'),
+        dependency('gtk4-wayland')
+    ]
+endif
+
 x11_dep = dependency('x11')
 
 add_project_arguments(

@@ -14,9 +14,7 @@ executable(
         gobject_dep,
         gio_dep,
         granite_dep,
-        gtk_dep,
-        gtk_x11_dep,
-        wayland_dep,
+        gtk_deps,
         x11_dep
     ],
     install: true,
