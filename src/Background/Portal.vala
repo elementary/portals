@@ -17,6 +17,11 @@ public class Background.Portal : Object {
         this.connection = connection;
     }
 
+    public struct RunningApplication {
+        string app_id;
+        GLib.HashTable<string, Variant> details;
+    }
+
     [DBus(name = "org.pantheon.gala.DesktopIntegration")]
     public interface DesktopIntegration : GLib.Object {
         [DBus(name = "GetRunningApplications")]
@@ -32,11 +37,6 @@ public class Background.Portal : Object {
         } catch (Error e) {
             critical (e.message);
         }
-    }
-
-    public struct RunningApplication {
-        string app_id;
-        GLib.HashTable<string, Variant> details;
     }
 
     public void get_app_state (out HashTable<string, Variant> apps) throws DBusError, IOError {
@@ -70,7 +70,11 @@ public class Background.Portal : Object {
 
         results = new HashTable<string, Variant> (str_hash, str_equal);
 
+        //TODO
+
         yield;
+
+        //TODO
     }
 
     private enum AutostartFlags {
@@ -85,7 +89,6 @@ public class Background.Portal : Object {
         uint32 flags,
         out bool result
     ) throws DBusError, IOError {
-        print ("enable_autostart\n");
         result = false;
         string file_name = app_id + ".desktop";
         string directory = Path.build_filename (Environment.get_user_config_dir (), "autostart");
@@ -127,9 +130,8 @@ public class Background.Portal : Object {
 
             var str = argv[i];
 
-            for (int j = 1; i <= str.length; j++) {
-                int index = str.index_of_nth_char (j);
-                unichar c = str.get_char (index);
+            for (int j = 0; i < str.char_count (); j++) {
+                char c = str.get (str.index_of_nth_char (j));
                 if (!c.isalnum () &&
                     !(c == '-' || c == '/' || c == '~' ||
                     c == ':' || c == '.' || c == '_' ||
