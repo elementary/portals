@@ -46,7 +46,7 @@ public class Background.Portal : Object {
             RunningApplication[] result = {};
             desktop_integration.get_running_applications (out result);
             for (int i = 0; i < result.length; i++) {
-                apps.set (result[i].app_id, 1);
+                apps.set (result[i].app_id, 1); //FIXME: Don't hardcode
             }
         } catch (Error e) {
             critical (e.message);
@@ -130,7 +130,7 @@ public class Background.Portal : Object {
 
             var str = argv[i];
 
-            for (int j = 0; i < str.char_count (); j++) {
+            for (int j = 0; i < str.char_count (); j++) { //FIXME
                 char c = str.get (str.index_of_nth_char (j));
                 if (!c.isalnum () &&
                     !(c == '-' || c == '/' || c == '~' ||
