@@ -105,7 +105,7 @@ public class Background.Portal : Object {
         if (autostart_flags == AUTOSTART_FLAGS_ACTIVATABLE) {
             key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, true);
         }
-        key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id + "hahaha it owkrw !!!!");
+        key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
 
         try {
             key_file.save_to_file (full_path);
@@ -121,10 +121,16 @@ public class Background.Portal : Object {
         var builder = new StringBuilder ();
 
         for (int i = 0; i < argv.length; i++) {
+            if (i != 0) {
+                builder.append (" ");
+            }
+
             var str = argv[i];
-            for (int j = 0; i < str.length; j++) {
-                char c = str[j];
-                if (!c.isalnum() &&
+
+            for (int j = 1; i <= str.length; j++) {
+                int index = str.index_of_nth_char (j);
+                unichar c = str.get_char (index);
+                if (!c.isalnum () &&
                     !(c == '-' || c == '/' || c == '~' ||
                     c == ':' || c == '.' || c == '_' ||
                     c == '=' || c == '@')) {
@@ -132,6 +138,7 @@ public class Background.Portal : Object {
                     break;
                 }
             }
+
             builder.append (str);
         }
 
