@@ -22,11 +22,11 @@ public class Background.Portal : Object {
         GLib.HashTable<string, Variant> details;
     }
 
-    [DBus(name = "org.pantheon.gala.DesktopIntegration")]
+    [DBus (name = "org.pantheon.gala.DesktopIntegration")]
     public interface DesktopIntegration : GLib.Object {
-        [DBus(name = "GetRunningApplications")]
+        [DBus (name = "GetRunningApplications")]
         public abstract GLib.ObjectPath get_running_applications (out RunningApplication[] running_apps) throws DBusError, IOError;
-        [DBus(name = "RunningApplicationsChanged")]
+        [DBus (name = "RunningApplicationsChanged")]
         public abstract signal void integration_running_applications_changed ();
     }
 
