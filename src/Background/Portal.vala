@@ -7,8 +7,8 @@
 public class Background.Portal : Object {
     public signal void running_applications_changed ();
 
-    private const string ACTION_ALLOW_BACKGROUND = "allow";
-    private const string ACTION_FORBID_BACKGROUND = "forbid";
+    private const string ACTION_ALLOW_BACKGROUND = "background.allow";
+    private const string ACTION_FORBID_BACKGROUND = "background.forbid";
 
     private DBusConnection connection;
     private DesktopIntegration desktop_integration;
@@ -24,10 +24,10 @@ public class Background.Portal : Object {
 
     [DBus (name = "org.pantheon.gala.DesktopIntegration")]
     public interface DesktopIntegration : GLib.Object {
-        [DBus (name = "GetRunningApplications")]
-        public abstract GLib.ObjectPath get_running_applications (out RunningApplication[] running_apps) throws DBusError, IOError;
         [DBus (name = "RunningApplicationsChanged")]
         public abstract signal void integration_running_applications_changed ();
+        [DBus (name = "GetRunningApplications")]
+        public abstract void get_running_applications (out RunningApplication[] running_apps) throws DBusError, IOError;
     }
 
     construct {
@@ -60,21 +60,38 @@ public class Background.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
-        var notification = new Notification (_("Background activity"));
-        notification.set_body (_(""""%s" is running in the background""").printf (name));
-        notification.add_button (_("Allow"), ACTION_ALLOW_BACKGROUND);
-        notification.add_button (_("Forbid"), ACTION_FORBID_BACKGROUND);
+        var _results = new HashTable<string, Variant> (str_hash, str_equal);
 
-        unowned var application = GLib.Application.get_default ();
-        application.send_notification ("id", notification);
+        var notification = new Notify.Notification (
+            _("Background activity"),
+            _(""""%s" is running in the background""").printf (name),
+            "dialog-information"
+        );
 
-        results = new HashTable<string, Variant> (str_hash, str_equal);
+        notification.add_action (ACTION_ALLOW_BACKGROUND, _("Allow"), () => {
+            _results.set ("result", 1);
+            notify_background.callback ();
+        });
 
-        //TODO
+        notification.add_action (ACTION_FORBID_BACKGROUND, _("Forbid"), () => {
+            _results.set ("result", 0);
+            notify_background.callback ();
+        });
+
+        notification.closed.connect (() => {
+            _results.set ("result", 2);
+            notify_background.callback ();
+        });
+
+        try {
+            notification.show ();
+        } catch (Error e) {
+            critical ("Failed to send background notification for %s: %s", app_id, e.message);
+        }
 
         yield;
-
-        //TODO
+        response = 0;
+        results = _results;
     }
 
     private enum AutostartFlags {

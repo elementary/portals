@@ -16,6 +16,7 @@ executable(
         gio_dep,
         granite_dep,
         gtk_deps,
+        notify_dep,
         x11_dep
     ],
     install: true,
