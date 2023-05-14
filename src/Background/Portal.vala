@@ -130,7 +130,6 @@ public class Background.Portal : Object {
                in the respective apps and even allow user intervention */
             if (commandline[0].contains ("io.elementary.")) {
                 app_id = commandline[0];
-                print (app_id);
             } else {
                 return;
             }
