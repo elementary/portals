@@ -52,7 +52,12 @@ public class Background.Portal : Object {
             RunningApplication[] result = {};
             desktop_integration.get_running_applications (out result);
             for (int i = 0; i < result.length; i++) {
-                apps.set (result[i].app_id, WindowState.RUNNING); //FIXME: Don't hardcode: needs implementation on the gala side
+                var app_id = result[i].app_id.strip ();
+                if (app_id.has_suffix (".desktop")) {
+                    var index = app_id.last_index_of (".desktop");
+                    app_id = app_id.slice (0, index);
+                }
+                apps.set (app_id, WindowState.RUNNING); //FIXME: Don't hardcode: needs implementation on the gala side
             }
         } catch (Error e) {
             critical (e.message);
