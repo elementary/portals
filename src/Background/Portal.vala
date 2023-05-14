@@ -147,7 +147,7 @@ public class Background.Portal : Object {
 
             var str = argv[i];
 
-            for (int j = 0; i < str.char_count (); j++) { //FIXME
+            for (int j = 0; j < str.char_count (); j++) { //FIXME
                 char c = str.get (str.index_of_nth_char (j));
                 if (!c.isalnum () &&
                     !(c == '-' || c == '/' || c == '~' ||
