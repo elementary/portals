@@ -39,6 +39,12 @@ public class Background.Portal : Object {
         }
     }
 
+    private enum WindowState {
+        BACKGROUND = 0, //No open window
+        RUNNING = 1, //At least one open window
+        ACTIVE = 2 //In the foreground
+    }
+
     public void get_app_state (out HashTable<string, Variant> apps) throws DBusError, IOError {
         apps = new HashTable<string, Variant> (str_hash, str_equal);
 
@@ -46,11 +52,17 @@ public class Background.Portal : Object {
             RunningApplication[] result = {};
             desktop_integration.get_running_applications (out result);
             for (int i = 0; i < result.length; i++) {
-                apps.set (result[i].app_id, 1); //FIXME: Don't hardcode
+                apps.set (result[i].app_id, WindowState.RUNNING); //FIXME: Don't hardcode: needs implementation on the gala side
             }
         } catch (Error e) {
             critical (e.message);
         }
+    }
+
+    private enum NotifyBackgroundResult {
+        FORBID = 0,
+        ALLOW = 1,
+        ALLOW_ONCE = 2
     }
 
     public async void notify_background (
@@ -69,17 +81,17 @@ public class Background.Portal : Object {
         );
 
         notification.add_action (ACTION_ALLOW_BACKGROUND, _("Allow"), () => {
-            _results.set ("result", 1);
+            _results.set ("result", NotifyBackgroundResult.ALLOW);
             notify_background.callback ();
         });
 
         notification.add_action (ACTION_FORBID_BACKGROUND, _("Forbid"), () => {
-            _results.set ("result", 0);
+            _results.set ("result", NotifyBackgroundResult.FORBID);
             notify_background.callback ();
         });
 
         notification.closed.connect (() => {
-            _results.set ("result", 2);
+            _results.set ("result", NotifyBackgroundResult.ALLOW_ONCE);
             notify_background.callback ();
         });
 
@@ -90,13 +102,14 @@ public class Background.Portal : Object {
         }
 
         yield;
-        response = 0;
+
+        response = 0; //Won't be used
         results = _results;
     }
 
     private enum AutostartFlags {
         AUTOSTART_FLAGS_NONE = 0,
-        AUTOSTART_FLAGS_ACTIVATABLE = 1
+        AUTOSTART_FLAGS_DBUS_ACTIVATABLE = 1
     }
 
     public void enable_autostart (
@@ -138,7 +151,7 @@ public class Background.Portal : Object {
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_TYPE, "Application");
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, app_id);
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_EXEC, flatpak_quote_argv (commandline));
-        if (autostart_flags == AUTOSTART_FLAGS_ACTIVATABLE) {
+        if (autostart_flags == AUTOSTART_FLAGS_DBUS_ACTIVATABLE) {
             key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, true);
         }
         key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
@@ -163,7 +176,7 @@ public class Background.Portal : Object {
 
             var str = argv[i];
 
-            for (int j = 0; j < str.char_count (); j++) { //FIXME
+            for (int j = 0; j < str.char_count (); j++) {
                 char c = str.get (str.index_of_nth_char (j));
                 if (!c.isalnum () &&
                     !(c == '-' || c == '/' || c == '~' ||
