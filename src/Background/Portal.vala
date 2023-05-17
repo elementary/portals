@@ -17,9 +17,9 @@ public class Background.Portal : Object {
         this.connection = connection;
         try {
             desktop_integration = connection.get_proxy_sync ("org.pantheon.gala", "/org/pantheon/gala/DesktopInterface");
-            desktop_integration.running_applications_changed (() => running_applications_changed ());
+            desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
         } catch {
-            warning ("cannot connect to compositor, background portal working with reduced functionality");
+            warning ("Cannot connect to compositor, background portal working with reduced functionality.");
         }
     }
 
@@ -29,18 +29,9 @@ public class Background.Portal : Object {
             string app_id;
             HashTable<string,Variant> details;
         }
-        
+
         public signal void running_applications_changed ();
         public abstract RunningApplications[] get_running_applications () throws DBusError, IOError;
-    }
-
-    construct {
-        try {
-            desktop_integration = Bus.get_proxy_sync (BusType.SESSION, "org.pantheon.gala", "/org/pantheon/gala/DesktopInterface");
-            desktop_integration.integration_running_applications_changed.connect (() => running_applications_changed ());
-        } catch (Error e) {
-            critical (e.message);
-        }
     }
 
     private enum ApplicationState {
@@ -51,20 +42,20 @@ public class Background.Portal : Object {
 
     public HashTable<string, Variant> get_app_state () throws DBusError, IOError {
         if (desktop_integration == null) {
-            throw new DBusError.FAILED ("no connection to compositor");
+            throw new DBusError.FAILED ("No connection to compositor.");
         }
-        
+
         var apps = desktop_integration.get_running_applications ();
-        var results = new HashTable<string, Variant> (null, null);        
+        var results = new HashTable<string, Variant> (null, null);
         foreach (var app in apps) {
             var app_id = app.app_id;
             if (app_id.has_suffix (".desktop")) {
                 app_id = app_id.slice (0, app_id.last_index_of_char ('.'));
             }
-            
+
             results[app_id] = ApplicationState.RUNNING; //FIXME: Don't hardcode: needs implementation on the gala side
         }
-    
+
         return results;
     }
 
@@ -127,8 +118,6 @@ public class Background.Portal : Object {
         string[] commandline,
         uint32 flags
     ) throws DBusError, IOError {
-        result = false;
-
         /* If the portal request is made by a non-flatpaked application app_id will most of the time be empty */
         if (app_id.strip () == "") {
             /* Usually we can then asume that the first commandline arg is the app_id
@@ -139,15 +128,15 @@ public class Background.Portal : Object {
             if (commandline[0].contains ("io.elementary.")) {
                 app_id = commandline[0];
             } else {
-                return;
+                return false;
             }
         }
 
         var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", app_id + ".desktop");
 
         if (!enable) {
-            FileUtils.unlink (full_path);
-            return;
+            FileUtils.unlink (path);
+            return false;
         }
 
         var autostart_flags = (AutostartFlags) flags;
@@ -162,13 +151,13 @@ public class Background.Portal : Object {
         key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
 
         try {
-            key_file.save_to_file (full_path);
+            key_file.save_to_file (path);
         } catch (Error e) {
-            warning ("failed to write autostart file: %s", e.message);
-            return;
+            warning ("Failed to write autostart file: %s", e.message);
+            return false;
         }
 
-        result = true;
+        return true;
     }
 
     private string flatpak_quote_argv (string[] argv) {
