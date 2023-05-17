@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrigthText: 2021 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
@@ -15,19 +15,23 @@ public class Background.Portal : Object {
 
     public Portal (DBusConnection connection) {
         this.connection = connection;
-    }
-
-    public struct RunningApplication {
-        string app_id;
-        GLib.HashTable<string, Variant> details;
+        try {
+            desktop_integration = connection.get_proxy_sync ("org.pantheon.gala", "/org/pantheon/gala/DesktopInterface");
+            desktop_integration.running_applications_changed (() => running_applications_changed ());
+        } catch {
+            warning ("cannot connect to compositor, background portal working with reduced functionality");
+        }
     }
 
     [DBus (name = "org.pantheon.gala.DesktopIntegration")]
-    public interface DesktopIntegration : GLib.Object {
-        [DBus (name = "RunningApplicationsChanged")]
-        public abstract signal void integration_running_applications_changed ();
-        [DBus (name = "GetRunningApplications")]
-        public abstract void get_running_applications (out RunningApplication[] running_apps) throws DBusError, IOError;
+    public interface DesktopIntegration : Object {
+        public struct RunningApplications {
+            string app_id;
+            HashTable<string,Variant> details;
+        }
+        
+        public signal void running_applications_changed ();
+        public abstract RunningApplications[] get_running_applications () throws DBusError, IOError;
     }
 
     construct {
@@ -39,29 +43,29 @@ public class Background.Portal : Object {
         }
     }
 
-    private enum WindowState {
-        BACKGROUND = 0, //No open window
-        RUNNING = 1, //At least one open window
-        ACTIVE = 2 //In the foreground
+    private enum ApplicationState {
+        BACKGROUND,
+        RUNNING,
+        ACTIVE
     }
 
-    public void get_app_state (out HashTable<string, Variant> apps) throws DBusError, IOError {
-        apps = new HashTable<string, Variant> (str_hash, str_equal);
-
-        try {
-            RunningApplication[] result = {};
-            desktop_integration.get_running_applications (out result);
-            for (int i = 0; i < result.length; i++) {
-                var app_id = result[i].app_id.strip ();
-                if (app_id.has_suffix (".desktop")) {
-                    var index = app_id.last_index_of (".desktop");
-                    app_id = app_id.slice (0, index);
-                }
-                apps.set (app_id, WindowState.RUNNING); //FIXME: Don't hardcode: needs implementation on the gala side
-            }
-        } catch (Error e) {
-            critical (e.message);
+    public HashTable<string, Variant> get_app_state () throws DBusError, IOError {
+        if (desktop_integration == null) {
+            throw new DBusError.FAILED ("no connection to compositor");
         }
+        
+        var apps = desktop_integration.get_running_applications ();
+        var results = new HashTable<string, Variant> (null, null);        
+        foreach (var app in apps) {
+            var app_id = app.app_id;
+            if (app_id.has_suffix (".desktop")) {
+                app_id = app_id.slice (0, app_id.last_index_of_char ('.'));
+            }
+            
+            results[app_id] = ApplicationState.RUNNING; //FIXME: Don't hardcode: needs implementation on the gala side
+        }
+    
+        return results;
     }
 
     private enum NotifyBackgroundResult {
@@ -117,12 +121,11 @@ public class Background.Portal : Object {
         AUTOSTART_FLAGS_DBUS_ACTIVATABLE = 1
     }
 
-    public void enable_autostart (
+    public bool enable_autostart (
         string app_id,
         bool enable,
         string[] commandline,
-        uint32 flags,
-        out bool result
+        uint32 flags
     ) throws DBusError, IOError {
         result = false;
 
@@ -140,9 +143,7 @@ public class Background.Portal : Object {
             }
         }
 
-        string file_name = app_id + ".desktop";
-        string directory = Path.build_filename (Environment.get_user_config_dir (), "autostart");
-        string full_path = Path.build_filename (directory, file_name);
+        var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", app_id + ".desktop");
 
         if (!enable) {
             FileUtils.unlink (full_path);
@@ -163,7 +164,7 @@ public class Background.Portal : Object {
         try {
             key_file.save_to_file (full_path);
         } catch (Error e) {
-            critical (e.message);
+            warning ("failed to write autostart file: %s", e.message);
             return;
         }
 
@@ -173,27 +174,18 @@ public class Background.Portal : Object {
     private string flatpak_quote_argv (string[] argv) {
         var builder = new StringBuilder ();
 
-        for (int i = 0; i < argv.length; i++) {
-            if (i != 0) {
-                builder.append (" ");
-            }
-
-            var str = argv[i];
-
-            for (int j = 0; j < str.char_count (); j++) {
-                char c = str.get (str.index_of_nth_char (j));
-                if (!c.isalnum () &&
-                    !(c == '-' || c == '/' || c == '~' ||
-                    c == ':' || c == '.' || c == '_' ||
-                    c == '=' || c == '@')) {
-                    str = Shell.quote (str);
+        foreach (var arg in argv) {
+            foreach (var c in (char[]) arg.data) {
+                if (!c.isalnum () && !(c.to_string () in "-/~:._=@")) {
+                    arg = Shell.quote (arg);
                     break;
                 }
             }
 
-            builder.append (str);
+            builder.append (arg);
+            builder.append (" ");
         }
 
-        return builder.str;
+        return builder.str.strip ();
     }
 }
