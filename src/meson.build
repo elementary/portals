@@ -6,6 +6,8 @@ executable(
     'AppChooser/AppButton.vala',
     'AppChooser/Dialog.vala',
     'AppChooser/Portal.vala',
+    'Background/NotificationHandler.vala',
+    'Background/NotificationRequest.vala',
     'Background/Portal.vala',
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
     'ExternalWindow.vala',
@@ -16,7 +18,6 @@ executable(
         gio_dep,
         granite_dep,
         gtk_deps,
-        notify_dep,
         x11_dep
     ],
     install: true,

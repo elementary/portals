@@ -7,14 +7,13 @@
 public class Background.Portal : Object {
     public signal void running_applications_changed ();
 
-    private const string ACTION_ALLOW_BACKGROUND = "background.allow";
-    private const string ACTION_FORBID_BACKGROUND = "background.forbid";
-
     private DBusConnection connection;
     private DesktopIntegration desktop_integration;
+    private NotificationHandler notification_handler;
 
     public Portal (DBusConnection connection) {
         this.connection = connection;
+        notification_handler = new NotificationHandler (connection);
         try {
             desktop_integration = connection.get_proxy_sync ("org.pantheon.gala", "/org/pantheon/gala/DesktopInterface");
             desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
@@ -59,12 +58,6 @@ public class Background.Portal : Object {
         return results;
     }
 
-    private enum NotifyBackgroundResult {
-        FORBID = 0,
-        ALLOW = 1,
-        ALLOW_ONCE = 2
-    }
-
     public async void notify_background (
         ObjectPath handle,
         string app_id,
@@ -72,44 +65,37 @@ public class Background.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
+        response = 0; //Won't be used
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
 
-        var notification = new Notify.Notification (
-            _("Background activity"),
-            _(""""%s" is running in the background""").printf (name),
-            "dialog-information"
-        );
+        var notification_request = notification_handler.send_notification (app_id, name);
 
-        notification.add_action (ACTION_ALLOW_BACKGROUND, _("Allow"), () => {
-            _results.set ("result", NotifyBackgroundResult.ALLOW);
-            notify_background.callback ();
-        });
+        if (notification_request == null) {
+            _results.set ("result", 2);
+            results = _results;
+            return;
+        }
 
-        notification.add_action (ACTION_FORBID_BACKGROUND, _("Forbid"), () => {
-            _results.set ("result", NotifyBackgroundResult.FORBID);
-            notify_background.callback ();
-        });
-
-        notification.closed.connect (() => {
-            _results.set ("result", NotifyBackgroundResult.ALLOW_ONCE);
+        notification_request.response.connect ((result) => {
+            _results.set ("result", result);
             notify_background.callback ();
         });
 
         try {
-            notification.show ();
+            notification_request.register_id = connection.register_object<NotificationRequest> (handle, notification_request);
         } catch (Error e) {
-            critical ("Failed to send background notification for %s: %s", app_id, e.message);
+            critical ("Failed to export request object: %s", e.message);
         }
 
         yield;
 
-        response = 0; //Won't be used
+        connection.unregister_object (notification_request.register_id);
         results = _results;
     }
 
     private enum AutostartFlags {
-        AUTOSTART_FLAGS_NONE = 0,
-        AUTOSTART_FLAGS_DBUS_ACTIVATABLE = 1
+        AUTOSTART_FLAGS_NONE,
+        AUTOSTART_FLAGS_DBUS_ACTIVATABLE
     }
 
     public bool enable_autostart (
@@ -118,7 +104,7 @@ public class Background.Portal : Object {
         string[] commandline,
         uint32 flags
     ) throws DBusError, IOError {
-        /* If the portal request is made by a non-flatpaked application app_id will most of the time be empty */
+        /* If the portal request is made by a non-flatpak application app_id will most of the time be empty */
         if (app_id.strip () == "") {
             /* Usually we can then asume that the first commandline arg is the app_id */
             if (commandline[0].strip () != "") {

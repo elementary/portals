@@ -13,7 +13,6 @@ glib_dep = dependency('glib-2.0')
 gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
 granite_dep = dependency('granite-7')
-notify_dep = dependency('libnotify')
 
 gtk_deps = [
     dependency('gtk4')

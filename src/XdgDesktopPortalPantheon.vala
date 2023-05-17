@@ -79,7 +79,6 @@ int main (string[] args) {
     GLib.Environment.unset_variable ("GTK_USE_PORTAL");
 
     Gtk.init ();
-    Notify.init ("xdg-desktop-portal-pantheon");
 
     try {
         var opt_context = new OptionContext ("- portal backends");
