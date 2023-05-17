@@ -81,6 +81,8 @@ public class NotificationHandler : Object {
             } else if (action_key == NotificationHandler.ACTION_FORBID_BACKGROUND) {
                 notification.response (NotifyBackgroundResult.FORBID);
             }
+
+            notification_by_id.remove (id);
         }
     }
 
@@ -89,6 +91,8 @@ public class NotificationHandler : Object {
             var notification = notification_by_id.get (id);
             if (reason == 2 || reason == 3) {
                 notification.response (NotifyBackgroundResult.ALLOW_ONCE);
+
+                notification_by_id.remove (id);
             }
         }
     }
