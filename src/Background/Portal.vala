@@ -120,12 +120,8 @@ public class Background.Portal : Object {
     ) throws DBusError, IOError {
         /* If the portal request is made by a non-flatpaked application app_id will most of the time be empty */
         if (app_id.strip () == "") {
-            /* Usually we can then asume that the first commandline arg is the app_id
-               but just to be sure we only do this with our own (io.elementary.APP) ones.
-               The reason we do this at all are primarily mail, calendar and tasks, which need to autostart
-               but currently can't be shipped as flatpaks, so this is useful to not have to care about that stuff
-               in the respective apps and even allow user intervention */
-            if (commandline[0].contains ("io.elementary.")) {
+            /* Usually we can then asume that the first commandline arg is the app_id */
+            if (commandline[0].strip () != "") {
                 app_id = commandline[0];
             } else {
                 return false;
