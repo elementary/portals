@@ -3,7 +3,7 @@ public class NotificationHandler : Object {
     public const string ACTION_FORBID_BACKGROUND = "background.forbid";
 
     private DBusConnection connection;
-    private HashTable<uint32, NotificationRequest> id_notification;
+    private HashTable<uint32, NotificationRequest> notification_by_id;
     private Notifications notifications;
 
     private enum NotifyBackgroundResult {
@@ -32,7 +32,7 @@ public class NotificationHandler : Object {
 
     public NotificationHandler (DBusConnection connection) {
         this.connection = connection;
-        id_notification = new HashTable<uint32, NotificationRequest> (null, null);
+        notification_by_id = new HashTable<uint32, NotificationRequest> (null, null);
 
         try {
             notifications = connection.get_proxy_sync ("org.freedesktop.Notifications", "/org/freedesktop/Notifications");
@@ -64,7 +64,7 @@ public class NotificationHandler : Object {
             );
 
             var notification = new NotificationRequest (this, id);
-            id_notification.set (id, notification);
+            notification_by_id.set (id, notification);
 
             return notification;
         } catch (Error e) {
@@ -74,8 +74,8 @@ public class NotificationHandler : Object {
     }
 
     private void on_action_invoked (uint32 id, string action_key) {
-        if (id in id_notification) {
-            var notification = id_notification.get (id);
+        if (id in notification_by_id) {
+            var notification = notification_by_id.get (id);
             if (action_key == NotificationHandler.ACTION_ALLOW_BACKGROUND) {
                 notification.response (NotifyBackgroundResult.ALLOW);
             } else if (action_key == NotificationHandler.ACTION_FORBID_BACKGROUND) {
@@ -85,8 +85,8 @@ public class NotificationHandler : Object {
     }
 
     private void on_notification_closed (uint32 id, uint32 reason) {
-        if (id in id_notification) {
-            var notification = id_notification.get (id);
+        if (id in notification_by_id) {
+            var notification = notification_by_id.get (id);
             if (reason == 2 || reason == 3) {
                 notification.response (NotifyBackgroundResult.ALLOW_ONCE);
             }
@@ -100,6 +100,6 @@ public class NotificationHandler : Object {
             warning ("Failed to close notification with id '%u': %s", id, e.message);
         }
 
-        id_notification.remove (id);
+        notification_by_id.remove (id);
     }
 }
