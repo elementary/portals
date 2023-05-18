@@ -81,6 +81,7 @@ public class Background.Portal : Object {
                     _results["result"] = result;
                     break;
             }
+
             notify_background.callback ();
         });
 
