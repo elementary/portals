@@ -9,11 +9,10 @@ public class Background.Portal : Object {
 
     private DBusConnection connection;
     private DesktopIntegration desktop_integration;
-    private NotificationHandler notification_handler;
 
     public Portal (DBusConnection connection) {
         this.connection = connection;
-        notification_handler = new NotificationHandler (connection);
+        NotificationRequest.init (connection);
         try {
             desktop_integration = connection.get_proxy_sync ("org.pantheon.gala", "/org/pantheon/gala/DesktopInterface");
             desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
@@ -68,28 +67,27 @@ public class Background.Portal : Object {
         response = 0; //Won't be used
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
 
-        var notification_request = notification_handler.send_notification (app_id, name);
-
-        if (notification_request == null) {
-            _results.set ("result", 2);
-            results = _results;
-            return;
-        }
-
+        var notification_request = new NotificationRequest ();
         notification_request.response.connect ((result) => {
-            _results.set ("result", result);
+            if (result != NotificationRequest.NotifyBackgroundResult.CANCELLED) {
+                _results.set ("result", result);
+            }
             notify_background.callback ();
         });
 
+        uint register_id = 0;
         try {
-            notification_request.register_id = connection.register_object<NotificationRequest> (handle, notification_request);
+            register_id = connection.register_object<NotificationRequest> (handle, notification_request);
         } catch (Error e) {
-            critical ("Failed to export request object: %s", e.message);
+            warning ("Failed to export request object: %s", e.message);
+            throw new DBusError.OBJECT_PATH_IN_USE (e.message);
         }
+
+        notification_request.send_notification (app_id, name);
 
         yield;
 
-        connection.unregister_object (notification_request.register_id);
+        connection.unregister_object (register_id);
         results = _results;
     }
 
