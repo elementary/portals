@@ -20,7 +20,8 @@ public class NotificationRequest : Object {
         FORBID,
         ALLOW,
         ALLOW_ONCE,
-        CANCELLED
+        CANCELLED,
+        FAILED
     }
 
     [DBus (name = "org.freedesktop.Notifications")]
@@ -105,7 +106,7 @@ public class NotificationRequest : Object {
             notification_by_id.set (id, this);
         } catch (Error e) {
             warning ("Failed to send notification for app id '%s': %s", app_id, e.message);
-            response (NotifyBackgroundResult.ALLOW_ONCE);
+            response (NotifyBackgroundResult.FAILED);
         }
     }
 

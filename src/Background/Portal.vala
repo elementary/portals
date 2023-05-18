@@ -64,13 +64,22 @@ public class Background.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
-        response = 0; //Won't be used
+        uint32 _response = 2;
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
 
         var notification_request = new NotificationRequest ();
+
         notification_request.response.connect ((result) => {
-            if (result != NotificationRequest.NotifyBackgroundResult.CANCELLED) {
-                _results.set ("result", result);
+            switch (result) {
+                case NotificationRequest.NotifyBackgroundResult.CANCELLED:
+                    _response = 1;
+                    break;
+                case NotificationRequest.NotifyBackgroundResult.FAILED:
+                    break;
+                default:
+                    _response = 0;
+                    _results["result"] = result;
+                    break;
             }
             notify_background.callback ();
         });
@@ -88,6 +97,7 @@ public class Background.Portal : Object {
         yield;
 
         connection.unregister_object (register_id);
+        response = _response;
         results = _results;
     }
 
