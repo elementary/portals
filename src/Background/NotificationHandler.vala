@@ -9,7 +9,8 @@ public class NotificationHandler : Object {
     private enum NotifyBackgroundResult {
         FORBID,
         ALLOW,
-        ALLOW_ONCE
+        ALLOW_ONCE,
+        CANCELLED
     }
 
     [DBus (name = "org.freedesktop.Notifications")]
@@ -50,16 +51,17 @@ public class NotificationHandler : Object {
             ACTION_FORBID_BACKGROUND,
             _("Forbid")
         };
+        var hints = new HashTable<string, Variant> (null, null);
+        hints["desktop-entry"] = app_id;
+        hints["urgency"] = (uint8) 1;
 
         try {
             var id = notifications.notify (
-                Environment.get_prgname (),
-                0,
-                "dialog-information",
+                app_name, 0, "",
                 _("Background activity"),
                 _(""""%s" is running in the background""").printf (app_name),
                 actions,
-                new HashTable<string, Variant> (str_hash, str_equal),
+                hints,
                 0
             );
 
@@ -74,26 +76,28 @@ public class NotificationHandler : Object {
     }
 
     private void on_action_invoked (uint32 id, string action_key) {
-        if (id in notification_by_id) {
-            var notification = notification_by_id.get (id);
-            if (action_key == NotificationHandler.ACTION_ALLOW_BACKGROUND) {
-                notification.response (NotifyBackgroundResult.ALLOW);
-            } else if (action_key == NotificationHandler.ACTION_FORBID_BACKGROUND) {
-                notification.response (NotifyBackgroundResult.FORBID);
-            }
-
-            notification_by_id.remove (id);
+        var notification = notification_by_id.take (id);
+        if (notification == null) {
+            return;
+        }
+        
+        if (action_key == ACTION_ALLOW_BACKGROUND) {
+            notification.response (NotifyBackgroundResult.ALLOW);
+        } else if (action_key == ACTION_FORBID_BACKGROUND) {
+            notification.response (NotifyBackgroundResult.FORBID);
         }
     }
 
     private void on_notification_closed (uint32 id, uint32 reason) {
-        if (id in notification_by_id) {
-            var notification = notification_by_id.get (id);
-            if (reason == 2 || reason == 3) {
-                notification.response (NotifyBackgroundResult.ALLOW_ONCE);
-
-                notification_by_id.remove (id);
-            }
+        var notification = notification_by_id.take (id);
+        if (notification == null) {
+            return;
+        }
+        
+        if (reason == 2) {
+            notification.response (NotifyBackgroundResult.ALLOW_ONCE);
+        } else if (reason == 3) {
+            notification.response (NotifyBackgroundResult.CANCELLED);
         }
     }
 
