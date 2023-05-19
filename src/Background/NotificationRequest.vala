@@ -63,7 +63,7 @@ public class NotificationRequest : Object {
 
         if (action_key == ACTION_ALLOW_BACKGROUND) {
             notification.response (NotifyBackgroundResult.ALLOW);
-        } else if (action_key == ACTION_FORBID_BACKGROUND) {
+        } else {
             notification.response (NotifyBackgroundResult.FORBID);
         }
     }
@@ -115,8 +115,6 @@ public class NotificationRequest : Object {
             notifications.close_notification (id);
         } catch (Error e) {
             // the notification was already closed, or we lost the connection to the server
-            response (NotifyBackgroundResult.CANCELLED);
-            notification_by_id.remove (id);
         }
     }
 }
