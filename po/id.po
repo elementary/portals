@@ -9,7 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-21 19:59+0000\n"
 "PO-Revision-Date: 2023-05-20 17:06+0000\n"
-"Last-Translator: Muhammad Dholifun Nafsi <muhammad_dholifun@protonmail.com>\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
+"io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/desktop/"
 "portals/id/>\n"
 "Language: id\n"
@@ -29,12 +30,12 @@ msgstr "Berikan Akses"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr ""
+msgstr "Buka berkas dengan…"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Buka“%s” dengan…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
@@ -57,7 +58,7 @@ msgstr "Aplikasi baru dapat dipasang dari AppCenter"
 
 #: src/AppChooser/Dialog.vala:124
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
