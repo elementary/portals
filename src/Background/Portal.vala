@@ -113,17 +113,16 @@ public class Background.Portal : Object {
         string[] commandline,
         AutostartFlags flags
     ) throws DBusError, IOError {
-        /* If the portal request is made by a non-flatpak application app_id will most of the time be empty */
-        if (app_id.strip () == "") {
-            /* Usually we can then asume that the first commandline arg is the app_id */
-            if (commandline[0].strip () != "") {
-                app_id = commandline[0];
-            } else {
-                return false;
-            }
+        var filename = app_id;
+
+        /* If the portal request is made by a non-flatpak application app_id will most of the time be empty
+         * Use the commandline as a fallback for the autostart filename.
+         */
+        if (filename == "") {            
+            filename = string.joinv("-", commandline[0]).replace ("--", "-");
         }
 
-        var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", app_id + ".desktop");
+        var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", filename + ".desktop");
 
         if (!enable) {
             FileUtils.unlink (path);
@@ -137,7 +136,9 @@ public class Background.Portal : Object {
         if (flags == DBUS_ACTIVATABLE) {
             key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, true);
         }
-        key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
+        if (app_id != "") {
+            key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
+        }
 
         try {
             key_file.save_to_file (path);

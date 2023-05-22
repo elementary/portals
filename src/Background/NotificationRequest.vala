@@ -100,7 +100,7 @@ public class NotificationRequest : Object {
                 _(""""%s" is running in the background without appropriate permission""").printf (app_name),
                 actions,
                 hints,
-                0
+                -1
             );
 
             notification_by_id.set (id, this);
