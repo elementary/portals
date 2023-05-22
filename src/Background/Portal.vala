@@ -103,15 +103,15 @@ public class Background.Portal : Object {
     }
 
     private enum AutostartFlags {
-        AUTOSTART_FLAGS_NONE,
-        AUTOSTART_FLAGS_DBUS_ACTIVATABLE
+        NONE,
+        DBUS_ACTIVATABLE
     }
 
     public bool enable_autostart (
         string app_id,
         bool enable,
         string[] commandline,
-        uint32 flags
+        AutostartFlags flags
     ) throws DBusError, IOError {
         /* If the portal request is made by a non-flatpak application app_id will most of the time be empty */
         if (app_id.strip () == "") {
