@@ -102,7 +102,7 @@ public class Background.Portal : Object {
         results = _results;
     }
 
-    private enum AutostartFlags {
+    public enum AutostartFlags {
         NONE,
         DBUS_ACTIVATABLE
     }
@@ -130,13 +130,11 @@ public class Background.Portal : Object {
             return false;
         }
 
-        var autostart_flags = (AutostartFlags) flags;
-
         var key_file = new KeyFile ();
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_TYPE, "Application");
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, app_id);
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_EXEC, flatpak_quote_argv (commandline));
-        if (autostart_flags == AUTOSTART_FLAGS_DBUS_ACTIVATABLE) {
+        if (flags == DBUS_ACTIVATABLE) {
             key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, true);
         }
         key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
