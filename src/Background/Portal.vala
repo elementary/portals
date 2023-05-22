@@ -116,10 +116,10 @@ public class Background.Portal : Object {
         var filename = app_id;
 
         /* If the portal request is made by a non-flatpak application app_id will most of the time be empty
-         * Use the commandline as a fallback for the autostart filename.
+         * We then use the commandline as a fallback for the autostart filename.
          */
-        if (filename == "") {            
-            filename = string.joinv("-", commandline[0]).replace ("--", "-");
+        if (filename.strip () == "") {
+            filename = string.joinv("-", commandline).replace ("--", "-");
         }
 
         var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", filename + ".desktop");
@@ -129,14 +129,27 @@ public class Background.Portal : Object {
             return false;
         }
 
+        var app_info = app_id.strip () != "" ? new DesktopAppInfo (app_id + ".desktop") : null;
         var key_file = new KeyFile ();
-        key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_TYPE, "Application");
-        key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, app_id);
+
+        key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_TYPE, KeyFileDesktop.TYPE_APPLICATION);
+
+        if (app_info != null) {
+            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, app_info.get_name ());
+            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_ICON, app_info.get_string (KeyFileDesktop.KEY_ICON));
+        } else {
+            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, _("Custom Command"));
+            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_ICON, "application-default-icon");
+        }
+
+        key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_COMMENT, string.joinv (" ", commandline));
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_EXEC, flatpak_quote_argv (commandline));
+
         if (flags == DBUS_ACTIVATABLE) {
             key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, true);
         }
-        if (app_id != "") {
+
+        if (app_id.strip () != "") {
             key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
         }
 
