@@ -119,7 +119,7 @@ public class Background.Portal : Object {
          * We then use the commandline as a fallback for the autostart filename.
          */
         if (filename.strip () == "") {
-            filename = string.joinv("-", commandline).replace ("--", "-");
+            filename = string.joinv ("-", commandline).replace ("--", "-");
         }
 
         var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", filename + ".desktop");
