@@ -121,7 +121,7 @@ public class Background.Portal : Object {
         string[] commandline,
         uint32 flags
     ) throws DBusError, IOError {
-        flags = (AutostartFlags)flags;
+        (AutostartFlags)flags;
         var filename = app_id;
 
         /* If the portal request is made by a non-flatpak application app_id will most of the time be empty
