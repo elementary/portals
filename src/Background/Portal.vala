@@ -53,7 +53,7 @@ public class Background.Portal : Object {
 
             var app_state = ApplicationState.RUNNING; //FIXME: Don't hardcode: needs implementation on the gala side
 
-            results[app_id] = new Variant.uint32 (app_state);
+            results[app_id] = (uint32) app_state;
             debug ("App state of '%s' set to %u (= %s).", app_id, app_state, app_state.to_string ());
         }
 
@@ -83,7 +83,7 @@ public class Background.Portal : Object {
                     break;
                 default:
                     _response = 0;
-                    _results["result"] = result;
+                    _results["result"] = (uint32) result;
                     break;
             }
 
