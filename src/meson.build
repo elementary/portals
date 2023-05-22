@@ -6,6 +6,8 @@ executable(
     'AppChooser/AppButton.vala',
     'AppChooser/Dialog.vala',
     'AppChooser/Portal.vala',
+    'Background/NotificationRequest.vala',
+    'Background/Portal.vala',
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
     'ExternalWindow.vala',
     'XdgDesktopPortalPantheon.vala',
