@@ -119,8 +119,9 @@ public class Background.Portal : Object {
         string app_id,
         bool enable,
         string[] commandline,
-        AutostartFlags flags
+        uint32 flags
     ) throws DBusError, IOError {
+        flags = (AutostartFlags)flags;
         var filename = app_id;
 
         /* If the portal request is made by a non-flatpak application app_id will most of the time be empty
@@ -153,7 +154,7 @@ public class Background.Portal : Object {
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_COMMENT, string.joinv (" ", commandline));
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_EXEC, flatpak_quote_argv (commandline));
 
-        if (flags == DBUS_ACTIVATABLE) {
+        if (flags == AutostartFlags.DBUS_ACTIVATABLE) {
             key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, true);
         }
 
