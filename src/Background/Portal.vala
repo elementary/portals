@@ -110,6 +110,7 @@ public class Background.Portal : Object {
         results = _results;
     }
 
+    [Flags]
     public enum AutostartFlags {
         NONE,
         DBUS_ACTIVATABLE
@@ -119,9 +120,8 @@ public class Background.Portal : Object {
         string app_id,
         bool enable,
         string[] commandline,
-        uint32 flags
+        AutostartFlags flags
     ) throws DBusError, IOError {
-        (AutostartFlags)flags;
         var filename = app_id;
 
         /* If the portal request is made by a non-flatpak application app_id will most of the time be empty
