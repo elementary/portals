@@ -87,6 +87,8 @@ public class Background.Portal : Object {
                     break;
             }
 
+            debug ("Response to background activity of '%s': %s.", app_id, result.to_string ());
+
             notify_background.callback ();
         });
 
