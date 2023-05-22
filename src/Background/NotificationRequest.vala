@@ -97,7 +97,7 @@ public class NotificationRequest : Object {
             id = notifications.notify (
                 app_name, 0, "",
                 _("Background activity"),
-                _(""""%s" is running in the background without appropriate permission""").printf (app_name),
+                _("“%s” is running in the background without appropriate permission").printf (app_name),
                 actions,
                 hints,
                 -1
