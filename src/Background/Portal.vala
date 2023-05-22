@@ -51,7 +51,10 @@ public class Background.Portal : Object {
                 app_id = app_id.slice (0, app_id.last_index_of_char ('.'));
             }
 
-            results[app_id] = ApplicationState.RUNNING; //FIXME: Don't hardcode: needs implementation on the gala side
+            var app_state = ApplicationState.RUNNING; //FIXME: Don't hardcode: needs implementation on the gala side
+
+            results[app_id] = new Variant.uint32 (app_state);
+            debug ("App state of '%s' set to %u (= %s).", app_id, app_state, app_state.to_string ());
         }
 
         return results;
@@ -64,6 +67,8 @@ public class Background.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
+        debug ("Notify background for '%s'.", app_id);
+
         uint32 _response = 2;
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
 
@@ -93,6 +98,7 @@ public class Background.Portal : Object {
             throw new DBusError.OBJECT_PATH_IN_USE (e.message);
         }
 
+        debug ("Sending desktop notification for '%s'.", app_id);
         notification_request.send_notification (app_id, name);
 
         yield;
@@ -159,6 +165,8 @@ public class Background.Portal : Object {
             warning ("Failed to write autostart file: %s", e.message);
             return false;
         }
+
+        debug ("Autostart file installed for '%s'.", app_id);
 
         return true;
     }
