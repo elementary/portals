@@ -122,36 +122,42 @@ public class Background.Portal : Object {
         string[] commandline,
         AutostartFlags flags
     ) throws DBusError, IOError {
-        var filename = app_id;
-
         /* If the portal request is made by a non-flatpak application app_id will most of the time be empty
-         * We then use the commandline as a fallback for the autostart filename.
+         * We then use the commandline as a fallback.
          */
-        if (filename.strip () == "") {
-            filename = string.joinv ("-", commandline).replace ("--", "-");
+        var _app_id = app_id;
+        if (_app_id == "") {
+            _app_id = commandline[0].strip ();
         }
 
-        var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", filename + ".desktop");
+        /* Validate app_id by creating a DesktopAppInfo and fall back to full commandline.
+         * If eg commandline[0] is "sudo" or "/usr/bin/python3"
+         */
+        var app_info = new DesktopAppInfo (_app_id + ".desktop");
+        if (app_info == null) {
+            _app_id = string.joinv ("-", commandline).replace ("--", "-");
+        }
+
+        var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", _app_id + ".desktop");
 
         if (!enable) {
             FileUtils.unlink (path);
             return false;
         }
 
-        var app_info = app_id.strip () != "" ? new DesktopAppInfo (app_id + ".desktop") : null;
         var key_file = new KeyFile ();
-
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_TYPE, KeyFileDesktop.TYPE_APPLICATION);
 
         if (app_info != null) {
-            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, app_info.get_name ());
+            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, app_info.get_display_name ());
             key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_ICON, app_info.get_string (KeyFileDesktop.KEY_ICON));
+            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_COMMENT, app_info.get_description ());
         } else {
             key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_NAME, _("Custom Command"));
             key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_ICON, "application-default-icon");
+            key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_COMMENT, string.joinv (" ", commandline));
         }
 
-        key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_COMMENT, string.joinv (" ", commandline));
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_EXEC, flatpak_quote_argv (commandline));
 
         if (flags == AutostartFlags.DBUS_ACTIVATABLE) {
