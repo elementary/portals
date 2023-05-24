@@ -1,8 +1,8 @@
 [Unit]
 Description=Portal service (Pantheon implementation)
-
-Requires=gala-x11.service
-After=gala-x11.service
+After=graphical-session.target
+Requisite=graphical-session.target
+PartOf=graphical-session.target
 
 [Service]
 Type=dbus
