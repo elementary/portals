@@ -1,6 +1,9 @@
 [Unit]
 Description=Portal service (Pantheon implementation)
 
+Requires=gala-x11.service
+After=gala-x11.service
+
 [Service]
 Type=dbus
 BusName=org.freedesktop.impl.portal.desktop.pantheon
