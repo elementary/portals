@@ -24,6 +24,18 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
+    <release version="7.1.0" data="2023-05-29" urgency="medium">
+      <description>
+        <p>New Features:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/portals/issues/68">Background Portal Implementation</issue>
+      </issues>
+    </release>
+
     <release version="7.0.0" data="2023-02-27" urgency="medium">
       <description>
         <p>New Features:</p>
@@ -71,13 +83,6 @@
       </description>
     </release>
 
-    <release version="1.0.0" date="2021-10-25" urgency="medium">
-      <description>
-        <p>First release!</p>
-        <ul>
-          <li>Add OpenURI Portal</li>
-        </ul>
-      </description>
-    </release>
+    <release version="1.0.0" date="2021-10-25" urgency="medium" />
   </releases>
 </component>
