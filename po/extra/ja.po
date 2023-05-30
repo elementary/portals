@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-21 19:59+0000\n"
+"POT-Creation-Date: 2023-05-30 19:21+0000\n"
 "PO-Revision-Date: 2022-10-29 04:48+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals-"
@@ -39,52 +39,51 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:42
-#: data/portals.metainfo.xml.in:52
+#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:41
+#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:64
 msgid "New Features:"
 msgstr "新機能:"
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:45
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:43
+#: data/portals.metainfo.xml.in:57
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/portals.metainfo.xml.in:44
+#: data/portals.metainfo.xml.in:56
 msgid "Support dialog parenting on wayland"
 msgstr ""
 "Wayland において、ポータルダイアログを親ウィンドウの上に表示できるように修正"
 
-#: data/portals.metainfo.xml.in:54
+#: data/portals.metainfo.xml.in:66
 msgid "Add a destructive action option for access portals"
 msgstr "アクセスポータルに破壊的なアクションを行うオプションを追加"
 
-#: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:67
+#: data/portals.metainfo.xml.in:68 data/portals.metainfo.xml.in:79
 msgid "Fixes:"
 msgstr "修正点:"
 
-#: data/portals.metainfo.xml.in:58
+#: data/portals.metainfo.xml.in:70
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr "アプリ選択ポータルからアプリを開く際にクラッシュしないように修正"
 
-#: data/portals.metainfo.xml.in:59
+#: data/portals.metainfo.xml.in:71
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 "親ウィンドウのないアクセスポータルウィンドウが、フォーカスされ正しい位置に表"
 "示されるように修正"
 
-#: data/portals.metainfo.xml.in:60
+#: data/portals.metainfo.xml.in:72
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "アプリ選択ポータルをモーダルダイアログに変更し、適切にアニメーション表示され"
 "るように修正"
 
-#: data/portals.metainfo.xml.in:69
+#: data/portals.metainfo.xml.in:81
 msgid "Prevent delay after logging in"
 msgstr "ログイン後の遅延を修正"
 
-#: data/portals.metainfo.xml.in:76
-msgid "First release!"
-msgstr "最初のリリース！"
+#~ msgid "First release!"
+#~ msgstr "最初のリリース！"
 
-#: data/portals.metainfo.xml.in:78
-msgid "Add OpenURI Portal"
-msgstr "OpenURI ポータルを追加"
+#~ msgid "Add OpenURI Portal"
+#~ msgstr "OpenURI ポータルを追加"
