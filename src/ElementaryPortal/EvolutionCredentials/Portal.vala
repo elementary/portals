@@ -8,9 +8,19 @@ public class EvolutionCredentials.Portal : Object {
     private const string PERMISSION_ASK = "ask";
 
     private DBusConnection connection;
+    private E.SourceRegistry registry;
 
     public Portal (DBusConnection connection) {
         this.connection = connection;
+        get_registry.begin ();
+    }
+
+    private async void get_registry () {
+        try {
+            registry = yield new E.SourceRegistry (null);
+        } catch (Error e) {
+            critical ("EvolutionCredentials Portal not functional: Failed to get Evolution SourceRegistry: %s", e.message);
+        }
     }
 
     public async void get_credentials_for_account_uid (
@@ -29,7 +39,7 @@ public class EvolutionCredentials.Portal : Object {
             register_id = connection.register_object ("/org/freedesktop/portal/elementary/%s/%s".printf (app_id, handle_token), request);
         } catch (Error e) {
             warning ("Failed to register request object: %s", e.message);
-            throw new DBusError.OBJECT_PATH_IN_USE ("Nice");
+            throw new DBusError.OBJECT_PATH_IN_USE (e.message);
         }
 
         try {
@@ -98,7 +108,7 @@ public class EvolutionCredentials.Portal : Object {
 
         if (response == 0) {
             try {
-                var credentials = lookup_credentials (account_uid);
+                var credentials = yield lookup_credentials (account_uid);
                 results["credentials"] = credentials;
             } catch (Error e) {
                 warning ("Credentials for account uid '%s' not found: %s", account_uid, e.message);
@@ -110,13 +120,15 @@ public class EvolutionCredentials.Portal : Object {
         connection.unregister_object (register_id);
     }
 
-    private string lookup_credentials (string uid) throws Error {
+    private async string lookup_credentials (string account_uid) throws Error {
         string? password;
-        if (!E.secret_store_lookup_sync (uid, out password, null)) {
+
+        var source = registry.ref_source (account_uid);
+        if (!yield source.lookup_password (null, out password)) {
             throw new IOError.NOT_FOUND ("Password not found");
         }
 
-       return password;
+        return password;
     }
 
 }
