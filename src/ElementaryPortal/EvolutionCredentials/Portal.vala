@@ -28,7 +28,7 @@ public class EvolutionCredentials.Portal : Object {
         string parent_window,
         string account_uid,
         string handle_token
-    ) throws DBusError, IOError  {
+    ) throws DBusError, IOError {
         uint response = 2;
         var request = new Request ();
         var results = new HashTable<string, Variant> (str_hash, str_equal);
