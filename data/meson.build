@@ -3,6 +3,11 @@ install_data(
     install_dir: datadir / 'xdg-desktop-portal' / 'portals'
 )
 
+install_data(
+    'org.freedesktop.portal.elementary.gschema.xml',
+    install_dir: get_option('datadir') / 'glib-2.0/schemas',
+)
+
 configure_file(
     input: 'org.freedesktop.impl.portal.desktop.pantheon.service.in',
     output: '@BASENAME@',

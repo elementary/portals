@@ -129,6 +129,9 @@ int main (string[] args) {
         on_name_acquired,
         () => { loop.quit (); }
     );
+
+    new ElementaryPortal ();
+
     loop.run ();
     GLib.Bus.unown_name (owner_id);
     return 0;

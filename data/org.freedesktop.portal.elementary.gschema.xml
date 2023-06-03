@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/org/freedesktop/portal/elementary/" id="org.freedesktop.portal.elementary">
+    <key name="stored-app-ids" type="a{su}">
+      <default>[]</default>
+      <summary>App ids of applications that already sent a request</summary>
+      <description>App ids of applications that already sent a request. Possible values: 0 = allowed; 1 = forbidden; 2 = ask</description>
+    </key>
+  </schema>
+</schemalist>
