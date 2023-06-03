@@ -21,7 +21,8 @@ executable(
         gio_dep,
         granite_dep,
         gtk_deps,
-        x11_dep
+        x11_dep,
+        libedataserver_dep
     ],
     install: true,
     install_dir: libexecdir

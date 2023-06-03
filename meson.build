@@ -2,7 +2,6 @@ project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '7.0.0', meson_vers
 
 i18n = import('i18n')
 gnome = import('gnome')
-gnome.post_install(glib_compile_schemas: true)
 
 prefix = get_option('prefix')
 datadir = prefix / get_option('datadir')
@@ -15,6 +14,7 @@ glib_dep = dependency('glib-2.0')
 gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
 granite_dep = dependency('granite-7')
+libedataserver_dep = dependency('libedataserver-1.2')
 
 gtk_deps = [
     dependency('gtk4')

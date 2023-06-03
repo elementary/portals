@@ -87,7 +87,7 @@ public class EvolutionCredentials.Portal : Object {
             });
 
             request.closed.connect (() => {
-                dialog.close ();
+                dialog.destroy ();
                 get_credentials_for_account_uid.callback ();
             });
 
@@ -97,12 +97,26 @@ public class EvolutionCredentials.Portal : Object {
         }
 
         if (response == 0) {
-            //lookup creds
-            var credentials = "<y nice creds";
-            results["credentials"] = credentials;
+            try {
+                var credentials = lookup_credentials (account_uid);
+                results["credentials"] = credentials;
+            } catch (Error e) {
+                warning ("Credentials for account uid '%s' not found: %s", account_uid, e.message);
+                response = 2;
+            }
         }
 
         request.response (response, results);
         connection.unregister_object (register_id);
     }
+
+    private string lookup_credentials (string uid) throws Error {
+        string? password;
+        if (!E.secret_store_lookup_sync (uid, out password, null)) {
+            throw new IOError.NOT_FOUND ("Password not found");
+        }
+
+       return password;
+    }
+
 }
