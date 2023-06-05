@@ -3,19 +3,48 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
+[DBus (name = "org.freedesktop.Notifications")]
+private interface Fdo.Notifications : Object {
+    public signal void action_invoked (uint32 id, string action_key);
+    public signal void notification_closed (uint32 id, CloseReason reason);
+
+    public const string NAME = "org.freedesktop.Notifications";
+    public const string PATH = "/org/freedesktop/Notifications";
+
+    [CCode (type_signature = "u")]
+    public enum CloseReason {
+        EXPIRED = 1,
+        DIMISSED,
+        CANCELLED
+    }
+
+    public abstract void close_notification (uint32 id) throws DBusError, IOError;
+    public abstract uint32 notify (
+        string app_name,
+        uint32 replaces_id,
+        string app_icon,
+        string summary,
+        string body,
+        string[] actions,
+        HashTable<string, Variant> hints,
+        int32 expire_timeout
+    ) throws DBusError, IOError;
+}
+
 [DBus (name = "org.freedesktop.impl.portal.Request")]
-public class NotificationRequest : Object {
+public class Background.NotificationRequest : Object {
     [DBus (visible = false)]
-    public signal void response (uint32 result);
+    public signal void response (NotifyBackgroundResult result);
 
     private const string ACTION_ALLOW_BACKGROUND = "background.allow";
     private const string ACTION_FORBID_BACKGROUND = "background.forbid";
 
-    private static HashTable<uint32, NotificationRequest> notification_by_id;
-    private static Notifications notifications;
+    private static HashTable<uint32, unowned NotificationRequest> requests;
+    private static Fdo.Notifications notifications;
 
     private uint32 id = 0;
 
+    [CCode (type_signature = "u")]
     public enum NotifyBackgroundResult {
         FORBID,
         ALLOW,
@@ -24,60 +53,41 @@ public class NotificationRequest : Object {
         FAILED
     }
 
-    [DBus (name = "org.freedesktop.Notifications")]
-    public interface Notifications : Object {
-        public signal void action_invoked (uint32 id, string action_key);
-        public signal void notification_closed (uint32 id, uint32 reason);
-
-        public abstract void close_notification (uint32 id) throws DBusError, IOError;
-        public abstract uint32 notify (
-            string app_name,
-            uint32 replaces_id,
-            string app_icon,
-            string summary,
-            string body,
-            string[] actions,
-            HashTable<string, Variant> hints,
-            int32 expire_timeout
-        ) throws DBusError, IOError;
-    }
-
-    [DBus (visible = false)]
     public static void init (DBusConnection connection) {
-        notification_by_id = new HashTable<uint32, NotificationRequest> (null, null);
+        requests = new HashTable<uint32, unowned NotificationRequest> (null, null);
 
         try {
-            notifications = connection.get_proxy_sync ("org.freedesktop.Notifications", "/org/freedesktop/Notifications");
-            notifications.action_invoked.connect (on_action_invoked);
-            notifications.notification_closed.connect (on_notification_closed);
+            notifications = connection.get_proxy_sync (Fdo.Notifications.NAME, Fdo.Notifications.PATH);
+            notifications.action_invoked.connect (action_invoked);
+            notifications.notification_closed.connect (notification_closed);
         } catch {
-            warning ("Cannot connect to notifications dbus, background portal working with reduced functionality.");
+            warning ("Cannot connect to notifications dbus, portal working with reduced functionality.");
         }
     }
 
-    private static void on_action_invoked (uint32 id, string action_key) {
-        var notification = notification_by_id.take (id);
+    private static void action_invoked (uint32 id, string action_key) {
+        unowned var notification = requests.take (id);
         if (notification == null) {
             return;
         }
 
         if (action_key == ACTION_ALLOW_BACKGROUND) {
-            notification.response (NotifyBackgroundResult.ALLOW);
+            notification.response (ALLOW);
         } else {
-            notification.response (NotifyBackgroundResult.FORBID);
+            notification.response (FORBID);
         }
     }
 
-    private static void on_notification_closed (uint32 id, uint32 reason) {
-        var notification = notification_by_id.take (id);
+    private static void notification_closed (uint32 id, Fdo.Notifications.CloseReason reason) {
+        unowned var notification = requests.take (id);
         if (notification == null) {
             return;
         }
 
-        if (reason == 2) { //Dismissed by user
-            notification.response (NotifyBackgroundResult.ALLOW_ONCE);
-        } else if (reason == 3) { //Closed via DBus call
-            notification.response (NotifyBackgroundResult.CANCELLED);
+        if (reason == CANCELLED) { // Closed via DBus call
+            notification.response (CANCELLED);
+        } else { // Dismissed, Expired, or something internal to the server
+            notification.response (ALLOW_ONCE);
         }
     }
 
@@ -89,6 +99,7 @@ public class NotificationRequest : Object {
             ACTION_FORBID_BACKGROUND,
             _("Forbid")
         };
+
         var hints = new HashTable<string, Variant> (null, null);
         hints["desktop-entry"] = app_id;
         hints["urgency"] = (uint8) 1;
@@ -103,10 +114,10 @@ public class NotificationRequest : Object {
                 -1
             );
 
-            notification_by_id.set (id, this);
+            requests[id] = this;
         } catch (Error e) {
-            warning ("Failed to send notification for app id '%s': %s", app_id, e.message);
-            response (NotifyBackgroundResult.FAILED);
+            warning ("Failed to notify background activity from '%s': %s", app_id, e.message);
+            response (FAILED);
         }
     }
 

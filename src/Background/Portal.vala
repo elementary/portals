@@ -3,35 +3,41 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
+[DBus (name = "org.pantheon.gala.DesktopIntegration")]
+private interface Gala.DesktopIntegration : Object {
+    public signal void running_applications_changed ();
+
+    public const string NAME = "org.pantheon.gala";
+    public const string PATH = "/org/pantheon/gala/DesktopInterface";
+
+    public struct RunningApplications {
+        string app_id;
+        HashTable<string,Variant> details;
+    }
+
+    public abstract RunningApplications[] get_running_applications () throws DBusError, IOError;
+}
+
 [DBus (name = "org.freedesktop.impl.portal.Background")]
 public class Background.Portal : Object {
     public signal void running_applications_changed ();
 
+    private Gala.DesktopIntegration? desktop_integration;
     private DBusConnection connection;
-    private DesktopIntegration desktop_integration;
 
     public Portal (DBusConnection connection) {
         this.connection = connection;
         NotificationRequest.init (connection);
         try {
-            desktop_integration = connection.get_proxy_sync ("org.pantheon.gala", "/org/pantheon/gala/DesktopInterface");
+            desktop_integration = connection.get_proxy_sync (Gala.DesktopIntegration.NAME, Gala.DesktopIntegration.PATH);
             desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
         } catch {
-            warning ("Cannot connect to compositor, background portal working with reduced functionality.");
-        }
-    }
-
-    [DBus (name = "org.pantheon.gala.DesktopIntegration")]
-    public interface DesktopIntegration : Object {
-        public struct RunningApplications {
-            string app_id;
-            HashTable<string,Variant> details;
+            warning ("Cannot connect to compositor, portal working with reduced functionality.");
         }
 
-        public signal void running_applications_changed ();
-        public abstract RunningApplications[] get_running_applications () throws DBusError, IOError;
     }
 
+    [CCode (type_signature = "u")]
     private enum ApplicationState {
         BACKGROUND,
         RUNNING,
@@ -43,18 +49,18 @@ public class Background.Portal : Object {
             throw new DBusError.FAILED ("No connection to compositor.");
         }
 
-        var apps = desktop_integration.get_running_applications ();
         var results = new HashTable<string, Variant> (null, null);
-        foreach (var app in apps) {
+        debug ("getting application states");
+
+        foreach (var app in desktop_integration.get_running_applications ()) {
             var app_id = app.app_id;
             if (app_id.has_suffix (".desktop")) {
                 app_id = app_id.slice (0, app_id.last_index_of_char ('.'));
             }
 
             var app_state = ApplicationState.RUNNING; //FIXME: Don't hardcode: needs implementation on the gala side
-
-            results[app_id] = (uint32) app_state;
             debug ("App state of '%s' set to %u (= %s).", app_id, app_state, app_state.to_string ());
+            results[app_id] = app_state;
         }
 
         return results;
@@ -69,40 +75,32 @@ public class Background.Portal : Object {
     ) throws DBusError, IOError {
         debug ("Notify background for '%s'.", app_id);
 
-        uint32 _response = 2;
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
+        uint32 _response = 2;
 
-        var notification_request = new NotificationRequest ();
-
-        notification_request.response.connect ((result) => {
-            switch (result) {
-                case NotificationRequest.NotifyBackgroundResult.CANCELLED:
-                    _response = 1;
-                    break;
-                case NotificationRequest.NotifyBackgroundResult.FAILED:
-                    break;
-                default:
-                    _response = 0;
-                    _results["result"] = (uint32) result;
-                    break;
+        var notification = new NotificationRequest ();
+        notification.response.connect ((result) => {
+            if (result == CANCELLED) {
+                _response = 1;
+            } else if (result != FAILED) {
+                _response = 0;
+                _results["result"] = result;
             }
 
             debug ("Response to background activity of '%s': %s.", app_id, result.to_string ());
-
             notify_background.callback ();
         });
 
         uint register_id = 0;
         try {
-            register_id = connection.register_object<NotificationRequest> (handle, notification_request);
+            register_id = connection.register_object<NotificationRequest> (handle, notification);
         } catch (Error e) {
             warning ("Failed to export request object: %s", e.message);
             throw new DBusError.OBJECT_PATH_IN_USE (e.message);
         }
 
         debug ("Sending desktop notification for '%s'.", app_id);
-        notification_request.send_notification (app_id, name);
-
+        notification.send_notification (app_id, name);
         yield;
 
         connection.unregister_object (register_id);
@@ -135,11 +133,10 @@ public class Background.Portal : Object {
          */
         var app_info = new DesktopAppInfo (_app_id + ".desktop");
         if (app_info == null) {
-            _app_id = string.joinv ("-", commandline).replace ("--", "-");
+            _app_id = string.joinv ("-", commandline).replace ("--", "-").replace ("--", "-");
         }
 
         var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", _app_id + ".desktop");
-
         if (!enable) {
             FileUtils.unlink (path);
             return false;
@@ -158,13 +155,10 @@ public class Background.Portal : Object {
             key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_COMMENT, string.joinv (" ", commandline));
         }
 
-        key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_EXEC, flatpak_quote_argv (commandline));
+        key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_EXEC, quote_argv (commandline));
+        key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, flags == DBUS_ACTIVATABLE);
 
-        if (flags == AutostartFlags.DBUS_ACTIVATABLE) {
-            key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_DBUS_ACTIVATABLE, true);
-        }
-
-        if (app_id.strip () != "") {
+        if (app_id != "") {
             key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
         }
 
@@ -172,15 +166,14 @@ public class Background.Portal : Object {
             key_file.save_to_file (path);
         } catch (Error e) {
             warning ("Failed to write autostart file: %s", e.message);
-            return false;
+            throw new DBusError.FAILED (e.message);
         }
 
-        debug ("Autostart file installed for '%s'.", app_id);
-
+        debug ("Autostart file installed at '%s'.", path);
         return true;
     }
 
-    private string flatpak_quote_argv (string[] argv) {
+    private string quote_argv (string[] argv) {
         var builder = new StringBuilder ();
 
         foreach (var arg in argv) {
