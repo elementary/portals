@@ -15,7 +15,7 @@ private interface Gala.DesktopIntegration : Object {
         HashTable<string,Variant> details;
     }
 
-    public abstract RunningApplications[] get_running_applications () throws DBusError, IOError;
+    public abstract async RunningApplications[] get_running_applications () throws DBusError, IOError;
 }
 
 [DBus (name = "org.freedesktop.impl.portal.Background")]
@@ -27,14 +27,19 @@ public class Background.Portal : Object {
 
     public Portal (DBusConnection connection) {
         this.connection = connection;
-        NotificationRequest.init (connection);
-        try {
-            desktop_integration = connection.get_proxy_sync (Gala.DesktopIntegration.NAME, Gala.DesktopIntegration.PATH);
-            desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
-        } catch {
-            warning ("Cannot connect to compositor, portal working with reduced functionality.");
-        }
 
+        connection.get_proxy.begin<Gala.DesktopIntegration> (
+            Gala.DesktopIntegration.NAME,
+            Gala.DesktopIntegration.PATH,
+            NONE, null, (obj, res) => {
+                try {
+                    desktop_integration = connection.get_proxy.end (res);
+                    desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
+                } catch {
+                    warning ("Cannot connect to compositor, portal working with reduced functionality.");
+                }
+            }
+        );
     }
 
     [CCode (type_signature = "u")]
@@ -44,7 +49,7 @@ public class Background.Portal : Object {
         ACTIVE
     }
 
-    public HashTable<string, Variant> get_app_state () throws DBusError, IOError {
+    public async HashTable<string, Variant> get_app_state () throws DBusError, IOError {
         if (desktop_integration == null) {
             throw new DBusError.FAILED ("No connection to compositor.");
         }
@@ -52,7 +57,7 @@ public class Background.Portal : Object {
         var results = new HashTable<string, Variant> (null, null);
         debug ("getting application states");
 
-        foreach (var app in desktop_integration.get_running_applications ()) {
+        foreach (var app in yield desktop_integration.get_running_applications ()) {
             var app_id = app.app_id;
             if (app_id.has_suffix (".desktop")) {
                 app_id = app_id.slice (0, app_id.last_index_of_char ('.'));
@@ -114,7 +119,7 @@ public class Background.Portal : Object {
         DBUS_ACTIVATABLE
     }
 
-    public bool enable_autostart (
+    public async bool enable_autostart (
         string app_id,
         bool enable,
         string[] commandline,
@@ -136,9 +141,9 @@ public class Background.Portal : Object {
             _app_id = string.joinv ("-", commandline).replace ("--", "-").replace ("--", "-");
         }
 
-        var path = Path.build_filename (Environment.get_user_config_dir (), "autostart", _app_id + ".desktop");
+        var file = File.new_build_filename (Environment.get_user_config_dir (), "autostart", _app_id + ".desktop");
         if (!enable) {
-            FileUtils.unlink (path);
+            try { yield file.delete_async (); } catch {}
             return false;
         }
 
@@ -162,14 +167,21 @@ public class Background.Portal : Object {
             key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
         }
 
+        FileCreateFlags create_flags = PRIVATE | REPLACE_DESTINATION;
+        var contents = key_file.to_data ();
+
         try {
-            key_file.save_to_file (path);
+            try {
+                yield file.replace_contents_async (contents.data, null, true, create_flags, null, null);
+            } catch (IOError.CANT_CREATE_BACKUP e) {
+                yield file.replace_contents_async (contents.data, null, false, create_flags, null, null);
+            }
         } catch (Error e) {
             warning ("Failed to write autostart file: %s", e.message);
             throw new DBusError.FAILED (e.message);
         }
 
-        debug ("Autostart file installed at '%s'.", path);
+        debug ("Autostart file installed at '%s'.", file.get_path ());
         return true;
     }
 

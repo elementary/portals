@@ -18,8 +18,8 @@ private interface Fdo.Notifications : Object {
         CANCELLED
     }
 
-    public abstract void close_notification (uint32 id) throws DBusError, IOError;
-    public abstract uint32 notify (
+    public async abstract void close_notification (uint32 id) throws DBusError, IOError;
+    public async abstract uint32 notify (
         string app_name,
         uint32 replaces_id,
         string app_icon,
@@ -40,7 +40,7 @@ public class Background.NotificationRequest : Object {
     private const string ACTION_FORBID_BACKGROUND = "background.forbid";
 
     private static HashTable<uint32, unowned NotificationRequest> requests;
-    private static Fdo.Notifications notifications;
+    private static Fdo.Notifications? notifications;
 
     private uint32 id = 0;
 
@@ -53,16 +53,8 @@ public class Background.NotificationRequest : Object {
         FAILED
     }
 
-    public static void init (DBusConnection connection) {
+    static construct {
         requests = new HashTable<uint32, unowned NotificationRequest> (null, null);
-
-        try {
-            notifications = connection.get_proxy_sync (Fdo.Notifications.NAME, Fdo.Notifications.PATH);
-            notifications.action_invoked.connect (action_invoked);
-            notifications.notification_closed.connect (notification_closed);
-        } catch {
-            warning ("Cannot connect to notifications dbus, portal working with reduced functionality.");
-        }
     }
 
     private static void action_invoked (uint32 id, string action_key) {
@@ -93,6 +85,22 @@ public class Background.NotificationRequest : Object {
 
     [DBus (visible = false)]
     public void send_notification (string app_id, string app_name) {
+        if (notifications == null) {
+            Bus.get_proxy.begin<Fdo.Notifications> (SESSION, Fdo.Notifications.NAME, Fdo.Notifications.PATH, NONE, null,
+            (obj, res) => {
+                try {
+                    notifications = Bus.get_proxy.end (res);
+                    notifications.action_invoked.connect (action_invoked);
+                    notifications.notification_closed.connect (notification_closed);
+                    send_notification (app_id, app_name);
+                } catch {
+                    warning ("Cannot connect to notifications server, skipping notify request for '%s'", app_id);
+                    response (FAILED);
+                }
+            });
+            return;
+        }
+
         string[] actions = {
             ACTION_ALLOW_BACKGROUND,
             _("Allow"),
@@ -104,26 +112,27 @@ public class Background.NotificationRequest : Object {
         hints["desktop-entry"] = app_id;
         hints["urgency"] = (uint8) 1;
 
-        try {
-            id = notifications.notify (
-                app_name, 0, "",
-                _("Background activity"),
-                _("“%s” is running in the background without appropriate permission").printf (app_name),
-                actions,
-                hints,
-                -1
-            );
-
-            requests[id] = this;
-        } catch (Error e) {
-            warning ("Failed to notify background activity from '%s': %s", app_id, e.message);
-            response (FAILED);
-        }
+        notifications.notify.begin (
+            app_name, 0, "",
+            _("Background activity"),
+            _("“%s” is running in the background without appropriate permission").printf (app_name),
+            actions,
+            hints,
+            -1, (obj, res) => {
+                try {
+                    id = notifications.notify.end (res);
+                    requests[id] = this;
+                } catch (Error e) {
+                    warning ("Failed to notify background activity from '%s': %s", app_id, e.message);
+                    response (FAILED);
+                }
+            }
+        );
     }
 
-    public void close () throws DBusError, IOError {
+    public async void close () throws DBusError, IOError {
         try {
-            notifications.close_notification (id);
+            yield notifications.close_notification (id);
         } catch (Error e) {
             // the notification was already closed, or we lost the connection to the server
         }
