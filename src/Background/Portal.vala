@@ -105,8 +105,12 @@ public class Background.Portal : Object {
         }
 
         debug ("Sending desktop notification for '%s'.", app_id);
-        notification.send_notification (app_id, name);
-        yield;
+        try {
+            yield notification.send_notification (app_id, name);
+            yield;
+        } catch (Error e) {
+            warning ("Failed to notify about background activity from '%s': %s", app_id, e.message);
+        }
 
         connection.unregister_object (register_id);
         response = _response;

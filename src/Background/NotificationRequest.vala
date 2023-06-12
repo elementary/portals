@@ -84,21 +84,17 @@ public class Background.NotificationRequest : Object {
     }
 
     [DBus (visible = false)]
-    public void send_notification (string app_id, string app_name) {
+    public async void send_notification (string app_id, string app_name) throws Error {
         if (notifications == null) {
-            Bus.get_proxy.begin<Fdo.Notifications> (SESSION, Fdo.Notifications.NAME, Fdo.Notifications.PATH, NONE, null,
-            (obj, res) => {
-                try {
-                    notifications = Bus.get_proxy.end (res);
-                    notifications.action_invoked.connect (action_invoked);
-                    notifications.notification_closed.connect (notification_closed);
-                    send_notification (app_id, app_name);
-                } catch {
-                    warning ("Cannot connect to notifications server, skipping notify request for '%s'", app_id);
-                    response (FAILED);
-                }
-            });
-            return;
+            notifications = yield Bus.get_proxy<Fdo.Notifications> (
+                SESSION,
+                Fdo.Notifications.NAME,
+                Fdo.Notifications.PATH,
+                NONE,
+                null
+            );
+            notifications.action_invoked.connect (action_invoked);
+            notifications.notification_closed.connect (notification_closed);
         }
 
         string[] actions = {
@@ -112,22 +108,16 @@ public class Background.NotificationRequest : Object {
         hints["desktop-entry"] = app_id;
         hints["urgency"] = (uint8) 1;
 
-        notifications.notify.begin (
+        yield notifications.notify (
             app_name, 0, "",
             _("Background activity"),
             _("“%s” is running in the background without appropriate permission").printf (app_name),
             actions,
             hints,
-            -1, (obj, res) => {
-                try {
-                    id = notifications.notify.end (res);
-                    requests[id] = this;
-                } catch (Error e) {
-                    warning ("Failed to notify background activity from '%s': %s", app_id, e.message);
-                    response (FAILED);
-                }
-            }
+            -1
         );
+
+        requests[id] = this;
     }
 
     public async void close () throws DBusError, IOError {
