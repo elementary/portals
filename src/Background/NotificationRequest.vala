@@ -108,7 +108,7 @@ public class Background.NotificationRequest : Object {
         hints["desktop-entry"] = app_id;
         hints["urgency"] = (uint8) 1;
 
-        yield notifications.notify (
+        id = yield notifications.notify (
             app_name, 0, "",
             _("Background activity"),
             _("“%s” is running in the background without appropriate permission").printf (app_name),
