@@ -1,4 +1,4 @@
-project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '7.0.0', meson_version: '>=0.58')
+project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '7.1.0', meson_version: '>=0.58')
 
 i18n = import('i18n')
 
