@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 19:21+0000\n"
+"POT-Creation-Date: 2023-07-20 16:20+0000\n"
 "PO-Revision-Date: 2023-01-08 17:25+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/portals/"
@@ -63,3 +63,20 @@ msgstr "Отменить"
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
 msgstr "Открыть"
+
+#: src/Background/NotificationRequest.vala:102
+msgid "Allow"
+msgstr ""
+
+#: src/Background/NotificationRequest.vala:104
+msgid "Forbid"
+msgstr ""
+
+#: src/Background/NotificationRequest.vala:113
+msgid "Background activity"
+msgstr ""
+
+#: src/Background/NotificationRequest.vala:114
+#, c-format
+msgid "“%s” is running in the background without appropriate permission"
+msgstr ""
