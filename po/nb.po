@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-20 16:20+0000\n"
-"PO-Revision-Date: 2023-02-14 13:25+0000\n"
+"PO-Revision-Date: 2023-07-26 20:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
 "portals/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -66,17 +66,17 @@ msgstr "Åpne"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
-msgstr ""
+msgstr "Tillat"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Nekt"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Bakgrunnsaktivitet"
 
 #: src/Background/NotificationRequest.vala:114
-#, c-format
+#, c-format, fuzzy
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "«%s» kjører i bakgrunnen uten tilstrekkelig adgangsinnvilgelse."
