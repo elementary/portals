@@ -151,6 +151,23 @@ public class Background.Portal : Object {
             return false;
         }
 
+        bool hidden = false;
+        if (file.query_exists ()) {
+            try {
+                uint8[] contents;
+                yield file.load_contents_async (null, out contents, null);
+
+                var old_keyfile = new KeyFile ();
+                old_keyfile.load_from_data ((string) contents, contents.length, NONE);
+
+                if (old_keyfile.has_key (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_HIDDEN)) {
+                    hidden = old_keyfile.get_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_HIDDEN);
+                }
+            } catch (Error e) {
+                warning ("Failed to load exisiting autostart file: %s", e.message);
+            }
+        }
+
         var key_file = new KeyFile ();
         key_file.set_string (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_TYPE, KeyFileDesktop.TYPE_APPLICATION);
 
@@ -170,6 +187,8 @@ public class Background.Portal : Object {
         if (app_id != "") {
             key_file.set_string (KeyFileDesktop.GROUP, "X-Flatpak", app_id);
         }
+
+        key_file.set_boolean (KeyFileDesktop.GROUP, KeyFileDesktop.KEY_HIDDEN, hidden);
 
         FileCreateFlags create_flags = PRIVATE | REPLACE_DESTINATION;
         var contents = key_file.to_data ();
