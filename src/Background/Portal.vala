@@ -152,6 +152,7 @@ public class Background.Portal : Object {
         }
 
         bool hidden = false;
+
         if (file.query_exists ()) {
             try {
                 uint8[] contents;
