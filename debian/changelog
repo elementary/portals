@@ -1,3 +1,9 @@
+io.elementary.portals (7.1.1) jammy; urgency=medium
+
+  * New upstream release
+
+ -- Danielle Foré <dani@Mini.lan>  Tue, 22 Aug 2023 09:18:48 -0700
+
 io.elementary.portals (7.1.0) jammy; urgency=medium
 
   * New upstream release
