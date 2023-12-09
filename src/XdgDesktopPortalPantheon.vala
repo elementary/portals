@@ -40,6 +40,9 @@ private void on_bus_acquired (DBusConnection connection, string name) {
 
         connection.register_object ("/org/freedesktop/portal/desktop", new Background.Portal (connection));
         debug ("Background Portal registered!");
+
+        connection.register_object ("/org/freedesktop/portal/desktop", new Screenshot.Portal (connection));
+        debug ("Screenshot Portal registered!");
     } catch (Error e) {
         critical ("Unable to register the object: %s", e.message);
     }

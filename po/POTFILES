@@ -6,3 +6,4 @@ src/AppChooser/Portal.vala
 src/AppChooser/Dialog.vala
 src/AppChooser/AppButton.vala
 src/Background/NotificationRequest.vala
+src/Screenshot/Dialog.vala
