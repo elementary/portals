@@ -6,7 +6,7 @@
 public class Screenshot.Dialog : Gtk.Window {
     public string parent_window { get; construct; }
     public bool permission_store_checked { get; construct; }
-    
+
     public Dialog (string parent_window, bool modal, bool permission_store_checked) {
         Object (
             resizable: false,
@@ -19,6 +19,16 @@ public class Screenshot.Dialog : Gtk.Window {
     private Gtk.Image all_image;
 
     construct {
+        if (parent_window != "") {
+            ((Gtk.Widget) this).realize.connect (() => {
+                try {
+                    ExternalWindow.from_handle (parent_window).set_parent_of (get_surface ());
+                } catch (Error e) {
+                    warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
+                }
+            });
+        }
+
         all_image = new Gtk.Image.from_icon_name ("grab-screen-symbolic");
 
         var all = new Gtk.CheckButton () {
@@ -121,7 +131,19 @@ public class Screenshot.Dialog : Gtk.Window {
         box.append (option_grid);
         box.append (actions);
 
-        child = box;
+        var window_handle = new Gtk.WindowHandle () {
+            child = box
+        };
+
+        child = window_handle;
+
+        // We need to hide the title area
+        titlebar = new Gtk.Grid () {
+            visible = false
+        };
+
+        add_css_class ("dialog");
+        add_css_class (Granite.STYLE_CLASS_MESSAGE_DIALOG);
 
         close_btn.clicked.connect (() => {
             destroy ();
