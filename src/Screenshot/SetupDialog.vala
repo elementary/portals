@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-public class Screenshot.Dialog : Gtk.Window {
+public class Screenshot.SetupDialog : Gtk.Window {
     public enum ScreenshotType {
         ALL,
         WINDOW,
@@ -13,19 +13,17 @@ public class Screenshot.Dialog : Gtk.Window {
     public signal void response (Gtk.ResponseType response_type);
 
     public string parent_window { get; construct; }
-    public bool permission_store_checked { get; construct; }
 
     public ScreenshotType screenshot_type { get; private set; default = ScreenshotType.ALL; }
     public bool grab_pointer { get; private set; default = false; }
     public bool redact_text { get; private set; default = false; }
     public int delay { get; private set; default = 0; }
 
-    public Dialog (string parent_window, bool modal, bool permission_store_checked) {
+    public SetupDialog (string parent_window, bool modal) {
         Object (
             resizable: false,
             parent_window: parent_window,
-            modal: modal,
-            permission_store_checked: permission_store_checked
+            modal: modal
         );
     }
 

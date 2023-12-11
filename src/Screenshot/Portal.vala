@@ -54,14 +54,14 @@ public class Screenshot.Portal : Object {
     }
 
     private async string do_screenshot (
-        Dialog.ScreenshotType screenshot_type,
+        SetupDialog.ScreenshotType screenshot_type,
         bool grab_pointer,
         bool redact,
         int delay
     ) throws GLib.Error {
         string filename_used = "";
         switch (screenshot_type) {
-            case Dialog.ScreenshotType.ALL:
+            case SetupDialog.ScreenshotType.ALL:
                 var success = false;
 
                 yield do_delay (delay);
@@ -72,7 +72,7 @@ public class Screenshot.Portal : Object {
                 }
 
                 break;
-            case Dialog.ScreenshotType.WINDOW:
+            case SetupDialog.ScreenshotType.WINDOW:
                 var success = false;
 
                 yield do_delay (delay);
@@ -83,7 +83,7 @@ public class Screenshot.Portal : Object {
                 }
 
                 break;
-            case Dialog.ScreenshotType.AREA:
+            case SetupDialog.ScreenshotType.AREA:
                 var success = false;
 
                 int x, y, width, height;
@@ -128,11 +128,12 @@ public class Screenshot.Portal : Object {
 
         debug ("screenshot: modal=%b, interactive=%b, permission_store_checked=%b", modal, interactive, permission_store_checked);
 
+        // Non-interactive screenshots for a pre-approved app, just take a fullscreen screenshot and send it
         if (!interactive && permission_store_checked) {
             var uri = "";
 
             try {
-                uri = yield do_screenshot (Dialog.ScreenshotType.ALL, false, false, 0);
+                uri = yield do_screenshot (SetupDialog.ScreenshotType.ALL, false, false, 0);
             } catch (Error e) {
                 warning ("Couldn't call screenshot: %s\n", e.message);
                 response = 1;
@@ -146,8 +147,50 @@ public class Screenshot.Portal : Object {
             return;
         }
 
+        if (!interactive && !permission_store_checked) {
+            var uri = "";
+
+            try {
+                uri = yield do_screenshot (SetupDialog.ScreenshotType.ALL, false, false, 0);
+            } catch (Error e) {
+                warning ("Couldn't call screenshot: %s\n", e.message);
+                response = 1;
+                results = new HashTable<string, Variant> (str_hash, str_equal);
+                return;
+            }
+
+            // This app has not been pre-approved to take screenshots, so we prompt the user
+            var dialog = new ApprovalDialog (parent_window, modal, uri);
+
+            bool cancelled = true;
+            dialog.response.connect ((response_id) => {
+                if (response_id == Gtk.ResponseType.OK) {
+                    cancelled = false;
+                }
+
+                screenshot.callback ();
+            });
+
+            dialog.show ();
+            yield;
+
+
+            dialog.destroy ();
+
+            if (cancelled) {
+                response = 1;
+                results = new HashTable<string, Variant> (str_hash, str_equal);
+                return;
+            } else {
+                response = 0;
+                results = new HashTable<string, Variant> (str_hash, str_equal);
+                results["uri"] = uri;
+                return;
+            }
+        }
+
         if (interactive) {
-            var dialog = new Dialog (parent_window, modal, permission_store_checked);
+            var dialog = new SetupDialog (parent_window, modal);
 
             bool cancelled = true;
             dialog.response.connect ((response_id) => {
@@ -179,10 +222,41 @@ public class Screenshot.Portal : Object {
                 return;
             }
 
-            response = 0;
-            results = new HashTable<string, Variant> (str_hash, str_equal);
-            results["uri"] = uri;
-            return;
+            // The user has already approved this app to take screenshots, so we send the screenshot without prompting
+            if (permission_store_checked) {
+                response = 0;
+                results = new HashTable<string, Variant> (str_hash, str_equal);
+                results["uri"] = uri;
+                return;
+            } else {
+                // This app has not been pre-approved to take screenshots, so we prompt the user
+                var approval_dialog = new ApprovalDialog (parent_window, modal, uri);
+
+                bool approval_cancelled = true;
+                approval_dialog.response.connect ((response_id) => {
+                    if (response_id == Gtk.ResponseType.OK) {
+                        approval_cancelled = false;
+                    }
+
+                    screenshot.callback ();
+                });
+
+                approval_dialog.show ();
+                yield;
+
+                approval_dialog.destroy ();
+
+                if (approval_cancelled) {
+                    response = 1;
+                    results = new HashTable<string, Variant> (str_hash, str_equal);
+                    return;
+                } else {
+                    response = 0;
+                    results = new HashTable<string, Variant> (str_hash, str_equal);
+                    results["uri"] = uri;
+                    return;
+                }
+            }
         }
 
         warning ("Unimplemented screenshot code path, this should not be reached");
