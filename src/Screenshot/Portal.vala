@@ -126,6 +126,8 @@ public class Screenshot.Portal : Object {
         var interactive = false;
         var permission_store_checked = false;
 
+        results = new HashTable<string, Variant> (str_hash, str_equal);
+
         if ("modal" in options && options["modal"].get_type_string () == "b") {
             modal = options["modal"].get_boolean ();
         }
@@ -149,12 +151,10 @@ public class Screenshot.Portal : Object {
             } catch (Error e) {
                 warning ("Couldn't call screenshot: %s\n", e.message);
                 response = 1;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
                 return;
             }
 
             response = 0;
-            results = new HashTable<string, Variant> (str_hash, str_equal);
             results["uri"] = uri;
             return;
         }
@@ -167,7 +167,6 @@ public class Screenshot.Portal : Object {
             } catch (Error e) {
                 warning ("Couldn't call screenshot: %s\n", e.message);
                 response = 1;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
                 return;
             }
 
@@ -191,11 +190,9 @@ public class Screenshot.Portal : Object {
 
             if (cancelled) {
                 response = 1;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
                 return;
             } else {
                 response = 0;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
                 results["uri"] = uri;
                 return;
             }
@@ -220,7 +217,6 @@ public class Screenshot.Portal : Object {
 
             if (cancelled) {
                 response = 1;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
                 return;
             }
 
@@ -230,14 +226,12 @@ public class Screenshot.Portal : Object {
             } catch (Error e) {
                 warning ("Couldn't call screenshot: %s\n", e.message);
                 response = 2;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
                 return;
             }
 
             // The user has already approved this app to take screenshots, so we send the screenshot without prompting
             if (permission_store_checked) {
                 response = 0;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
                 results["uri"] = uri;
                 return;
             } else {
@@ -260,11 +254,9 @@ public class Screenshot.Portal : Object {
 
                 if (approval_cancelled) {
                     response = 1;
-                    results = new HashTable<string, Variant> (str_hash, str_equal);
                     return;
                 } else {
                     response = 0;
-                    results = new HashTable<string, Variant> (str_hash, str_equal);
                     results["uri"] = uri;
                     return;
                 }
