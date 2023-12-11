@@ -13,6 +13,7 @@ executable(
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
     'ExternalWindow.vala',
     'XdgDesktopPortalPantheon.vala',
+    icon_res,
     dependencies: [
         glib_dep,
         gobject_dep,

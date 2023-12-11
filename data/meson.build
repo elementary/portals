@@ -32,3 +32,8 @@ i18n.merge_file(
     install: true,
     install_dir: datadir / 'metainfo'
 )
+
+icon_res = gnome.compile_resources(
+    'screenshot-icon-resources',
+    'gresource.xml'
+)

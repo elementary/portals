@@ -22,6 +22,8 @@ public class Screenshot.Portal : Object {
     private Gala.ScreenshotProxy screenshot_proxy;
     private DBusConnection connection;
 
+    // Force the property name to be "version" instead of "Version"
+    [DBus (name = "version")]
     public uint32 version { get; default = 2; }
 
     public Portal (DBusConnection connection) {
@@ -52,15 +54,15 @@ public class Screenshot.Portal : Object {
         var interactive = false;
         var permission_store_checked = false;
 
-        if (options["modal"] != null && options["modal"].get_type_string () == "b") {
+        if ("modal" in options && options["modal"].get_type_string () == "b") {
             modal = options["modal"].get_boolean ();
         }
 
-        if (options["interactive"] != null && options["interactive"].get_type_string () == "b") {
+        if ("interactive" in options && options["interactive"].get_type_string () == "b") {
             interactive = options["interactive"].get_boolean ();
         }
 
-        if (options["permission_store_checked"] != null && options["permission_store_checked"].get_type_string () == "b") {
+        if ("permission_store_checked" in options && options["permission_store_checked"].get_type_string () == "b") {
             permission_store_checked = options["permission_store_checked"].get_boolean ();
         }
 
@@ -97,8 +99,8 @@ public class Screenshot.Portal : Object {
             dialog.show ();
         }
 
-        warning ("Unimplemented screenshot path, this should not be reached");
-        response = 1;
+        warning ("Unimplemented screenshot code path, this should not be reached");
+        response = 2;
         results = new HashTable<string, Variant> (str_hash, str_equal);
     }
 
