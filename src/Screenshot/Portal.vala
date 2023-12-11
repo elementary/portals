@@ -90,7 +90,7 @@ public class Screenshot.Portal : Object {
                 yield screenshot_proxy.select_area (out x, out y, out width, out height);
 
                 yield do_delay (delay);
-                yield screenshot_proxy.screenshot_area (x, y, width, height, true, "/tmp/portal_screenshot.png", out success, out filename_used);
+                yield screenshot_proxy.screenshot_area_with_cursor (x, y, width, height, grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
 
                 if (!success) {
                     throw new GLib.IOError.FAILED ("Failed to take screenshot");
