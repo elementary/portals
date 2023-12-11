@@ -93,7 +93,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
             halign = START
         };
 
-        pointer_switch.activate.connect (() => {
+        pointer_switch.state_set.connect (() => {
             grab_pointer = pointer_switch.active;
         });
 
@@ -105,7 +105,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
             halign = START
         };
 
-        redact_switch.activate.connect (() => {
+        redact_switch.state_set.connect (() => {
             redact_text = redact_switch.active;
         });
 

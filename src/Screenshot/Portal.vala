@@ -65,6 +65,10 @@ public class Screenshot.Portal : Object {
                 var success = false;
 
                 yield do_delay (delay);
+                if (redact) {
+                    yield screenshot_proxy.conceal_text ();
+                    yield do_delay (1);
+                }
                 yield screenshot_proxy.screenshot (grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
 
                 if (!success) {
@@ -76,6 +80,10 @@ public class Screenshot.Portal : Object {
                 var success = false;
 
                 yield do_delay (delay);
+                if (redact) {
+                    yield screenshot_proxy.conceal_text ();
+                    yield do_delay (1);
+                }
                 yield screenshot_proxy.screenshot_window (false, grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
 
                 if (!success) {
@@ -90,6 +98,10 @@ public class Screenshot.Portal : Object {
                 yield screenshot_proxy.select_area (out x, out y, out width, out height);
 
                 yield do_delay (delay);
+                if (redact) {
+                    yield screenshot_proxy.conceal_text ();
+                    yield do_delay (1);
+                }
                 yield screenshot_proxy.screenshot_area_with_cursor (x, y, width, height, grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
 
                 if (!success) {
