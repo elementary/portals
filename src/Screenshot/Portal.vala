@@ -160,7 +160,7 @@ public class Screenshot.Portal : Object {
             }
 
             // This app has not been pre-approved to take screenshots, so we prompt the user
-            var dialog = new ApprovalDialog (parent_window, modal, uri);
+            var dialog = new ApprovalDialog (parent_window, modal, app_id, uri);
 
             bool cancelled = true;
             dialog.response.connect ((response_id) => {
@@ -230,7 +230,7 @@ public class Screenshot.Portal : Object {
                 return;
             } else {
                 // This app has not been pre-approved to take screenshots, so we prompt the user
-                var approval_dialog = new ApprovalDialog (parent_window, modal, uri);
+                var approval_dialog = new ApprovalDialog (parent_window, modal, app_id, uri);
 
                 bool approval_cancelled = true;
                 approval_dialog.response.connect ((response_id) => {

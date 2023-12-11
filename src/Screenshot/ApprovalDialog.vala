@@ -7,13 +7,15 @@
     public signal void response (Gtk.ResponseType response_type);
 
     public string parent_window { get; construct; }
+    public string app_id { get; construct; }
     public string screenshot_uri { get; construct; }
 
-    public ApprovalDialog (string parent_window, bool modal, string screenshot_uri) {
+    public ApprovalDialog (string parent_window, bool modal, string app_id, string screenshot_uri) {
         Object (
             resizable: false,
             parent_window: parent_window,
             modal: modal,
+            app_id: app_id,
             screenshot_uri: screenshot_uri
         );
     }
@@ -29,7 +31,32 @@
             });
         }
 
-        // TODO: Add a screenshot preview and wording
+        var title = new Gtk.Label (_("Share Screenshot")) {
+            max_width_chars = 0, // Wrap, but secondary label sets the width
+            selectable = true,
+            wrap = true,
+            xalign = 0
+        };
+        title.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
+
+        var subtitle = new Gtk.Label (_("Share this screenshot with the requesting app?")) {
+            max_width_chars = 50,
+            width_chars = 50, // Prevents a bug where extra height is preserved
+            selectable = true,
+            wrap = true,
+            xalign = 0
+        };
+
+        if (app_id != null) {
+            var app_info = new GLib.DesktopAppInfo (app_id + ".desktop");
+            if (app_info != null) {
+                subtitle.label = _("Share this screenshot with %s?").printf (app_info.get_display_name ());
+            }
+        }
+
+        var screenshot_filename = GLib.Filename.from_uri (screenshot_uri);
+        var screenshot_image = new Gtk.Picture.for_pixbuf (new Gdk.Pixbuf.from_file_at_scale (screenshot_filename, 384, 384, true)) {
+        };
 
         var allow_button = new Gtk.Button.with_label (_("Share Screenshot")) {
             receives_default = true
@@ -55,6 +82,10 @@
             margin_bottom = 12,
             margin_start = 12
         };
+        box.add_css_class ("dialog-vbox");
+        box.append (title);
+        box.append (subtitle);
+        box.append (screenshot_image);
         box.append (actions);
 
         var window_handle = new Gtk.WindowHandle () {
