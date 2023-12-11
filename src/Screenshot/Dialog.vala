@@ -4,8 +4,21 @@
  */
 
 public class Screenshot.Dialog : Gtk.Window {
+    public enum ScreenshotType {
+        ALL,
+        WINDOW,
+        AREA
+    }
+
+    public signal void response (Gtk.ResponseType response_type);
+
     public string parent_window { get; construct; }
     public bool permission_store_checked { get; construct; }
+
+    public ScreenshotType screenshot_type { get; private set; default = ScreenshotType.ALL; }
+    public bool grab_pointer { get; private set; default = false; }
+    public bool redact_text { get; private set; default = false; }
+    public int delay { get; private set; default = 0; }
 
     public Dialog (string parent_window, bool modal, bool permission_store_checked) {
         Object (
@@ -38,6 +51,12 @@ public class Screenshot.Dialog : Gtk.Window {
         all.add_css_class ("image-button");
         all_image.set_parent (all);
 
+        all.toggled.connect (() => {
+            if (all.active) {
+                screenshot_type = ScreenshotType.ALL;
+            }
+        });
+
         var curr_image = new Gtk.Image.from_icon_name ("grab-window-symbolic");
 
         var curr_window = new Gtk.CheckButton () {
@@ -46,6 +65,12 @@ public class Screenshot.Dialog : Gtk.Window {
         };
         curr_window.add_css_class ("image-button");
         curr_image.set_parent (curr_window);
+
+        curr_window.toggled.connect (() => {
+            if (curr_window.active) {
+                screenshot_type = ScreenshotType.WINDOW;
+            }
+        });
 
         var selection_image = new Gtk.Image.from_icon_name ("grab-area-symbolic");
 
@@ -56,6 +81,12 @@ public class Screenshot.Dialog : Gtk.Window {
         selection.add_css_class ("image-button");
         selection_image.set_parent (selection);
 
+        selection.toggled.connect (() => {
+            if (selection.active) {
+                screenshot_type = ScreenshotType.AREA;
+            }
+        });
+
         var pointer_label = new Gtk.Label (_("Grab pointer:")) {
             halign = END
         };
@@ -64,13 +95,9 @@ public class Screenshot.Dialog : Gtk.Window {
             halign = START
         };
 
-        var close_label = new Gtk.Label (_("Close after saving:")) {
-            halign = END
-        };
-
-        var close_switch = new Gtk.Switch () {
-            halign = START
-        };
+        pointer_switch.activate.connect (() => {
+            grab_pointer = pointer_switch.active;
+        });
 
         var redact_label = new Gtk.Label (_("Conceal text:")) {
             halign = END
@@ -80,15 +107,27 @@ public class Screenshot.Dialog : Gtk.Window {
             halign = START
         };
 
+        redact_switch.activate.connect (() => {
+            redact_text = redact_switch.active;
+        });
+
         var delay_label = new Gtk.Label (_("Delay in seconds:"));
         delay_label.halign = Gtk.Align.END;
 
         var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
 
+        delay_spin.value_changed.connect (() => {
+            delay = (int) delay_spin.value;
+        });
+
         var take_btn = new Gtk.Button.with_label (_("Take Screenshot")) {
             receives_default = true
         };
         take_btn.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+
+        take_btn.clicked.connect (() => {
+            response (Gtk.ResponseType.OK);
+        });
 
         var close_btn = new Gtk.Button.with_label (_("Close"));
 
@@ -105,14 +144,12 @@ public class Screenshot.Dialog : Gtk.Window {
         };
         option_grid.attach (pointer_label, 0, 0);
         option_grid.attach (pointer_switch, 1, 0);
-        option_grid.attach (close_label, 0, 1);
-        option_grid.attach (close_switch, 1, 1);
 
-        option_grid.attach (redact_label, 0, 2);
-        option_grid.attach (redact_switch, 1, 2);
+        option_grid.attach (redact_label, 0, 1);
+        option_grid.attach (redact_switch, 1, 1);
 
-        option_grid.attach (delay_label, 0, 3);
-        option_grid.attach (delay_spin, 1, 3);
+        option_grid.attach (delay_label, 0, 2);
+        option_grid.attach (delay_spin, 1, 2);
 
         var actions = new Gtk.Box (HORIZONTAL, 6) {
             halign = END,
@@ -146,7 +183,7 @@ public class Screenshot.Dialog : Gtk.Window {
         add_css_class (Granite.STYLE_CLASS_MESSAGE_DIALOG);
 
         close_btn.clicked.connect (() => {
-            destroy ();
+            response (Gtk.ResponseType.CLOSE);
         });
 
         var gtk_settings = Gtk.Settings.get_default ();

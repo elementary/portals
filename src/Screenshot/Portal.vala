@@ -42,6 +42,66 @@ public class Screenshot.Portal : Object {
         );
     }
 
+    private async void do_delay (int seconds) {
+        if (seconds > 0) {
+            GLib.Timeout.add_seconds (seconds, () => {
+                do_delay.callback ();
+                return false;
+            });
+
+            yield;
+        }
+    }
+
+    private async string do_screenshot (
+        Dialog.ScreenshotType screenshot_type,
+        bool grab_pointer,
+        bool redact,
+        int delay
+    ) throws GLib.Error {
+        string filename_used = "";
+        switch (screenshot_type) {
+            case Dialog.ScreenshotType.ALL:
+                var success = false;
+
+                yield do_delay (delay);
+                yield screenshot_proxy.screenshot (grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
+
+                if (!success) {
+                    throw new GLib.IOError.FAILED ("Failed to take screenshot");
+                }
+
+                break;
+            case Dialog.ScreenshotType.WINDOW:
+                var success = false;
+
+                yield do_delay (delay);
+                yield screenshot_proxy.screenshot_window (false, grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
+
+                if (!success) {
+                    throw new GLib.IOError.FAILED ("Failed to take screenshot");
+                }
+
+                break;
+            case Dialog.ScreenshotType.AREA:
+                var success = false;
+
+                int x, y, width, height;
+                yield screenshot_proxy.select_area (out x, out y, out width, out height);
+
+                yield do_delay (delay);
+                yield screenshot_proxy.screenshot_area (x, y, width, height, true, "/tmp/portal_screenshot.png", out success, out filename_used);
+
+                if (!success) {
+                    throw new GLib.IOError.FAILED ("Failed to take screenshot");
+                }
+
+                break;
+        }
+
+        return GLib.Filename.to_uri (filename_used, null);
+    }
+
     public async void screenshot (
         ObjectPath handle,
         string app_id,
@@ -69,11 +129,10 @@ public class Screenshot.Portal : Object {
         debug ("screenshot: modal=%b, interactive=%b, permission_store_checked=%b", modal, interactive, permission_store_checked);
 
         if (!interactive && permission_store_checked) {
-            var success = false;
-            var filename_used = "";
+            var uri = "";
 
             try {
-                yield screenshot_proxy.screenshot (false, true, "", out success, out filename_used);
+                uri = yield do_screenshot (Dialog.ScreenshotType.ALL, false, false, 0);
             } catch (Error e) {
                 warning ("Couldn't call screenshot: %s\n", e.message);
                 response = 1;
@@ -81,22 +140,49 @@ public class Screenshot.Portal : Object {
                 return;
             }
 
-            if (success) {
-                response = 0;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
-                results["filename"] = new Variant ("s", filename_used);
-                return;
-            } else {
-                response = 1;
-                results = new HashTable<string, Variant> (str_hash, str_equal);
-                return;
-            }
+            response = 0;
+            results = new HashTable<string, Variant> (str_hash, str_equal);
+            results["uri"] = uri;
+            return;
         }
 
         if (interactive) {
             var dialog = new Dialog (parent_window, modal, permission_store_checked);
 
+            bool cancelled = true;
+            dialog.response.connect ((response_id) => {
+                if (response_id == Gtk.ResponseType.OK) {
+                    cancelled = false;
+                }
+
+                screenshot.callback ();
+            });
+
             dialog.show ();
+            yield;
+
+            dialog.destroy ();
+
+            if (cancelled) {
+                response = 1;
+                results = new HashTable<string, Variant> (str_hash, str_equal);
+                return;
+            }
+
+            var uri = "";
+            try {
+                uri = yield do_screenshot (dialog.screenshot_type, dialog.grab_pointer, dialog.redact_text, dialog.delay);
+            } catch (Error e) {
+                warning ("Couldn't call screenshot: %s\n", e.message);
+                response = 2;
+                results = new HashTable<string, Variant> (str_hash, str_equal);
+                return;
+            }
+
+            response = 0;
+            results = new HashTable<string, Variant> (str_hash, str_equal);
+            results["uri"] = uri;
+            return;
         }
 
         warning ("Unimplemented screenshot code path, this should not be reached");
