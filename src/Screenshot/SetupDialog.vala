@@ -114,7 +114,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
 
         var redact_label = new Gtk.Label (_("Conceal text:")) {
             halign = END,
-            mnemonic_widget = redact_switch 
+            mnemonic_widget = redact_switch
         };
 
         var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
