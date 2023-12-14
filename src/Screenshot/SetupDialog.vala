@@ -40,7 +40,9 @@ public class Screenshot.SetupDialog : Gtk.Window {
             });
         }
 
-        all_image = new Gtk.Image.from_icon_name ("grab-screen-symbolic");
+        all_image = new Gtk.Image.from_icon_name ("grab-screen-symbolic") {
+            icon_size = LARGE
+        };
 
         var all = new Gtk.CheckButton () {
             active = true,
@@ -55,7 +57,9 @@ public class Screenshot.SetupDialog : Gtk.Window {
             }
         });
 
-        var curr_image = new Gtk.Image.from_icon_name ("grab-window-symbolic");
+        var curr_image = new Gtk.Image.from_icon_name ("grab-window-symbolic") {
+            icon_size = LARGE
+        };
 
         var curr_window = new Gtk.CheckButton () {
             group = all,
@@ -70,7 +74,9 @@ public class Screenshot.SetupDialog : Gtk.Window {
             }
         });
 
-        var selection_image = new Gtk.Image.from_icon_name ("grab-area-symbolic");
+        var selection_image = new Gtk.Image.from_icon_name ("grab-area-symbolic") {
+            icon_size = LARGE
+        };
 
         var selection = new Gtk.CheckButton () {
             group = all,
@@ -85,10 +91,6 @@ public class Screenshot.SetupDialog : Gtk.Window {
             }
         });
 
-        var pointer_label = new Gtk.Label (_("Grab pointer:")) {
-            halign = END
-        };
-
         var pointer_switch = new Gtk.Switch () {
             halign = START
         };
@@ -97,8 +99,9 @@ public class Screenshot.SetupDialog : Gtk.Window {
             grab_pointer = pointer_switch.active;
         });
 
-        var redact_label = new Gtk.Label (_("Conceal text:")) {
-            halign = END
+        var pointer_label = new Gtk.Label (_("Grab pointer:")) {
+            halign = END,
+            mnemonic_widget = pointer_switch
         };
 
         var redact_switch = new Gtk.Switch () {
@@ -109,14 +112,21 @@ public class Screenshot.SetupDialog : Gtk.Window {
             redact_text = redact_switch.active;
         });
 
-        var delay_label = new Gtk.Label (_("Delay in seconds:"));
-        delay_label.halign = Gtk.Align.END;
+        var redact_label = new Gtk.Label (_("Conceal text:")) {
+            halign = END,
+            mnemonic_widget = redact_switch
+        };
 
         var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
 
         delay_spin.value_changed.connect (() => {
             delay = (int) delay_spin.value;
         });
+
+        var delay_label = new Gtk.Label (_("Delay in seconds:")) {
+            halign = END,
+            mnemonic_widget = delay_spin
+        };
 
         var take_btn = new Gtk.Button.with_label (_("Take Screenshot")) {
             receives_default = true
