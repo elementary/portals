@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Portals Demo
+Comment=A demo application to test portals
+Exec=io.elementary.portals.demo
+Icon=preferences-system-notifications
+Type=Application
+NoDisplay=true
