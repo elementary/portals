@@ -30,8 +30,6 @@ public class Wallpaper.Portal : Object {
             show_preview = options["show-preview"].get_boolean ();
         }
 
-        critical (set_on);
-
         // Currently only support Both
         if (set_on == "background" || set_on == "lockscreen") {
             return 1;
