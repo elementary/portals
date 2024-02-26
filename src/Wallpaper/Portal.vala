@@ -20,7 +20,7 @@ public class Wallpaper.Portal : Object {
         HashTable<string, Variant> options
     ) throws DBusError, IOError {
         unowned string set_on = "both"; // Possible values are background, lockscreen or both.
-        unowned bool show_preview = false;
+        unowned bool show_preview = false; // FIXME: implement preview dialog
 
         unowned var _set_on = options.get ("set-on");
         if (_set_on.get_type_string () == "s") {
