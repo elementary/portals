@@ -23,12 +23,12 @@ public class Wallpaper.Portal : Object {
         unowned bool show_preview = false; // FIXME: implement preview dialog
 
         unowned var _set_on = options.get ("set-on");
-        if (_set_on.get_type_string () == "s") {
+        if (_set_on.is_of_type (GLib.VariantType.STRING)) {
             set_on = _set_on.get_string ();
         }
 
         unowned var _show_preview = options.get ("show-preview");
-        if (_show_preview.get_type_string () == "b") {
+        if (_show_preview.is_of_type (GLib.VariantType.BOOLEAN)) {
             show_preview = _show_preview.get_boolean ();
         }
 
