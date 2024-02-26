@@ -22,12 +22,14 @@ public class Wallpaper.Portal : Object {
         var set_on = "both"; // Possible values are background, lockscreen or both.
         var show_preview = false;
 
-        if ("set-on" in options && options["set-on"].get_type_string () == "s") {
-            set_on = options["set-on"].get_string ();
+        unowned var _set_on = options.get ("set-on");
+        if (_set_on.get_type_string () == "s") {
+            set_on = _set_on.get_string ();
         }
 
-        if ("show-preview" in options && options["show-preview"].get_type_string () == "b") {
-            show_preview = options["show-preview"].get_boolean ();
+        unowned var _show_preview = options.get ("show-preview");
+        if (_show_preview.get_type_string () == "b") {
+            show_preview = _show_preview.get_boolean ();
         }
 
         // Currently only support Both
