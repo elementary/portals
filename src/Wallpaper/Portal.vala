@@ -50,7 +50,7 @@ public class Wallpaper.Portal : Object {
         return 0;
     }
 
-    private bool get_is_file_in_bg_dir (File file) {
+    private static bool get_is_file_in_bg_dir (File file) {
         string path = file.get_path ();
 
         foreach (unowned string directory in get_bg_directories ()) {
@@ -62,7 +62,7 @@ public class Wallpaper.Portal : Object {
         return false;
     }
 
-    private File? copy_for_library (File source) {
+    private static File? copy_for_library (File source) {
         File? dest = null;
 
         try {
@@ -77,7 +77,7 @@ public class Wallpaper.Portal : Object {
         return dest;
     }
 
-    private string[] get_bg_directories () {
+    private static string[] get_bg_directories () {
         string[] background_directories = {};
 
         // Add user background directory first
@@ -94,7 +94,7 @@ public class Wallpaper.Portal : Object {
         return background_directories;
     }
 
-    private File ensure_local_bg_exists () {
+    private static File ensure_local_bg_exists () {
         var folder = File.new_for_path (get_local_bg_directory ());
         if (!folder.query_exists ()) {
             try {
@@ -107,11 +107,11 @@ public class Wallpaper.Portal : Object {
         return folder;
     }
 
-    private string get_local_bg_directory () {
+    private static string get_local_bg_directory () {
         return Path.build_filename (Environment.get_user_data_dir (), "backgrounds") + "/";
     }
 
-    private string[] get_system_bg_directories () {
+    private static string[] get_system_bg_directories () {
         string[] directories = {};
         foreach (unowned string data_dir in Environment.get_system_data_dirs ()) {
             var system_background_dir = Path.build_filename (data_dir, "backgrounds") + "/";
