@@ -19,8 +19,8 @@ public class Wallpaper.Portal : Object {
         string uri,
         HashTable<string, Variant> options
     ) throws DBusError, IOError {
-        var set_on = "both"; // Possible values are background, lockscreen or both.
-        var show_preview = false;
+        unowned string set_on = "both"; // Possible values are background, lockscreen or both.
+        unowned bool show_preview = false;
 
         unowned var _set_on = options.get ("set-on");
         if (_set_on.get_type_string () == "s") {
