@@ -12,37 +12,115 @@ public class Wallpaper.Portal : Object {
     }
 
     [DBus (name = "SetWallpaperURI")]
-    public async void set_wallpaper_uri (
+    public async uint set_wallpaper_uri (
         ObjectPath handle,
         string app_id,
         string parent_window,
         string uri,
-        HashTable<string, Variant> options,
-        out uint32 response
+        HashTable<string, Variant> options
     ) throws DBusError, IOError {
-        var set_on = ""; // Possible values are background, lockscreen or both.
+        var set_on = "both"; // Possible values are background, lockscreen or both.
         var show_preview = false;
 
         if ("set-on" in options && options["set-on"].get_type_string () == "s") {
-            set_on = options["show-preview"].get_string ();
+            set_on = options["set-on"].get_string ();
         }
 
         if ("show-preview" in options && options["show-preview"].get_type_string () == "b") {
             show_preview = options["show-preview"].get_boolean ();
         }
 
-        critical ("%b", show_preview);
         critical (set_on);
 
-        // Lockscreen only isn't currently supported
-        if (set_on == "locksreen") {
-            response = 1;
-            return;
+        // Currently only support Both
+        if (set_on == "background" || set_on == "lockscreen") {
+            return 1;
         }
 
-        var settings = new Settings ("org.gnome.desktop.background");
-        settings.set_string ("picture-uri", uri);
+        var file = File.new_for_uri (uri);
+        if (!get_is_file_in_bg_dir (file)) {
+            file = copy_for_library (file);
+        }
 
-        response = 0;
+        if (file != null) {
+            var settings = new Settings ("org.gnome.desktop.background");
+            settings.set_string ("picture-uri", file.get_uri ());
+        }
+
+        return 0;
+    }
+
+    private bool get_is_file_in_bg_dir (File file) {
+        string path = file.get_path ();
+
+        foreach (unowned string directory in get_bg_directories ()) {
+            if (path.has_prefix (directory)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private File? copy_for_library (File source) {
+        File? dest = null;
+
+        try {
+            var timestamp = new DateTime.now_local ().format ("%Y-%m-%d-%H-%M-%S");
+            var filename = "%s-%s".printf (timestamp, source.get_basename ());
+            dest = ensure_local_bg_exists ().get_child (filename);
+            source.copy (dest, FileCopyFlags.OVERWRITE | FileCopyFlags.ALL_METADATA);
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        return dest;
+    }
+
+    private string[] get_bg_directories () {
+        string[] background_directories = {};
+
+        // Add user background directory first
+        background_directories += get_local_bg_directory ();
+
+        foreach (var bg_dir in get_system_bg_directories ()) {
+            background_directories += bg_dir;
+        }
+
+        if (background_directories.length == 0) {
+            warning ("No background directories found");
+        }
+
+        return background_directories;
+    }
+
+    private File ensure_local_bg_exists () {
+        var folder = File.new_for_path (get_local_bg_directory ());
+        if (!folder.query_exists ()) {
+            try {
+                folder.make_directory_with_parents ();
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        return folder;
+    }
+
+    private string get_local_bg_directory () {
+        return Path.build_filename (Environment.get_user_data_dir (), "backgrounds") + "/";
+    }
+
+    private string[] get_system_bg_directories () {
+        string[] directories = {};
+        foreach (unowned string data_dir in Environment.get_system_data_dirs ()) {
+            var system_background_dir = Path.build_filename (data_dir, "backgrounds") + "/";
+            if (FileUtils.test (system_background_dir, FileTest.EXISTS)) {
+                debug ("Found system background directory: %s", system_background_dir);
+                directories += system_background_dir;
+            }
+        }
+
+        return directories;
     }
 }
