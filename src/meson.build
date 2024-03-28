@@ -11,6 +11,7 @@ executable(
     'Screenshot/ApprovalDialog.vala',
     'Screenshot/Portal.vala',
     'Screenshot/SetupDialog.vala',
+    'Wallpaper/Portal.vala',
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
     'ExternalWindow.vala',
     'XdgDesktopPortalPantheon.vala',
