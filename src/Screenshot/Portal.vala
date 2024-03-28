@@ -159,45 +159,6 @@ public class Screenshot.Portal : Object {
             return;
         }
 
-        if (!interactive && !permission_store_checked) {
-            var uri = "";
-
-            try {
-                uri = yield do_screenshot (SetupDialog.ScreenshotType.ALL, false, false, 0);
-            } catch (Error e) {
-                warning ("Couldn't call screenshot: %s\n", e.message);
-                response = 1;
-                return;
-            }
-
-            // This app has not been pre-approved to take screenshots, so we prompt the user
-            var dialog = new ApprovalDialog (parent_window, modal, app_id, uri);
-
-            bool cancelled = true;
-            dialog.response.connect ((response_id) => {
-                if (response_id == Gtk.ResponseType.OK) {
-                    cancelled = false;
-                }
-
-                screenshot.callback ();
-            });
-
-            dialog.show ();
-            yield;
-
-
-            dialog.destroy ();
-
-            if (cancelled) {
-                response = 1;
-                return;
-            } else {
-                response = 0;
-                results["uri"] = uri;
-                return;
-            }
-        }
-
         if (interactive) {
             var dialog = new SetupDialog (parent_window, modal);
 
@@ -234,32 +195,6 @@ public class Screenshot.Portal : Object {
                 response = 0;
                 results["uri"] = uri;
                 return;
-            } else {
-                // This app has not been pre-approved to take screenshots, so we prompt the user
-                var approval_dialog = new ApprovalDialog (parent_window, modal, app_id, uri);
-
-                bool approval_cancelled = true;
-                approval_dialog.response.connect ((response_id) => {
-                    if (response_id == Gtk.ResponseType.OK) {
-                        approval_cancelled = false;
-                    }
-
-                    screenshot.callback ();
-                });
-
-                approval_dialog.show ();
-                yield;
-
-                approval_dialog.destroy ();
-
-                if (approval_cancelled) {
-                    response = 1;
-                    return;
-                } else {
-                    response = 0;
-                    results["uri"] = uri;
-                    return;
-                }
             }
         }
 

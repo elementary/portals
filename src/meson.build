@@ -8,7 +8,6 @@ executable(
     'AppChooser/Portal.vala',
     'Background/NotificationRequest.vala',
     'Background/Portal.vala',
-    'Screenshot/ApprovalDialog.vala',
     'Screenshot/Portal.vala',
     'Screenshot/SetupDialog.vala',
     'Wallpaper/Portal.vala',
