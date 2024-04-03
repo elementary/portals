@@ -60,6 +60,8 @@ public class Screenshot.Portal : Object {
         int delay
     ) throws GLib.Error {
         string filename_used = "";
+        var tmp_filename = get_tmp_filename ();
+
         switch (screenshot_type) {
             case SetupDialog.ScreenshotType.ALL:
                 var success = false;
@@ -69,7 +71,7 @@ public class Screenshot.Portal : Object {
                     yield screenshot_proxy.conceal_text ();
                     yield do_delay (1);
                 }
-                yield screenshot_proxy.screenshot (grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
+                yield screenshot_proxy.screenshot (grab_pointer, true, tmp_filename, out success, out filename_used);
 
                 if (!success) {
                     throw new GLib.IOError.FAILED ("Failed to take screenshot");
@@ -84,7 +86,7 @@ public class Screenshot.Portal : Object {
                     yield screenshot_proxy.conceal_text ();
                     yield do_delay (1);
                 }
-                yield screenshot_proxy.screenshot_window (false, grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
+                yield screenshot_proxy.screenshot_window (false, grab_pointer, true, tmp_filename, out success, out filename_used);
 
                 if (!success) {
                     throw new GLib.IOError.FAILED ("Failed to take screenshot");
@@ -102,7 +104,7 @@ public class Screenshot.Portal : Object {
                     yield screenshot_proxy.conceal_text ();
                     yield do_delay (1);
                 }
-                yield screenshot_proxy.screenshot_area_with_cursor (x, y, width, height, grab_pointer, true, "/tmp/portal_screenshot.png", out success, out filename_used);
+                yield screenshot_proxy.screenshot_area_with_cursor (x, y, width, height, grab_pointer, true, tmp_filename, out success, out filename_used);
 
                 if (!success) {
                     throw new GLib.IOError.FAILED ("Failed to take screenshot");
@@ -233,5 +235,11 @@ public class Screenshot.Portal : Object {
 
         response = 0;
         results = _result;
+    }
+
+    private string get_tmp_filename () {
+        var dir = Environment.get_user_cache_dir ();
+        var name = "io.elementary.portals.screenshot-%lu.png".printf (Random.next_int ());
+        return Path.build_filename (dir, name);
     }
 }
