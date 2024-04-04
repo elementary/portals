@@ -14,7 +14,7 @@ public enum ScreenCast.CursorMode {
 
 [DBus (name = "org.freedesktop.impl.portal.ScreenCast")]
 public class ScreenCast.Portal : Object {
-    public SourceType available_source_types { get; default = MONITOR | VIRTUAL; }
+    public SourceType available_source_types { get; default = VIRTUAL; }
     public CursorMode available_cursor_modes { get; default = HIDDEN; } // TODO: What is GNOMEs cursor mode
     public uint version { get; default = 3; }
 
