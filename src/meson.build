@@ -8,6 +8,8 @@ executable(
     'AppChooser/Portal.vala',
     'Background/NotificationRequest.vala',
     'Background/Portal.vala',
+    'ScreenCast/Portal.vala',
+    'ScreenCast/Session.vala',
     'Wallpaper/Portal.vala',
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
     'ExternalWindow.vala',
