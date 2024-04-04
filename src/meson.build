@@ -17,6 +17,7 @@ executable(
     'ScreenCast/Session.vala',
     'Wallpaper/Portal.vala',
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
+    'DesktopIntegration.vala',
     'ExternalWindow.vala',
     'XdgDesktopPortalPantheon.vala',
     dependencies: [
