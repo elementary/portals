@@ -1,7 +1,7 @@
 
 [DBus (name = "org.gnome.Mutter.ScreenCast")]
 private interface Mutter.ScreenCast : Object {
-    public abstract async ObjectPath create_session (HashTable<string, Variant> options);
+    public abstract async ObjectPath create_session (HashTable<string, Variant> options) throws DBusError, IOError;
 }
 
 [DBus (name = "org.gnome.Mutter.ScreenCast.Session")]
@@ -22,8 +22,6 @@ private interface Mutter.ScreenCastStream : Object {
     public abstract HashTable<string, Variant> parameters { owned get; }
 
     public signal void pipe_wire_stream_added (uint node_id);
-
-    public abstract async void start () throws DBusError, IOError;
 }
 
 [DBus (name = "org.freedesktop.impl.portal.Session")]
@@ -37,7 +35,7 @@ public class ScreenCast.Session : Object {
 
     private signal void started ();
 
-    public uint version { get; default = 1; }
+    public uint version { get; default = 1; } // TODO: Were there already version bumps for org.freedesktop.impl.portal.Session ?
 
     private Mutter.ScreenCastSession session;
 
@@ -52,7 +50,7 @@ public class ScreenCast.Session : Object {
         try {
             proxy = yield Bus.get_proxy (SESSION, "org.gnome.Mutter.ScreenCast", "/org/gnome/Mutter/ScreenCast");
         } catch (Error e) {
-            critical ("Failed to get proxy: %s", e.message);
+            warning ("Failed to get proxy: %s", e.message);
             return false;
         }
 
@@ -60,14 +58,14 @@ public class ScreenCast.Session : Object {
         try {
             session_handle = yield proxy.create_session (new HashTable<string, Variant> (str_hash, str_equal));
         } catch (Error e) {
-            critical ("Failed to create session: %s", e.message);
+            warning ("Failed to create session: %s", e.message);
             return false;
         }
 
         try {
             session = yield Bus.get_proxy (SESSION, "org.gnome.Mutter.ScreenCast", session_handle);
         } catch (Error e) {
-            critical ("Failed to get session object: %s", e.message);
+            warning ("Failed to get session object: %s", e.message);
             return false;
         }
 
@@ -80,17 +78,20 @@ public class ScreenCast.Session : Object {
     }
 
     internal async PipeWireStream[]? start () {
-        //do selection, etc.
-        //we want virtual
+        //TODO: All user interaction. I.e. permission stuff, allow multiple, which monitor, which window, etc.
 
-        if (VIRTUAL in source_types) {
+        //Should we fail if one fails or if all fail? Currently it's all
+        if (VIRTUAL in source_types && yield record_virtual ()) {
             required_streams++;
-            yield record_virtual ();
         }
 
-        if (MONITOR in source_types) {
+        if (MONITOR in source_types && yield select_monitor ()) {
             required_streams++;
-            yield select_monitor ();
+        }
+
+        if (required_streams == 0) {
+            warning ("At least one source type has to be successfully setup.");
+            return null;
         }
 
         started.connect (() => Idle.add (() => {
@@ -121,10 +122,10 @@ public class ScreenCast.Session : Object {
         return yield setup_mutter_stream (path, VIRTUAL);
     }
 
-    private async void select_monitor () {
+    private async bool select_monitor () {
         var monitor_tracker = new MonitorTracker ();
         var monitor = monitor_tracker.monitors.get (0); //TODO
-        record_monitor (monitor.connector);
+        return yield record_monitor (monitor.connector);
     }
 
     private async bool record_monitor (string connector) {
@@ -179,7 +180,6 @@ public class ScreenCast.Session : Object {
     }
 
     public async void close () throws DBusError, IOError {
-        warning ("Session closed");
         try {
             yield session.stop ();
         } catch (Error e) {

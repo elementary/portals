@@ -14,8 +14,8 @@ public enum ScreenCast.CursorMode {
 
 [DBus (name = "org.freedesktop.impl.portal.ScreenCast")]
 public class ScreenCast.Portal : Object {
-    public SourceType available_source_types { get; default = VIRTUAL; }
-    public CursorMode available_cursor_modes { get; default = HIDDEN; }
+    public SourceType available_source_types { get; default = MONITOR | VIRTUAL; }
+    public CursorMode available_cursor_modes { get; default = HIDDEN; } // TODO: What is GNOMEs cursor mode
     public uint version { get; default = 3; }
 
     private DBusConnection connection;
@@ -35,7 +35,6 @@ public class ScreenCast.Portal : Object {
         out uint response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
-        warning ("CREATE SESSION");
         var session = new Session ();
         try {
             var session_register_id = connection.register_object (session_handle, session);
@@ -56,8 +55,6 @@ public class ScreenCast.Portal : Object {
         response = 0;
         results = new HashTable<string, Variant> (str_hash, str_equal);
         results["session_id"] = Uuid.string_random ();
-
-        warning ("SESSION CREATED");
     }
 
     public async void select_sources (

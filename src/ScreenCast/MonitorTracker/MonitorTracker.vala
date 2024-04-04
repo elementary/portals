@@ -79,13 +79,6 @@ public class ScreenCast.MonitorTracker : GLib.Object {
         }
     }
 
-    private static bool compare_monitor_with_mutter_info (ScreenCast.Monitor monitor, MutterReadMonitorInfo mutter_info) {
-        return monitor.connector == mutter_info.connector
-               && monitor.vendor == mutter_info.vendor
-               && monitor.product == mutter_info.product
-               && monitor.serial == mutter_info.serial;
-    }
-
     private ScreenCast.Monitor? get_monitor_by_hash (uint hash) {
         foreach (var monitor in monitors) {
             if (monitor.hash == hash) {
