@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
+
 public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
     public SourceType source_type { get; construct; }
     public Variant id { get; construct; }

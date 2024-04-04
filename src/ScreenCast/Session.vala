@@ -1,3 +1,7 @@
+/*
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
 
 [DBus (name = "org.gnome.Mutter.ScreenCast")]
 private interface Mutter.ScreenCast : Object {

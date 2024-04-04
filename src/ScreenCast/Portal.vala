@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
+
 [Flags]
 public enum ScreenCast.SourceType {
     MONITOR = 1,
