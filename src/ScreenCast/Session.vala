@@ -33,11 +33,9 @@ public class ScreenCast.Session : Object {
 
     public signal void closed (HashTable<string, Variant> details);
 
-    private signal void started ();
+    internal signal void started (uint response, PipeWireStream[] streams);
 
     public uint version { get; default = 1; } // TODO: Were there already version bumps for org.freedesktop.impl.portal.Session ?
-
-    internal bool cancelled { get; private set; default = false; }
 
     private Mutter.ScreenCastSession session;
 
@@ -46,7 +44,7 @@ public class ScreenCast.Session : Object {
 
     private Dialog? dialog;
 
-    private PipeWireStream[]? streams = null;
+    private PipeWireStream[] streams = {};
     private int required_streams = 0;
 
     internal async bool init () {
@@ -81,22 +79,21 @@ public class ScreenCast.Session : Object {
         this.allow_multiple = allow_multiple;
     }
 
-    internal async PipeWireStream[]? start () {
+    internal void start () {
         dialog = new Dialog (source_types, allow_multiple);
-        dialog.response.connect ((response) => Idle.add (() => {
+        dialog.response.connect ((response) => {
             dialog.destroy ();
-            cancelled = response == Gtk.ResponseType.CANCEL;
-            start.callback ();
-            return Source.REMOVE;
-        }));
+
+            if (response == Gtk.ResponseType.CANCEL) {
+                started (1, streams);
+            } else {
+                setup_recording.begin ();
+            }
+        });
         dialog.present ();
+    }
 
-        yield;
-
-        if (cancelled) {
-            return null;
-        }
-
+    private async void setup_recording () {
         //Should we fail if one fails or if all fail? Currently it's all
         foreach (var window in dialog.get_selected_windows ()) {
             if (yield record_window (window)) {
@@ -116,23 +113,16 @@ public class ScreenCast.Session : Object {
 
         if (required_streams == 0) {
             warning ("At least one stream has to be successfully setup.");
-            return null;
+            started (2, streams);
+            return;
         }
-
-        started.connect (() => Idle.add (() => {
-            start.callback ();
-            return Source.REMOVE;
-        }));
 
         try {
             yield session.start ();
-
-            yield;
         } catch (Error e) {
             warning ("Failed to start mutter session: %s", e.message);
+            started (2, streams);
         }
-
-        return streams;
     }
 
     private async bool record_window (uint64 uid) {
@@ -209,7 +199,7 @@ public class ScreenCast.Session : Object {
     private void pipe_wire_stream_added (PipeWireStream pipe_wire_stream) {
         streams += pipe_wire_stream;
         if (streams.length == required_streams) {
-            started ();
+            started (0, streams);
         }
     }
 

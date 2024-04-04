@@ -94,19 +94,24 @@ public class ScreenCast.Portal : Object {
 
         var session = sessions[session_handle];
 
-        var streams = yield session.start ();
+        uint _response = 2;
+        Session.PipeWireStream[] streams = {};
+        session.started.connect ((session_response, session_streams) => {
+            _response = session_response;
+            streams = session_streams;
 
-        if (session.cancelled) {
-            response = 1;
-            return;
-        }
+            start.callback ();
+        });
 
-        if (streams == null) {
+        session.start ();
+
+        yield;
+
+        if (_response == 2) {
             throw new IOError.FAILED ("Failed to get pipewire streams");
         }
 
+        response = _response;
         results["streams"] = streams;
-
-        response = 0;
     }
 }
