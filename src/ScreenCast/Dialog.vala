@@ -21,7 +21,6 @@ public class ScreenCast.Dialog : Granite.Dialog {
         list_box = new Gtk.ListBox () {
             vexpand = true
         };
-        list_box.add_css_class ("boxed-list");
         list_box.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         list_box.set_header_func (header_func);
 
@@ -41,7 +40,19 @@ public class ScreenCast.Dialog : Granite.Dialog {
             populate_windows.begin ();
         }
 
-        get_content_area ().append (list_box);
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = list_box,
+            hscrollbar_policy = NEVER
+        };
+
+        var frame = new Gtk.Frame (null) {
+            child = scrolled_window
+        };
+
+        get_content_area ().append (frame);
+
+        default_height = 400;
+        default_width = 300;
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
