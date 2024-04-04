@@ -7,6 +7,9 @@ public class ScreenCast.Dialog : Granite.Dialog {
     private List<SelectionRow> window_rows;
     private List<SelectionRow> monitor_rows;
 
+    private Gtk.ListBox list_box;
+    private Gtk.CheckButton? group = null;
+
     public Dialog (SourceType source_types, bool allow_multiple) {
         Object (source_types: source_types, allow_multiple: allow_multiple);
     }
@@ -15,19 +18,12 @@ public class ScreenCast.Dialog : Granite.Dialog {
         window_rows = new List<SelectionRow> ();
         monitor_rows = new List<SelectionRow> ();
 
-        var list_box = new Gtk.ListBox () {
-            selection_mode = MULTIPLE,
+        list_box = new Gtk.ListBox () {
             vexpand = true
         };
         list_box.add_css_class ("boxed-list");
         list_box.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         list_box.set_header_func (header_func);
-
-        Gtk.CheckButton? group = null;
-
-        if (WINDOW in source_types) {
-            //TODO: populate windows
-        }
 
         if (MONITOR in source_types) {
             var monitor_tracker = new MonitorTracker ();
@@ -37,19 +33,12 @@ public class ScreenCast.Dialog : Granite.Dialog {
                     monitor.display_name, null, allow_multiple ? null : group);
 
                 monitor_rows.append (row);
-
-                group = row.check_button;
-
-                list_box.append (row);
-
-                row.notify["selected"].connect (() => {
-                    if (row.selected) {
-                        n_selected++;
-                    } else {
-                        n_selected--;
-                    }
-                });
+                setup_row (row);
             }
+        }
+
+        if (WINDOW in source_types) {
+            populate_windows.begin ();
         }
 
         get_content_area ().append (list_box);
@@ -61,6 +50,58 @@ public class ScreenCast.Dialog : Granite.Dialog {
         bind_property ("n-selected", accept_button, "sensitive", SYNC_CREATE, (binding, from_val, ref to_val) => {
             to_val.set_boolean (n_selected > 0);
             return true;
+        });
+    }
+
+    private async void populate_windows () {
+        var desktop_integration = yield Gala.DesktopIntegration.get_instance ();
+
+        if (desktop_integration == null) {
+            return;
+        }
+
+        Gala.DesktopIntegration.Window[] windows;
+        try {
+            windows = yield desktop_integration.get_windows ();
+        } catch (Error e) {
+            warning ("Failed to get windows from desktop integration: %s", e.message);
+            return;
+        }
+
+        foreach (var window in windows) {
+            var label = _("Unknown Window");
+
+            if ("title" in window.details) {
+                label = (string) window.details["title"];
+            }
+
+            Icon icon = new ThemedIcon ("application-x-executable");
+            if ("app-id" in window.details) {
+                var app_info = new DesktopAppInfo ((string) window.details["app-id"]);
+                if (app_info != null && app_info.get_icon () != null) {
+                    icon = app_info.get_icon ();
+                }
+            }
+
+            var row = new SelectionRow (WINDOW, window.uid,
+                label, icon, allow_multiple ? null : group);
+
+            window_rows.append (row);
+            setup_row (row);
+        }
+    }
+
+    private void setup_row (SelectionRow row) {
+        group = row.check_button;
+
+        list_box.append (row);
+
+        row.notify["selected"].connect (() => {
+            if (row.selected) {
+                n_selected++;
+            } else {
+                n_selected--;
+            }
         });
     }
 
