@@ -133,10 +133,13 @@ public class ScreenCast.Session : Object {
         return streams;
     }
 
-    private async bool record_window (uint64 id) {
+    private async bool record_window (uint64 uid) {
+        var options = new HashTable<string, Variant> (str_hash, str_equal);
+        options["window-id"] = uid;
+
         ObjectPath path;
         try {
-            path = yield session.record_virtual (new HashTable<string, Variant> (str_hash, str_equal));
+            path = yield session.record_window (options);
         } catch (Error e) {
             warning ("Failed to record window: %s", e.message);
             return false;
