@@ -2,12 +2,16 @@ public class ScreenCast.Dialog : Granite.Dialog {
     public SourceType source_types { get; construct; }
     public bool allow_multiple { get; construct; }
 
+    private List<SelectionRow> window_rows;
+    private List<SelectionRow> monitor_rows;
+
+    private Gtk.Widget accept_button;
+
+    private int n_selected = 0;
+
     public Dialog (SourceType source_types, bool allow_multiple) {
         Object (source_types: source_types, allow_multiple: allow_multiple);
     }
-
-    private List<SelectionRow> window_rows;
-    private List<SelectionRow> monitor_rows;
 
     construct {
         window_rows = new List<SelectionRow> ();
@@ -39,13 +43,29 @@ public class ScreenCast.Dialog : Granite.Dialog {
                 group = row.check_button;
 
                 list_box.append (row);
+
+                row.notify["selected"].connect (() => {
+                    if (row.selected) {
+                        n_selected++;
+                    } else {
+                        n_selected--;
+                    }
+
+                    update_sensitivity ();
+                });
             }
         }
 
         get_content_area ().append (list_box);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-        add_button (_("Share"), Gtk.ResponseType.ACCEPT).add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        accept_button = add_button (_("Share"), Gtk.ResponseType.ACCEPT);
+        accept_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        accept_button.sensitive = false;
+    }
+
+    private void update_sensitivity () {
+        accept_button.sensitive = n_selected > 0;
     }
 
     private void header_func (Gtk.ListBoxRow row, Gtk.ListBoxRow? prev) {
