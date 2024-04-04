@@ -145,25 +145,7 @@ public class ScreenCast.Session : Object {
             return false;
         }
 
-        return yield setup_mutter_stream (path, VIRTUAL);
-    }
-
-    private async bool record_virtual () {
-        ObjectPath path;
-        try {
-            path = yield session.record_virtual (new HashTable<string, Variant> (str_hash, str_equal));
-        } catch (Error e) {
-            warning ("Failed to record virtual: %s", e.message);
-            return false;
-        }
-
-        return yield setup_mutter_stream (path, VIRTUAL);
-    }
-
-    private async bool select_monitor () {
-        var monitor_tracker = new MonitorTracker ();
-        var monitor = monitor_tracker.monitors.get (0); //TODO
-        return yield record_monitor (monitor.connector);
+        return yield setup_mutter_stream (path, WINDOW);
     }
 
     private async bool record_monitor (string connector) {
@@ -176,6 +158,18 @@ public class ScreenCast.Session : Object {
         }
 
         return yield setup_mutter_stream (path, MONITOR);
+    }
+
+    private async bool record_virtual () {
+        ObjectPath path;
+        try {
+            path = yield session.record_virtual (new HashTable<string, Variant> (str_hash, str_equal));
+        } catch (Error e) {
+            warning ("Failed to record virtual: %s", e.message);
+            return false;
+        }
+
+        return yield setup_mutter_stream (path, VIRTUAL);
     }
 
     private async bool setup_mutter_stream (ObjectPath proxy_path, SourceType source_type) {
