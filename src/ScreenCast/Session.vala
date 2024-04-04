@@ -42,8 +42,6 @@ public class ScreenCast.Session : Object {
     private SourceType source_types;
     private bool allow_multiple;
 
-    private Dialog? dialog;
-
     private PipeWireStream[] streams = {};
     private int required_streams = 0;
 
@@ -80,20 +78,20 @@ public class ScreenCast.Session : Object {
     }
 
     internal void start () {
-        dialog = new Dialog (source_types, allow_multiple);
+        var dialog = new Dialog (source_types, allow_multiple);
         dialog.response.connect ((response) => {
             dialog.destroy ();
 
             if (response == Gtk.ResponseType.CANCEL) {
                 started (1, streams);
             } else {
-                setup_recording.begin ();
+                setup_recording.begin (dialog);
             }
         });
         dialog.present ();
     }
 
-    private async void setup_recording () {
+    private async void setup_recording (Dialog dialog) {
         //Should we fail if one fails or if all fail? Currently it's all
         foreach (var window in dialog.get_selected_windows ()) {
             if (yield record_window (window)) {
@@ -204,10 +202,6 @@ public class ScreenCast.Session : Object {
     }
 
     public async void close () throws DBusError, IOError {
-        if (dialog != null && dialog.visible) {
-            dialog.response (Gtk.ResponseType.CANCEL);
-        }
-
         try {
             yield session.stop ();
         } catch (Error e) {
