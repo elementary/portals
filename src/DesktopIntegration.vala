@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
+
 [DBus (name = "org.pantheon.gala.DesktopIntegration")]
 public interface Gala.DesktopIntegration : Object {
     public struct RunningApplications {
