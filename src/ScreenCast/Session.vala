@@ -78,19 +78,42 @@ public class ScreenCast.Session : Object {
     }
 
     internal async PipeWireStream[]? start () {
-        //TODO: All user interaction. I.e. permission stuff, allow multiple, which monitor, which window, etc.
+        bool allow = false;
+
+        var dialog = new Dialog (source_types, allow_multiple);
+        dialog.response.connect ((response) => Idle.add (() => {
+            dialog.destroy ();
+            allow = response == Gtk.ResponseType.ACCEPT;
+            start.callback ();
+            return Source.REMOVE;
+        }));
+        dialog.present ();
+
+        yield;
+
+        if (!allow) {
+            return null;
+        }
 
         //Should we fail if one fails or if all fail? Currently it's all
+        foreach (var window in dialog.get_selected_windows ()) {
+            if (yield record_window (window)) {
+                required_streams++;
+            }
+        }
+
+        foreach (var connector in dialog.get_selected_monitors ()) {
+            if (yield record_monitor (connector)) {
+                required_streams++;
+            }
+        }
+
         if (VIRTUAL in source_types && yield record_virtual ()) {
             required_streams++;
         }
 
-        if (MONITOR in source_types && yield select_monitor ()) {
-            required_streams++;
-        }
-
         if (required_streams == 0) {
-            warning ("At least one source type has to be successfully setup.");
+            warning ("At least one stream has to be successfully setup.");
             return null;
         }
 
@@ -108,6 +131,18 @@ public class ScreenCast.Session : Object {
         }
 
         return streams;
+    }
+
+    private async bool record_window (uint64 id) {
+        ObjectPath path;
+        try {
+            path = yield session.record_virtual (new HashTable<string, Variant> (str_hash, str_equal));
+        } catch (Error e) {
+            warning ("Failed to record window: %s", e.message);
+            return false;
+        }
+
+        return yield setup_mutter_stream (path, VIRTUAL);
     }
 
     private async bool record_virtual () {
