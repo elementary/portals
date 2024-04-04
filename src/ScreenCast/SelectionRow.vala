@@ -30,7 +30,7 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
             box.append (new Gtk.Image.from_gicon (icon));
         }
 
-        box.append (new Gtk.Label (label));
+        box.append (new Gtk.Label (label) { ellipsize = MIDDLE });
 
         child = box;
 
