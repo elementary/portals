@@ -90,14 +90,21 @@ public class ScreenCast.Portal : Object {
         out uint response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
+        results = new HashTable<string, Variant> (str_hash, str_equal);
+
         var session = sessions[session_handle];
+
         var streams = yield session.start ();
+
+        if (session.cancelled) {
+            response = 1;
+            return;
+        }
 
         if (streams == null) {
             throw new IOError.FAILED ("Failed to get pipewire streams");
         }
 
-        results = new HashTable<string, Variant> (str_hash, str_equal);
         results["streams"] = streams;
 
         response = 0;

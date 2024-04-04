@@ -37,10 +37,14 @@ public class ScreenCast.Session : Object {
 
     public uint version { get; default = 1; } // TODO: Were there already version bumps for org.freedesktop.impl.portal.Session ?
 
+    internal bool cancelled { get; private set; default = false; }
+
     private Mutter.ScreenCastSession session;
 
     private SourceType source_types;
     private bool allow_multiple;
+
+    private Dialog? dialog;
 
     private PipeWireStream[]? streams = null;
     private int required_streams = 0;
@@ -78,12 +82,10 @@ public class ScreenCast.Session : Object {
     }
 
     internal async PipeWireStream[]? start () {
-        bool allow = false;
-
-        var dialog = new Dialog (source_types, allow_multiple);
+        dialog = new Dialog (source_types, allow_multiple);
         dialog.response.connect ((response) => Idle.add (() => {
             dialog.destroy ();
-            allow = response == Gtk.ResponseType.ACCEPT;
+            cancelled = response == Gtk.ResponseType.CANCEL;
             start.callback ();
             return Source.REMOVE;
         }));
@@ -91,7 +93,7 @@ public class ScreenCast.Session : Object {
 
         yield;
 
-        if (!allow) {
+        if (cancelled) {
             return null;
         }
 
@@ -212,6 +214,10 @@ public class ScreenCast.Session : Object {
     }
 
     public async void close () throws DBusError, IOError {
+        if (dialog != null && dialog.visible) {
+            dialog.response (Gtk.ResponseType.CANCEL);
+        }
+
         try {
             yield session.stop ();
         } catch (Error e) {
