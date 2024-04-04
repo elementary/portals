@@ -35,7 +35,7 @@ public class ScreenCast.Session : Object {
 
     public signal void closed (HashTable<string, Variant> details);
 
-    internal signal void started (PipeWireStream[] streams);
+    private signal void started ();
 
     public uint version { get; default = 1; }
 
@@ -44,7 +44,7 @@ public class ScreenCast.Session : Object {
     private SourceType source_types;
     private bool allow_multiple;
 
-    private PipeWireStream[] streams;
+    private PipeWireStream[]? streams = null;
     private int required_streams = 0;
 
     internal async bool init () {
@@ -79,7 +79,7 @@ public class ScreenCast.Session : Object {
         this.allow_multiple = allow_multiple;
     }
 
-    internal async void start () {
+    internal async PipeWireStream[]? start () {
         //do selection, etc.
         //we want virtual
 
@@ -93,11 +93,20 @@ public class ScreenCast.Session : Object {
             yield select_monitor ();
         }
 
+        started.connect (() => Idle.add (() => {
+            start.callback ();
+            return Source.REMOVE;
+        }));
+
         try {
             yield session.start ();
+
+            yield;
         } catch (Error e) {
             warning ("Failed to start mutter session: %s", e.message);
         }
+
+        return streams;
     }
 
     private async bool record_virtual () {
@@ -165,7 +174,7 @@ public class ScreenCast.Session : Object {
     private void pipe_wire_stream_added (PipeWireStream pipe_wire_stream) {
         streams += pipe_wire_stream;
         if (streams.length == required_streams) {
-            started (streams);
+            started ();
         }
     }
 
