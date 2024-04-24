@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 16:20+0000\n"
+"POT-Creation-Date: 2024-04-24 22:40+0000\n"
 "PO-Revision-Date: 2023-07-20 16:20+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/portals-"
@@ -40,47 +40,48 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:41
-#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:64
+#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:38
+#: data/portals.metainfo.xml.in:50 data/portals.metainfo.xml.in:63
+#: data/portals.metainfo.xml.in:73
 msgid "New Features:"
 msgstr "Nouvelles fonctionnalités :"
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:43
-#: data/portals.metainfo.xml.in:57
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
+#: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:66
 msgid "Updated translations"
 msgstr "Mise à jour des traductions"
 
-#: data/portals.metainfo.xml.in:56
+#: data/portals.metainfo.xml.in:65
 msgid "Support dialog parenting on wayland"
 msgstr "Prise en charge de la hiérarchisation des fenêtres sur wayland"
 
-#: data/portals.metainfo.xml.in:66
+#: data/portals.metainfo.xml.in:75
 msgid "Add a destructive action option for access portals"
 msgstr "Ajout d'une option d'action destructrice pour les portails d'accès"
 
-#: data/portals.metainfo.xml.in:68 data/portals.metainfo.xml.in:79
+#: data/portals.metainfo.xml.in:77 data/portals.metainfo.xml.in:88
 msgid "Fixes:"
 msgstr "Corrections :"
 
-#: data/portals.metainfo.xml.in:70
+#: data/portals.metainfo.xml.in:79
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr ""
 "Correction d'un plantage lors de l'ouverture d'applications via le portail "
 "de sélection d'application"
 
-#: data/portals.metainfo.xml.in:71
+#: data/portals.metainfo.xml.in:80
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
 "Correction de la mise au point et de la position de la fenêtre pour les "
 "portails d'accès sans fenêtre parente"
 
-#: data/portals.metainfo.xml.in:72
+#: data/portals.metainfo.xml.in:81
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "Le portail de sélection d'application est désormais une boîte de dialogue "
 "pour des animations plus appropriées"
 
-#: data/portals.metainfo.xml.in:81
+#: data/portals.metainfo.xml.in:90
 msgid "Prevent delay after logging in"
 msgstr "Correction d'un éventuel délai après la connexion"
 

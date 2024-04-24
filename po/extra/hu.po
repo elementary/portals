@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 16:20+0000\n"
+"POT-Creation-Date: 2024-04-24 22:40+0000\n"
 "PO-Revision-Date: 2023-08-05 15:08+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
@@ -40,44 +40,45 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:41
-#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:64
+#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:38
+#: data/portals.metainfo.xml.in:50 data/portals.metainfo.xml.in:63
+#: data/portals.metainfo.xml.in:73
 msgid "New Features:"
 msgstr "Új funkciók:"
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:43
-#: data/portals.metainfo.xml.in:57
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
+#: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:66
 msgid "Updated translations"
 msgstr "Frissített fordítások"
 
-#: data/portals.metainfo.xml.in:56
+#: data/portals.metainfo.xml.in:65
 msgid "Support dialog parenting on wayland"
 msgstr "Dialógusok szülői felügyelet alá helyezésének támogatása waylanden"
 
-#: data/portals.metainfo.xml.in:66
+#: data/portals.metainfo.xml.in:75
 msgid "Add a destructive action option for access portals"
 msgstr "Destruktív művelet a hozzáférési portálokhoz"
 
-#: data/portals.metainfo.xml.in:68 data/portals.metainfo.xml.in:79
+#: data/portals.metainfo.xml.in:77 data/portals.metainfo.xml.in:88
 msgid "Fixes:"
 msgstr "Javítások:"
 
-#: data/portals.metainfo.xml.in:70
+#: data/portals.metainfo.xml.in:79
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr ""
 "Javítva egy összeomlás az alkalmazásválasztó portálban való választáskor"
 
-#: data/portals.metainfo.xml.in:71
+#: data/portals.metainfo.xml.in:80
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr "A szülőablakkal nem rendelkező portálok helyzete és fókusza javítva"
 
-#: data/portals.metainfo.xml.in:72
+#: data/portals.metainfo.xml.in:81
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "Az alkalmazásválasztó portál egy modális dialógusablak lett a megfelelő "
 "animációk érdekében"
 
-#: data/portals.metainfo.xml.in:81
+#: data/portals.metainfo.xml.in:90
 msgid "Prevent delay after logging in"
 msgstr "Bejelentkezés utáni késleltetés megelőzése"
 
