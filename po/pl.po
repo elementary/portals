@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 16:20+0000\n"
+"POT-Creation-Date: 2024-04-24 22:40+0000\n"
 "PO-Revision-Date: 2023-07-23 07:07+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/portals/"
@@ -80,3 +80,35 @@ msgstr "Aktywność w tle"
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "„%s” działa w tle bez odpowiednich uprawnień"
+
+#: src/Screenshot/SetupDialog.vala:49
+msgid "Grab the whole screen"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:66
+msgid "Grab the current window"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:83
+msgid "Select area to grab"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:102
+msgid "Grab pointer:"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:115
+msgid "Conceal text:"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:126
+msgid "Delay in seconds:"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:131
+msgid "Take Screenshot"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:140
+msgid "Close"
+msgstr ""
