@@ -41,6 +41,9 @@ private void on_bus_acquired (DBusConnection connection, string name) {
         connection.register_object ("/org/freedesktop/portal/desktop", new Background.Portal (connection));
         debug ("Background Portal registered!");
 
+        connection.register_object ("/org/freedesktop/portal/desktop", new Screenshot.Portal (connection));
+        debug ("Screenshot Portal registered!");
+
         connection.register_object ("/org/freedesktop/portal/desktop", new Wallpaper.Portal (connection));
         debug ("Wallpaper Portal registered!");
     } catch (Error e) {
@@ -82,6 +85,9 @@ int main (string[] args) {
     GLib.Environment.unset_variable ("GTK_USE_PORTAL");
 
     Gtk.init ();
+
+    weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
+    default_theme.add_resource_path ("/io/elementary/xdg-desktop-portal-pantheon");
 
     try {
         var opt_context = new OptionContext ("- portal backends");

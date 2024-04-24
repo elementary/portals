@@ -1,5 +1,6 @@
 project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '7.1.1', meson_version: '>=0.58')
 
+gnome = import('gnome')
 i18n = import('i18n')
 
 prefix = get_option('prefix')

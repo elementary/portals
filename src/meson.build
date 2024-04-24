@@ -8,10 +8,13 @@ executable(
     'AppChooser/Portal.vala',
     'Background/NotificationRequest.vala',
     'Background/Portal.vala',
+    'Screenshot/Portal.vala',
+    'Screenshot/SetupDialog.vala',
     'Wallpaper/Portal.vala',
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
     'ExternalWindow.vala',
     'XdgDesktopPortalPantheon.vala',
+    icon_res,
     dependencies: [
         glib_dep,
         gobject_dep,
