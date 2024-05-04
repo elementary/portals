@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-24 22:40+0000\n"
+"POT-Creation-Date: 2024-05-04 08:30+0000\n"
 "PO-Revision-Date: 2022-10-26 15:28+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/portals-"
@@ -36,50 +36,49 @@ msgstr ""
 "Portale zapewniają interfejsy API do zabezpieczania aplikacji, które "
 "umożliwiają im dostęp do funkcji systemu, wymagając przy tym świadomej zgody."
 
-#: data/portals.metainfo.xml.in:22
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
-#: data/portals.metainfo.xml.in:29 data/portals.metainfo.xml.in:38
-#: data/portals.metainfo.xml.in:50 data/portals.metainfo.xml.in:63
-#: data/portals.metainfo.xml.in:73
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
+#: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:65
+#: data/portals.metainfo.xml.in:75
 msgid "New Features:"
 msgstr "Nowe funkcje:"
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
-#: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:66
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:42
+#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:68
 msgid "Updated translations"
 msgstr "Zaktualizowano tłumaczenia"
 
-#: data/portals.metainfo.xml.in:65
+#: data/portals.metainfo.xml.in:67
 msgid "Support dialog parenting on wayland"
 msgstr "Wsparcie dla określania rodzica dialogu w waylandzie"
 
-#: data/portals.metainfo.xml.in:75
+#: data/portals.metainfo.xml.in:77
 msgid "Add a destructive action option for access portals"
 msgstr "Dodano opcję destruktywnej akcji dla portali dostępu"
 
-#: data/portals.metainfo.xml.in:77 data/portals.metainfo.xml.in:88
+#: data/portals.metainfo.xml.in:79 data/portals.metainfo.xml.in:90
 msgid "Fixes:"
 msgstr "Poprawki:"
 
-#: data/portals.metainfo.xml.in:79
+#: data/portals.metainfo.xml.in:81
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr ""
 "Naprawiono błąd krytyczny przy otwieraniu aplikacji przez portal AppChooser"
 
-#: data/portals.metainfo.xml.in:80
+#: data/portals.metainfo.xml.in:82
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr "Naprawiono fokus okna i pozycję dla portali dostępu bez okna rodzica"
 
-#: data/portals.metainfo.xml.in:81
+#: data/portals.metainfo.xml.in:83
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
 "Ustawiono portal AppChooser jako dialog modalny dla poprawnych animacji"
 
-#: data/portals.metainfo.xml.in:90
+#: data/portals.metainfo.xml.in:92
 msgid "Prevent delay after logging in"
 msgstr "Zapobiegaj opóźnieniom po zalogowaniu"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
 
 #~ msgid "First release!"
 #~ msgstr "Pierwsze wydanie!"
