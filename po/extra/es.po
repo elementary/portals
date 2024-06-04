@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 08:30+0000\n"
-"PO-Revision-Date: 2021-10-20 14:02-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-05 03:13+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5\n"
 
 #: data/portals.metainfo.xml.in:10
 msgid "Portals"
@@ -35,12 +37,12 @@ msgstr ""
 #: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:65
 #: data/portals.metainfo.xml.in:75
 msgid "New Features:"
-msgstr ""
+msgstr "Nuevas características:"
 
 #: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:42
 #: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:68
 msgid "Updated translations"
-msgstr ""
+msgstr "Traducciones actualizadas"
 
 #: data/portals.metainfo.xml.in:67
 msgid "Support dialog parenting on wayland"
