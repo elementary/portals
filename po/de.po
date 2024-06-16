@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 16:20+0000\n"
-"PO-Revision-Date: 2023-07-28 18:08+0000\n"
+"POT-Creation-Date: 2024-05-04 08:30+0000\n"
+"PO-Revision-Date: 2024-04-29 01:13+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/portals/"
 "de/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.5\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -79,3 +79,35 @@ msgstr "Hintergrundaktivität"
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "»%s« läuft im Hintergrund ohne entsprechende Berechtigung"
+
+#: src/Screenshot/SetupDialog.vala:49
+msgid "Grab the whole screen"
+msgstr "Gesamten Bildschirm aufnehmen"
+
+#: src/Screenshot/SetupDialog.vala:66
+msgid "Grab the current window"
+msgstr "Aktuelles Fenster aufnehmen"
+
+#: src/Screenshot/SetupDialog.vala:83
+msgid "Select area to grab"
+msgstr "Aufzunehmenden Bereich wählen"
+
+#: src/Screenshot/SetupDialog.vala:102
+msgid "Grab pointer:"
+msgstr "Zeiger einschließen:"
+
+#: src/Screenshot/SetupDialog.vala:115
+msgid "Conceal text:"
+msgstr "Text verschleiern:"
+
+#: src/Screenshot/SetupDialog.vala:126
+msgid "Delay in seconds:"
+msgstr "Verzögerung in Sekunden:"
+
+#: src/Screenshot/SetupDialog.vala:131
+msgid "Take Screenshot"
+msgstr "Bildschirmfoto aufnehmen"
+
+#: src/Screenshot/SetupDialog.vala:140
+msgid "Close"
+msgstr "Schließen"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 16:20+0000\n"
-"PO-Revision-Date: 2023-07-23 07:07+0000\n"
+"POT-Creation-Date: 2024-05-04 08:30+0000\n"
+"PO-Revision-Date: 2024-04-27 07:13+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/portals/"
 "ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -79,3 +79,35 @@ msgstr "Activitat en segon pla"
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "%s s'executa en segon pla sense el permís adequat."
+
+#: src/Screenshot/SetupDialog.vala:49
+msgid "Grab the whole screen"
+msgstr "Agafa tota la pantalla"
+
+#: src/Screenshot/SetupDialog.vala:66
+msgid "Grab the current window"
+msgstr "Agafa la finestra actual"
+
+#: src/Screenshot/SetupDialog.vala:83
+msgid "Select area to grab"
+msgstr "Seleccioneu l'àrea que voleu agafar"
+
+#: src/Screenshot/SetupDialog.vala:102
+msgid "Grab pointer:"
+msgstr "Agafa el punter:"
+
+#: src/Screenshot/SetupDialog.vala:115
+msgid "Conceal text:"
+msgstr "Amaga el text:"
+
+#: src/Screenshot/SetupDialog.vala:126
+msgid "Delay in seconds:"
+msgstr "Retard en segons:"
+
+#: src/Screenshot/SetupDialog.vala:131
+msgid "Take Screenshot"
+msgstr "Fes una captura"
+
+#: src/Screenshot/SetupDialog.vala:140
+msgid "Close"
+msgstr "Tanca"
