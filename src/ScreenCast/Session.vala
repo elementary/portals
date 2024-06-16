@@ -41,7 +41,7 @@ public class ScreenCast.Session : Object {
 
     internal signal void started (uint response, PipeWireStream[] streams);
 
-    public uint version { get; default = 1; } // TODO: Were there already version bumps for org.freedesktop.impl.portal.Session ?
+    public uint version { get; default = 1; }
 
     private Mutter.ScreenCastSession session;
 
@@ -83,8 +83,16 @@ public class ScreenCast.Session : Object {
         this.allow_multiple = allow_multiple;
     }
 
-    internal void start () {
+    internal void start (string parent_window) {
         var dialog = new Dialog (source_types, allow_multiple);
+
+        try {
+            var parent = ExternalWindow.from_handle (parent_window);
+            parent.set_parent_of (dialog.get_surface ());
+        } catch (Error e) {
+            warning ("Failed to set parent: %s", e.message);
+        }
+
         dialog.response.connect ((response) => {
             dialog.destroy ();
 

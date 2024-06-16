@@ -110,7 +110,7 @@ public class ScreenCast.Portal : Object {
             start.callback ();
         });
 
-        session.start ();
+        session.start (parent_window);
 
         yield;
 
