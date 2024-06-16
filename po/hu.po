@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 16:20+0000\n"
-"PO-Revision-Date: 2023-07-29 20:08+0000\n"
+"POT-Creation-Date: 2024-05-04 08:30+0000\n"
+"PO-Revision-Date: 2024-05-09 19:13+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "portals/hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.5\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -79,3 +79,35 @@ msgstr "Háttérben való tevékenység"
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "\"%s\" a háttérben fut megfelelő engedély nélkül"
+
+#: src/Screenshot/SetupDialog.vala:49
+msgid "Grab the whole screen"
+msgstr "A teljes képernyő mentése"
+
+#: src/Screenshot/SetupDialog.vala:66
+msgid "Grab the current window"
+msgstr "Az aktuális ablak mentése"
+
+#: src/Screenshot/SetupDialog.vala:83
+msgid "Select area to grab"
+msgstr "A kijelölt terület mentése"
+
+#: src/Screenshot/SetupDialog.vala:102
+msgid "Grab pointer:"
+msgstr "Az egérmutató mentése:"
+
+#: src/Screenshot/SetupDialog.vala:115
+msgid "Conceal text:"
+msgstr "Szöveg elrejtése:"
+
+#: src/Screenshot/SetupDialog.vala:126
+msgid "Delay in seconds:"
+msgstr "Késleltetés másodpercben:"
+
+#: src/Screenshot/SetupDialog.vala:131
+msgid "Take Screenshot"
+msgstr "Képernyőkép készítése"
+
+#: src/Screenshot/SetupDialog.vala:140
+msgid "Close"
+msgstr "Bezárás"
