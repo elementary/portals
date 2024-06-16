@@ -1,6 +1,8 @@
 /*
- * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2024 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
+ *
+ * Authored by: Leonhard Kargl <leo.kargl@proton.me>
  */
 
 [DBus (name = "org.gnome.Mutter.ScreenCast")]
@@ -109,7 +111,7 @@ public class ScreenCast.Session : Object {
             }
         }
 
-        if (VIRTUAL in source_types && yield record_virtual ()) {
+        if (dialog.get_virtual () && yield record_virtual ()) {
             required_streams++;
         }
 

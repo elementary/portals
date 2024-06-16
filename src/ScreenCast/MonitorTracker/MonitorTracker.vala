@@ -25,15 +25,12 @@ public class ScreenCast.MonitorTracker : GLib.Object {
     private MutterDisplayConfigInterface iface;
     private uint current_serial;
 
-    public MonitorTracker () {
-        get_monitor_config ();
-    }
-
     construct {
         monitors = new Gee.LinkedList<ScreenCast.Monitor> ();
         try {
             iface = Bus.get_proxy_sync (BusType.SESSION, "org.gnome.Mutter.DisplayConfig", "/org/gnome/Mutter/DisplayConfig");
             iface.monitors_changed.connect (get_monitor_config);
+            get_monitor_config ();
         } catch (Error e) {
             critical (e.message);
         }

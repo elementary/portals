@@ -1,6 +1,8 @@
 /*
- * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2024 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
+ *
+ * Authored by: Leonhard Kargl <leo.kargl@proton.me>
  */
 
 [Flags]

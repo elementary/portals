@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: 2024 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ *
+ * Authored by: Leonhard Kargl <leo.kargl@proton.me>
+ */
+
 public class ScreenCast.Dialog : Granite.Dialog {
     public SourceType source_types { get; construct; }
     public bool allow_multiple { get; construct; }
@@ -6,6 +13,7 @@ public class ScreenCast.Dialog : Granite.Dialog {
 
     private List<SelectionRow> window_rows;
     private List<SelectionRow> monitor_rows;
+    private SelectionRow? virtual_row;
 
     private Gtk.ListBox list_box;
     private Gtk.CheckButton? group = null;
@@ -38,6 +46,12 @@ public class ScreenCast.Dialog : Granite.Dialog {
 
         if (WINDOW in source_types) {
             populate_windows.begin ();
+        }
+
+        if (VIRTUAL in source_types) {
+            virtual_row = new SelectionRow (VIRTUAL, "unused", _("Entire Display"),
+                new ThemedIcon ("preferences-desktop-display"), allow_multiple ? null : group);
+            setup_row (virtual_row);
         }
 
         var scrolled_window = new Gtk.ScrolledWindow () {
@@ -124,7 +138,22 @@ public class ScreenCast.Dialog : Granite.Dialog {
         var selection_row = (SelectionRow) row;
 
         if (prev == null || ((SelectionRow) prev).source_type != selection_row.source_type) {
-            var label = selection_row.source_type == WINDOW ? _("Windows") : _("Monitors");
+            string label = "";
+
+            switch (selection_row.source_type) {
+                case WINDOW:
+                    label = _("Windows");
+                    break;
+
+                case MONITOR:
+                    label = _("Monitors");
+                    break;
+
+                case VIRTUAL:
+                    label = _("Entire Display");
+                    break;
+            }
+
             selection_row.set_header (new Granite.HeaderLabel (label));
         }
     }
@@ -147,5 +176,9 @@ public class ScreenCast.Dialog : Granite.Dialog {
             }
         }
         return result;
+    }
+
+    public bool get_virtual () {
+        return virtual_row != null && virtual_row.selected;
     }
 }
