@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 08:30+0000\n"
-"PO-Revision-Date: 2024-06-16 19:25+0000\n"
+"PO-Revision-Date: 2024-06-17 20:16+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/es/>\n"
@@ -25,13 +25,16 @@ msgstr ""
 
 #: data/portals.metainfo.xml.in:11
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "Acceder a las características del sistema de una forma segura"
 
 #: data/portals.metainfo.xml.in:13
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 msgstr ""
+"Los portales proporcionan API a las aplicaciones que les permiten acceder a "
+"características del sistema de formar segura y requiriendo consentimiento "
+"informado."
 
 #: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
 #: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:65
@@ -46,11 +49,11 @@ msgstr "Traducciones actualizadas"
 
 #: data/portals.metainfo.xml.in:67
 msgid "Support dialog parenting on wayland"
-msgstr ""
+msgstr "Se agregó soporte para cuadros de diálogo con padres en wayland"
 
 #: data/portals.metainfo.xml.in:77
 msgid "Add a destructive action option for access portals"
-msgstr ""
+msgstr "Se agregó una opción de acción destructiva para portales de acceso"
 
 #: data/portals.metainfo.xml.in:79 data/portals.metainfo.xml.in:90
 msgid "Fixes:"
@@ -59,14 +62,20 @@ msgstr "Correcciones:"
 #: data/portals.metainfo.xml.in:81
 msgid "Fix a crash when opening apps in the AppChooser portal"
 msgstr ""
+"Se corrigió una falla grave cuando se abren aplicaciones con el portal de "
+"selección de aplicación (AppChooser)"
 
 #: data/portals.metainfo.xml.in:82
 msgid "Fix window focus and position for Access portals with no parent window"
 msgstr ""
+"Se corrige el foco de la ventana y la posición para portales de acceso sin "
+"ventana padre"
 
 #: data/portals.metainfo.xml.in:83
 msgid "Set AppChooser portal as a modal dialog for proper animations"
 msgstr ""
+"Se establece el portal de selección de aplicaciones (AppChooser) como un "
+"diálogo modal con animaciones adecuadas"
 
 #: data/portals.metainfo.xml.in:92
 msgid "Prevent delay after logging in"
