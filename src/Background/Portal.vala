@@ -3,21 +3,6 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-[DBus (name = "org.pantheon.gala.DesktopIntegration")]
-private interface Gala.DesktopIntegration : Object {
-    public signal void running_applications_changed ();
-
-    public const string NAME = "org.pantheon.gala";
-    public const string PATH = "/org/pantheon/gala/DesktopInterface";
-
-    public struct RunningApplications {
-        string app_id;
-        HashTable<string,Variant> details;
-    }
-
-    public abstract async RunningApplications[] get_running_applications () throws DBusError, IOError;
-}
-
 [DBus (name = "org.freedesktop.impl.portal.Background")]
 public class Background.Portal : Object {
     public signal void running_applications_changed ();
@@ -28,18 +13,13 @@ public class Background.Portal : Object {
     public Portal (DBusConnection connection) {
         this.connection = connection;
 
-        connection.get_proxy.begin<Gala.DesktopIntegration> (
-            Gala.DesktopIntegration.NAME,
-            Gala.DesktopIntegration.PATH,
-            NONE, null, (obj, res) => {
-                try {
-                    desktop_integration = connection.get_proxy.end (res);
-                    desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
-                } catch {
-                    warning ("Cannot connect to compositor, portal working with reduced functionality.");
-                }
+        Gala.DesktopIntegration.get_instance.begin ((obj, res) => {
+            desktop_integration = Gala.DesktopIntegration.get_instance.end (res);
+
+            if (desktop_integration != null) {
+                desktop_integration.running_applications_changed.connect (() => running_applications_changed ());
             }
-        );
+        });
     }
 
     [CCode (type_signature = "u")]

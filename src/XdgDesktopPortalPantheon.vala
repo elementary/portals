@@ -46,6 +46,9 @@ private void on_bus_acquired (DBusConnection connection, string name) {
 
         connection.register_object ("/org/freedesktop/portal/desktop", new Wallpaper.Portal (connection));
         debug ("Wallpaper Portal registered!");
+
+        connection.register_object ("/org/freedesktop/portal/desktop", new ScreenCast.Portal (connection));
+        debug ("Screencast Portal registered!");
     } catch (Error e) {
         critical ("Unable to register the object: %s", e.message);
     }
