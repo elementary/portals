@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 08:30+0000\n"
-"PO-Revision-Date: 2024-06-14 19:41+0000\n"
+"PO-Revision-Date: 2024-06-16 19:25+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/es/>\n"
@@ -54,7 +54,7 @@ msgstr ""
 
 #: data/portals.metainfo.xml.in:79 data/portals.metainfo.xml.in:90
 msgid "Fixes:"
-msgstr ""
+msgstr "Correcciones:"
 
 #: data/portals.metainfo.xml.in:81
 msgid "Fix a crash when opening apps in the AppChooser portal"
