@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 08:30+0000\n"
-"PO-Revision-Date: 2024-05-06 10:13+0000\n"
+"PO-Revision-Date: 2024-06-19 13:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals/"
 "ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -29,12 +29,12 @@ msgstr "アクセスを許可"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr "ファイルを開くアプリを選択…"
+msgstr "ファイルを次で開く…"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr "“%s” を開くアプリを選択…"
+msgstr "“%s”を次で開く…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
@@ -44,7 +44,7 @@ msgstr "アプリが%sを開こうとしています。"
 #: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr "“%s” が%sを開こうとしています。"
+msgstr "“%s”が%sを開こうとしています。"
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
@@ -78,7 +78,7 @@ msgstr "バックグラウンドでのアクティビティ"
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr "“%s” は適切な許可なくバックグラウンドで動作しています"
+msgstr "“%s”は適切な許可なくバックグラウンドで動作しています"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
