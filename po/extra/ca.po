@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:30+0000\n"
+"POT-Creation-Date: 2024-07-03 15:59+0000\n"
 "PO-Revision-Date: 2023-06-14 19:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/portals-"
@@ -36,48 +36,44 @@ msgstr ""
 "accedir a les funcions del sistema i que requereixen un consentiment "
 "informat."
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
-#: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:65
-#: data/portals.metainfo.xml.in:75
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:45
+#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:66
+#: data/portals.metainfo.xml.in:79
 msgid "New Features:"
 msgstr "Característiques noves:"
 
-#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:42
-#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:68
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:47
+#: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:68
+#: data/portals.metainfo.xml.in:82
 msgid "Updated translations"
 msgstr "Traduccions actualitzades"
 
-#: data/portals.metainfo.xml.in:67
+#: data/portals.metainfo.xml.in:81
 msgid "Support dialog parenting on wayland"
 msgstr "Suport a parentiu de diàlegs a Wayland"
 
-#: data/portals.metainfo.xml.in:77
-msgid "Add a destructive action option for access portals"
-msgstr "Addició d'una opció d'acció destructiva per als portals d'accés"
+#~ msgid "Add a destructive action option for access portals"
+#~ msgstr "Addició d'una opció d'acció destructiva per als portals d'accés"
 
-#: data/portals.metainfo.xml.in:79 data/portals.metainfo.xml.in:90
-msgid "Fixes:"
-msgstr "Correccions:"
+#~ msgid "Fixes:"
+#~ msgstr "Correccions:"
 
-#: data/portals.metainfo.xml.in:81
-msgid "Fix a crash when opening apps in the AppChooser portal"
-msgstr "Correcció d'un error en obrir aplicacions al portal AppChooser"
+#~ msgid "Fix a crash when opening apps in the AppChooser portal"
+#~ msgstr "Correcció d'un error en obrir aplicacions al portal AppChooser"
 
-#: data/portals.metainfo.xml.in:82
-msgid "Fix window focus and position for Access portals with no parent window"
-msgstr ""
-"Correcció de l'enfocament i la posició de la finestra per als portals "
-"d'Accés sense finestra principal"
+#~ msgid ""
+#~ "Fix window focus and position for Access portals with no parent window"
+#~ msgstr ""
+#~ "Correcció de l'enfocament i la posició de la finestra per als portals "
+#~ "d'Accés sense finestra principal"
 
-#: data/portals.metainfo.xml.in:83
-msgid "Set AppChooser portal as a modal dialog for proper animations"
-msgstr ""
-"S'estableix el portal AppChooser com a diàleg modal per a animacions "
-"adequades."
+#~ msgid "Set AppChooser portal as a modal dialog for proper animations"
+#~ msgstr ""
+#~ "S'estableix el portal AppChooser com a diàleg modal per a animacions "
+#~ "adequades."
 
-#: data/portals.metainfo.xml.in:92
-msgid "Prevent delay after logging in"
-msgstr "S'evita el retard després d'iniciar sessió"
+#~ msgid "Prevent delay after logging in"
+#~ msgstr "S'evita el retard després d'iniciar sessió"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

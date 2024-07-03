@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:30+0000\n"
+"POT-Creation-Date: 2024-07-03 15:59+0000\n"
 "PO-Revision-Date: 2022-10-27 18:57+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
@@ -36,48 +36,45 @@ msgstr ""
 "Портали надають API для захисту застосунків, які дають їм доступ до "
 "системних можливостей, але вимагають явної згоди."
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
-#: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:65
-#: data/portals.metainfo.xml.in:75
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:45
+#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:66
+#: data/portals.metainfo.xml.in:79
 msgid "New Features:"
 msgstr "Нові функції:"
 
-#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:42
-#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:68
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:47
+#: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:68
+#: data/portals.metainfo.xml.in:82
 msgid "Updated translations"
 msgstr "Оновлені переклади"
 
-#: data/portals.metainfo.xml.in:67
+#: data/portals.metainfo.xml.in:81
 msgid "Support dialog parenting on wayland"
 msgstr "Підтримка діалогового вікна вкладеності на wayland"
 
-#: data/portals.metainfo.xml.in:77
-msgid "Add a destructive action option for access portals"
-msgstr "Додано опції деструктивної дії для доступу до порталів"
+#~ msgid "Add a destructive action option for access portals"
+#~ msgstr "Додано опції деструктивної дії для доступу до порталів"
 
-#: data/portals.metainfo.xml.in:79 data/portals.metainfo.xml.in:90
-msgid "Fixes:"
-msgstr "Виправлення:"
+#~ msgid "Fixes:"
+#~ msgstr "Виправлення:"
 
-#: data/portals.metainfo.xml.in:81
-msgid "Fix a crash when opening apps in the AppChooser portal"
-msgstr "Усунуто збої при відкритті застосунків через портал вибору застосунків"
+#~ msgid "Fix a crash when opening apps in the AppChooser portal"
+#~ msgstr ""
+#~ "Усунуто збої при відкритті застосунків через портал вибору застосунків"
 
-#: data/portals.metainfo.xml.in:82
-msgid "Fix window focus and position for Access portals with no parent window"
-msgstr ""
-"Виправлено фокусування вікна та положення для доступу до порталів без "
-"батьківського вікна"
+#~ msgid ""
+#~ "Fix window focus and position for Access portals with no parent window"
+#~ msgstr ""
+#~ "Виправлено фокусування вікна та положення для доступу до порталів без "
+#~ "батьківського вікна"
 
-#: data/portals.metainfo.xml.in:83
-msgid "Set AppChooser portal as a modal dialog for proper animations"
-msgstr ""
-"Портал вибору застосунків установлено модальним вікном для правильної "
-"анімації"
+#~ msgid "Set AppChooser portal as a modal dialog for proper animations"
+#~ msgstr ""
+#~ "Портал вибору застосунків установлено модальним вікном для правильної "
+#~ "анімації"
 
-#: data/portals.metainfo.xml.in:92
-msgid "Prevent delay after logging in"
-msgstr "Запобігання затримці після входу"
+#~ msgid "Prevent delay after logging in"
+#~ msgstr "Запобігання затримці після входу"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."
