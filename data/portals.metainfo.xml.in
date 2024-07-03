@@ -34,7 +34,9 @@
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/gala/issues/1807">Color Picker portal</issue>
         <issue url="https://github.com/elementary/portals/issues/74">Screencast Portal</issue>
+        <issue url="https://github.com/elementary/screenshot/issues/140">Implement Screenshot portal</issue>
       </issues>
     </release>
 
