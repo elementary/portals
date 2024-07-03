@@ -26,6 +26,20 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
+    <release version="8.0.0" data="2024-07-03" urgency="medium">
+      <description>
+        <p>New Features:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/gala/issues/1807">Color Picker portal</issue>
+        <issue url="https://github.com/elementary/portals/issues/74">Screencast Portal</issue>
+        <issue url="https://github.com/elementary/screenshot/issues/140">Implement Screenshot portal</issue>
+      </issues>
+    </release>
+
     <release version="7.1.1" data="2023-08-18" urgency="medium">
       <description>
         <p>New Features:</p>
@@ -70,30 +84,8 @@
       </description>
     </release>
 
-    <release version="1.1.0" date="2022-01-24" urgency="medium">
-      <description>
-        <p>New Features:</p>
-        <ul>
-          <li>Add a destructive action option for access portals</li>
-        </ul>
-        <p>Fixes:</p>
-        <ul>
-          <li>Fix a crash when opening apps in the AppChooser portal</li>
-          <li>Fix window focus and position for Access portals with no parent window</li>
-          <li>Set AppChooser portal as a modal dialog for proper animations</li>
-        </ul>
-      </description>
-    </release>
-
-    <release version="1.0.1" date="2021-10-28" urgency="medium">
-      <description>
-        <p>Fixes:</p>
-        <ul>
-          <li>Prevent delay after logging in</li>
-        </ul>
-      </description>
-    </release>
-
+    <release version="1.1.0" date="2022-01-24" urgency="medium" />
+    <release version="1.0.1" date="2021-10-28" urgency="medium" />
     <release version="1.0.0" date="2021-10-25" urgency="medium" />
   </releases>
 </component>
