@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:30+0000\n"
+"POT-Creation-Date: 2024-07-03 15:59+0000\n"
 "PO-Revision-Date: 2022-11-07 17:57+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals-"
@@ -35,44 +35,24 @@ msgstr ""
 "Portallar, bilgilendirilmiş onay gerektirirken sistem özelliklerine "
 "erişmelerini sağlayan uygulamaları güvenli hale getirmek için API'lar sağlar."
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:40
-#: data/portals.metainfo.xml.in:52 data/portals.metainfo.xml.in:65
-#: data/portals.metainfo.xml.in:75
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:45
+#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:66
+#: data/portals.metainfo.xml.in:79
 msgid "New Features:"
 msgstr "Yeni Özellikler:"
 
-#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:42
-#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:68
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:47
+#: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:68
+#: data/portals.metainfo.xml.in:82
 msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
-#: data/portals.metainfo.xml.in:67
+#: data/portals.metainfo.xml.in:81
 msgid "Support dialog parenting on wayland"
 msgstr ""
 
-#: data/portals.metainfo.xml.in:77
-msgid "Add a destructive action option for access portals"
-msgstr ""
-
-#: data/portals.metainfo.xml.in:79 data/portals.metainfo.xml.in:90
-msgid "Fixes:"
-msgstr "Düzeltmeler:"
-
-#: data/portals.metainfo.xml.in:81
-msgid "Fix a crash when opening apps in the AppChooser portal"
-msgstr ""
-
-#: data/portals.metainfo.xml.in:82
-msgid "Fix window focus and position for Access portals with no parent window"
-msgstr ""
-
-#: data/portals.metainfo.xml.in:83
-msgid "Set AppChooser portal as a modal dialog for proper animations"
-msgstr ""
-
-#: data/portals.metainfo.xml.in:92
-msgid "Prevent delay after logging in"
-msgstr ""
+#~ msgid "Fixes:"
+#~ msgstr "Düzeltmeler:"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

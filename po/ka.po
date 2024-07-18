@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:30+0000\n"
-"PO-Revision-Date: 2024-06-18 23:36+0000\n"
+"POT-Creation-Date: 2024-07-03 15:59+0000\n"
+"PO-Revision-Date: 2024-07-16 04:16+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/desktop/portals/"
 "ka/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -110,4 +110,4 @@ msgstr "ეკრანის ანაბეჭდის გადაღებ�
 
 #: src/Screenshot/SetupDialog.vala:140
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
