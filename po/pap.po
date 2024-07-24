@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xdg-desktop-portal-pantheon package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xdg-desktop-portal-pantheon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-03 15:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pap\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Access/Dialog.vala:63
+msgid "Deny Access"
+msgstr ""
+
+#: src/Access/Dialog.vala:64
+msgid "Grant Access"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:51
+msgid "Open file with…"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:53
+#, c-format
+msgid "Open “%s” with…"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:72
+#, c-format
+msgid "An application requested to open a %s."
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:74
+#, c-format
+msgid "“%s” requested to open a %s."
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:104
+#, c-format
+msgid "No installed apps can open %s"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:105
+msgid "New apps can be installed from AppCenter"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:124
+msgid "Cancel"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:126
+msgid "Open"
+msgstr ""
+
+#: src/Background/NotificationRequest.vala:102
+msgid "Allow"
+msgstr ""
+
+#: src/Background/NotificationRequest.vala:104
+msgid "Forbid"
+msgstr ""
+
+#: src/Background/NotificationRequest.vala:113
+msgid "Background activity"
+msgstr ""
+
+#: src/Background/NotificationRequest.vala:114
+#, c-format
+msgid "“%s” is running in the background without appropriate permission"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:49
+msgid "Grab the whole screen"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:66
+msgid "Grab the current window"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:83
+msgid "Select area to grab"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:102
+msgid "Grab pointer:"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:115
+msgid "Conceal text:"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:126
+msgid "Delay in seconds:"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:131
+msgid "Take Screenshot"
+msgstr ""
+
+#: src/Screenshot/SetupDialog.vala:140
+msgid "Close"
+msgstr ""
