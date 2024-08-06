@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-03 15:59+0000\n"
-"PO-Revision-Date: 2022-04-06 20:24+0000\n"
-"Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
+"PO-Revision-Date: 2024-08-07 17:16+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
 "desktop/portals-extra/ckb/>\n"
 "Language: ckb\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/portals.metainfo.xml.in:10
 msgid "Portals"
@@ -43,7 +43,7 @@ msgstr ""
 #: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:68
 #: data/portals.metainfo.xml.in:82
 msgid "Updated translations"
-msgstr ""
+msgstr "وەرگێڕانەکان نوێکراونەوە"
 
 #: data/portals.metainfo.xml.in:81
 msgid "Support dialog parenting on wayland"
