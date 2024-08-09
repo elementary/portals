@@ -127,6 +127,7 @@ public class Screenshot.Portal : Object {
         var modal = true;
         var interactive = false;
         var permission_store_checked = false;
+        SetupDialog.ScreenshotType screenshot_type = ALL;
 
         results = new HashTable<string, Variant> (str_hash, str_equal);
 
@@ -142,6 +143,10 @@ public class Screenshot.Portal : Object {
             permission_store_checked = options["permission_store_checked"].get_boolean ();
         }
 
+        if ("type" in options && options["type"].get_type_string () == "u") {
+            screenshot_type = (SetupDialog.ScreenshotType) options["type"].get_uint32 ();
+        }
+
         debug ("screenshot: modal=%b, interactive=%b, permission_store_checked=%b", modal, interactive, permission_store_checked);
 
         // Non-interactive screenshots for a pre-approved app, just take a fullscreen screenshot and send it
@@ -149,7 +154,7 @@ public class Screenshot.Portal : Object {
             var uri = "";
 
             try {
-                uri = yield do_screenshot (SetupDialog.ScreenshotType.ALL, false, false, 0);
+                uri = yield do_screenshot (screenshot_type, false, false, 0);
             } catch (Error e) {
                 warning ("Couldn't call screenshot: %s\n", e.message);
                 response = 1;
