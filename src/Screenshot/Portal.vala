@@ -170,13 +170,15 @@ public class Screenshot.Portal : Object {
                     cancelled = false;
                 }
 
-                screenshot.callback ();
+                dialog.destroy ();
+
+                // When we close our window, gala fades us out so wait until we are actually not visible anymore
+                // (The animation duration in gala is currently 195ms)
+                Timeout.add_once (200, () => screenshot.callback ());
             });
 
             dialog.show ();
             yield;
-
-            dialog.destroy ();
 
             if (cancelled) {
                 response = 1;
