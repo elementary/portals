@@ -29,6 +29,7 @@ executable(
         gio_dep,
         granite_dep,
         gtk_deps,
+        pantheon_wayland_dep,
         x11_dep
     ],
     install: true,
