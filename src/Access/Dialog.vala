@@ -74,11 +74,13 @@ public class Access.Dialog : Granite.MessageDialog, PantheonWayland.ExtendedBeha
         custom_bin.orientation = Gtk.Orientation.VERTICAL;
         custom_bin.spacing = 6;
 
-        child.realize.connect (() => {
-            connect_to_shell ();
-            make_centered ();
-            set_keep_above ();
-        });
+        if (parent_window == "") {
+            child.realize.connect (() => {
+                connect_to_shell ();
+                make_centered ();
+                set_keep_above ();
+            });
+        }
     }
 
     public override void show () {
