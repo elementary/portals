@@ -4,7 +4,7 @@
  */
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
-public class Access.Dialog : Granite.MessageDialog {
+public class Access.Dialog : Granite.MessageDialog, PantheonWayland.ExtendedBehavior {
     public enum ButtonAction {
         SUGGESTED,
         DESTRUCTIVE
@@ -73,6 +73,14 @@ public class Access.Dialog : Granite.MessageDialog {
 
         custom_bin.orientation = Gtk.Orientation.VERTICAL;
         custom_bin.spacing = 6;
+
+        if (parent_window == "") {
+            child.realize.connect (() => {
+                connect_to_shell ();
+                make_centered ();
+                set_keep_above ();
+            });
+        }
     }
 
     public override void show () {

@@ -26,6 +26,7 @@ if meson.get_compiler('vala').version().version_compare('>=0.56.1')
     ]
 endif
 
+pantheon_wayland_dep = dependency('pantheon-wayland-1')
 x11_dep = dependency('x11')
 
 add_project_arguments(
