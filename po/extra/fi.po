@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-08-07 17:16+0000\n"
+"PO-Revision-Date: 2024-08-15 23:47+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Finnish <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/fi/>\n"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/desktop/"
+"portals-extra/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: data/portals.metainfo.xml.in:23
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:43
 #: data/portals.metainfo.xml.in:57 data/portals.metainfo.xml.in:66
