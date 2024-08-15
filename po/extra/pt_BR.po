@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
 "PO-Revision-Date: 2024-08-15 23:47+0000\n"
-"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
+"Last-Translator: Neylson Soares <neylsonsoarest+weblate@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/portals-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -43,7 +43,7 @@ msgstr "elementary, Inc."
 #: data/portals.metainfo.xml.in:57 data/portals.metainfo.xml.in:66
 #: data/portals.metainfo.xml.in:78 data/portals.metainfo.xml.in:91
 msgid "New Features:"
-msgstr "Novas funcionalidades:"
+msgstr "Novos recursos:"
 
 #: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:45
 #: data/portals.metainfo.xml.in:59 data/portals.metainfo.xml.in:68
