@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-03 15:59+0000\n"
 "PO-Revision-Date: 2024-08-15 23:28+0000\n"
-"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
+"Last-Translator: Neylson Soares <neylsonsoarest+weblate@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/portals/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -25,16 +25,16 @@ msgstr "Negar o acesso"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
-msgstr ""
+msgstr "Conceder acesso"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr ""
+msgstr "Abrir arquivo com…"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Abrir “%s” com…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
