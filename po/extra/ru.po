@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-03 15:59+0000\n"
+"POT-Creation-Date: 2024-08-15 23:28+0000\n"
 "PO-Revision-Date: 2022-10-26 15:59+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/portals-"
@@ -36,19 +36,23 @@ msgstr ""
 "Порталы предоставляют API для защиты приложений, которые дают им доступ к "
 "функциям системы, но требуя явного согласия."
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:45
-#: data/portals.metainfo.xml.in:54 data/portals.metainfo.xml.in:66
-#: data/portals.metainfo.xml.in:79
+#: data/portals.metainfo.xml.in:23
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:43
+#: data/portals.metainfo.xml.in:57 data/portals.metainfo.xml.in:66
+#: data/portals.metainfo.xml.in:78 data/portals.metainfo.xml.in:91
 msgid "New Features:"
 msgstr "Новые возможности:"
 
-#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:47
-#: data/portals.metainfo.xml.in:56 data/portals.metainfo.xml.in:68
-#: data/portals.metainfo.xml.in:82
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:45
+#: data/portals.metainfo.xml.in:59 data/portals.metainfo.xml.in:68
+#: data/portals.metainfo.xml.in:80 data/portals.metainfo.xml.in:94
 msgid "Updated translations"
 msgstr "Обновлены переводы"
 
-#: data/portals.metainfo.xml.in:81
+#: data/portals.metainfo.xml.in:93
 msgid "Support dialog parenting on wayland"
 msgstr "Поддержка наследования диалоговых окон на Wayland"
 
@@ -74,9 +78,6 @@ msgstr "Поддержка наследования диалоговых око�
 
 #~ msgid "Prevent delay after logging in"
 #~ msgstr "Предотвращена задержка после входа в систему"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "First release!"
 #~ msgstr "Первый выпуск!"
