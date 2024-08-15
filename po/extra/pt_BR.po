@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-04-24 13:13+0000\n"
-"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2024-08-15 23:47+0000\n"
+"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/portals-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,21 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/portals.metainfo.xml.in:10
 msgid "Portals"
-msgstr ""
+msgstr "Portals"
 
 #: data/portals.metainfo.xml.in:11
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "Acessar recursos do sistema de modo seguro"
 
 #: data/portals.metainfo.xml.in:13
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 msgstr ""
+"O Portals fornece um conjunto de APIs para proteger as aplicações que tentam "
+"acessar os recursos do sistema, exigindo consentimento."
 
 #: data/portals.metainfo.xml.in:23
 msgid "elementary, Inc."
@@ -51,4 +53,4 @@ msgstr "Traduções atualizadas"
 
 #: data/portals.metainfo.xml.in:93
 msgid "Support dialog parenting on wayland"
-msgstr ""
+msgstr "Suporte para caixas de diálogo com parentes no Wayland"
