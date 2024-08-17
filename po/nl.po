@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-05-31 20:13+0000\n"
+"PO-Revision-Date: 2024-08-17 17:19+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/portals/nl/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -110,4 +110,4 @@ msgstr "Neem schermfoto"
 
 #: src/Screenshot/SetupDialog.vala:140
 msgid "Close"
-msgstr "Sluit"
+msgstr "Sluiten"
