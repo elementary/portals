@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-08-17 09:16+0000\n"
+"PO-Revision-Date: 2024-08-17 17:19+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/"
 "portals-extra/nl/>\n"
@@ -50,7 +50,7 @@ msgstr "Nieuwe functies:"
 #: data/portals.metainfo.xml.in:59 data/portals.metainfo.xml.in:68
 #: data/portals.metainfo.xml.in:80 data/portals.metainfo.xml.in:94
 msgid "Updated translations"
-msgstr "Geüpdatete vertalingen"
+msgstr "Bijgewerkte vertalingen"
 
 #: data/portals.metainfo.xml.in:93
 msgid "Support dialog parenting on wayland"
