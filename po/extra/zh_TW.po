@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-09-02 22:33+0000\n"
+"PO-Revision-Date: 2024-09-06 10:13+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "desktop/portals-extra/zh_Hant/>\n"
@@ -41,7 +41,7 @@ msgstr "elementary, Inc."
 #: data/portals.metainfo.xml.in:57 data/portals.metainfo.xml.in:66
 #: data/portals.metainfo.xml.in:78 data/portals.metainfo.xml.in:91
 msgid "New Features:"
-msgstr ""
+msgstr "新功能："
 
 #: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:45
 #: data/portals.metainfo.xml.in:59 data/portals.metainfo.xml.in:68
