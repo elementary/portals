@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-09-02 22:33+0000\n"
+"PO-Revision-Date: 2024-09-19 10:09+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "desktop/portals/zh_Hant/>\n"
@@ -21,39 +21,39 @@ msgstr ""
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
-msgstr ""
+msgstr "拒絕存取"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
-msgstr ""
+msgstr "准許存取"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr ""
+msgstr "以此開啟檔案…"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "以此開啟「%s」…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "有應用程式請求要開啟一個 %s。"
 
 #: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "「%s」請求要開啟一個 %s。"
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "沒有任何已安裝的應用程式能夠開啟 %s"
 
 #: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "可以從《應用程式中心》安裝新應用程式"
 
 #: src/AppChooser/Dialog.vala:124
 msgid "Cancel"
@@ -61,7 +61,7 @@ msgstr "取消"
 
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
@@ -69,40 +69,40 @@ msgstr "允許"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "拒絕"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "背景活動"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "「%s」正在背景執行但沒有足夠權限"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
-msgstr ""
+msgstr "擷取整個螢幕"
 
 #: src/Screenshot/SetupDialog.vala:66
 msgid "Grab the current window"
-msgstr ""
+msgstr "擷取目前視窗"
 
 #: src/Screenshot/SetupDialog.vala:83
 msgid "Select area to grab"
-msgstr ""
+msgstr "選取要擷取的區域"
 
 #: src/Screenshot/SetupDialog.vala:102
 msgid "Grab pointer:"
-msgstr ""
+msgstr "擷取指標："
 
 #: src/Screenshot/SetupDialog.vala:115
 msgid "Conceal text:"
-msgstr ""
+msgstr "隱藏文字："
 
 #: src/Screenshot/SetupDialog.vala:126
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "延遲秒數："
 
 #: src/Screenshot/SetupDialog.vala:131
 msgid "Take Screenshot"
