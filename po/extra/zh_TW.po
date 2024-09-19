@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-09-06 10:13+0000\n"
+"PO-Revision-Date: 2024-09-19 10:09+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "desktop/portals-extra/zh_Hant/>\n"
@@ -21,17 +21,18 @@ msgstr ""
 
 #: data/portals.metainfo.xml.in:10
 msgid "Portals"
-msgstr ""
+msgstr "桌面入口"
 
 #: data/portals.metainfo.xml.in:11
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "以安全方式存取系統功能"
 
 #: data/portals.metainfo.xml.in:13
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
-msgstr ""
+msgstr "桌面入口提供安全應用程式用的 "
+"API，讓它們能請求使用者的知情同意，經許可後再使用系統功能。"
 
 #: data/portals.metainfo.xml.in:23
 msgid "elementary, Inc."
@@ -51,4 +52,4 @@ msgstr "更新翻譯"
 
 #: data/portals.metainfo.xml.in:93
 msgid "Support dialog parenting on wayland"
-msgstr ""
+msgstr "在 Wayland 上支援桌面入口對話框顯示於上層視窗內"
