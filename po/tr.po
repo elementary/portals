@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-08-07 17:16+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-09-21 10:16+0000\n"
+"Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals/"
 "tr/>\n"
 "Language: tr\n"
@@ -65,44 +65,44 @@ msgstr "Aç"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
-msgstr ""
+msgstr "İzin ver"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Yasakla"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Arkaplan etkinliği"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "“%s” uygun izin olmadan arka planda çalışıyor"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
-msgstr ""
+msgstr "Tüm ekranı yakala"
 
 #: src/Screenshot/SetupDialog.vala:66
 msgid "Grab the current window"
-msgstr ""
+msgstr "Mevcut pencereyi yakala"
 
 #: src/Screenshot/SetupDialog.vala:83
 msgid "Select area to grab"
-msgstr ""
+msgstr "Yakalanacak alanı seçin"
 
 #: src/Screenshot/SetupDialog.vala:102
 msgid "Grab pointer:"
-msgstr ""
+msgstr "İşaretçiyi yakala:"
 
 #: src/Screenshot/SetupDialog.vala:115
 msgid "Conceal text:"
-msgstr ""
+msgstr "Metni gizle:"
 
 #: src/Screenshot/SetupDialog.vala:126
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Saniye cinsinden gecikme:"
 
 #: src/Screenshot/SetupDialog.vala:131
 msgid "Take Screenshot"
