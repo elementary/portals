@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:28+0000\n"
-"PO-Revision-Date: 2024-08-20 11:26+0000\n"
+"PO-Revision-Date: 2024-10-05 18:16+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/desktop/portals/"
 "sk/>\n"
@@ -21,39 +21,39 @@ msgstr ""
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
-msgstr ""
+msgstr "Odoprieť prístup"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
-msgstr ""
+msgstr "Udeliť prístup"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr ""
+msgstr "Otvoriť súbor pomocou…"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Otvoriť „%s“ pomocou…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "Aplikácia si vyžiadala otvorenie %s."
 
 #: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "„%s“ si vyžiadala otvorenie %s."
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Žiadna z nainštalovaných aplikácií nevie otvoriť %s"
 
 #: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Nové aplikácie je možné nainštalovať z AppCentra"
 
 #: src/AppChooser/Dialog.vala:124
 msgid "Cancel"
@@ -61,7 +61,7 @@ msgstr "Zrušiť"
 
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
-msgstr ""
+msgstr "Otvoriť"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
@@ -69,44 +69,44 @@ msgstr "Povoliť"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Zakázať"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Aktivita na pozadí"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "„%s“ je spustená na pozadí bez príslušného oprávnenia"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
-msgstr ""
+msgstr "Zachytiť celú obrazovku"
 
 #: src/Screenshot/SetupDialog.vala:66
 msgid "Grab the current window"
-msgstr ""
+msgstr "Zachytiť aktuálne okno"
 
 #: src/Screenshot/SetupDialog.vala:83
 msgid "Select area to grab"
-msgstr ""
+msgstr "Vybrať oblasť na zachytenie"
 
 #: src/Screenshot/SetupDialog.vala:102
 msgid "Grab pointer:"
-msgstr ""
+msgstr "Zachytiť ukazovateľ:"
 
 #: src/Screenshot/SetupDialog.vala:115
 msgid "Conceal text:"
-msgstr ""
+msgstr "Skryť text:"
 
 #: src/Screenshot/SetupDialog.vala:126
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Oneskorenie v sekundách:"
 
 #: src/Screenshot/SetupDialog.vala:131
 msgid "Take Screenshot"
-msgstr "Vytvoriť snímku obrazovky"
+msgstr "Zachytiť snímku obrazovky"
 
 #: src/Screenshot/SetupDialog.vala:140
 msgid "Close"
