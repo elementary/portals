@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-15 23:28+0000\n"
+"POT-Creation-Date: 2024-12-19 12:58+0000\n"
 "PO-Revision-Date: 2024-09-19 10:09+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -55,7 +55,7 @@ msgstr "沒有任何已安裝的應用程式能夠開啟 %s"
 msgid "New apps can be installed from AppCenter"
 msgstr "可以從《應用程式中心》安裝新應用程式"
 
-#: src/AppChooser/Dialog.vala:124
+#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
 msgid "Cancel"
 msgstr "取消"
 
@@ -79,6 +79,62 @@ msgstr "背景活動"
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "「%s」正在背景執行但沒有足夠權限"
+
+#: src/Background/Portal.vala:154
+msgid "Custom Command"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
+msgid "Entire Display"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:73
+msgid "Share"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:97
+msgid "Unknown Window"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:145
+msgid "Windows"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:149
+msgid "Monitors"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:58
+msgid "Clockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:60
+msgid "Upside-down"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:62
+msgid "Counterclockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:64
+msgid "Flipped"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:66
+msgid "Flipped Clockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:68
+msgid "Flipped Upside-down"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:70
+msgid "Flipped Counterclockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:72
+msgid "None"
+msgstr ""
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"

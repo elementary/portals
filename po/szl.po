@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-15 23:28+0000\n"
+"POT-Creation-Date: 2024-12-19 12:58+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/desktop/portals/"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "New apps can be installed from AppCenter"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:124
+#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
 msgid "Cancel"
 msgstr "Pociep"
 
@@ -79,6 +79,62 @@ msgstr ""
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
+msgstr ""
+
+#: src/Background/Portal.vala:154
+msgid "Custom Command"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
+msgid "Entire Display"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:73
+msgid "Share"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:97
+msgid "Unknown Window"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:145
+msgid "Windows"
+msgstr ""
+
+#: src/ScreenCast/Dialog.vala:149
+msgid "Monitors"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:58
+msgid "Clockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:60
+msgid "Upside-down"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:62
+msgid "Counterclockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:64
+msgid "Flipped"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:66
+msgid "Flipped Clockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:68
+msgid "Flipped Upside-down"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:70
+msgid "Flipped Counterclockwise"
+msgstr ""
+
+#: src/ScreenCast/MonitorTracker/Interface.vala:72
+msgid "None"
 msgstr ""
 
 #: src/Screenshot/SetupDialog.vala:49
