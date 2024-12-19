@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-19 12:58+0000\n"
-"PO-Revision-Date: 2024-06-19 13:09+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2024-12-19 16:04+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals/"
 "ja/>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.8.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: src/ScreenCast/Dialog.vala:145
 msgid "Windows"
-msgstr ""
+msgstr "ウィンドウ"
 
 #: src/ScreenCast/Dialog.vala:149
 msgid "Monitors"
