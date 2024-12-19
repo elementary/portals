@@ -6,4 +6,7 @@ src/AppChooser/Portal.vala
 src/AppChooser/Dialog.vala
 src/AppChooser/AppButton.vala
 src/Background/NotificationRequest.vala
+src/Background/Portal.vala
+src/ScreenCast/Dialog.vala
+src/ScreenCast/MonitorTracker/Interface.vala
 src/Screenshot/SetupDialog.vala
