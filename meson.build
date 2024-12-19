@@ -16,7 +16,8 @@ gio_dep = dependency('gio-2.0')
 granite_dep = dependency('granite-7')
 
 gtk_deps = [
-    dependency('gtk4')
+    dependency('gtk4'),
+    dependency('gtk4-unix-print')
 ]
 
 if meson.get_compiler('vala').version().version_compare('>=0.56.1')
