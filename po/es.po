@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-19 12:58+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-12-20 08:28+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/portals/"
 "es/>\n"
 "Language: es\n"
@@ -82,19 +82,19 @@ msgstr "«%s» se está ejecutando en segundo plano sin los permisos adecuados"
 
 #: src/Background/Portal.vala:154
 msgid "Custom Command"
-msgstr ""
+msgstr "Comando personalizado"
 
 #: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
 msgid "Entire Display"
-msgstr ""
+msgstr "Toda la pantalla"
 
 #: src/ScreenCast/Dialog.vala:73
 msgid "Share"
-msgstr ""
+msgstr "Compartir"
 
 #: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
-msgstr ""
+msgstr "Ventana desconocida"
 
 #: src/ScreenCast/Dialog.vala:145
 msgid "Windows"
@@ -102,39 +102,39 @@ msgstr "Ventanas"
 
 #: src/ScreenCast/Dialog.vala:149
 msgid "Monitors"
-msgstr ""
+msgstr "Monitores"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Sentido horario"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Al revés"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Sentido antihorario"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Volteado"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Sentido horario (volteado)"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Al revés (volteado)"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Sentido antihorario (volteado)"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
