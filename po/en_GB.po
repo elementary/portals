@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-19 12:58+0000\n"
 "PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "desktop/portals/en_GB/>\n"
 "Language: en_GB\n"
@@ -82,19 +82,19 @@ msgstr "“%s” is running in the background without appropriate permission"
 
 #: src/Background/Portal.vala:154
 msgid "Custom Command"
-msgstr ""
+msgstr "Custom Command"
 
 #: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
 msgid "Entire Display"
-msgstr ""
+msgstr "Entire Display"
 
 #: src/ScreenCast/Dialog.vala:73
 msgid "Share"
-msgstr ""
+msgstr "Share"
 
 #: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
-msgstr ""
+msgstr "Unknown Window"
 
 #: src/ScreenCast/Dialog.vala:145
 msgid "Windows"
@@ -102,39 +102,39 @@ msgstr "Windows"
 
 #: src/ScreenCast/Dialog.vala:149
 msgid "Monitors"
-msgstr ""
+msgstr "Monitors"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Clockwise"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Upside-down"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Anticlockwise"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Flipped"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Flipped Clockwise"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Flipped Upside-down"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Flipped Anticlockwise"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "None"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
