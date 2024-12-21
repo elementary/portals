@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-19 12:58+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-12-22 12:16+0000\n"
+"Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/portals/nl/"
 ">\n"
 "Language: nl\n"
@@ -82,19 +82,19 @@ msgstr "\"%s\" draait in de achtergrond zonder de juiste toestemming"
 
 #: src/Background/Portal.vala:154
 msgid "Custom Command"
-msgstr ""
+msgstr "Aangepast commando"
 
 #: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
 msgid "Entire Display"
-msgstr ""
+msgstr "Hele scherm"
 
 #: src/ScreenCast/Dialog.vala:73
 msgid "Share"
-msgstr ""
+msgstr "Deel"
 
 #: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
-msgstr ""
+msgstr "Onbekend venster"
 
 #: src/ScreenCast/Dialog.vala:145
 msgid "Windows"
@@ -102,63 +102,63 @@ msgstr "Vensters"
 
 #: src/ScreenCast/Dialog.vala:149
 msgid "Monitors"
-msgstr ""
+msgstr "Monitor"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Met de klok mee"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Ondersteboven"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Tegen de klok in"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Omgedraaid"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Omgedraaid met de klok mee"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Omgedraaid ondersteboven"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Omgedraaid tegen de klok in"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
-msgstr ""
+msgstr "Pak het hele scherm"
 
 #: src/Screenshot/SetupDialog.vala:66
 msgid "Grab the current window"
-msgstr ""
+msgstr "Pak het huidige venster"
 
 #: src/Screenshot/SetupDialog.vala:83
 msgid "Select area to grab"
-msgstr ""
+msgstr "Selecteer een gebied om te pakken"
 
 #: src/Screenshot/SetupDialog.vala:102
 msgid "Grab pointer:"
-msgstr ""
+msgstr "Pak aanwijzer:"
 
 #: src/Screenshot/SetupDialog.vala:115
 msgid "Conceal text:"
-msgstr ""
+msgstr "Verberg tekst:"
 
 #: src/Screenshot/SetupDialog.vala:126
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Vertraag in seconden:"
 
 #: src/Screenshot/SetupDialog.vala:131
 msgid "Take Screenshot"
