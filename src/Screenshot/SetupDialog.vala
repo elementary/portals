@@ -15,8 +15,8 @@ public class Screenshot.SetupDialog : Gtk.Window {
     public string parent_window { get; construct; }
 
     public ScreenshotType screenshot_type { get; private set; default = ScreenshotType.ALL; }
-    public bool grab_pointer { get; private set; default = false; }
-    public bool redact_text { get; private set; default = false; }
+    public bool grab_pointer { get; set; default = false; }
+    public bool redact_text { get; set; default = false; }
     public int delay { get; private set; default = 0; }
 
     public SetupDialog (string parent_window, bool modal) {
@@ -91,30 +91,21 @@ public class Screenshot.SetupDialog : Gtk.Window {
             }
         });
 
-        var pointer_switch = new Gtk.Switch () {
-            halign = START
+        var pointer_toggle = new Gtk.ToggleButton () {
+            icon_name = "tools-pointer-symbolic",
+            tooltip_text = _("Grab pointer")
         };
+        pointer_toggle.add_css_class (Granite.STYLE_CLASS_LARGE_ICONS);
 
-        pointer_switch.state_set.connect (() => {
-            grab_pointer = pointer_switch.active;
-        });
-
-        var pointer_label = new Gtk.Label (_("Grab pointer:")) {
-            halign = END,
-            mnemonic_widget = pointer_switch
+        var redact_toggle = new Gtk.ToggleButton () {
+            icon_name = "tools-redact-symbolic",
+            tooltip_text = _("Conceal text")
         };
+        redact_toggle.add_css_class (Granite.STYLE_CLASS_LARGE_ICONS);
 
-        var redact_switch = new Gtk.Switch () {
-            halign = START
-        };
-
-        redact_switch.state_set.connect (() => {
-            redact_text = redact_switch.active;
-        });
-
-        var redact_label = new Gtk.Label (_("Conceal text:")) {
-            halign = END,
-            mnemonic_widget = redact_switch
+        var delay_image = new Gtk.Image.from_icon_name ("tools-timer-symbolic") {
+            icon_size = LARGE,
+            tooltip_text = _("Timer")
         };
 
         var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
@@ -128,53 +119,39 @@ public class Screenshot.SetupDialog : Gtk.Window {
             mnemonic_widget = delay_spin
         };
 
-        var take_btn = new Gtk.Button.with_label (_("Take Screenshot")) {
+        var delay_box = new Gtk.Box (VERTICAL, 3);
+        delay_box.append (delay_image);
+        delay_box.append (delay_spin);
+
+        var take_btn = new Gtk.Button.from_icon_name ("camera-photo-symbolic") {
+            tooltip_text = _("Take Screenshot"),
             receives_default = true
         };
-        take_btn.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        take_btn.add_css_class (Granite.STYLE_CLASS_LARGE_ICONS);
 
         take_btn.clicked.connect (() => {
             response (Gtk.ResponseType.OK);
         });
 
-        var close_btn = new Gtk.Button.with_label (_("Close"));
-
-        var radio_box = new Gtk.Box (HORIZONTAL, 18) {
+        var radio_box = new Gtk.Box (HORIZONTAL, 6) {
             halign = CENTER
         };
         radio_box.append (all);
         radio_box.append (curr_window);
         radio_box.append (selection);
 
-        var option_grid = new Gtk.Grid () {
-            column_spacing = 12,
-            row_spacing = 6
-        };
-        option_grid.attach (pointer_label, 0, 0);
-        option_grid.attach (pointer_switch, 1, 0);
-
-        option_grid.attach (redact_label, 0, 1);
-        option_grid.attach (redact_switch, 1, 1);
-
-        option_grid.attach (delay_label, 0, 2);
-        option_grid.attach (delay_spin, 1, 2);
-
-        var actions = new Gtk.Box (HORIZONTAL, 6) {
-            halign = END,
-            homogeneous = true
-        };
-        actions.append (close_btn);
-        actions.append (take_btn);
-
-        var box = new Gtk.Box (VERTICAL, 24) {
-            margin_top = 24,
+        var box = new Gtk.Box (HORIZONTAL, 12) {
+            margin_top = 12,
             margin_end = 12,
             margin_bottom = 12,
             margin_start = 12
         };
+        box.append (new Gtk.WindowControls (START));
         box.append (radio_box);
-        box.append (option_grid);
-        box.append (actions);
+        box.append (pointer_toggle);
+        box.append (delay_box);
+        box.append (redact_toggle);
+        box.append (take_btn);
 
         var window_handle = new Gtk.WindowHandle () {
             child = box
@@ -190,16 +167,15 @@ public class Screenshot.SetupDialog : Gtk.Window {
         add_css_class ("dialog");
         add_css_class (Granite.STYLE_CLASS_MESSAGE_DIALOG);
 
-        close_btn.clicked.connect (() => {
-            response (Gtk.ResponseType.CLOSE);
-        });
-
         var gtk_settings = Gtk.Settings.get_default ();
         gtk_settings.notify["gtk-application-prefer-dark-theme"].connect (() => {
             update_icons (gtk_settings.gtk_application_prefer_dark_theme);
         });
 
         update_icons (gtk_settings.gtk_application_prefer_dark_theme);
+
+        pointer_toggle.bind_property ("active", this, "grab-pointer", SYNC_CREATE);
+        redact_toggle.bind_property ("active", this, "redact-text", SYNC_CREATE);
     }
 
     private void update_icons (bool prefers_dark) {
