@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-19 12:58+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-12-24 00:16+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "portals/uk/>\n"
 "Language: uk\n"
@@ -83,19 +83,19 @@ msgstr "«%s» запущено у фоновому режимі без відп
 
 #: src/Background/Portal.vala:154
 msgid "Custom Command"
-msgstr ""
+msgstr "Користувацька команда"
 
 #: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
 msgid "Entire Display"
-msgstr ""
+msgstr "Весь екран"
 
 #: src/ScreenCast/Dialog.vala:73
 msgid "Share"
-msgstr ""
+msgstr "Поділитися"
 
 #: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
-msgstr ""
+msgstr "Невідоме вікно"
 
 #: src/ScreenCast/Dialog.vala:145
 msgid "Windows"
@@ -103,39 +103,39 @@ msgstr "Вікна"
 
 #: src/ScreenCast/Dialog.vala:149
 msgid "Monitors"
-msgstr ""
+msgstr "Монітори"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "За годинниковою стрілкою"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Згори до низу"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Проти годинникової стрілки"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Перевернуто"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Перевернуто за годинниковою стрілкою"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Перевернуто згори до низу"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Перевернуто проти годинникової стрілки"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Нічого"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
