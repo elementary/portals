@@ -125,10 +125,20 @@ public class Background.Portal : Object {
             _app_id = string.joinv ("-", commandline).replace ("--", "-").replace ("--", "-");
         }
 
-        var file = File.new_build_filename (Environment.get_user_config_dir (), "autostart", _app_id + ".desktop");
+        var autostart_dir = File.new_build_filename (Environment.get_user_config_dir (), "autostart");
+        var file = autostart_dir.get_child (_app_id + ".desktop");
         if (!enable) {
             try { yield file.delete_async (); } catch {}
             return false;
+        }
+
+        if (!autostart_dir.query_exists ()) {
+            try {
+                yield autostart_dir.make_directory_async ();
+            } catch (Error e) {
+                warning ("Failed to make autostart directory: %s", e.message);
+                throw new DBusError.FAILED (e.message);
+            }
         }
 
         var key_file = new KeyFile ();
