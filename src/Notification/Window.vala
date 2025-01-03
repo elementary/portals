@@ -24,7 +24,7 @@ public class Notification.MainWindow : Gtk.Window {
     }
 
     private Gtk.Widget create_widget_func (Object obj) {
-        var notification = (PortalNotification) obj;
+        var notification = (Notification) obj;
         var widget = new Widget (notification);
         return widget;
     }

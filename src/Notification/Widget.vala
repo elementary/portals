@@ -1,11 +1,11 @@
 public class Notification.Widget : Granite.Bin {
-    public PortalNotification notification { get; construct; }
+    public Notification notification { get; construct; }
 
     public Gtk.Label time_label { get; construct; }
 
     private Gtk.FlowBox button_box;
 
-    public Widget (PortalNotification notification) {
+    public Widget (Notification notification) {
         Object (notification: notification);
     }
 
@@ -69,7 +69,7 @@ public class Notification.Widget : Granite.Bin {
         grid.attach (button_box, 1, 2, 2, 1);
 
         child = grid;
-        insert_action_group (PortalNotification.ACTION_GROUP_NAME, notification.actions);
+        insert_action_group (Notification.ACTION_GROUP_NAME, notification.portal.actions);
 
         var gesture_click = new Gtk.GestureClick ();
         gesture_click.pressed.connect (() => activate_action ("default", null));
@@ -77,9 +77,9 @@ public class Notification.Widget : Granite.Bin {
     }
 
     private Gtk.Widget create_button_func (Object obj) {
-        var button = (PortalNotification.Button) obj;
+        var button = (Notification.Button) obj;
         return new Gtk.Button.with_label (button.label) {
-            action_name = PortalNotification.ACTION_PREFIX + button.action_name,
+            action_name = Notification.ACTION_PREFIX + button.action_name,
             action_target = button.action_target
         };
     }

@@ -1,5 +1,5 @@
 
-public class Notification.PortalNotification : GLib.Object {
+public class Notification.Notification : GLib.Object {
     public const string ACTION_GROUP_NAME = "action";
     public const string ACTION_PREFIX = ACTION_GROUP_NAME + ".";
 
@@ -19,12 +19,13 @@ public class Notification.PortalNotification : GLib.Object {
         SHOW_AS_NEW
     }
 
-    public signal void dismissed (string id);
-    public signal void activate_action (string name, Variant? target);
+    public unowned Portal portal { get; construct; }
 
     public string id { get; construct; }
 
     public string app_id { get; construct; }
+
+    public HashTable<string, Variant> data { get; construct; }
 
     /**
      * The title of the notification, always uses markup.
@@ -43,24 +44,25 @@ public class Notification.PortalNotification : GLib.Object {
 
     public NotificationPriority priority { get; private set; default = NORMAL; }
 
-    public SimpleActionGroup actions { get; private set; }
+    public string default_action_name { get; construct; }
+    public Variant? default_action_target { get; construct; }
+
     public ListStore buttons { get; private set; }
 
     public DisplayHint display_hint { get; private set; }
 
-    public PortalNotification (string app_id, string id, HashTable<string, Variant> data) {
-        Object (app_id: app_id, id: Portal.ID_FORMAT.printf (app_id, id));
+    private ActionEntry[] action_entries;
 
-        replace (data);
+    public Notification (string app_id, string id, HashTable<string, Variant> data, Portal portal) {
+        Object (app_id: app_id, id: Portal.ID_FORMAT.printf (app_id, id), data: data, portal: portal);
+    }
+
+    ~Notification () {
+        portal.actions.remove_action_entries (action_entries);
     }
 
     construct {
         buttons = new ListStore (typeof (Button));
-        actions = new SimpleActionGroup ();
-    }
-
-    public void replace (HashTable<string, Variant> data) {
-        buttons.remove_all ();
 
         if ("title" in data) {
             title = data["title"].get_string ();
@@ -97,15 +99,31 @@ public class Notification.PortalNotification : GLib.Object {
             }
         }
 
-        if ("default-action" in data) {
-            var default_action = new SimpleAction ("default", null);
-            actions.add_action (default_action);
+        ActionEntry default_action_entry;
 
+        if ("default-action" in data) {
+            var default_action_name = Portal.ACTION_FORMAT.printf (id, data["default-action"].get_string ());
+
+            string? default_action_parameter = null;
             if ("default-action-target" in data) {
-                default_action.activate.connect (() => activate_action (data["default-action"].get_string (), data["default-action-target"]));
-            } else {
-                default_action.activate.connect (() => activate_action (data["default-action"].get_string (), null));
+                default_action_parameter = default_action_entry.parameter_type = data["default-action-target"].get_type_string ();
             }
+
+            default_action_entry = ActionEntry () {
+                name = default_action_name,
+                activate = portal.on_action,
+                parameter_type = default_action_parameter
+            };
+
+            this.default_action_name = default_action_name;
+            this.default_action_target = data["default-action-target"];
+        } else {
+            default_action_entry = ActionEntry () {
+                name = Portal.INTERNAL_ACTION_FORMAT.printf (id, "default"),
+                activate = portal.on_action
+            };
+
+            default_action_name = default_action_entry.name;
         }
 
         if ("buttons" in data) {
@@ -119,7 +137,7 @@ public class Notification.PortalNotification : GLib.Object {
                 }
 
                 if ("action" in button_data) {
-                    button.action_name = button_data["action"].get_string ();
+                    button.action_name = Portal.ACTION_FORMAT.printf (id, button_data["action"].get_string ());
                 }
 
                 if ("action-target" in button_data) {
@@ -127,18 +145,19 @@ public class Notification.PortalNotification : GLib.Object {
                 }
 
                 this.buttons.append (button);
-                var action = new SimpleAction (button.action_name, button.action_target != null ? button.action_target.get_type () : null);
-                actions.add_action (action);
-                action.activate.connect ((target) => activate_action (button.action_name, target));
+
+                action_entries += ActionEntry () {
+                    name = button.action_name,
+                    activate = portal.on_action,
+                    parameter_type = button.action_target != null ? button.action_target.get_type ().dup_string () : null
+                };
             }
         }
+
+        portal.actions.add_action_entries (action_entries, portal);
     }
 
     public void play_sound () {
 
-    }
-
-    public void dismiss () {
-        dismissed (id);
     }
 }
