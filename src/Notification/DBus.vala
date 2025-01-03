@@ -1,11 +1,11 @@
-[DBus (name = "io.elementary.portal.NotificationsProvider")]
-public class Notification.Provider : Object {
+[DBus (name = "io.elementary.portal.NotificationProvider")]
+public class Notification.DBusProvider : Object {
     public signal void items_changed (uint pos, uint removed, HashTable<string, Variant>[] added);
 
     [DBus (visible = false)]
     public Portal portal { get; construct; }
 
-    public Provider (Portal portal) {
+    public DBusProvider (Portal portal) {
         Object (portal: portal);
     }
 

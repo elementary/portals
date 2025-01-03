@@ -3,9 +3,13 @@
 // ('io.elementary.mail.desktop', 'new-mail', {'title': <'New mail from John Doe'>, 'body': <'You have a new mail from John Doe. Click to read it.'>})
 
 /**
- * The portal.
- * On receiving:
- * - check if already there
+ * The notififcations portal consists of a few parts. Most importantly this class which exposes the portal
+ * api, tracks currently active notifications and holds the other parts.
+ * The {@link ActionGroup} handles all action logic for notifications. It automatically exposes all actions
+ * for all available notifications and handles the activation of these actions (by talking to #this).
+ * The {@link BubbleManager} is responsible for showing the notifications to the user in a bubble.
+ * The {@link DBusProvider} is responsible for exposing the notifications to the DBus for consumption by the indicator. It also exports the {@link actions}.
+ * Both {@link BubbleManager} and {@link DBusProvider} use the {@link actions} for all interaction (dismissing, activating actions).
  */
 [DBus (name = "org.freedesktop.impl.portal.Notification")]
 public class Notification.Portal : Object {
@@ -20,11 +24,17 @@ public class Notification.Portal : Object {
     [DBus (visible = false)]
     public ActionGroup actions { get; construct; }
 
+    private DBusProvider dbus_provider;
+    private BubbleManager bubble_manager;
+
     construct {
         supported_options = new HashTable<string, Variant> (str_hash, str_equal);
 
         notifications = new ListStore (typeof (Notification));
         actions = new ActionGroup (this);
+
+        dbus_provider = new DBusProvider (this);
+        bubble_manager = new BubbleManager (this);
     }
 
     public void add_notification (string app_id, string id, HashTable<string, Variant> data) throws DBusError, IOError {
@@ -61,6 +71,6 @@ public class Notification.Portal : Object {
             }
         }
 
-        notifications.append (replacement);
+        notifications.splice (0, 0, { replacement });
     }
 }
