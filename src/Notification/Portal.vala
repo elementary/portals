@@ -10,8 +10,6 @@
 [DBus (name = "org.freedesktop.impl.portal.Notification")]
 public class Notification.Portal : Object {
     public const string ID_FORMAT = "%s:%s";
-    public const string ACTION_FORMAT = "%s+action+%s"; // interal id, action id
-    public const string INTERNAL_ACTION_FORMAT = "%s+internal+%s"; // interal id, action id
 
     public signal void action_invoked (string app_id, string id, string action_name, Variant[] parameters);
 

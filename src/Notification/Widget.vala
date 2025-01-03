@@ -69,10 +69,9 @@ public class Notification.Widget : Granite.Bin {
         grid.attach (button_box, 1, 2, 2, 1);
 
         child = grid;
-        insert_action_group (Notification.ACTION_GROUP_NAME, notification.portal.actions);
 
         var gesture_click = new Gtk.GestureClick ();
-        gesture_click.pressed.connect (() => activate_action ("default", null));
+        gesture_click.pressed.connect (() => activate_action_variant (notification.default_action_name, notification.default_action_target));
         add_controller (gesture_click);
     }
 

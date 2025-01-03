@@ -2,6 +2,8 @@
 public class Notification.Notification : GLib.Object {
     public const string ACTION_GROUP_NAME = "action";
     public const string ACTION_PREFIX = ACTION_GROUP_NAME + ".";
+    public const string ACTION_FORMAT = "%s+action+%s"; // interal id, action id
+    public const string INTERNAL_ACTION_FORMAT = "%s+internal+%s"; // interal id, action id
 
     public class Button : Object {
         public string label;
@@ -42,7 +44,7 @@ public class Notification.Notification : GLib.Object {
 
     public NotificationPriority priority { get; private set; default = NORMAL; }
 
-    public string close_action_name { owned get { return Portal.INTERNAL_ACTION_FORMAT.printf (id, "dismiss"); } }
+    public string close_action_name { owned get { return INTERNAL_ACTION_FORMAT.printf (id, "dismiss"); } }
 
     public string default_action_name { get; construct; }
     public Variant? default_action_target { get; construct; }
@@ -94,13 +96,13 @@ public class Notification.Notification : GLib.Object {
         }
 
         if ("default-action" in data) {
-            default_action_name = Portal.ACTION_FORMAT.printf (id, data["default-action"].get_string ());
+            default_action_name = ACTION_FORMAT.printf (id, data["default-action"].get_string ());
 
             if ("default-action-target" in data) {
                 default_action_target = data["default-action-target"];
             }
         } else {
-            default_action_name = Portal.INTERNAL_ACTION_FORMAT.printf (id, "default");
+            default_action_name = INTERNAL_ACTION_FORMAT.printf (id, "default");
         }
 
         if ("buttons" in data) {
@@ -114,7 +116,7 @@ public class Notification.Notification : GLib.Object {
                 }
 
                 if ("action" in button_data) {
-                    button.action_name = Portal.ACTION_FORMAT.printf (id, button_data["action"].get_string ());
+                    button.action_name = ACTION_FORMAT.printf (id, button_data["action"].get_string ());
                 }
 
                 if ("action-target" in button_data) {

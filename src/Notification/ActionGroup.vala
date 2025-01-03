@@ -1,3 +1,9 @@
+
+/**
+ * Handles all action logic for notifications. It automatically tracks currently available notifications
+ * and lists their available actions. On activation it will emit the action_invoked signal on the portal, or
+ * close the notification or launch the application.
+ */
 public class Notification.ActionGroup : Object, GLib.ActionGroup {
     public Portal portal { get; construct; }
 
@@ -72,6 +78,7 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         out Variant state
     ) {
         enabled = true;
+        parameter_type = null;
         state_type = null;
         state_hint = null;
         state = null;
@@ -87,7 +94,7 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         var type = parts[1];
         var action_name = parts[2];
 
-        Notification? notification;
+        Notification? notification = null;
         for (uint i = 0; i < portal.notifications.n_items; i++) {
             var n = (Notification) portal.notifications.get_item (i);
             if (n.id == internal_id) {
