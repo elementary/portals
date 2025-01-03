@@ -19,8 +19,6 @@ public class Notification.Notification : GLib.Object {
         SHOW_AS_NEW
     }
 
-    public unowned Portal portal { get; construct; }
-
     public string id { get; construct; }
 
     public string app_id { get; construct; }
@@ -44,6 +42,8 @@ public class Notification.Notification : GLib.Object {
 
     public NotificationPriority priority { get; private set; default = NORMAL; }
 
+    public string close_action_name { owned get { return Portal.INTERNAL_ACTION_FORMAT.printf (id, "dismiss"); } }
+
     public string default_action_name { get; construct; }
     public Variant? default_action_target { get; construct; }
 
@@ -51,14 +51,8 @@ public class Notification.Notification : GLib.Object {
 
     public DisplayHint display_hint { get; private set; }
 
-    private ActionEntry[] action_entries;
-
-    public Notification (string app_id, string id, HashTable<string, Variant> data, Portal portal) {
-        Object (app_id: app_id, id: Portal.ID_FORMAT.printf (app_id, id), data: data, portal: portal);
-    }
-
-    ~Notification () {
-        portal.actions.remove_action_entries (action_entries);
+    public Notification (string app_id, string id, HashTable<string, Variant> data) {
+        Object (app_id: app_id, id: Portal.ID_FORMAT.printf (app_id, id), data: data);
     }
 
     construct {
@@ -99,23 +93,14 @@ public class Notification.Notification : GLib.Object {
             }
         }
 
-        ActionEntry default_action_entry;
-
         if ("default-action" in data) {
-            var default_action_name = Portal.ACTION_FORMAT.printf (id, data["default-action"].get_string ());
+            default_action_name = Portal.ACTION_FORMAT.printf (id, data["default-action"].get_string ());
 
-            string? default_action_parameter = null;
             if ("default-action-target" in data) {
-                default_action_parameter = default_action_entry.parameter_type = data["default-action-target"].get_type_string ();
+                default_action_target = data["default-action-target"];
             }
-
-            default_action_entry = portal.create_action_entry (default_action_name, default_action_parameter);
-
-            this.default_action_name = default_action_name;
-            this.default_action_target = data["default-action-target"];
         } else {
-            default_action_entry = portal.create_action_entry (Portal.INTERNAL_ACTION_FORMAT.printf (id, "default"), null);
-            default_action_name = default_action_entry.name;
+            default_action_name = Portal.INTERNAL_ACTION_FORMAT.printf (id, "default");
         }
 
         if ("buttons" in data) {
@@ -137,12 +122,8 @@ public class Notification.Notification : GLib.Object {
                 }
 
                 this.buttons.append (button);
-
-                action_entries += portal.create_action_entry (button.action_name, button.action_target != null ? button.action_target.get_type_string () : null);
             }
         }
-
-        portal.actions.add_action_entries (action_entries, portal);
     }
 
     public void play_sound () {

@@ -20,26 +20,26 @@ public class Notification.Portal : Object {
     [DBus (visible = false)]
     public ListStore notifications { get; construct; }
     [DBus (visible = false)]
-    public SimpleActionGroup actions { get; construct; }
+    public ActionGroup actions { get; construct; }
 
     construct {
         supported_options = new HashTable<string, Variant> (str_hash, str_equal);
 
         notifications = new ListStore (typeof (Notification));
-        actions = new SimpleActionGroup ();
+        actions = new ActionGroup (this);
     }
 
     public void add_notification (string app_id, string id, HashTable<string, Variant> data) throws DBusError, IOError {
         var internal_id = ID_FORMAT.printf (app_id, id);
-        var notification = new Notification (app_id, id, data, this);
+        var notification = new Notification (app_id, id, data);
 
-        replace_notification_internal (internal_id, notification);
+        replace_notification (internal_id, notification);
     }
 
     public void remove_notification (string app_id, string id) throws DBusError, IOError {
         var internal_id = ID_FORMAT.printf (app_id, id);
 
-        replace_notification_internal (internal_id, null);
+        replace_notification (internal_id, null);
     }
 
     /**
@@ -47,7 +47,7 @@ public class Notification.Portal : Object {
      * If SHOW_AS_NEW is set in the display hint of the replacement, it will be added at the front instead of at the same position.
      * If no notification with the given id is found, and the replacement is not null, the replacement will be added at the front.
      */
-    private void replace_notification_internal (string internal_id, Notification? replacement) {
+    internal void replace_notification (string internal_id, Notification? replacement) {
         for (int i = 0; i < notifications.n_items; i++) {
             var notification = (Notification) notifications.get_object (i);
             if (notification.id == internal_id) {
@@ -64,51 +64,5 @@ public class Notification.Portal : Object {
         }
 
         notifications.append (replacement);
-    }
-
-    internal ActionEntry create_action_entry (string name, string? target_type) {
-        return { name, on_action, target_type };
-    }
-
-    private void on_action (SimpleAction action, Variant? parameter) {
-        var name = action.name;
-
-        var parts = name.split ("+", 3);
-
-        if (parts.length != 3) {
-            warning ("Invalid action name: %s", name);
-            return;
-        }
-
-        var internal_id = parts[0];
-        var type = parts[1];
-        var action_name = parts[2];
-
-        var id_parts = internal_id.split (":", 2);
-
-        if (id_parts.length != 2) {
-            warning ("Invalid internal id: %s", internal_id);
-            return;
-        }
-
-        var app_id = id_parts[0];
-        var notification_id = id_parts[1];
-
-        if (type == "action") {
-            action_invoked (app_id, notification_id, action_name, { parameter });
-        } else {
-            switch (action_name) {
-                case "default":
-                    // launch
-                    break;
-
-                case "dismiss":
-                    replace_notification_internal (internal_id, null);
-                    break;
-
-                default:
-                    break;
-            }
-        }
     }
 }
