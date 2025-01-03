@@ -66,7 +66,11 @@ public class Notification.Portal : Object {
         notifications.append (replacement);
     }
 
-    internal void on_action (SimpleAction action, Variant? parameter) {
+    internal ActionEntry create_action_entry (string name, string? target_type) {
+        return { name, on_action, target_type };
+    }
+
+    private void on_action (SimpleAction action, Variant? parameter) {
         var name = action.name;
 
         var parts = name.split ("+", 3);

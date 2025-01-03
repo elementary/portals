@@ -109,20 +109,12 @@ public class Notification.Notification : GLib.Object {
                 default_action_parameter = default_action_entry.parameter_type = data["default-action-target"].get_type_string ();
             }
 
-            default_action_entry = ActionEntry () {
-                name = default_action_name,
-                activate = portal.on_action,
-                parameter_type = default_action_parameter
-            };
+            default_action_entry = portal.create_action_entry (default_action_name, default_action_parameter);
 
             this.default_action_name = default_action_name;
             this.default_action_target = data["default-action-target"];
         } else {
-            default_action_entry = ActionEntry () {
-                name = Portal.INTERNAL_ACTION_FORMAT.printf (id, "default"),
-                activate = portal.on_action
-            };
-
+            default_action_entry = portal.create_action_entry (Portal.INTERNAL_ACTION_FORMAT.printf (id, "default"), null);
             default_action_name = default_action_entry.name;
         }
 
@@ -146,11 +138,7 @@ public class Notification.Notification : GLib.Object {
 
                 this.buttons.append (button);
 
-                action_entries += ActionEntry () {
-                    name = button.action_name,
-                    activate = portal.on_action,
-                    parameter_type = button.action_target != null ? button.action_target.get_type ().dup_string () : null
-                };
+                action_entries += portal.create_action_entry (button.action_name, button.action_target != null ? button.action_target.get_type_string () : null);
             }
         }
 
