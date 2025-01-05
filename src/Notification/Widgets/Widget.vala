@@ -59,7 +59,7 @@ public class Notification.Widget : Granite.Bin {
             selection_mode = NONE,
             homogeneous = true
         };
-        button_box.bind_model (notification.buttons, create_button_func);
+        //  button_box.bind_model (notification.buttons, create_button_func);
 
         var grid = new Gtk.Grid ();
         grid.attach (icon_overlay, 0, 0, 1, 2);

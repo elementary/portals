@@ -58,7 +58,7 @@ public class Notification.Portal : Object {
     internal void replace_notification (string internal_id, Notification? replacement) {
         for (int i = 0; i < notifications.n_items; i++) {
             var notification = (Notification) notifications.get_object (i);
-            if (notification.id == internal_id) {
+            if (notification.internal_id == internal_id) {
                 if (replacement == null) { // Just remove and return
                     notifications.remove (i);
                     return;

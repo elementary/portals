@@ -17,11 +17,10 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         for (uint i = 0; i < portal.notifications.n_items; i++) {
             var notification = (Notification) portal.notifications.get_item (i);
 
+            builder.add (notification.dismiss_action_name);
             builder.add (notification.default_action_name);
-            builder.add (notification.close_action_name);
 
-            for (uint j = 0; j < notification.buttons.n_items; j++) {
-                var button = (Notification.Button) notification.buttons.get_item (j);
+            foreach (var button in notification.buttons) {
                 builder.add (button.action_name);
             }
         }
@@ -97,7 +96,7 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         Notification? notification = null;
         for (uint i = 0; i < portal.notifications.n_items; i++) {
             var n = (Notification) portal.notifications.get_item (i);
-            if (n.id == internal_id) {
+            if (n.internal_id == internal_id) {
                 notification = n;
                 break;
             }
@@ -109,8 +108,7 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         }
 
         if (type == "action") {
-            for (uint i = 0; i < notification.buttons.n_items; i++) {
-                var button = (Notification.Button) notification.buttons.get_item (i);
+            foreach (var button in notification.buttons) {
                 if (button.action_name == action_name) {
                     parameter_type = button.action_target.get_type ();
                     return true;

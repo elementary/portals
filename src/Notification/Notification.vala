@@ -5,12 +5,6 @@ public class Notification.Notification : GLib.Object {
     public const string ACTION_FORMAT = "%s+action+%s"; // interal id, action id
     public const string INTERNAL_ACTION_FORMAT = "%s+internal+%s"; // interal id, action id
 
-    public class Button : Object {
-        public string label;
-        public string action_name;
-        public Variant? action_target = null;
-    }
-
     [Flags]
     public enum DisplayHint {
         TRANSIENT,
@@ -21,114 +15,69 @@ public class Notification.Notification : GLib.Object {
         SHOW_AS_NEW
     }
 
-    public string id { get; construct; }
-
-    public string app_id { get; construct; }
-
-    public HashTable<string, Variant> data { get; construct; }
-
-    /**
-     * The title of the notification, always uses markup.
-     */
-    public string title { get; private set; }
-
-    /**
-     * The body of the notification, always uses markup.
-     */
-    public string body { get; private set; }
-
-    public string time { get; private set; } // with 60 second timeout
-
-    public Icon primary_icon { get; private set; }
-    public Icon? secondary_icon { get; private set; }
-
-    public NotificationPriority priority { get; private set; default = NORMAL; }
-
-    public string close_action_name { owned get { return INTERNAL_ACTION_FORMAT.printf (id, "dismiss"); } }
-
-    public string default_action_name { get; construct; }
-    public Variant? default_action_target { get; construct; }
-
-    public ListStore buttons { get; private set; }
-
-    public DisplayHint display_hint { get; private set; }
-
-    public Notification (string app_id, string id, HashTable<string, Variant> data) {
-        Object (app_id: app_id, id: Portal.ID_FORMAT.printf (app_id, id), data: data);
+    public struct Button {
+        public string label;
+        public string action_name;
+        public Variant? action_target;
     }
 
-    construct {
-        buttons = new ListStore (typeof (Button));
+    public struct Data {
+        public string internal_id;
+        public string app_id;
+        public string dismiss_action_name;
+        public string default_action_name;
+        public Variant? default_action_target;
+        public Button[] buttons;
+        public DisplayHint display_hint;
+        public HashTable<string, Variant> raw_data;
 
-        if ("title" in data) {
-            title = data["title"].get_string ();
-        }
+        public Data (string internal_id, string app_id, HashTable<string, Variant> raw_data) {
+            if ("default-action" in raw_data) {
+                default_action_name = ACTION_FORMAT.printf (internal_id, raw_data["default-action"].get_string ());
 
-        if ("body" in data) {
-            body = data["body"].get_string ();
-        }
-
-        if ("markup-body" in data) {
-            body = data["markup-body"].get_string ();
-        }
-
-        var desktop_app_info = new DesktopAppInfo (app_id + ".desktop");
-
-        primary_icon = desktop_app_info.get_icon ();
-
-        if ("icon" in data) {
-            // do some shit
-        }
-
-        if ("priority" in data) {
-            var priority = data["priority"].get_string ();
-
-            switch (priority) {
-                case "low":
-                    this.priority = LOW;
-                    break;
-
-                case "normal":
-                default:
-                    this.priority = NORMAL;
-                    break;
+                if ("default-action-target" in raw_data) {
+                    default_action_target = raw_data["default-action-target"];
+                }
+            } else {
+                default_action_name = INTERNAL_ACTION_FORMAT.printf (internal_id, "default");
             }
-        }
 
-        if ("default-action" in data) {
-            default_action_name = ACTION_FORMAT.printf (id, data["default-action"].get_string ());
+            if ("buttons" in raw_data) {
+                var raw_buttons = (HashTable<string, Variant>[]) raw_data["buttons"];
 
-            if ("default-action-target" in data) {
-                default_action_target = data["default-action-target"];
-            }
-        } else {
-            default_action_name = INTERNAL_ACTION_FORMAT.printf (id, "default");
-        }
+                foreach (var button_data in raw_buttons) {
+                    var button = Button ();
 
-        if ("buttons" in data) {
-            var buttons = (HashTable<string, Variant>[]) data["buttons"];
+                    if ("label" in button_data) {
+                        button.label = button_data["label"].get_string ();
+                    }
 
-            foreach (var button_data in buttons) {
-                var button = new Button ();
+                    if ("action" in button_data) {
+                        button.action_name = ACTION_FORMAT.printf (internal_id, button_data["action"].get_string ());
+                    }
 
-                if ("label" in button_data) {
-                    button.label = button_data["label"].get_string ();
+                    if ("action-target" in button_data) {
+                        button.action_target = button_data["action-target"];
+                    }
+
+                    buttons += button;
                 }
-
-                if ("action" in button_data) {
-                    button.action_name = ACTION_FORMAT.printf (id, button_data["action"].get_string ());
-                }
-
-                if ("action-target" in button_data) {
-                    button.action_target = button_data["action-target"];
-                }
-
-                this.buttons.append (button);
             }
         }
     }
 
-    public void play_sound () {
+    public Data data { get; construct; }
 
+    public string internal_id { get { return data.internal_id; } }
+
+    public string dismiss_action_name { get { return data.dismiss_action_name; } }
+    public string default_action_name { get { return data.default_action_name; } }
+    public Variant? default_action_target { get { return data.default_action_target; } }
+    public Button[] buttons { get { return data.buttons; } }
+
+    public DisplayHint display_hint { get { return data.display_hint; } }
+
+    public Notification (string internal_id, string app_id, HashTable<string, Variant> raw_data) {
+        Object (data: Data (internal_id, app_id, raw_data));
     }
 }
