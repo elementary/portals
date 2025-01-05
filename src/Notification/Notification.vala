@@ -20,7 +20,7 @@ public class Notification.Notification : GLib.Object {
         public string action_name;
         public Variant? action_target;
 
-        public Button (HashTable<string, Variant> data) {
+        public Button (string internal_id, HashTable<string, Variant> data) {
             if ("label" in data) {
                 label = data["label"].get_string ();
             }
@@ -59,8 +59,10 @@ public class Notification.Notification : GLib.Object {
             if ("buttons" in raw_data) {
                 var raw_buttons = (HashTable<string, Variant>[]) raw_data["buttons"];
 
-                foreach (var raw_button in raw_buttons) {
-                    buttons += Button (raw_button);
+                buttons = new Button[raw_buttons.length];
+
+                for (int i = 0; i < raw_buttons.length; i++) {
+                    buttons[i] = Button (internal_id, raw_buttons[i]);
                 }
             }
         }

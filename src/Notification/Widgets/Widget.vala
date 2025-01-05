@@ -75,14 +75,6 @@ public class Notification.Widget : Granite.Bin {
         add_controller (gesture_click);
     }
 
-    private Gtk.Widget create_button_func (Object obj) {
-        var button = (Notification.Button) obj;
-        return new Gtk.Button.with_label (button.label) {
-            action_name = Notification.ACTION_PREFIX + button.action_name,
-            action_target = button.action_target
-        };
-    }
-
     private void bind_with_visible (string property, Gtk.Widget widget, string widget_property) {
         notification.bind_property (property, widget, widget_property, SYNC_CREATE);
     }
