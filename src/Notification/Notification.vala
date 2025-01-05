@@ -19,6 +19,20 @@ public class Notification.Notification : GLib.Object {
         public string label;
         public string action_name;
         public Variant? action_target;
+
+        public Button (HashTable<string, Variant> data) {
+            if ("label" in data) {
+                label = data["label"].get_string ();
+            }
+
+            if ("action" in data) {
+                action_name = ACTION_FORMAT.printf (internal_id, data["action"].get_string ());
+            }
+
+            if ("action-target" in data) {
+                action_target = data["action-target"];
+            }
+        }
     }
 
     public struct Data {
@@ -45,22 +59,8 @@ public class Notification.Notification : GLib.Object {
             if ("buttons" in raw_data) {
                 var raw_buttons = (HashTable<string, Variant>[]) raw_data["buttons"];
 
-                foreach (var button_data in raw_buttons) {
-                    var button = Button ();
-
-                    if ("label" in button_data) {
-                        button.label = button_data["label"].get_string ();
-                    }
-
-                    if ("action" in button_data) {
-                        button.action_name = ACTION_FORMAT.printf (internal_id, button_data["action"].get_string ());
-                    }
-
-                    if ("action-target" in button_data) {
-                        button.action_target = button_data["action-target"];
-                    }
-
-                    buttons += button;
+                foreach (var raw_button in raw_buttons) {
+                    buttons += Button (raw_button);
                 }
             }
         }
