@@ -110,14 +110,14 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         if (type == "action") {
             foreach (var button in notification.buttons) {
                 if (button.action_name == action_name) {
-                    parameter_type = button.action_target.get_type ();
+                    parameter_type = button.action_target.length > 0 ? button.action_target[0].get_type () : null;
                     return true;
                 }
             }
         } else {
             switch (action_name) {
                 case "default":
-                    parameter_type = notification.default_action_target != null ? notification.default_action_target.get_type () : null;
+                    parameter_type = notification.default_action_target.length > 0 ? notification.default_action_target[0].get_type () : null;
                     return true;
 
                 case "dismiss":

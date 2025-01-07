@@ -20,12 +20,18 @@ public class Notification.Portal : Object {
     public HashTable<string, Variant> supported_options { get; construct; }
 
     [DBus (visible = false)]
+    public DBusConnection connection { get; construct; }
+
+    [DBus (visible = false)]
     public ListStore notifications { get; construct; }
     [DBus (visible = false)]
     public ActionGroup actions { get; construct; }
 
     private DBusProvider dbus_provider;
-    private BubbleManager bubble_manager;
+
+    public Portal (DBusConnection connection) {
+        Object (connection: connection);
+    }
 
     construct {
         supported_options = new HashTable<string, Variant> (str_hash, str_equal);
@@ -34,7 +40,13 @@ public class Notification.Portal : Object {
         actions = new ActionGroup (this);
 
         dbus_provider = new DBusProvider (this);
-        bubble_manager = new BubbleManager (this);
+
+        try {
+            connection.register_object ("/io/elementary/portal/NotificationProvider", dbus_provider);
+            connection.export_action_group ("/io/elementary/portal/NotificationProvider", actions);
+        } catch (Error e) {
+            warning ("Failed to register provider: %s", e.message);
+        }
     }
 
     public void add_notification (string app_id, string id, HashTable<string, Variant> data) throws DBusError, IOError {
@@ -71,6 +83,8 @@ public class Notification.Portal : Object {
             }
         }
 
-        notifications.splice (0, 0, { replacement });
+        if (replacement != null) {
+            notifications.splice (0, 0, { replacement });
+        }
     }
 }
