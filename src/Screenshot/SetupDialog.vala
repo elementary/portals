@@ -144,7 +144,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
             var redact_switch = new Gtk.Switch () {
                 halign = START
             };
-    
+
             redact_switch.state_set.connect (() => {
                 redact_text = redact_switch.active;
             });
