@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2023-2025 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
@@ -53,6 +53,17 @@ public class Screenshot.Portal : Object {
         }
     }
 
+    private async void conceal_text () {
+        if (Utils.get_redacted_font_available ()) {
+            try {
+                yield screenshot_proxy.conceal_text ();
+                yield do_delay (1);
+            } catch (Error e) {
+                critical (e.message);
+            }
+        }
+    }
+
     private async string do_screenshot (
         SetupDialog.ScreenshotType screenshot_type,
         bool grab_pointer,
@@ -68,8 +79,7 @@ public class Screenshot.Portal : Object {
 
                 yield do_delay (delay);
                 if (redact) {
-                    yield screenshot_proxy.conceal_text ();
-                    yield do_delay (1);
+                    yield conceal_text ();
                 }
                 yield screenshot_proxy.screenshot (grab_pointer, true, tmp_filename, out success, out filename_used);
 
@@ -83,8 +93,7 @@ public class Screenshot.Portal : Object {
 
                 yield do_delay (delay);
                 if (redact) {
-                    yield screenshot_proxy.conceal_text ();
-                    yield do_delay (1);
+                    yield conceal_text ();
                 }
                 yield screenshot_proxy.screenshot_window (false, grab_pointer, true, tmp_filename, out success, out filename_used);
 
@@ -101,8 +110,7 @@ public class Screenshot.Portal : Object {
 
                 yield do_delay (delay);
                 if (redact) {
-                    yield screenshot_proxy.conceal_text ();
-                    yield do_delay (1);
+                    yield conceal_text ();
                 }
                 yield screenshot_proxy.screenshot_area_with_cursor (x, y, width, height, grab_pointer, true, tmp_filename, out success, out filename_used);
 
