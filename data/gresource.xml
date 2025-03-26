@@ -8,5 +8,9 @@
     <file alias="32x32/actions/grab-screen-symbolic-dark.svg" compressed="true" preprocess="xml-stripblanks">icons/grab-screen-symbolic-dark.svg</file>
     <file alias="32x32@2/actions/grab-screen-symbolic-dark.svg" compressed="true" preprocess="xml-stripblanks">icons/grab-screen-symbolic-dark.svg</file>
     <file alias="32x32/actions/grab-window-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/grab-window-symbolic.svg</file>
+    <file alias="32x32@2/actions/tools-pointer-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/tools-pointer.svg</file>
+    <file alias="32x32/actions/tools-pointer-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/tools-pointer.svg</file>
+    <file alias="32x32@2/actions/tools-redact-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/tools-redact.svg</file>
+    <file alias="32x32/actions/tools-redact-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/tools-redact.svg</file>
   </gresource>
 </gresources>
