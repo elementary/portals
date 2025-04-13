@@ -7,8 +7,9 @@
  * api, tracks currently active notifications and holds the other parts.
  * The {@link ActionGroup} handles all action logic for notifications. It automatically exposes all actions
  * for all available notifications and handles the activation of these actions (by talking to #this).
+ * It's also exported on the bus for usage by the indicator.
  * The {@link BubbleManager} is responsible for showing the notifications to the user in a bubble.
- * The {@link DBusProvider} is responsible for exposing the notifications to the DBus for consumption by the indicator. It also exports the {@link actions}.
+ * The {@link DBusProvider} is responsible for exposing the notifications to the DBus for consumption by the indicator.
  * Both {@link BubbleManager} and {@link DBusProvider} use the {@link actions} for all interaction (dismissing, activating actions).
  */
 [DBus (name = "org.freedesktop.impl.portal.Notification")]
@@ -24,9 +25,8 @@ public class Notification.Portal : Object {
 
     [DBus (visible = false)]
     public ListStore notifications { get; construct; }
-    [DBus (visible = false)]
-    public ActionGroup actions { get; construct; }
 
+    private ActionGroup actions;
     private DBusProvider dbus_provider;
 
     public Portal (DBusConnection connection) {

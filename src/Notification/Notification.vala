@@ -96,4 +96,17 @@ public class Notification.Notification : GLib.Object {
     public Notification (string internal_id, string app_id, HashTable<string, Variant> raw_data) {
         Object (data: Data (internal_id, app_id, raw_data));
     }
+
+    public string[] get_actions () {
+        string[] actions = new string[data.buttons.length + 2];
+
+        actions[0] = dismiss_action_name;
+        actions[1] = default_action_name;
+
+        for (int i = 0; i < data.buttons.length; i++) {
+            actions[i + 2] = data.buttons[i].action_name;
+        }
+
+        return actions;
+    }
 }

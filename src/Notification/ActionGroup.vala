@@ -16,13 +16,7 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
 
         for (uint i = 0; i < portal.notifications.n_items; i++) {
             var notification = (Notification) portal.notifications.get_item (i);
-
-            builder.add (notification.dismiss_action_name);
-            builder.add (notification.default_action_name);
-
-            foreach (var button in notification.buttons) {
-                builder.add (button.action_name);
-            }
+            builder.addv (notification.get_actions ());
         }
 
         return builder.end ();
