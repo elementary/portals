@@ -50,8 +50,8 @@ public class Notification.Portal : Object {
     }
 
     public void add_notification (string app_id, string id, HashTable<string, Variant> data) throws DBusError, IOError {
-        var internal_id = ID_FORMAT.printf (app_id, id);
-        var notification = new Notification (app_id, id, data);
+        var internal_id = ID_FORMAT.printf (app_id, id != "" ? id : Uuid.string_random ());
+        var notification = new Notification (internal_id, app_id, data);
 
         replace_notification (internal_id, notification);
     }

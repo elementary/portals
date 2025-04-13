@@ -11,6 +11,22 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         Object (portal: portal);
     }
 
+    construct {
+        portal.notifications.items_changed.connect (on_items_changed);
+    }
+
+    private void on_items_changed (uint pos, uint removed, uint added) {
+        for (uint i = pos; i < pos + added; i++) {
+            var notification = (Notification) portal.notifications.get_item (i);
+
+            foreach (var action in notification.get_actions ()) {
+                action_added (action);
+            }
+        }
+
+        //TODO: Maybe handle remove
+    }
+
     public string[] list_actions () {
         var builder = new StrvBuilder ();
 
