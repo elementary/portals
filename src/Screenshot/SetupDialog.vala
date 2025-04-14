@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2023 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2023-2025 elementary, Inc. (https://elementary.io)
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
@@ -104,19 +104,6 @@ public class Screenshot.SetupDialog : Gtk.Window {
             mnemonic_widget = pointer_switch
         };
 
-        var redact_switch = new Gtk.Switch () {
-            halign = START
-        };
-
-        redact_switch.state_set.connect (() => {
-            redact_text = redact_switch.active;
-        });
-
-        var redact_label = new Gtk.Label (_("Conceal text:")) {
-            halign = END,
-            mnemonic_widget = redact_switch
-        };
-
         var delay_spin = new Gtk.SpinButton.with_range (0, 15, 1);
 
         delay_spin.value_changed.connect (() => {
@@ -153,8 +140,23 @@ public class Screenshot.SetupDialog : Gtk.Window {
         option_grid.attach (pointer_label, 0, 0);
         option_grid.attach (pointer_switch, 1, 0);
 
-        option_grid.attach (redact_label, 0, 1);
-        option_grid.attach (redact_switch, 1, 1);
+        if (Utils.get_redacted_font_available ()) {
+            var redact_switch = new Gtk.Switch () {
+                halign = START
+            };
+
+            redact_switch.state_set.connect (() => {
+                redact_text = redact_switch.active;
+            });
+
+            var redact_label = new Gtk.Label (_("Conceal text:")) {
+                halign = END,
+                mnemonic_widget = redact_switch
+            };
+
+            option_grid.attach (redact_label, 0, 1);
+            option_grid.attach (redact_switch, 1, 1);
+        }
 
         option_grid.attach (delay_label, 0, 2);
         option_grid.attach (delay_spin, 1, 2);
