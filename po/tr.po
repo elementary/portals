@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-19 12:58+0000\n"
+"POT-Creation-Date: 2025-04-14 23:36+0000\n"
 "PO-Revision-Date: 2024-09-21 10:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals/"
@@ -80,7 +80,7 @@ msgstr "Arkaplan etkinliği"
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "“%s” uygun izin olmadan arka planda çalışıyor"
 
-#: src/Background/Portal.vala:154
+#: src/Background/Portal.vala:164
 msgid "Custom Command"
 msgstr ""
 
@@ -152,18 +152,18 @@ msgstr "Yakalanacak alanı seçin"
 msgid "Grab pointer:"
 msgstr "İşaretçiyi yakala:"
 
-#: src/Screenshot/SetupDialog.vala:115
-msgid "Conceal text:"
-msgstr "Metni gizle:"
-
-#: src/Screenshot/SetupDialog.vala:126
+#: src/Screenshot/SetupDialog.vala:113
 msgid "Delay in seconds:"
 msgstr "Saniye cinsinden gecikme:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:118
 msgid "Take Screenshot"
 msgstr "Ekran Görüntüsü Al"
 
-#: src/Screenshot/SetupDialog.vala:140
+#: src/Screenshot/SetupDialog.vala:127
 msgid "Close"
 msgstr "Kapat"
+
+#: src/Screenshot/SetupDialog.vala:152
+msgid "Conceal text:"
+msgstr "Metni gizle:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-19 12:58+0000\n"
+"POT-Creation-Date: 2025-04-14 23:36+0000\n"
 "PO-Revision-Date: 2024-12-24 00:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
@@ -81,7 +81,7 @@ msgstr "Фонова діяльність"
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "«%s» запущено у фоновому режимі без відповідного дозволу"
 
-#: src/Background/Portal.vala:154
+#: src/Background/Portal.vala:164
 msgid "Custom Command"
 msgstr "Користувацька команда"
 
@@ -153,18 +153,18 @@ msgstr "Вибрати ділянку для захоплення"
 msgid "Grab pointer:"
 msgstr "Захопити вказівник:"
 
-#: src/Screenshot/SetupDialog.vala:115
-msgid "Conceal text:"
-msgstr "Сховати текст:"
-
-#: src/Screenshot/SetupDialog.vala:126
+#: src/Screenshot/SetupDialog.vala:113
 msgid "Delay in seconds:"
 msgstr "Затримка в секундах:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:118
 msgid "Take Screenshot"
 msgstr "Зробити знімок екрана"
 
-#: src/Screenshot/SetupDialog.vala:140
+#: src/Screenshot/SetupDialog.vala:127
 msgid "Close"
 msgstr "Закрити"
+
+#: src/Screenshot/SetupDialog.vala:152
+msgid "Conceal text:"
+msgstr "Сховати текст:"

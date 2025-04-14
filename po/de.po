@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-19 12:58+0000\n"
+"POT-Creation-Date: 2025-04-14 23:36+0000\n"
 "PO-Revision-Date: 2024-12-26 00:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/portals/"
@@ -80,7 +80,7 @@ msgstr "Hintergrundaktivität"
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "»%s« läuft im Hintergrund ohne entsprechende Berechtigung"
 
-#: src/Background/Portal.vala:154
+#: src/Background/Portal.vala:164
 msgid "Custom Command"
 msgstr "Benutzerdefinierter Befehl"
 
@@ -152,18 +152,18 @@ msgstr "Aufzunehmenden Bereich wählen"
 msgid "Grab pointer:"
 msgstr "Zeiger einschließen:"
 
-#: src/Screenshot/SetupDialog.vala:115
-msgid "Conceal text:"
-msgstr "Text verschleiern:"
-
-#: src/Screenshot/SetupDialog.vala:126
+#: src/Screenshot/SetupDialog.vala:113
 msgid "Delay in seconds:"
 msgstr "Verzögerung in Sekunden:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:118
 msgid "Take Screenshot"
 msgstr "Bildschirmfoto aufnehmen"
 
-#: src/Screenshot/SetupDialog.vala:140
+#: src/Screenshot/SetupDialog.vala:127
 msgid "Close"
 msgstr "Schließen"
+
+#: src/Screenshot/SetupDialog.vala:152
+msgid "Conceal text:"
+msgstr "Text verschleiern:"

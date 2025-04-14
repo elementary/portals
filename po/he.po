@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-19 12:58+0000\n"
+"POT-Creation-Date: 2025-04-14 23:36+0000\n"
 "PO-Revision-Date: 2024-12-19 16:04+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/portals/"
@@ -80,7 +80,7 @@ msgstr "פעילות רקע"
 msgid "“%s” is running in the background without appropriate permission"
 msgstr "„%s” פועל ברקע ללא ההרשאות המתאימות"
 
-#: src/Background/Portal.vala:154
+#: src/Background/Portal.vala:164
 msgid "Custom Command"
 msgstr "פקודה מותאמת אישית"
 
@@ -152,18 +152,18 @@ msgstr "בחירת אזור ללכידה"
 msgid "Grab pointer:"
 msgstr "לכידת הסמן:"
 
-#: src/Screenshot/SetupDialog.vala:115
-msgid "Conceal text:"
-msgstr "הסוואת טקסט:"
-
-#: src/Screenshot/SetupDialog.vala:126
+#: src/Screenshot/SetupDialog.vala:113
 msgid "Delay in seconds:"
 msgstr "השהיה בשניות:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:118
 msgid "Take Screenshot"
 msgstr "צילום המסך"
 
-#: src/Screenshot/SetupDialog.vala:140
+#: src/Screenshot/SetupDialog.vala:127
 msgid "Close"
 msgstr "סגירה"
+
+#: src/Screenshot/SetupDialog.vala:152
+msgid "Conceal text:"
+msgstr "הסוואת טקסט:"

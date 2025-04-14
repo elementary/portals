@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-19 12:58+0000\n"
+"POT-Creation-Date: 2025-04-14 23:36+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Tagalog <https://l10n.elementary.io/projects/desktop/portals/"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "“%s” is running in the background without appropriate permission"
 msgstr ""
 
-#: src/Background/Portal.vala:154
+#: src/Background/Portal.vala:164
 msgid "Custom Command"
 msgstr ""
 
@@ -153,18 +153,18 @@ msgstr ""
 msgid "Grab pointer:"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:115
-msgid "Conceal text:"
-msgstr ""
-
-#: src/Screenshot/SetupDialog.vala:126
+#: src/Screenshot/SetupDialog.vala:113
 msgid "Delay in seconds:"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:118
 msgid "Take Screenshot"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:140
+#: src/Screenshot/SetupDialog.vala:127
 msgid "Close"
 msgstr "Isara"
+
+#: src/Screenshot/SetupDialog.vala:152
+msgid "Conceal text:"
+msgstr ""
