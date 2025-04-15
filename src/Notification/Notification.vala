@@ -41,6 +41,7 @@ public class Notification.Notification : GLib.Object {
     }
 
     public struct Data {
+        public int64 timestamp;
         public HashTable<string, Variant> raw_data;
         public string app_id;
         public string dismiss_action_name;
@@ -50,6 +51,7 @@ public class Notification.Notification : GLib.Object {
         public DisplayHint display_hint;
 
         public Data (string internal_id, string _app_id, HashTable<string, Variant> _raw_data) {
+            timestamp = new DateTime.now_utc ().to_unix ();
             raw_data = _raw_data;
             app_id = _app_id;
             dismiss_action_name = INTERNAL_ACTION_FORMAT.printf (internal_id, "dismiss");
@@ -90,13 +92,14 @@ public class Notification.Notification : GLib.Object {
         return notifications_by_internal_id[internal_id];
     }
 
-    public Data data { get; construct; }
+    private Data _data;
+    public Data data { get { return _data; } construct { _data = value; } }
 
     public string internal_id { private get; construct; }
     public string app_id { get; construct; }
     public string id { get; construct; }
 
-    public DisplayHint display_hint { get { return data.display_hint; } }
+    public DisplayHint display_hint { get { return _data.display_hint; } }
 
     public Notification (string app_id, string id, HashTable<string, Variant> raw_data) {
         var internal_id = "%u".printf (internal_ids++);
@@ -164,5 +167,9 @@ public class Notification.Notification : GLib.Object {
         } else {
             return arr[0].get_type ();
         }
+    }
+
+    public void replace_timestamp (Notification old_notification) {
+        _data.timestamp = old_notification._data.timestamp;
     }
 }

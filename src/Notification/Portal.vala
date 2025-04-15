@@ -65,21 +65,24 @@ public class Notification.Portal : Object {
      * If no notification with the given id is found, and the replacement is not null, the replacement will be added at the front.
      */
     internal void replace_notification (string app_id, string id, Notification? replacement) {
-        for (uint i = 0; i < (id == "" ? 0 : notifications.n_items); i++) {
-            var notification = (Notification) notifications.get_item (i);
-            if (notification.app_id != app_id || notification.id != id) {
-                continue;
-            }
+        if (id != "") {
+            for (uint i = 0; i < notifications.n_items; i++) {
+                var notification = (Notification) notifications.get_item (i);
+                if (notification.app_id != app_id || notification.id != id) {
+                    continue;
+                }
 
-            if (replacement == null) { // Just remove and return
-                notifications.remove (i);
-                return;
-            } else if (SHOW_AS_NEW in replacement.display_hint) { // Remove but don't return because we want to add the replacement as if it was a new notification
-                notifications.remove (i);
-                break;
-            } else { // Replace and return
-                notifications.splice (i, 1, { replacement });
-                return;
+                if (replacement == null) { // Just remove and return
+                    notifications.remove (i);
+                    return;
+                } else if (SHOW_AS_NEW in replacement.display_hint) { // Remove but don't return because we want to add the replacement as if it was a new notification
+                    notifications.remove (i);
+                    break;
+                } else { // Replace and return
+                    replacement.replace_timestamp (notification);
+                    notifications.splice (i, 1, { replacement });
+                    return;
+                }
             }
         }
 
