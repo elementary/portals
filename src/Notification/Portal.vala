@@ -19,9 +19,10 @@ public class Notification.Portal : Object {
     public signal void action_invoked (string app_id, string id, string action_name, Variant[] parameters);
 
     public HashTable<string, Variant> supported_options { get; construct; }
+    public uint version { get; default = 2; }
 
     [DBus (visible = false)]
-    public DBusConnection connection { get; construct; }
+    public DBusConnection connection { private get; construct; }
 
     [DBus (visible = false)]
     public ListStore notifications { get; construct; }
@@ -50,16 +51,12 @@ public class Notification.Portal : Object {
     }
 
     public void add_notification (string app_id, string id, HashTable<string, Variant> data) throws DBusError, IOError {
-        var internal_id = ID_FORMAT.printf (app_id, id != "" ? id : Uuid.string_random ());
-        var notification = new Notification (internal_id, app_id, data);
-
-        replace_notification (internal_id, notification);
+        var notification = new Notification (app_id, id, data);
+        replace_notification (app_id, id, notification);
     }
 
     public void remove_notification (string app_id, string id) throws DBusError, IOError {
-        var internal_id = ID_FORMAT.printf (app_id, id);
-
-        replace_notification (internal_id, null);
+        replace_notification (app_id, id, null);
     }
 
     /**
@@ -67,24 +64,29 @@ public class Notification.Portal : Object {
      * If SHOW_AS_NEW is set in the display hint of the replacement, it will be added at the front instead of at the same position.
      * If no notification with the given id is found, and the replacement is not null, the replacement will be added at the front.
      */
-    internal void replace_notification (string internal_id, Notification? replacement) {
-        for (int i = 0; i < notifications.n_items; i++) {
-            var notification = (Notification) notifications.get_object (i);
-            if (notification.internal_id == internal_id) {
-                if (replacement == null) { // Just remove and return
-                    notifications.remove (i);
-                    return;
-                } else if (SHOW_AS_NEW in replacement.display_hint) { // Remove but don't return because we want to add the replacement as if it was a new notification
-                    notifications.remove (i);
-                } else { // Replace and return
-                    notifications.splice (i, 1, { replacement });
-                    return;
-                }
+    internal void replace_notification (string app_id, string id, Notification? replacement) {
+        for (uint i = 0; i < (id == "" ? 0 : notifications.n_items); i++) {
+            var notification = (Notification) notifications.get_item (i);
+            if (notification.app_id != app_id || notification.id != id) {
+                continue;
+            }
+
+            if (replacement == null) { // Just remove and return
+                notifications.remove (i);
+                return;
+            } else if (SHOW_AS_NEW in replacement.display_hint) { // Remove but don't return because we want to add the replacement as if it was a new notification
+                notifications.remove (i);
+                break;
+            } else { // Replace and return
+                notifications.splice (i, 1, { replacement });
+                return;
             }
         }
 
         if (replacement != null) {
             notifications.splice (0, 0, { replacement });
+        } else {
+            warning ("This shouldn't be reached.");
         }
     }
 }

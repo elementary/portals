@@ -50,31 +50,44 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         var type = parts[1];
         var action_name = parts[2];
 
-        var id_parts = internal_id.split (":", 2);
+        var notification = Notification.get_for_internal_id (internal_id);
 
-        if (id_parts.length != 2) {
-            warning ("Invalid internal id: %s", internal_id);
+        if (notification == null) {
+            warning ("Notification not found: %s", internal_id);
             return;
         }
 
-        var app_id = id_parts[0];
-        var notification_id = id_parts[1];
+        var app_id = notification.app_id;
+        var id = notification.id;
 
-        if (type == "action") {
-            portal.action_invoked (app_id, notification_id, action_name, { target });
-        } else {
-            switch (action_name) {
-                case "default":
-                    // launch
-                    break;
+        switch (type) {
+            case Notification.ACTION_TYPE_ACTION:
+                var paramters = target != null ? new Variant[] { target } : new Variant[0];
+                portal.action_invoked (app_id, id, action_name, paramters);
+                break;
 
-                case "dismiss":
-                    portal.replace_notification (internal_id, null);
-                    break;
+            case Notification.ACTION_TYPE_INTERNAL:
+                switch (action_name) {
+                    case Notification.ACTION_DEFAULT:
+                        // launch
+                        warning ("Launched");
+                        break;
 
-                default:
-                    break;
-            }
+                    case Notification.ACTION_DISMISS:
+                        break;
+
+                    default:
+                        return;
+                }
+                break;
+
+            default:
+                return;
+        }
+
+        uint position;
+        if (portal.notifications.find (notification, out position)) {
+            portal.notifications.remove (position);
         }
     }
 
@@ -99,47 +112,14 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
             return false;
         }
 
-        var internal_id = parts[0];
-        var type = parts[1];
-        var action_name = parts[2];
-
-        Notification? notification = null;
-        for (uint i = 0; i < portal.notifications.n_items; i++) {
-            var n = (Notification) portal.notifications.get_item (i);
-            if (n.internal_id == internal_id) {
-                notification = n;
-                break;
-            }
-        }
+        var notification = Notification.get_for_internal_id (parts[0]);
 
         if (notification == null) {
-            warning ("Notification not found: %s", internal_id);
+            warning ("Notification not found: %s", parts[0]);
             return false;
         }
 
-        if (type == "action") {
-            foreach (var button in notification.buttons) {
-                if (button.action_name == action_name) {
-                    parameter_type = button.action_target.length > 0 ? button.action_target[0].get_type () : null;
-                    return true;
-                }
-            }
-        } else {
-            switch (action_name) {
-                case "default":
-                    parameter_type = notification.default_action_target.length > 0 ? notification.default_action_target[0].get_type () : null;
-                    return true;
-
-                case "dismiss":
-                    parameter_type = null;
-                    return true;
-
-                default:
-                    return false;
-            }
-        }
-
-        return true;
+        return notification.query_action (name, out enabled, out parameter_type, out state_type, out state_hint, out state);
     }
 
     public void change_action_state (string action_name, Variant value) { }
