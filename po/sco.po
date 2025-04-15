@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 23:36+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-04-16 14:55+0000\n"
+"Last-Translator: Ben Gordon Agnew <ben.gordon@posteo.de>\n"
+"Language-Team: Scots <https://l10n.elementaryos.org/projects/desktop/portals/"
+"sco/>\n"
 "Language: sco\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -54,7 +57,7 @@ msgstr ""
 
 #: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
@@ -62,7 +65,7 @@ msgstr ""
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
-msgstr ""
+msgstr "Allow"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
@@ -155,11 +158,11 @@ msgstr ""
 
 #: src/Screenshot/SetupDialog.vala:118
 msgid "Take Screenshot"
-msgstr ""
+msgstr "Tay Screenshot"
 
 #: src/Screenshot/SetupDialog.vala:127
 msgid "Close"
-msgstr ""
+msgstr "Quit"
 
 #: src/Screenshot/SetupDialog.vala:152
 msgid "Conceal text:"
