@@ -26,6 +26,18 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
+    <release version="8.0.1" data="2025-04-15" urgency="medium">
+      <description>
+        <p>New Features:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/portals/issues/126">Background: request_background fails when autostart directory doesn't exist</issue>
+      </issues>
+    </release>
+
     <release version="8.0.0" data="2024-11-19" urgency="medium">
       <description>
         <p>New Features:</p>
