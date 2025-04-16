@@ -21,7 +21,7 @@ public class Notification.Notification : GLib.Object {
     public struct Button {
         public string label;
         public string action_name;
-        public Variant[] action_target;
+        public Variant action_target;
 
         public Button (string internal_id, HashTable<string, Variant> data) {
             if ("label" in data) {
@@ -33,9 +33,9 @@ public class Notification.Notification : GLib.Object {
             }
 
             if ("action-target" in data) {
-                action_target = { data["action-target"] };
+                action_target = new Variant[] { data["action-target"] };
             } else {
-                action_target = {};
+                action_target = new Variant[] {};
             }
         }
     }
@@ -46,7 +46,7 @@ public class Notification.Notification : GLib.Object {
         public string app_id;
         public string dismiss_action_name;
         public string default_action_name;
-        public Variant[] default_action_target;
+        public Variant default_action_target;
         public Button[] buttons;
         public DisplayHint display_hint;
 
@@ -60,13 +60,13 @@ public class Notification.Notification : GLib.Object {
                 default_action_name = ACTION_FORMAT.printf (internal_id, raw_data["default-action"].get_string ());
 
                 if ("default-action-target" in raw_data) {
-                    default_action_target = { raw_data["default-action-target"] };
+                    default_action_target = new Variant[] { raw_data["default-action-target"] };
                 } else {
-                    default_action_target = {};
+                    default_action_target = new Variant[] {};
                 }
             } else {
                 default_action_name = INTERNAL_ACTION_FORMAT.printf (internal_id, "default");
-                default_action_target = {};
+                default_action_target = new Variant[] {};
             }
 
             if ("buttons" in raw_data) {
@@ -114,7 +114,7 @@ public class Notification.Notification : GLib.Object {
         notifications_by_internal_id.remove (internal_id);
     }
 
-    public string[] get_actions () {
+    public string[] list_actions () {
         string[] actions = new string[data.buttons.length + 2];
 
         actions[0] = data.dismiss_action_name;
@@ -141,32 +141,24 @@ public class Notification.Notification : GLib.Object {
         state_hint = null;
         state = null;
 
-        if (name == data.dismiss_action_name) {
+        if (name == _data.dismiss_action_name) {
             parameter_type = null;
             return true;
         }
 
-        if (name == data.default_action_name) {
-            parameter_type = variant_type_from_maybe_array (data.default_action_target);
+        if (name == _data.default_action_name) {
+            parameter_type = ActionGroup.target_type;
             return true;
         }
 
-        foreach (var button in data.buttons) {
+        foreach (var button in _data.buttons) {
             if (button.action_name == name) {
-                parameter_type = variant_type_from_maybe_array (button.action_target);
+                parameter_type = ActionGroup.target_type;
                 return true;
             }
         }
 
         return false;
-    }
-
-    private unowned VariantType? variant_type_from_maybe_array (Variant[] arr) {
-        if (arr.length == 0) {
-            return null;
-        } else {
-            return arr[0].get_type ();
-        }
     }
 
     public void replace_timestamp (Notification old_notification) {

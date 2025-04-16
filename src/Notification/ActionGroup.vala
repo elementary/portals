@@ -5,6 +5,9 @@
  * close the notification or launch the application.
  */
 public class Notification.ActionGroup : Object, GLib.ActionGroup {
+    private const string TARGET_TYPE_STRING = "(sv)";
+    public static VariantType target_type = new VariantType (TARGET_TYPE_STRING);
+
     public Portal portal { get; construct; }
 
     public ActionGroup (Portal portal) {
@@ -19,7 +22,7 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
         for (uint i = pos; i < pos + added; i++) {
             var notification = (Notification) portal.notifications.get_item (i);
 
-            foreach (var action in notification.get_actions ()) {
+            foreach (var action in notification.list_actions ()) {
                 action_added (action);
             }
         }
@@ -32,13 +35,18 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
 
         for (uint i = 0; i < portal.notifications.n_items; i++) {
             var notification = (Notification) portal.notifications.get_item (i);
-            builder.addv (notification.get_actions ());
+            builder.addv (notification.list_actions ());
         }
 
         return builder.end ();
     }
 
     public void activate_action (string name, Variant? target) {
+        if (target == null || !target.is_of_type (target_type)) {
+            warning ("Invalid action target for action %s", name);
+            return;
+        }
+
         var parts = name.split ("+", 3);
 
         if (parts.length != 3) {
@@ -62,8 +70,22 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
 
         switch (type) {
             case Notification.ACTION_TYPE_ACTION:
-                var paramters = target != null ? new Variant[] { target } : new Variant[0];
-                portal.action_invoked (app_id, id, action_name, paramters);
+                string activation_token;
+                Variant action_target;
+                target.get ("(sv)", out activation_token, out action_target);
+
+                Variant[] action_target_array;
+                action_target.get ("av", out action_target_array);
+
+                var platform_data = new HashTable<string, Variant> (str_hash, str_equal);
+                platform_data["activation-token"] = activation_token;
+
+                var parameters = new Gee.LinkedList<Variant> ();
+
+                parameters.add_all_array (action_target_array);
+                parameters.add (platform_data);
+
+                portal.action_invoked (app_id, id, action_name, parameters.to_array ());
                 break;
 
             case Notification.ACTION_TYPE_INTERNAL:
