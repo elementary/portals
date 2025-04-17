@@ -42,11 +42,6 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
     }
 
     public void activate_action (string name, Variant? target) {
-        if (target == null || !target.is_of_type (target_type)) {
-            warning ("Invalid action target for action %s", name);
-            return;
-        }
-
         var parts = name.split ("+", 3);
 
         if (parts.length != 3) {
@@ -70,6 +65,11 @@ public class Notification.ActionGroup : Object, GLib.ActionGroup {
 
         switch (type) {
             case Notification.ACTION_TYPE_ACTION:
+                if (target == null || !target.is_of_type (target_type)) {
+                    warning ("Invalid action target for action %s", name);
+                    return;
+                }
+
                 string activation_token;
                 Variant action_target;
                 target.get ("(sv)", out activation_token, out action_target);
