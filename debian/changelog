@@ -1,3 +1,9 @@
+io.elementary.portals (8.0.1) noble; urgency=medium
+
+  * Release 8.0.1
+
+ -- Danielle Foré <danielle@elementary.io>  Fri, 02 May 2025 11:16:27 -0700
+
 io.elementary.portals (8.0.0) jammy; urgency=medium
 
   * Release 8.0.0 (#121)
