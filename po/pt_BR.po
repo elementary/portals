@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 23:36+0000\n"
 "PO-Revision-Date: 2025-05-16 14:55+0000\n"
-"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
+"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/portals/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -87,7 +87,7 @@ msgstr "Comando personalizado"
 
 #: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
 msgid "Entire Display"
-msgstr ""
+msgstr "Tela inteira"
 
 #: src/ScreenCast/Dialog.vala:73
 msgid "Share"
