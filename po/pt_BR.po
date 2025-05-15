@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 23:36+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
+"PO-Revision-Date: 2025-05-16 14:55+0000\n"
+"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/portals/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -83,7 +83,7 @@ msgstr "“%s” está sendo executado em segundo plano sem permissão"
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Comando personalizado"
 
 #: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
 msgid "Entire Display"
@@ -91,11 +91,11 @@ msgstr ""
 
 #: src/ScreenCast/Dialog.vala:73
 msgid "Share"
-msgstr ""
+msgstr "Compartilhar"
 
 #: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
-msgstr ""
+msgstr "Janela desconhecida"
 
 #: src/ScreenCast/Dialog.vala:145
 msgid "Windows"
@@ -103,39 +103,39 @@ msgstr "Janelas"
 
 #: src/ScreenCast/Dialog.vala:149
 msgid "Monitors"
-msgstr ""
+msgstr "Monitores"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Sentido horário"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "De cabeça para baixo"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Sentido anti-horário"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Invertido"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Invertido no sentido horário"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Virado de cabeça para baixo"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Invertido no sentido anti-horário"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
