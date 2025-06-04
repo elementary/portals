@@ -95,7 +95,7 @@ public class Screenshot.Portal : Object {
                 if (redact) {
                     yield conceal_text ();
                 }
-                yield screenshot_proxy.screenshot_window (false, grab_pointer, true, tmp_filename, out success, out filename_used);
+                yield screenshot_proxy.screenshot_window (true, grab_pointer, true, tmp_filename, out success, out filename_used);
 
                 if (!success) {
                     throw new GLib.IOError.FAILED ("Failed to take screenshot");
