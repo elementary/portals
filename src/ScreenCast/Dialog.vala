@@ -36,8 +36,9 @@ public class ScreenCast.Dialog : Granite.Dialog {
             var monitor_tracker = new MonitorTracker ();
 
             foreach (var monitor in monitor_tracker.monitors) {
-                var row = new SelectionRow (MONITOR, monitor.connector,
-                    monitor.display_name, null, allow_multiple ? null : group);
+                var row = new SelectionRow (
+                    MONITOR, monitor.connector, monitor.display_name, new ThemedIcon ("video-display"), allow_multiple ? null : group
+                );
 
                 monitor_rows.append (row);
                 setup_row (row);
@@ -95,21 +96,29 @@ public class ScreenCast.Dialog : Granite.Dialog {
 
         foreach (var window in windows) {
             var label = _("Unknown Window");
+            string? description = null;
 
             if ("title" in window.details) {
                 label = (string) window.details["title"];
             }
 
-            Icon icon = new ThemedIcon ("application-x-executable");
+            Icon icon = new ThemedIcon ("application-default-icon");
             if ("app-id" in window.details) {
                 var app_info = new DesktopAppInfo ((string) window.details["app-id"]);
                 if (app_info != null && app_info.get_icon () != null) {
                     icon = app_info.get_icon ();
+                    description = label;
+                    label = app_info.get_display_name ();
                 }
             }
 
-            var row = new SelectionRow (WINDOW, window.uid,
-                label, icon, allow_multiple ? null : group);
+            var row = new SelectionRow (
+                WINDOW, window.uid, label, icon, allow_multiple ? null : group
+            );
+
+            if (description != null) {
+                row.description = description;
+            }
 
             window_rows.append (row);
             setup_row (row);
