@@ -82,7 +82,12 @@ public class ScreenCast.Portal : Object {
             multiple = (bool) options["multiple"];
         }
 
-        sessions[session_handle].select_sources (source_types, multiple);
+        CursorMode cursor_mode = HIDDEN;
+        if ("cursor_mode" in options) {
+            cursor_mode = (CursorMode) options["cursor_mode"];
+        }
+
+        sessions[session_handle].select_sources (source_types, multiple, cursor_mode);
 
         response = 0;
         results = new HashTable<string, Variant> (str_hash, str_equal);

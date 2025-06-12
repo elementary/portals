@@ -47,6 +47,7 @@ public class ScreenCast.Session : Object {
 
     private SourceType source_types;
     private bool allow_multiple;
+    private CursorMode cursor_mode;
 
     private PipeWireStream[] streams = {};
     private int required_streams = 0;
@@ -78,9 +79,10 @@ public class ScreenCast.Session : Object {
         return true;
     }
 
-    internal void select_sources (SourceType source_types, bool allow_multiple) {
+    internal void select_sources (SourceType source_types, bool allow_multiple, CursorMode cursor_mode) {
         this.source_types = source_types;
         this.allow_multiple = allow_multiple;
+        this.cursor_mode = cursor_mode;
     }
 
     internal void start (string parent_window) {
@@ -103,6 +105,19 @@ public class ScreenCast.Session : Object {
             }
         });
         dialog.present ();
+    }
+
+    private uint get_mutter_cursor_mode () {
+        switch (cursor_mode) {
+            case HIDDEN:
+                return 0;
+            case EMBEDDED:
+                return 1;
+            case METADATA:
+                return 2;
+        }
+
+        return 0;
     }
 
     private async void setup_recording (Dialog dialog) {
@@ -140,6 +155,7 @@ public class ScreenCast.Session : Object {
     private async bool record_window (uint64 uid) {
         var options = new HashTable<string, Variant> (str_hash, str_equal);
         options["window-id"] = uid;
+        options["cursor-mode"] = get_mutter_cursor_mode ();
 
         ObjectPath path;
         try {
@@ -153,9 +169,12 @@ public class ScreenCast.Session : Object {
     }
 
     private async bool record_monitor (string connector) {
+        var options = new HashTable<string, Variant> (str_hash, str_equal);
+        options["cursor-mode"] = get_mutter_cursor_mode ();
+
         ObjectPath path;
         try {
-            path = yield session.record_monitor (connector, new HashTable<string, Variant> (str_hash, str_equal));
+            path = yield session.record_monitor (connector, options);
         } catch (Error e) {
             warning ("Failed to record virtual: %s", e.message);
             return false;
@@ -165,9 +184,12 @@ public class ScreenCast.Session : Object {
     }
 
     private async bool record_virtual () {
+        var options = new HashTable<string, Variant> (str_hash, str_equal);
+        options["cursor-mode"] = get_mutter_cursor_mode ();
+
         ObjectPath path;
         try {
-            path = yield session.record_virtual (new HashTable<string, Variant> (str_hash, str_equal));
+            path = yield session.record_virtual (options);
         } catch (Error e) {
             warning ("Failed to record virtual: %s", e.message);
             return false;
