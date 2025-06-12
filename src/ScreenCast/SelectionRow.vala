@@ -9,14 +9,32 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
     public SourceType source_type { get; construct; }
     public Variant id { get; construct; }
     public string label { get; construct; }
-    public Icon? icon { get; construct; }
+    public Icon icon { get; construct; }
     public Gtk.CheckButton? group { get; construct; }
 
     public Gtk.CheckButton check_button { get; construct; }
 
     public bool selected { get; set; default = false; }
 
-    public SelectionRow (SourceType source_type, Variant id, string label, Icon? icon, Gtk.CheckButton? group) {
+    public string description {
+        set {
+            var description_label = new Gtk.Label (value) {
+                ellipsize = MIDDLE,
+                hexpand = true,
+                lines = 2,
+                wrap = true,
+                xalign = 0
+            };
+            description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+            description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+
+            label_box.append (description_label);
+        }
+    }
+
+    private Gtk.Box label_box;
+
+    public SelectionRow (SourceType source_type, Variant id, string label, Icon icon, Gtk.CheckButton? group) {
         Object (
             source_type: source_type,
             id: id,
@@ -27,17 +45,29 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
     }
 
     construct {
-        var box = new Gtk.Box (HORIZONTAL, 6);
+        check_button = new Gtk.CheckButton () {
+            group = group
+        };
 
-        check_button = new Gtk.CheckButton ();
+        var image = new Gtk.Image.from_gicon (icon) {
+            icon_size = LARGE
+        };
+
+        var title_label = new Gtk.Label (label) {
+            ellipsize = MIDDLE,
+            xalign = 0
+        };
+
+        label_box = new Gtk.Box (VERTICAL, 0) {
+            margin_start = 6,
+            valign = CENTER
+        };
+        label_box.append (title_label);
+
+        var box = new Gtk.Box (HORIZONTAL, 0);
         box.append (check_button);
-        check_button.set_group (group);
-
-        if (icon != null) {
-            box.append (new Gtk.Image.from_gicon (icon));
-        }
-
-        box.append (new Gtk.Label (label) { ellipsize = MIDDLE });
+        box.append (image);
+        box.append (label_box);
 
         child = box;
 
