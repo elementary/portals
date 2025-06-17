@@ -1,4 +1,4 @@
-project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '8.0.3', meson_version: '>=0.58')
+project('xdg-desktop-portal-pantheon', 'c', 'vala', version: '8.0.4', meson_version: '>=0.58')
 
 gnome = import('gnome')
 i18n = import('i18n')
