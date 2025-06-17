@@ -26,7 +26,16 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
-      <release version="8.0.3" data="2025-06-12" urgency="medium">
+    <release version="8.0.4" data="2025-06-17" urgency="medium">
+      <description>
+        <p>Fixes a regression in 8.0.3 that happens with unreleased version of Granite</p>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/portals/issues/143">#140 causes delay until the desktop is shown on login</issue>
+      </issues>
+    </release>
+
+    <release version="8.0.3" data="2025-06-12" urgency="medium">
       <description>
         <p>New Features:</p>
         <ul>
