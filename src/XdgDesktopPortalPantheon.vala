@@ -63,6 +63,8 @@ private void on_name_acquired () {
     // appearing before binding the style scheme
     uint watch_id = 0;
     watch_id = Bus.watch_name (BusType.SESSION, "org.freedesktop.portal.Desktop", BusNameWatcherFlags.NONE, () => {
+        Granite.init ();
+
         var granite_settings = Granite.Settings.get_default ();
         var gtk_settings = Gtk.Settings.get_default ();
 
@@ -88,7 +90,6 @@ int main (string[] args) {
     GLib.Environment.unset_variable ("GTK_USE_PORTAL");
 
     Gtk.init ();
-    Granite.init ();
 
     weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
     default_theme.add_resource_path ("/io/elementary/xdg-desktop-portal-pantheon");
