@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 23:36+0000\n"
+"POT-Creation-Date: 2025-06-17 14:17+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Urdu <https://l10n.elementary.io/projects/desktop/portals/ur/"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "New apps can be installed from AppCenter"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
 msgstr ""
 
@@ -84,23 +84,23 @@ msgstr ""
 msgid "Custom Command"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:145
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:149
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr ""
 

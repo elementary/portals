@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 23:36+0000\n"
+"POT-Creation-Date: 2025-06-17 14:17+0000\n"
 "PO-Revision-Date: 2024-12-22 12:16+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/portals/nl/"
@@ -55,7 +55,7 @@ msgstr "Geen van de geïnstalleerde apps kunnen %s openen"
 msgid "New apps can be installed from AppCenter"
 msgstr "Nieuwe apps kunnen worden geïnstalleerd met AppCenter"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -84,23 +84,23 @@ msgstr "\"%s\" draait in de achtergrond zonder de juiste toestemming"
 msgid "Custom Command"
 msgstr "Aangepast commando"
 
-#: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Hele scherm"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Deel"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Onbekend venster"
 
-#: src/ScreenCast/Dialog.vala:145
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Vensters"
 
-#: src/ScreenCast/Dialog.vala:149
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Monitor"
 

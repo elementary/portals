@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 23:36+0000\n"
+"POT-Creation-Date: 2025-06-17 14:17+0000\n"
 "PO-Revision-Date: 2025-01-16 17:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
@@ -55,7 +55,7 @@ msgstr "Egyik telepített alkalmazás sem képes %s megnyitására"
 msgid "New apps can be installed from AppCenter"
 msgstr "Az Appközpontból telepíthetők új alkalmazások"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -84,23 +84,23 @@ msgstr "\"%s\" a háttérben fut megfelelő engedély nélkül"
 msgid "Custom Command"
 msgstr "Egyedi parancs"
 
-#: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Egész kijelző"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Megosztás"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Ismeretlen ablak"
 
-#: src/ScreenCast/Dialog.vala:145
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Ablakok"
 
-#: src/ScreenCast/Dialog.vala:149
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Kijelzők"
 
