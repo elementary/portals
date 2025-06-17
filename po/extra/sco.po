@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 23:36+0000\n"
+"POT-Creation-Date: 2025-06-17 14:17+0000\n"
 "PO-Revision-Date: 2025-04-16 14:55+0000\n"
 "Last-Translator: Ben Gordon Agnew <ben.gordon@posteo.de>\n"
-"Language-Team: Scots <https://l10n.elementaryos.org/projects/desktop/"
-"portals-extra/sco/>\n"
+"Language-Team: Scots <https://l10n.elementaryos.org/projects/desktop/portals-"
+"extra/sco/>\n"
 "Language: sco\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,18 +37,27 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:43
-#: data/portals.metainfo.xml.in:57 data/portals.metainfo.xml.in:66
-#: data/portals.metainfo.xml.in:78 data/portals.metainfo.xml.in:91
+#: data/portals.metainfo.xml.in:31
+msgid ""
+"Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
+msgstr ""
+
+#: data/portals.metainfo.xml.in:40 data/portals.metainfo.xml.in:52
+#: data/portals.metainfo.xml.in:64 data/portals.metainfo.xml.in:76
+#: data/portals.metainfo.xml.in:88 data/portals.metainfo.xml.in:102
+#: data/portals.metainfo.xml.in:111 data/portals.metainfo.xml.in:123
+#: data/portals.metainfo.xml.in:136
 msgid "New Features:"
 msgstr ""
 
-#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:45
-#: data/portals.metainfo.xml.in:59 data/portals.metainfo.xml.in:68
-#: data/portals.metainfo.xml.in:80 data/portals.metainfo.xml.in:94
+#: data/portals.metainfo.xml.in:42 data/portals.metainfo.xml.in:54
+#: data/portals.metainfo.xml.in:66 data/portals.metainfo.xml.in:78
+#: data/portals.metainfo.xml.in:90 data/portals.metainfo.xml.in:104
+#: data/portals.metainfo.xml.in:113 data/portals.metainfo.xml.in:125
+#: data/portals.metainfo.xml.in:139
 msgid "Updated translations"
 msgstr "Rewerkt translaitions"
 
-#: data/portals.metainfo.xml.in:93
+#: data/portals.metainfo.xml.in:138
 msgid "Support dialog parenting on wayland"
 msgstr ""
