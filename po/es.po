@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 23:36+0000\n"
+"POT-Creation-Date: 2025-06-17 14:17+0000\n"
 "PO-Revision-Date: 2024-12-20 08:28+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/portals/"
@@ -55,7 +55,7 @@ msgstr "No existen aplicaciones instaladas que puedan abrir %s"
 msgid "New apps can be installed from AppCenter"
 msgstr "Se pueden instalar nuevas aplicaciones desde el Centro de Aplicaciones"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -84,23 +84,23 @@ msgstr "«%s» se está ejecutando en segundo plano sin los permisos adecuados"
 msgid "Custom Command"
 msgstr "Comando personalizado"
 
-#: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Toda la pantalla"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Compartir"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Ventana desconocida"
 
-#: src/ScreenCast/Dialog.vala:145
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Ventanas"
 
-#: src/ScreenCast/Dialog.vala:149
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Monitores"
 

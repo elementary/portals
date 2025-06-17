@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 23:36+0000\n"
+"POT-Creation-Date: 2025-06-17 14:17+0000\n"
 "PO-Revision-Date: 2024-12-19 16:04+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -55,7 +55,7 @@ msgstr "No installed apps can open %s"
 msgid "New apps can be installed from AppCenter"
 msgstr "New apps can be installed from AppCenter"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -84,23 +84,23 @@ msgstr "“%s” is running in the background without appropriate permission"
 msgid "Custom Command"
 msgstr "Custom Command"
 
-#: src/ScreenCast/Dialog.vala:52 src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Entire Display"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Share"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Unknown Window"
 
-#: src/ScreenCast/Dialog.vala:145
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Windows"
 
-#: src/ScreenCast/Dialog.vala:149
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Monitors"
 
