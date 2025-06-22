@@ -26,7 +26,7 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
-    <release version="8.0.4" data="2025-06-17" urgency="medium">
+    <release version="8.0.4" data="2025-06-22" urgency="medium">
       <description>
         <p>Fixes a regression in 8.0.3 that happens with unreleased version of Granite</p>
       </description>
