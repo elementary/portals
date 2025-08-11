@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-17 14:17+0000\n"
-"PO-Revision-Date: 2025-08-02 19:55+0000\n"
+"PO-Revision-Date: 2025-08-12 10:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/be/>\n"
@@ -22,39 +22,39 @@ msgstr ""
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
-msgstr ""
+msgstr "Адхіліць запыт"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
-msgstr ""
+msgstr "Даць доступ"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr ""
+msgstr "Адкрыць файл праз…"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Адкрыць “%s” праз…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "Праграма запытала адкрыць %s."
 
 #: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "“%s” запытала адкрыць %s."
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Няма праграм для адкрыцця %s"
 
 #: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Можна ўсталяваць новыя праграмы з AppCenter"
 
 #: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
@@ -62,7 +62,7 @@ msgstr "Скасаваць"
 
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
-msgstr ""
+msgstr "Адкрыць"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
@@ -70,92 +70,92 @@ msgstr "Дазволіць"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Забараніць"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Фонавая актыўнасць"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "“%s” запушчана ў фонавым рэжыме без адпаведнага дазволу"
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Карыстальніцкая каманда"
 
 #: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
-msgstr ""
+msgstr "Увесь экран"
 
 #: src/ScreenCast/Dialog.vala:74
 msgid "Share"
-msgstr ""
+msgstr "Пачаць"
 
 #: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
-msgstr ""
+msgstr "Невядомае акно"
 
 #: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
-msgstr ""
+msgstr "Вокны"
 
 #: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
-msgstr ""
+msgstr "Маніторы"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Па ходу гадзіннікавай стрэлкі"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Уверх дном"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Супраць ходу гадзіннікавай стрэлкі"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Адлюстраваны"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Адлюстраваны, па ходу гадзіннікавай стрэлкі"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Адлюстраваны, уверх дном"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Адлюстраваны, супраць ходу гадзіннікавай стрэлкі"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 #: src/Screenshot/SetupDialog.vala:49
 msgid "Grab the whole screen"
-msgstr ""
+msgstr "Захапіць увесь экран"
 
 #: src/Screenshot/SetupDialog.vala:66
 msgid "Grab the current window"
-msgstr ""
+msgstr "Захапіць бягучае акно"
 
 #: src/Screenshot/SetupDialog.vala:83
 msgid "Select area to grab"
-msgstr ""
+msgstr "Выбраць вобласць для захопу"
 
 #: src/Screenshot/SetupDialog.vala:102
 msgid "Grab pointer:"
-msgstr ""
+msgstr "Захапіць указальнік:"
 
 #: src/Screenshot/SetupDialog.vala:113
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Затрымка ў секундах:"
 
 #: src/Screenshot/SetupDialog.vala:118
 msgid "Take Screenshot"
@@ -167,4 +167,4 @@ msgstr "Закрыць"
 
 #: src/Screenshot/SetupDialog.vala:152
 msgid "Conceal text:"
-msgstr ""
+msgstr "Схаваць тэкст:"
