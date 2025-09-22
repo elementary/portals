@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-17 14:17+0000\n"
+"POT-Creation-Date: 2025-09-22 03:51+0000\n"
 "PO-Revision-Date: 2025-02-07 15:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/portals/"
@@ -138,34 +138,45 @@ msgstr "Retourné dans le sens antihoraire"
 msgid "None"
 msgstr "Aucun"
 
-#: src/Screenshot/SetupDialog.vala:49
-msgid "Grab the whole screen"
-msgstr "Capturer tout l'écran"
+#: src/Screenshot/SetupDialog.vala:47
+msgid "Screen"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:66
-msgid "Grab the current window"
-msgstr "Capturer la fenêtre courante"
+#: src/Screenshot/SetupDialog.vala:70
+#, fuzzy
+#| msgid "Windows"
+msgid "Window"
+msgstr "Fenêtres"
 
-#: src/Screenshot/SetupDialog.vala:83
-msgid "Select area to grab"
-msgstr "Sélectionner la zone à capturer"
+#: src/Screenshot/SetupDialog.vala:93
+msgid "Area"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:102
+#: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
 msgstr "Capturer le pointeur :"
 
-#: src/Screenshot/SetupDialog.vala:113
+#: src/Screenshot/SetupDialog.vala:131
 msgid "Delay in seconds:"
 msgstr "Délai en secondes :"
 
-#: src/Screenshot/SetupDialog.vala:118
+#: src/Screenshot/SetupDialog.vala:136
 msgid "Take Screenshot"
 msgstr "Prendre une capture d'écran"
 
-#: src/Screenshot/SetupDialog.vala:127
+#: src/Screenshot/SetupDialog.vala:145
 msgid "Close"
 msgstr "Fermer"
 
-#: src/Screenshot/SetupDialog.vala:152
+#: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Cacher le texte :"
+
+#~ msgid "Grab the whole screen"
+#~ msgstr "Capturer tout l'écran"
+
+#~ msgid "Grab the current window"
+#~ msgstr "Capturer la fenêtre courante"
+
+#~ msgid "Select area to grab"
+#~ msgstr "Sélectionner la zone à capturer"

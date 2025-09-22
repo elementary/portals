@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-17 14:17+0000\n"
+"POT-Creation-Date: 2025-09-22 03:51+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Tagalog <https://l10n.elementary.io/projects/desktop/portals/"
@@ -137,34 +137,34 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:49
-msgid "Grab the whole screen"
+#: src/Screenshot/SetupDialog.vala:47
+msgid "Screen"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:66
-msgid "Grab the current window"
+#: src/Screenshot/SetupDialog.vala:70
+msgid "Window"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:83
-msgid "Select area to grab"
+#: src/Screenshot/SetupDialog.vala:93
+msgid "Area"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:102
+#: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:113
+#: src/Screenshot/SetupDialog.vala:131
 msgid "Delay in seconds:"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:118
+#: src/Screenshot/SetupDialog.vala:136
 msgid "Take Screenshot"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:127
+#: src/Screenshot/SetupDialog.vala:145
 msgid "Close"
 msgstr "Isara"
 
-#: src/Screenshot/SetupDialog.vala:152
+#: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-17 14:17+0000\n"
+"POT-Creation-Date: 2025-09-22 03:51+0000\n"
 "PO-Revision-Date: 2024-09-21 10:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals/"
@@ -136,34 +136,43 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:49
-msgid "Grab the whole screen"
-msgstr "Tüm ekranı yakala"
+#: src/Screenshot/SetupDialog.vala:47
+msgid "Screen"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:66
-msgid "Grab the current window"
-msgstr "Mevcut pencereyi yakala"
+#: src/Screenshot/SetupDialog.vala:70
+msgid "Window"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:83
-msgid "Select area to grab"
-msgstr "Yakalanacak alanı seçin"
+#: src/Screenshot/SetupDialog.vala:93
+msgid "Area"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:102
+#: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
 msgstr "İşaretçiyi yakala:"
 
-#: src/Screenshot/SetupDialog.vala:113
+#: src/Screenshot/SetupDialog.vala:131
 msgid "Delay in seconds:"
 msgstr "Saniye cinsinden gecikme:"
 
-#: src/Screenshot/SetupDialog.vala:118
+#: src/Screenshot/SetupDialog.vala:136
 msgid "Take Screenshot"
 msgstr "Ekran Görüntüsü Al"
 
-#: src/Screenshot/SetupDialog.vala:127
+#: src/Screenshot/SetupDialog.vala:145
 msgid "Close"
 msgstr "Kapat"
 
-#: src/Screenshot/SetupDialog.vala:152
+#: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Metni gizle:"
+
+#~ msgid "Grab the whole screen"
+#~ msgstr "Tüm ekranı yakala"
+
+#~ msgid "Grab the current window"
+#~ msgstr "Mevcut pencereyi yakala"
+
+#~ msgid "Select area to grab"
+#~ msgstr "Yakalanacak alanı seçin"

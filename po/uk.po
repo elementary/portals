@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-17 14:17+0000\n"
+"POT-Creation-Date: 2025-09-22 03:51+0000\n"
 "PO-Revision-Date: 2024-12-24 00:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
@@ -137,34 +137,45 @@ msgstr "Перевернуто проти годинникової стрілк�
 msgid "None"
 msgstr "Нічого"
 
-#: src/Screenshot/SetupDialog.vala:49
-msgid "Grab the whole screen"
-msgstr "Захопити весь екран"
+#: src/Screenshot/SetupDialog.vala:47
+msgid "Screen"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:66
-msgid "Grab the current window"
-msgstr "Захопити поточне вікно"
+#: src/Screenshot/SetupDialog.vala:70
+#, fuzzy
+#| msgid "Windows"
+msgid "Window"
+msgstr "Вікна"
 
-#: src/Screenshot/SetupDialog.vala:83
-msgid "Select area to grab"
-msgstr "Вибрати ділянку для захоплення"
+#: src/Screenshot/SetupDialog.vala:93
+msgid "Area"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:102
+#: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
 msgstr "Захопити вказівник:"
 
-#: src/Screenshot/SetupDialog.vala:113
+#: src/Screenshot/SetupDialog.vala:131
 msgid "Delay in seconds:"
 msgstr "Затримка в секундах:"
 
-#: src/Screenshot/SetupDialog.vala:118
+#: src/Screenshot/SetupDialog.vala:136
 msgid "Take Screenshot"
 msgstr "Зробити знімок екрана"
 
-#: src/Screenshot/SetupDialog.vala:127
+#: src/Screenshot/SetupDialog.vala:145
 msgid "Close"
 msgstr "Закрити"
 
-#: src/Screenshot/SetupDialog.vala:152
+#: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Сховати текст:"
+
+#~ msgid "Grab the whole screen"
+#~ msgstr "Захопити весь екран"
+
+#~ msgid "Grab the current window"
+#~ msgstr "Захопити поточне вікно"
+
+#~ msgid "Select area to grab"
+#~ msgstr "Вибрати ділянку для захоплення"

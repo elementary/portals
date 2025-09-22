@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-17 14:17+0000\n"
+"POT-Creation-Date: 2025-09-22 03:51+0000\n"
 "PO-Revision-Date: 2024-12-19 16:04+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/portals/"
@@ -136,34 +136,45 @@ msgstr "Tombat a l'esquerra"
 msgid "None"
 msgstr "Cap"
 
-#: src/Screenshot/SetupDialog.vala:49
-msgid "Grab the whole screen"
-msgstr "Agafa tota la pantalla"
+#: src/Screenshot/SetupDialog.vala:47
+msgid "Screen"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:66
-msgid "Grab the current window"
-msgstr "Agafa la finestra actual"
+#: src/Screenshot/SetupDialog.vala:70
+#, fuzzy
+#| msgid "Windows"
+msgid "Window"
+msgstr "Finestres"
 
-#: src/Screenshot/SetupDialog.vala:83
-msgid "Select area to grab"
-msgstr "Seleccioneu l'àrea que voleu agafar"
+#: src/Screenshot/SetupDialog.vala:93
+msgid "Area"
+msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:102
+#: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
 msgstr "Agafa el punter:"
 
-#: src/Screenshot/SetupDialog.vala:113
+#: src/Screenshot/SetupDialog.vala:131
 msgid "Delay in seconds:"
 msgstr "Retard en segons:"
 
-#: src/Screenshot/SetupDialog.vala:118
+#: src/Screenshot/SetupDialog.vala:136
 msgid "Take Screenshot"
 msgstr "Fes una captura"
 
-#: src/Screenshot/SetupDialog.vala:127
+#: src/Screenshot/SetupDialog.vala:145
 msgid "Close"
 msgstr "Tanca"
 
-#: src/Screenshot/SetupDialog.vala:152
+#: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Amaga el text:"
+
+#~ msgid "Grab the whole screen"
+#~ msgstr "Agafa tota la pantalla"
+
+#~ msgid "Grab the current window"
+#~ msgstr "Agafa la finestra actual"
+
+#~ msgid "Select area to grab"
+#~ msgstr "Seleccioneu l'àrea que voleu agafar"
