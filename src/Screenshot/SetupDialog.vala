@@ -213,20 +213,5 @@ public class Screenshot.SetupDialog : Gtk.Window {
         close_btn.clicked.connect (() => {
             response (Gtk.ResponseType.CLOSE);
         });
-
-        var gtk_settings = Gtk.Settings.get_default ();
-        gtk_settings.notify["gtk-application-prefer-dark-theme"].connect (() => {
-            update_icons (gtk_settings.gtk_application_prefer_dark_theme);
-        });
-
-        update_icons (gtk_settings.gtk_application_prefer_dark_theme);
-    }
-
-    private void update_icons (bool prefers_dark) {
-        if (prefers_dark) {
-            all_image.icon_name = "grab-screen-symbolic-dark";
-        } else {
-            all_image.icon_name = "grab-screen-symbolic";
-        }
     }
 }
