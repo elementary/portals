@@ -44,12 +44,18 @@ public class Screenshot.SetupDialog : Gtk.Window {
             icon_size = LARGE
         };
 
+        var all_label = new Gtk.Label (_("Screen")) ;
+        all_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+
+        var all_box = new Gtk.Box (VERTICAL, 3);
+        all_box.append (all_image);
+        all_box.append (all_label);
+
         var all = new Gtk.CheckButton () {
             active = true,
-            tooltip_text = _("Grab the whole screen")
+            child = all_box
         };
         all.add_css_class ("image-button");
-        all_image.set_parent (all);
 
         all.toggled.connect (() => {
             if (all.active) {
@@ -61,12 +67,18 @@ public class Screenshot.SetupDialog : Gtk.Window {
             icon_size = LARGE
         };
 
+        var curr_label = new Gtk.Label (_("Window"));
+        curr_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+
+        var curr_box = new Gtk.Box (VERTICAL, 3);
+        curr_box.append (curr_image);
+        curr_box.append (curr_label);
+
         var curr_window = new Gtk.CheckButton () {
-            group = all,
-            tooltip_text = _("Grab the current window")
+            child = curr_box,
+            group = all
         };
         curr_window.add_css_class ("image-button");
-        curr_image.set_parent (curr_window);
 
         curr_window.toggled.connect (() => {
             if (curr_window.active) {
@@ -78,12 +90,18 @@ public class Screenshot.SetupDialog : Gtk.Window {
             icon_size = LARGE
         };
 
+        var selection_label = new Gtk.Label (_("Area"));
+        selection_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+
+        var selection_box = new Gtk.Box (VERTICAL, 3);
+        selection_box.append (selection_image);
+        selection_box.append (selection_label);
+
         var selection = new Gtk.CheckButton () {
-            group = all,
-            tooltip_text = _("Select area to grab")
+            child = selection_box,
+            group = all
         };
         selection.add_css_class ("image-button");
-        selection_image.set_parent (selection);
 
         selection.toggled.connect (() => {
             if (selection.active) {
