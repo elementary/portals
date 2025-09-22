@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-17 14:17+0000\n"
+"POT-Creation-Date: 2025-09-22 03:51+0000\n"
 "PO-Revision-Date: 2025-06-18 14:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -42,7 +42,8 @@ msgstr "elementary, Inc."
 #: data/portals.metainfo.xml.in:31
 msgid ""
 "Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
-msgstr "未リリースの Granite と組み合わせた際に発生する 8.0.3 のリグレッションを修正"
+msgstr ""
+"未リリースの Granite と組み合わせた際に発生する 8.0.3 のリグレッションを修正"
 
 #: data/portals.metainfo.xml.in:40 data/portals.metainfo.xml.in:52
 #: data/portals.metainfo.xml.in:64 data/portals.metainfo.xml.in:76
