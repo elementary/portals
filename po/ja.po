@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2024-12-31 10:00+0000\n"
+"PO-Revision-Date: 2025-09-26 21:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/portals/"
-"ja/>\n"
+"Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
+"portals/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -138,17 +138,15 @@ msgstr "なし"
 
 #: src/Screenshot/SetupDialog.vala:47
 msgid "Screen"
-msgstr ""
+msgstr "画面"
 
 #: src/Screenshot/SetupDialog.vala:70
-#, fuzzy
-#| msgid "Windows"
 msgid "Window"
 msgstr "ウィンドウ"
 
 #: src/Screenshot/SetupDialog.vala:93
 msgid "Area"
-msgstr ""
+msgstr "選択範囲"
 
 #: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
