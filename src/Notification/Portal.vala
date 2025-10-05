@@ -36,8 +36,6 @@ public class Notification.Portal : Object {
     }
 
     public void add_notification (string app_id, string id, HashTable<string, Variant> data) throws Error {
-        critical ("Converting notification for %s", app_id);
-
         if (!("title" in data)) {
             throw new DBusError.FAILED ("Can't show notification without title");
         }
