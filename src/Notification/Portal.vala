@@ -1,4 +1,7 @@
-// Copyright
+/*
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ */
 
 [DBus (name = "org.freedesktop.impl.portal.Notification")]
 public class Notification.Portal : Object {
@@ -15,19 +18,11 @@ public class Notification.Portal : Object {
 
     public signal void action_invoked (string app_id, string id, string action_name, Variant[] parameters);
 
-    public HashTable<string, Variant> supported_options {
-        owned get {
-            return proxy.supported_options;
-        }
-    }
+    public HashTable<string, Variant> supported_options { owned get { return proxy.supported_options; } }
 
-    public uint version {
-        get {
-            return proxy.version;
-        }
-    }
+    public uint version { get { return proxy.version; } }
 
-    private PortalProxy proxy; 
+    private PortalProxy proxy;
 
     construct {
         try {
