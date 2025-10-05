@@ -8,6 +8,8 @@ executable(
     'AppChooser/Portal.vala',
     'Background/NotificationRequest.vala',
     'Background/Portal.vala',
+    'Notification/FdoInterface.vala',
+    'Notification/Portal.vala',
     'ScreenCast/MonitorTracker/Interface.vala',
     'ScreenCast/MonitorTracker/Monitor.vala',
     'ScreenCast/MonitorTracker/MonitorTracker.vala',
