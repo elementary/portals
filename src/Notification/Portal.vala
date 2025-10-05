@@ -1,4 +1,9 @@
-// Copyright
+/*
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ *
+ * Authored by: Leonhard Kargl <leo.kargl@proton.me>
+ */
 
 // TEST CALL FOR DSPY:
 // 'io.elementary.mail.desktop'
