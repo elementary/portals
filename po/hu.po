@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2025-01-16 17:55+0000\n"
+"PO-Revision-Date: 2025-10-16 13:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
-"Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
+"Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -138,17 +138,15 @@ msgstr "Egyik sem"
 
 #: src/Screenshot/SetupDialog.vala:47
 msgid "Screen"
-msgstr ""
+msgstr "Kijelző"
 
 #: src/Screenshot/SetupDialog.vala:70
-#, fuzzy
-#| msgid "Windows"
 msgid "Window"
-msgstr "Ablakok"
+msgstr "Ablak"
 
 #: src/Screenshot/SetupDialog.vala:93
 msgid "Area"
-msgstr ""
+msgstr "Terület"
 
 #: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
