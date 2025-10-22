@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2025-10-22 09:17+0000\n"
+"PO-Revision-Date: 2025-10-22 09:58+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "portals/sv/>\n"
@@ -21,39 +21,39 @@ msgstr ""
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
-msgstr ""
+msgstr "Neka åtkomst"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
-msgstr ""
+msgstr "Bevilja tillgång"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr ""
+msgstr "Öppna filen med…"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Öppna \"%s\" med…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "En applikation begärdes för att öppna en %s."
 
 #: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "\"%s\" begärs för att öppna en %s."
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Inga installerade appar kan öppnas %s"
 
 #: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Nya appar kan installeras från AppCenter"
 
 #: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
@@ -61,7 +61,7 @@ msgstr "Avbryt"
 
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
-msgstr ""
+msgstr "Öppna"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
@@ -69,32 +69,32 @@ msgstr "Tillåt"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Förbjud"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Bakgrundsaktivitet"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "\"%s\" körs i bakgrunden utan lämplig behörighet"
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Anpassat kommando"
 
 #: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
-msgstr ""
+msgstr "Hela skärmen"
 
 #: src/ScreenCast/Dialog.vala:74
 msgid "Share"
-msgstr ""
+msgstr "Dela"
 
 #: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
-msgstr ""
+msgstr "Okänt fönster"
 
 #: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
@@ -102,61 +102,59 @@ msgstr "Fönster"
 
 #: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
-msgstr ""
+msgstr "Skärmar"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Medurs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Upp och ner"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Moturs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Vänd"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Vänds medurs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Vänd upp och ner"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Vänds moturs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: src/Screenshot/SetupDialog.vala:47
 msgid "Screen"
-msgstr ""
+msgstr "Skärm"
 
 #: src/Screenshot/SetupDialog.vala:70
-#, fuzzy
-#| msgid "Windows"
 msgid "Window"
 msgstr "Fönster"
 
 #: src/Screenshot/SetupDialog.vala:93
 msgid "Area"
-msgstr ""
+msgstr "Område"
 
 #: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
-msgstr ""
+msgstr "Ta tag i pekaren:"
 
 #: src/Screenshot/SetupDialog.vala:131
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Fördröjning i sekunder:"
 
 #: src/Screenshot/SetupDialog.vala:136
 msgid "Take Screenshot"
@@ -168,4 +166,4 @@ msgstr "Stäng"
 
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
-msgstr ""
+msgstr "Dölja text:"
