@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2025-10-25 08:48+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "portals/sv/>\n"
@@ -25,7 +25,7 @@ msgstr "Neka åtkomst"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
-msgstr "Bevilja tillgång"
+msgstr "Bevilja åtkomst"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
@@ -44,12 +44,12 @@ msgstr "Ett program begärde att öppna en %s."
 #: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr "\"%s\" begärs för att öppna en %s."
+msgstr "\"%s\" begärdes för att öppna en %s."
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
-msgstr "Inga installerade appar kan öppnas %s"
+msgstr "Inga installerade appar kan öppna %s"
 
 #: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
@@ -122,7 +122,7 @@ msgstr "Vänd"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr "Vänds medurs"
+msgstr "Vänd medurs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
@@ -130,7 +130,7 @@ msgstr "Vänd upp och ner"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr "Vänds moturs"
+msgstr "Vänd moturs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
@@ -166,4 +166,4 @@ msgstr "Stäng"
 
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
-msgstr "Dölja text:"
+msgstr "Dölj text:"
