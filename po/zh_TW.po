@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2024-12-21 09:16+0000\n"
+"PO-Revision-Date: 2025-11-30 19:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese (Traditional Han script) <https://l10n.elementary.io/"
-"projects/desktop/portals/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://"
+"l10n.elementaryos.org/projects/desktop/portals/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -138,17 +138,15 @@ msgstr "無"
 
 #: src/Screenshot/SetupDialog.vala:47
 msgid "Screen"
-msgstr ""
+msgstr "螢幕"
 
 #: src/Screenshot/SetupDialog.vala:70
-#, fuzzy
-#| msgid "Windows"
 msgid "Window"
 msgstr "視窗"
 
 #: src/Screenshot/SetupDialog.vala:93
 msgid "Area"
-msgstr ""
+msgstr "選取範圍"
 
 #: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
