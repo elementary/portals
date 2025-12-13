@@ -201,6 +201,8 @@ public class Screenshot.SetupDialog : Gtk.Window {
         };
 
         child = window_handle;
+        icon_name = "accessories-screenshot-tool";
+        title = _("Screenshot");
 
         // We need to hide the title area
         titlebar = new Gtk.Grid () {
