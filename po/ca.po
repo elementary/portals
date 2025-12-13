@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
+"POT-Creation-Date: 2025-12-13 19:40+0000\n"
 "PO-Revision-Date: 2025-09-23 06:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/desktop/"
@@ -167,6 +167,12 @@ msgstr "Tanca"
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Amaga el text:"
+
+#: src/Screenshot/SetupDialog.vala:205
+#, fuzzy
+#| msgid "Take Screenshot"
+msgid "Screenshot"
+msgstr "Fes una captura"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Agafa tota la pantalla"

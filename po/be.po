@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
+"POT-Creation-Date: 2025-12-13 19:40+0000\n"
 "PO-Revision-Date: 2025-12-04 11:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
@@ -168,6 +168,12 @@ msgstr "Закрыць"
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Схаваць тэкст:"
+
+#: src/Screenshot/SetupDialog.vala:205
+#, fuzzy
+#| msgid "Take Screenshot"
+msgid "Screenshot"
+msgstr "Зрабіць здымак экрана"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Захапіць увесь экран"

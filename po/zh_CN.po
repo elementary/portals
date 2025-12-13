@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
+"POT-Creation-Date: 2025-12-13 19:40+0000\n"
 "PO-Revision-Date: 2025-08-10 04:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -169,6 +169,12 @@ msgstr "关闭"
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "隐藏文字："
+
+#: src/Screenshot/SetupDialog.vala:205
+#, fuzzy
+#| msgid "Take Screenshot"
+msgid "Screenshot"
+msgstr "截屏"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "捕获整个屏幕"
