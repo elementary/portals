@@ -40,6 +40,9 @@ public class Screenshot.SetupDialog : Gtk.Window {
             });
         }
 
+        var settings = new Settings ("io.elementary.portals.screenshot");
+        settings.bind ("last-capture-mode", this, "screenshot-type", DEFAULT);
+
         var type_action = new SimpleAction.stateful ("type", VariantType.UINT32, new Variant.uint32 (screenshot_type));
         type_action.activate.connect ((parameter) => {
             screenshot_type = (ScreenshotType) parameter.get_uint32 ();
