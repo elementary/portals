@@ -41,16 +41,9 @@ public class Screenshot.SetupDialog : Gtk.Window {
         }
 
         var settings = new Settings ("io.elementary.portals.screenshot");
-        settings.bind ("last-capture-mode", this, "screenshot-type", DEFAULT);
+        settings.bind ("last-capture-mode", this, "screenshot-type", GET);
 
-        var type_action = new SimpleAction.stateful ("type", VariantType.UINT32, new Variant.uint32 (screenshot_type));
-        type_action.activate.connect ((parameter) => {
-            screenshot_type = (ScreenshotType) parameter.get_uint32 ();
-        });
-
-        notify ["screenshot-type"].connect (() => {
-            type_action.set_state (new Variant.uint32 (screenshot_type));
-        });
+        var type_action = settings.create_action ("last-capture-mode");
 
         var action_group = new SimpleActionGroup ();
         action_group.add_action (type_action);
@@ -69,8 +62,8 @@ public class Screenshot.SetupDialog : Gtk.Window {
         all_box.append (all_label);
 
         var all = new Gtk.CheckButton () {
-            action_name = "screenshot.type",
-            action_target = new Variant.uint32 (ScreenshotType.ALL),
+            action_name = "screenshot.last-capture-mode",
+            action_target = new Variant.string ("all"),
             child = all_box
         };
         all.add_css_class ("image-button");
@@ -87,8 +80,8 @@ public class Screenshot.SetupDialog : Gtk.Window {
         curr_box.append (curr_label);
 
         var curr_window = new Gtk.CheckButton () {
-            action_name = "screenshot.type",
-            action_target = new Variant.uint32 (ScreenshotType.WINDOW),
+            action_name = "screenshot.last-capture-mode",
+            action_target = new Variant.string ("window"),
             child = curr_box,
             group = all
         };
@@ -106,8 +99,8 @@ public class Screenshot.SetupDialog : Gtk.Window {
         selection_box.append (selection_label);
 
         var selection = new Gtk.CheckButton () {
-            action_name = "screenshot.type",
-            action_target = new Variant.uint32 (ScreenshotType.AREA),
+            action_name = "screenshot.last-capture-mode",
+            action_target = new Variant.string ("area"),
             child = selection_box,
             group = all
         };
