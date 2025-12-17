@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-13 19:40+0000\n"
-"PO-Revision-Date: 2024-12-24 00:16+0000\n"
+"PO-Revision-Date: 2025-12-19 00:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
+"Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -139,17 +139,15 @@ msgstr "Нічого"
 
 #: src/Screenshot/SetupDialog.vala:47
 msgid "Screen"
-msgstr ""
+msgstr "Екран"
 
 #: src/Screenshot/SetupDialog.vala:70
-#, fuzzy
-#| msgid "Windows"
 msgid "Window"
-msgstr "Вікна"
+msgstr "Вікно"
 
 #: src/Screenshot/SetupDialog.vala:93
 msgid "Area"
-msgstr ""
+msgstr "Ділянка"
 
 #: src/Screenshot/SetupDialog.vala:120
 msgid "Grab pointer:"
@@ -172,10 +170,8 @@ msgid "Conceal text:"
 msgstr "Сховати текст:"
 
 #: src/Screenshot/SetupDialog.vala:205
-#, fuzzy
-#| msgid "Take Screenshot"
 msgid "Screenshot"
-msgstr "Зробити знімок екрана"
+msgstr "Знімок екрана"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Захопити весь екран"
