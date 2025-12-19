@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-13 19:40+0000\n"
-"PO-Revision-Date: 2025-09-26 21:55+0000\n"
+"PO-Revision-Date: 2025-12-20 15:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "portals/ja/>\n"
@@ -169,10 +169,8 @@ msgid "Conceal text:"
 msgstr "テキストを隠す:"
 
 #: src/Screenshot/SetupDialog.vala:205
-#, fuzzy
-#| msgid "Take Screenshot"
 msgid "Screenshot"
-msgstr "スクリーンショットを撮る"
+msgstr "スクリーンショット"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "画面全体を取得します"
