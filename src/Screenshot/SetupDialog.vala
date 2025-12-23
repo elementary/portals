@@ -14,7 +14,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
 
     public string parent_window { get; construct; }
 
-    public ScreenshotType screenshot_type { get; private set; default = ScreenshotType.ALL; }
+    public ScreenshotType screenshot_type { get; set; default = ALL; }
     public bool grab_pointer { get; private set; default = false; }
     public bool redact_text { get; private set; default = false; }
     public int delay { get; private set; default = 0; }
@@ -40,6 +40,16 @@ public class Screenshot.SetupDialog : Gtk.Window {
             });
         }
 
+        var settings = new Settings ("io.elementary.portals.screenshot");
+        settings.bind ("last-capture-mode", this, "screenshot-type", GET);
+
+        var type_action = settings.create_action ("last-capture-mode");
+
+        var action_group = new SimpleActionGroup ();
+        action_group.add_action (type_action);
+
+        insert_action_group ("screenshot", action_group);
+
         all_image = new Gtk.Image.from_icon_name ("grab-screen-symbolic") {
             icon_size = LARGE
         };
@@ -52,16 +62,11 @@ public class Screenshot.SetupDialog : Gtk.Window {
         all_box.append (all_label);
 
         var all = new Gtk.CheckButton () {
-            active = true,
+            action_name = "screenshot.last-capture-mode",
+            action_target = new Variant.string ("all"),
             child = all_box
         };
         all.add_css_class ("image-button");
-
-        all.toggled.connect (() => {
-            if (all.active) {
-                screenshot_type = ScreenshotType.ALL;
-            }
-        });
 
         var curr_image = new Gtk.Image.from_icon_name ("grab-window-symbolic") {
             icon_size = LARGE
@@ -75,16 +80,12 @@ public class Screenshot.SetupDialog : Gtk.Window {
         curr_box.append (curr_label);
 
         var curr_window = new Gtk.CheckButton () {
+            action_name = "screenshot.last-capture-mode",
+            action_target = new Variant.string ("window"),
             child = curr_box,
             group = all
         };
         curr_window.add_css_class ("image-button");
-
-        curr_window.toggled.connect (() => {
-            if (curr_window.active) {
-                screenshot_type = ScreenshotType.WINDOW;
-            }
-        });
 
         var selection_image = new Gtk.Image.from_icon_name ("grab-area-symbolic") {
             icon_size = LARGE
@@ -98,16 +99,12 @@ public class Screenshot.SetupDialog : Gtk.Window {
         selection_box.append (selection_label);
 
         var selection = new Gtk.CheckButton () {
+            action_name = "screenshot.last-capture-mode",
+            action_target = new Variant.string ("area"),
             child = selection_box,
             group = all
         };
         selection.add_css_class ("image-button");
-
-        selection.toggled.connect (() => {
-            if (selection.active) {
-                screenshot_type = ScreenshotType.AREA;
-            }
-        });
 
         var pointer_switch = new Gtk.Switch () {
             halign = START
