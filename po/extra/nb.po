@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-13 19:40+0000\n"
+"POT-Creation-Date: 2025-12-23 06:07+0000\n"
 "PO-Revision-Date: 2024-08-15 23:47+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -37,28 +37,28 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:31
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:52
+#: data/portals.metainfo.xml.in:64 data/portals.metainfo.xml.in:76
+#: data/portals.metainfo.xml.in:88 data/portals.metainfo.xml.in:100
+#: data/portals.metainfo.xml.in:114 data/portals.metainfo.xml.in:123
+#: data/portals.metainfo.xml.in:135 data/portals.metainfo.xml.in:148
+msgid "New Features:"
+msgstr ""
+
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:54
+#: data/portals.metainfo.xml.in:66 data/portals.metainfo.xml.in:78
+#: data/portals.metainfo.xml.in:90 data/portals.metainfo.xml.in:102
+#: data/portals.metainfo.xml.in:116 data/portals.metainfo.xml.in:125
+#: data/portals.metainfo.xml.in:137 data/portals.metainfo.xml.in:151
+msgid "Updated translations"
+msgstr "Oppdaterte oversettelser"
+
+#: data/portals.metainfo.xml.in:43
 msgid ""
 "Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
 msgstr ""
 
-#: data/portals.metainfo.xml.in:40 data/portals.metainfo.xml.in:52
-#: data/portals.metainfo.xml.in:64 data/portals.metainfo.xml.in:76
-#: data/portals.metainfo.xml.in:88 data/portals.metainfo.xml.in:102
-#: data/portals.metainfo.xml.in:111 data/portals.metainfo.xml.in:123
-#: data/portals.metainfo.xml.in:136
-msgid "New Features:"
-msgstr ""
-
-#: data/portals.metainfo.xml.in:42 data/portals.metainfo.xml.in:54
-#: data/portals.metainfo.xml.in:66 data/portals.metainfo.xml.in:78
-#: data/portals.metainfo.xml.in:90 data/portals.metainfo.xml.in:104
-#: data/portals.metainfo.xml.in:113 data/portals.metainfo.xml.in:125
-#: data/portals.metainfo.xml.in:139
-msgid "Updated translations"
-msgstr "Oppdaterte oversettelser"
-
-#: data/portals.metainfo.xml.in:138
+#: data/portals.metainfo.xml.in:150
 msgid "Support dialog parenting on wayland"
 msgstr ""
 
