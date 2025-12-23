@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-13 19:40+0000\n"
+"POT-Creation-Date: 2025-12-23 06:07+0000\n"
 "PO-Revision-Date: 2025-10-06 12:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
@@ -136,39 +136,39 @@ msgstr "הפוך נגד כיוון השעון"
 msgid "None"
 msgstr "ללא"
 
-#: src/Screenshot/SetupDialog.vala:47
+#: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
 msgstr "מסך"
 
-#: src/Screenshot/SetupDialog.vala:70
+#: src/Screenshot/SetupDialog.vala:75
 msgid "Window"
 msgstr "חלון"
 
-#: src/Screenshot/SetupDialog.vala:93
+#: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
 msgstr "אזור"
 
-#: src/Screenshot/SetupDialog.vala:120
+#: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
 msgstr "לכידת הסמן:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
 msgstr "השהיה בשניות:"
 
-#: src/Screenshot/SetupDialog.vala:136
+#: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
 msgstr "צילום המסך"
 
-#: src/Screenshot/SetupDialog.vala:145
+#: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
 msgstr "סגירה"
 
-#: src/Screenshot/SetupDialog.vala:170
+#: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
 msgstr "הסוואת טקסט:"
 
-#: src/Screenshot/SetupDialog.vala:205
+#: src/Screenshot/SetupDialog.vala:202
 #, fuzzy
 #| msgid "Take Screenshot"
 msgid "Screenshot"

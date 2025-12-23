@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-13 19:40+0000\n"
+"POT-Creation-Date: 2025-12-23 06:07+0000\n"
 "PO-Revision-Date: 2024-12-19 16:04+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -137,41 +137,41 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:47
+#: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:70
+#: src/Screenshot/SetupDialog.vala:75
 #, fuzzy
 #| msgid "Windows"
 msgid "Window"
 msgstr "Vinduer"
 
-#: src/Screenshot/SetupDialog.vala:93
+#: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:120
+#: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
 msgstr "Ta med peker:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
 msgstr "Forsinkelse i sekunder:"
 
-#: src/Screenshot/SetupDialog.vala:136
+#: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
 msgstr "Utfør skjermavbildning"
 
-#: src/Screenshot/SetupDialog.vala:145
+#: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
 msgstr "Lukk"
 
-#: src/Screenshot/SetupDialog.vala:170
+#: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
 msgstr "Tilslør tekst:"
 
-#: src/Screenshot/SetupDialog.vala:205
+#: src/Screenshot/SetupDialog.vala:202
 #, fuzzy
 #| msgid "Take Screenshot"
 msgid "Screenshot"
