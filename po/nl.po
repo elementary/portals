@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2025-11-30 19:55+0000\n"
+"POT-Creation-Date: 2025-12-13 19:40+0000\n"
+"PO-Revision-Date: 2025-12-20 15:55+0000\n"
 "Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/portals/"
 "nl/>\n"
@@ -167,6 +167,10 @@ msgstr "Sluiten"
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Verberg tekst:"
+
+#: src/Screenshot/SetupDialog.vala:205
+msgid "Screenshot"
+msgstr "Schermfoto"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Pak het hele scherm"

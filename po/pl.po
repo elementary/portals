@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
+"POT-Creation-Date: 2025-12-13 19:40+0000\n"
 "PO-Revision-Date: 2024-12-21 09:16+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/portals/"
@@ -170,6 +170,12 @@ msgstr "Zamknij"
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Ukryj tekst:"
+
+#: src/Screenshot/SetupDialog.vala:205
+#, fuzzy
+#| msgid "Take Screenshot"
+msgid "Screenshot"
+msgstr "Zrób zrzut ekranu"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Przechwyć cały ekran"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2025-09-23 06:55+0000\n"
+"POT-Creation-Date: 2025-12-13 19:40+0000\n"
+"PO-Revision-Date: 2025-12-16 10:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
 "portals/fr/>\n"
@@ -169,6 +169,10 @@ msgstr "Fermer"
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "Cacher le texte :"
+
+#: src/Screenshot/SetupDialog.vala:205
+msgid "Screenshot"
+msgstr "Capture d'écran"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Capturer tout l'écran"

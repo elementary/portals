@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
+"POT-Creation-Date: 2025-12-13 19:40+0000\n"
 "PO-Revision-Date: 2025-10-06 12:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
@@ -167,6 +167,12 @@ msgstr "סגירה"
 #: src/Screenshot/SetupDialog.vala:170
 msgid "Conceal text:"
 msgstr "הסוואת טקסט:"
+
+#: src/Screenshot/SetupDialog.vala:205
+#, fuzzy
+#| msgid "Take Screenshot"
+msgid "Screenshot"
+msgstr "צילום המסך"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "לכידת המסך בשלמותו"
