@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-23 06:07+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/desktop/"
+"PO-Revision-Date: 2026-01-19 15:55+0000\n"
+"Last-Translator: Jernej Virag <jernej@virag.si>\n"
+"Language-Team: Slovenian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,43 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
-msgstr ""
+msgstr "Zavrni dostop"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
-msgstr ""
+msgstr "Dovoli dostop"
 
 #: src/AppChooser/Dialog.vala:51
 msgid "Open file with…"
-msgstr ""
+msgstr "Odpri datoteko z …"
 
 #: src/AppChooser/Dialog.vala:53
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Odpri “%s” z…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "An application requested to open a %s."
-msgstr ""
+msgstr "Aplikacija je zahtevala odprtje %s."
 
 #: src/AppChooser/Dialog.vala:74
 #, c-format
 msgid "“%s” requested to open a %s."
-msgstr ""
+msgstr "“%s” zahteva odprtje %s."
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Nobena nameščena aplikacija ne more odpreti %s"
 
 #: src/AppChooser/Dialog.vala:105
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Nove aplikacije lahko namestite s Centra za programsko opremo"
 
 #: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
 msgid "Cancel"
@@ -62,40 +62,40 @@ msgstr "Prekliči"
 
 #: src/AppChooser/Dialog.vala:126
 msgid "Open"
-msgstr ""
+msgstr "Odpri"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
-msgstr ""
+msgstr "Dovoli"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Prepovej"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Aktivnost v ozadju"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "“%s” teče v ozadju brez ustreznega dovoljenja"
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Ukaz po meri"
 
 #: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
-msgstr ""
+msgstr "Cel zaslon"
 
 #: src/ScreenCast/Dialog.vala:74
 msgid "Share"
-msgstr ""
+msgstr "Deli"
 
 #: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
-msgstr ""
+msgstr "Neznano okno"
 
 #: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
@@ -103,65 +103,63 @@ msgstr "Okna"
 
 #: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
-msgstr ""
+msgstr "Zasloni"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "V smeri urinega kazalca"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Obrnjeno na glavo"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Proti smeri urinega kazalca"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Obrnjeno"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Obrnjeno v smeri urinega kazalca"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Obrnjeno na glavo"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Obrnjeno proti smeri urinega kazalca"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Brez"
 
 #: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
-msgstr ""
+msgstr "Zaslon"
 
 #: src/Screenshot/SetupDialog.vala:75
-#, fuzzy
-#| msgid "Windows"
 msgid "Window"
-msgstr "Okna"
+msgstr "Okno"
 
 #: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
-msgstr ""
+msgstr "Območje"
 
 #: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
-msgstr ""
+msgstr "Zgrabi kazalec:"
 
 #: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Zamik v sekundah:"
 
 #: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
-msgstr ""
+msgstr "Posnami zaslon"
 
 #: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
@@ -169,8 +167,8 @@ msgstr "Zapri"
 
 #: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
-msgstr ""
+msgstr "Skrij besedilo:"
 
 #: src/Screenshot/SetupDialog.vala:202
 msgid "Screenshot"
-msgstr ""
+msgstr "Posnetek zaslona"
