@@ -34,6 +34,7 @@
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/portals/issues/106">Label the selection modes</issue>
         <issue url="https://github.com/elementary/portals/issues/158">Remember Screenshot Type Choice</issue>
       </issues>
     </release>
