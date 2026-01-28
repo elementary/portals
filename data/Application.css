@@ -1,0 +1,20 @@
+.dialog toolbox box.top,
+.dialog toolbox box.bottom {
+    padding: 1rem;
+}
+
+.dialog toolbox .top header {
+    margin-top: 0;
+}
+
+.dialog toolbox .top .large-icons {
+    -gtk-icon-size: 48px;
+}
+
+.dialog toolbox .top .normal-icons {
+    -gtk-icon-size: 24px;
+}
+
+.dialog toolbox .bottom button {
+    min-width: 5em;
+}
