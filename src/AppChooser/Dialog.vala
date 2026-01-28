@@ -4,7 +4,7 @@
  */
 
 [DBus (name = "org.freedesktop.impl.portal.Request")]
-public class AppChooser.Dialog : Gtk.Window {
+public class AppChooser.Dialog : PortalDialog {
     public signal void choiced (string app_id);
 
     // The ID used to register this dialog on the DBusConnection
@@ -12,8 +12,6 @@ public class AppChooser.Dialog : Gtk.Window {
 
     // The ID of the app sending the request
     public string app_id { get; construct; }
-
-    public string parent_window { get; construct; }
 
     // The app id that was selected the last time
     public string last_choice { get; construct; }
@@ -30,14 +28,12 @@ public class AppChooser.Dialog : Gtk.Window {
 
     public Dialog (
         string app_id,
-        string parent_window,
         string last_choice,
         string content_type,
         string filename
     ) {
         Object (
             app_id: app_id,
-            parent_window: parent_window,
             last_choice: last_choice,
             content_type: content_type,
             filename: filename
@@ -170,16 +166,6 @@ public class AppChooser.Dialog : Gtk.Window {
 
         add_css_class ("dialog");
         add_css_class (Granite.STYLE_CLASS_MESSAGE_DIALOG);
-
-        if (parent_window != "") {
-            ((Gtk.Widget) this).realize.connect (() => {
-                try {
-                    ExternalWindow.from_handle (parent_window).set_parent_of (get_surface ());
-                } catch (Error e) {
-                    warning ("Failed to associate portal window with parent %s: %s", parent_window, e.message);
-                }
-            });
-        }
 
         listbox.row_activated.connect ((row) => {
             choiced (((AppChooser.AppButton) row).app_id);
