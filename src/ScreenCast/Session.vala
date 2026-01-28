@@ -85,8 +85,19 @@ public class ScreenCast.Session : Object {
         this.cursor_mode = cursor_mode;
     }
 
-    internal void start (string parent_window) {
-        var dialog = new Dialog (source_types, allow_multiple);
+    internal void start (string app_id, string parent_window) {
+        var dialog = new Dialog (source_types, allow_multiple) {
+            image_icon = new ThemedIcon ("accessories-screencast-tool"),
+            primary_text = _("An application wants to access the screen"),
+            secondary_text = _("Select which parts of the screen to share.")
+        };
+
+        if (app_id != "") {
+            var app_info = new DesktopAppInfo (app_id + ".desktop");
+            if (app_info != null) {
+                dialog.primary_text = _("“%s” wants to access the screen").printf (app_info.get_display_name ());
+            }
+        }
 
         try {
             var parent = ExternalWindow.from_handle (parent_window);
