@@ -86,14 +86,9 @@ public class ScreenCast.Session : Object {
     }
 
     internal void start (string parent_window) {
-        var dialog = new Dialog (source_types, allow_multiple);
-
-        try {
-            var parent = ExternalWindow.from_handle (parent_window);
-            parent.set_parent_of (dialog.get_surface ());
-        } catch (Error e) {
-            warning ("Failed to set parent: %s", e.message);
-        }
+        var dialog = new Dialog (source_types, allow_multiple) {
+            parent_window = parent_window
+        };
 
         dialog.response.connect ((response) => {
             dialog.destroy ();
