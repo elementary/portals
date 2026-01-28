@@ -5,10 +5,11 @@
  * Authored by: Leonhard Kargl <leo.kargl@proton.me>
  */
 
-public class ScreenCast.Dialog : Granite.Dialog {
+public class ScreenCast.Dialog : Granite.Dialog, PantheonWayland.ExtendedBehavior {
     public SourceType source_types { get; construct; }
     public bool allow_multiple { get; construct; }
 
+    public string parent_window { get; set; }
     public int n_selected { get; private set; default = 0; }
 
     private List<SelectionRow> window_rows;
@@ -76,6 +77,34 @@ public class ScreenCast.Dialog : Granite.Dialog {
         bind_property ("n-selected", accept_button, "sensitive", SYNC_CREATE, (binding, from_val, ref to_val) => {
             to_val.set_boolean (n_selected > 0);
             return true;
+        });
+    }
+
+    public override void show () {
+        ((Gtk.Widget) base).realize ();
+
+        unowned var toplevel = (Gdk.Toplevel) get_surface ();
+
+        if (parent_window != "") {
+            try {
+                ExternalWindow.from_handle (parent_window).set_parent_of (toplevel);
+            } catch (Error e) {
+                warning ("Failed to associate portal window with parent '%s': %s", parent_window, e.message);
+                make_sticky ();
+            }
+        } else {
+            make_sticky ();
+        }
+
+        base.show ();
+        toplevel.focus (Gdk.CURRENT_TIME);
+    }
+
+    private void make_sticky () {
+        child.realize.connect (() => {
+            connect_to_shell ();
+            make_centered ();
+            set_keep_above ();
         });
     }
 
