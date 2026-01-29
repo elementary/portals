@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-29 18:14+0000\n"
 "PO-Revision-Date: 2024-12-19 16:04+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -27,25 +27,26 @@ msgstr "Nekt tilgang"
 msgid "Grant Access"
 msgstr "Innvilg tilgang"
 
-#: src/AppChooser/Dialog.vala:51
+#: src/AppChooser/Dialog.vala:58
+#, fuzzy, c-format
+msgid "An application wants to open a %s"
+msgstr "Et program har bedt om å åpne %s."
+
+#: src/AppChooser/Dialog.vala:60
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "«%s» forespurte åpning av %s."
+
+#: src/AppChooser/Dialog.vala:63
 #, fuzzy
 msgid "Open file with…"
 msgstr "Åpne filen med …"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:65
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Åpne «%s» med …"
-
-#: src/AppChooser/Dialog.vala:72
-#, fuzzy, c-format
-msgid "An application requested to open a %s."
-msgstr "Et program har bedt om å åpne %s."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "«%s» forespurte åpning av %s."
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
