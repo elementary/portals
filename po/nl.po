@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-29 18:14+0000\n"
 "PO-Revision-Date: 2025-12-20 15:55+0000\n"
 "Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/portals/"
@@ -27,24 +27,26 @@ msgstr "Weiger toegang"
 msgid "Grant Access"
 msgstr "Geef toegang"
 
-#: src/AppChooser/Dialog.vala:51
+#: src/AppChooser/Dialog.vala:58
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Een applicatie vraagt om een %s te openen."
+
+#: src/AppChooser/Dialog.vala:60
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "“%s” heeft gevraagd om een %s te openen."
+
+#: src/AppChooser/Dialog.vala:63
 msgid "Open file with…"
 msgstr "Open bestand met…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:65
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Open “%s” met…"
-
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Een applicatie vraagt om een %s te openen."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "“%s” heeft gevraagd om een %s te openen."
 
 #: src/AppChooser/Dialog.vala:104
 #, c-format
