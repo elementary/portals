@@ -77,6 +77,15 @@ public class ScreenCast.Dialog : Granite.Dialog {
             to_val.set_boolean (n_selected > 0);
             return true;
         });
+
+        list_box.row_activated.connect ((row) => {
+            if (row == null) {
+                return;
+            }
+
+            var check_button = ((SelectionRow) row).check_button;
+            check_button.active = !check_button.active;
+        });
     }
 
     private async void populate_windows () {
