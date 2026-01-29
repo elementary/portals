@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-29 18:14+0000\n"
 "PO-Revision-Date: 2025-04-16 14:55+0000\n"
 "Last-Translator: Ben Gordon Agnew <ben.gordon@posteo.de>\n"
 "Language-Team: Scots <https://l10n.elementaryos.org/projects/desktop/portals-"
@@ -37,27 +37,27 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:52
-#: data/portals.metainfo.xml.in:64 data/portals.metainfo.xml.in:76
-#: data/portals.metainfo.xml.in:88 data/portals.metainfo.xml.in:100
-#: data/portals.metainfo.xml.in:114 data/portals.metainfo.xml.in:123
-#: data/portals.metainfo.xml.in:135 data/portals.metainfo.xml.in:148
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:53
+#: data/portals.metainfo.xml.in:65 data/portals.metainfo.xml.in:77
+#: data/portals.metainfo.xml.in:89 data/portals.metainfo.xml.in:101
+#: data/portals.metainfo.xml.in:115 data/portals.metainfo.xml.in:124
+#: data/portals.metainfo.xml.in:136 data/portals.metainfo.xml.in:149
 msgid "New Features:"
 msgstr ""
 
-#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:54
-#: data/portals.metainfo.xml.in:66 data/portals.metainfo.xml.in:78
-#: data/portals.metainfo.xml.in:90 data/portals.metainfo.xml.in:102
-#: data/portals.metainfo.xml.in:116 data/portals.metainfo.xml.in:125
-#: data/portals.metainfo.xml.in:137 data/portals.metainfo.xml.in:151
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:55
+#: data/portals.metainfo.xml.in:67 data/portals.metainfo.xml.in:79
+#: data/portals.metainfo.xml.in:91 data/portals.metainfo.xml.in:103
+#: data/portals.metainfo.xml.in:117 data/portals.metainfo.xml.in:126
+#: data/portals.metainfo.xml.in:138 data/portals.metainfo.xml.in:152
 msgid "Updated translations"
 msgstr "Rewerkt translaitions"
 
-#: data/portals.metainfo.xml.in:43
+#: data/portals.metainfo.xml.in:44
 msgid ""
 "Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
 msgstr ""
 
-#: data/portals.metainfo.xml.in:150
+#: data/portals.metainfo.xml.in:151
 msgid "Support dialog parenting on wayland"
 msgstr ""
