@@ -15,10 +15,6 @@
     -gtk-icon-size: 48px;
 }
 
-.dialog toolbox .top .normal-icons {
-    -gtk-icon-size: 24px;
-}
-
 .dialog toolbox .bottom button {
     min-width: 5em;
 }
