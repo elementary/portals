@@ -97,7 +97,7 @@ public class ScreenCast.Session : Object {
             var app_info = new DesktopAppInfo (app_id + ".desktop");
             if (app_info != null) {
                 dialog.primary_icon = app_info.get_icon ();
-                dialog.title  = _("“%s” wants to access the screen").printf (app_info.get_display_name ());
+                dialog.title = _("“%s” wants to access the screen").printf (app_info.get_display_name ());
             }
         }
 
