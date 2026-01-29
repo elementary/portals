@@ -59,12 +59,12 @@ public class AppChooser.Dialog : PortalDialog {
             }
         }
 
-        title = _("An application wants to open a %s.").printf (content_description);
+        title = _("An application wants to open a %s").printf (content_description);
         if (info != null) {
-            title = _("“%s” wants to open a %s.").printf (info.get_display_name (), content_description);
+            title = _("“%s” wants to open a %s").printf (info.get_display_name (), content_description);
         }
 
-        secondary_text = _("Open with…");
+        secondary_text = _("Open file with…");
         if (filename != "") {
             secondary_text = _("Open “%s” with…").printf (filename);
         }
