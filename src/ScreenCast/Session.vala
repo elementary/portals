@@ -89,7 +89,7 @@ public class ScreenCast.Session : Object {
         var dialog = new Dialog (source_types, allow_multiple) {
             image_icon = new ThemedIcon ("accessories-screencast-tool"),
             primary_text = _("An application wants to access the screen"),
-            secondary_text = _("Select which parts of the screen to share.")
+            secondary_text = _("Select which parts of the screen to share:")
         };
 
         if (app_id != "") {
