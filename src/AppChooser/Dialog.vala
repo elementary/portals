@@ -62,15 +62,12 @@ public class AppChooser.Dialog : PortalDialog {
         title = _("An application wants to open a %s").printf (content_description);
         if (info != null) {
             title = _("“%s” wants to open a %s").printf (info.get_display_name (), content_description);
+            primary_icon = info.get_icon ();
         }
 
         secondary_text = _("Open file with…");
         if (filename != "") {
             secondary_text = _("Open “%s” with…").printf (filename);
-        }
-
-        if (info != null) {
-            primary_icon = info.get_icon ();
         }
 
         var placeholder = new Granite.Placeholder (_("No installed apps can open %s").printf (content_description)) {
