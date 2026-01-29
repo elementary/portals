@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/io/elementary/xdg-desktop-portal-pantheon">
+    <file alias="48x48/apps/accessories-screencast-tool.svg" compressed="true" preprocess="xml-stripblanks">icons/screencast.svg</file>
+    <file alias="48x48@2/apps/accessories-screencast-tool.svg" compressed="true" preprocess="xml-stripblanks">icons/screencast.svg</file>
+
     <file alias="scalable/actions/grab-area-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/grab-area-symbolic.svg</file>
     <file alias="scalable/actions/grab-screen-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/grab-screen-symbolic.svg</file>
     <file alias="scalable/actions/grab-window-symbolic.svg" compressed="true" preprocess="xml-stripblanks">icons/grab-window-symbolic.svg</file>
