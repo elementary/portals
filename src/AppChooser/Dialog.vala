@@ -48,16 +48,21 @@ public class AppChooser.Dialog : Gtk.Window {
         buttons = new HashTable<string, AppButton> (str_hash, str_equal);
         AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
 
-        var primary_text = _("Open file with…");
-        if (filename != "") {
-            primary_text = _("Open “%s” with…").printf (filename);
-        }
-
         var content_description = ContentType.get_description ("text/plain");
         var content_icon = ContentType.get_icon ("text/plain");
         if (content_type != "") {
             content_description = ContentType.get_description (content_type);
             content_icon = ContentType.get_icon (content_type);
+        }
+
+        var primary_text = _("An application wants to open a %s").printf (content_description);
+        if (info != null) {
+            primary_text = _("“%s” wants to open a %s").printf (info.get_display_name (), content_description);
+        }
+
+        var secondary_text = _("Open file with…");
+        if (filename != "") {
+            secondary_text = _("Open “%s” with…").printf (filename);
         }
 
         var primary_label = new Gtk.Label (primary_text) {
@@ -68,11 +73,6 @@ public class AppChooser.Dialog : Gtk.Window {
              xalign = 0
         };
         primary_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
-
-        var secondary_text = _("An application requested to open a %s.").printf (content_description);
-        if (info != null) {
-            secondary_text = _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
-        }
 
         var secondary_label = new Gtk.Label (secondary_text) {
             max_width_chars = 50,
