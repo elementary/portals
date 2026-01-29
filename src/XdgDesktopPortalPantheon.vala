@@ -96,7 +96,7 @@ int main (string[] args) {
     Gtk.init ();
 
     weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
-    default_theme.add_resource_path ("/io/elementary/xdg-desktop-portal-pantheon");
+    default_theme.add_resource_path ("/io/elementary/xdg-desktop-portal-pantheon/icons");
 
     try {
         var opt_context = new OptionContext ("- portal backends");
