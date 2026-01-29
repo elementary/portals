@@ -44,25 +44,33 @@ public class AppChooser.Dialog : PortalDialog {
         buttons = new HashTable<string, AppButton> (str_hash, str_equal);
         AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
 
-        title = _("Open file with…");
-        if (filename != "") {
-            title = _("Open “%s” with…").printf (filename);
-        }
-
         var content_description = ContentType.get_description ("text/plain");
-        var image_icon = ContentType.get_icon ("text/plain");
+        secondary_icon = new ThemedIcon ("document-open");
         if (content_type != "") {
             content_description = ContentType.get_description (content_type);
-            image_icon = ContentType.get_icon (content_type);
+            if (content_description.contains ("x-scheme-handler")) {
+                ///TRANSLATORS: An http link
+                content_description = _("link");
+            }
+
+            var content_icon = ContentType.get_icon (content_type);
+            if (Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).has_gicon (content_icon)) {
+                secondary_icon = content_icon;
+            }
         }
 
-        secondary_text = _("An application requested to open a %s.").printf (content_description);
+        title = _("An application wants to open a %s.").printf (content_description);
         if (info != null) {
-            secondary_text = _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
+            title = _("“%s” wants to open a %s.").printf (info.get_display_name (), content_description);
+        }
+
+        secondary_text = _("Open with…");
+        if (filename != "") {
+            secondary_text = _("Open “%s” with…").printf (filename);
         }
 
         if (info != null) {
-            badge_icon = info.get_icon ();
+            primary_icon = info.get_icon ();
         }
 
         var placeholder = new Granite.Placeholder (_("No installed apps can open %s").printf (content_description)) {

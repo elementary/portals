@@ -5,16 +5,14 @@
 
 public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
     /**
-     * The {@link GLib.Icon} that is used to display the image
-     * on the left side of the dialog.
+     * The {@link GLib.Icon} that is used to display the primary_icon representing the app making the request
      */
-    public GLib.Icon image_icon { get; set; }
+    public GLib.Icon primary_icon { get; set; }
 
     /**
-     * The {@link GLib.Icon} that is used to display a badge, bottom-end aligned,
-     * over the image on the left side of the dialog.
+     * The {@link GLib.Icon} that is used to display a secondary_icon representing the action to be performed
      */
-    public GLib.Icon badge_icon { get; set; }
+    public GLib.Icon secondary_icon { get; set; }
 
     /**
      * The secondary text, body of the dialog.
@@ -34,32 +32,31 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
     private Granite.Box button_box;
 
     construct {
-        var image = new Gtk.Image () {
+        var primary_icon = new Gtk.Image.from_icon_name ("application-default-icon") {
+            halign = START,
             icon_size = LARGE
         };
 
-        var badge = new Gtk.Image () {
-            icon_size = NORMAL,
+        var secondary_icon = new Gtk.Image.from_icon_name ("preferences-system-privacy") {
             halign = END,
-            valign = END
+            icon_size = LARGE
         };
 
         var overlay = new Gtk.Overlay () {
-            child = image,
-            valign = START
+            child = secondary_icon,
+            halign = CENTER
         };
-        overlay.add_overlay (badge);
+        overlay.add_overlay (primary_icon);
 
         var header_label = new Granite.HeaderLabel ("") {
             size = H3
         };
 
-        var header = new Granite.Box (HORIZONTAL);
+        var header = new Granite.Box (VERTICAL);
         header.append (overlay);
         header.append (header_label);
 
         button_box = new Granite.Box (HORIZONTAL, HALF) {
-            halign = END,
             homogeneous = true
         };
 
@@ -80,8 +77,8 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
         add_css_class ("dialog");
 
-        bind_property ("image-icon", image, "gicon");
-        bind_property ("badge-icon", badge, "gicon");
+        bind_property ("primary-icon", primary_icon, "gicon");
+        bind_property ("secondary-icon", secondary_icon, "gicon");
         bind_property ("content", toolbarview, "content");
         bind_property ("title", header_label, "label");
         bind_property ("secondary-text", header_label, "secondary-text");
