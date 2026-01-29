@@ -79,10 +79,6 @@ public class ScreenCast.Dialog : Granite.Dialog {
         });
 
         list_box.row_activated.connect ((row) => {
-            if (row == null) {
-                return;
-            }
-
             var check_button = ((SelectionRow) row).check_button;
             check_button.active = !check_button.active;
         });
