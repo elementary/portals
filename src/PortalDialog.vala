@@ -66,8 +66,8 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
         child = toolbarview;
 
-        default_height = 400;
-        default_width = 350;
+        default_height = 425;
+        default_width = 325;
         modal = true;
 
         // We need to hide the title area
