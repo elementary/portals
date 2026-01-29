@@ -12,7 +12,7 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
     public Icon icon { get; construct; }
     public Gtk.CheckButton? group { get; construct; }
 
-    public Gtk.CheckButton check_button { get; construct; }
+    public Gtk.CheckButton check_button { get; private set; }
 
     public bool selected { get; set; default = false; }
 
