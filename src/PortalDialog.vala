@@ -49,9 +49,6 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
         CANCEL
     }
 
-    private Gtk.Button allow_button;
-    private Gtk.Button cancel_button;
-
     /**
      * The parent window identifier as described by https://flatpak.github.io/xdg-desktop-portal/docs/window-identifiers.html
      */
@@ -84,9 +81,9 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
         header.append (overlay);
         header.append (header_label);
 
-        cancel_button = new Gtk.Button.with_label (_("Don't Allow"));
+        var cancel_button = new Gtk.Button.with_label (_("Don't Allow"));
 
-        allow_button = new Gtk.Button.with_label (_("Allow")) {
+        var allow_button = new Gtk.Button.with_label (_("Allow")) {
             receives_default = true
         };
         allow_button.add_css_class (Granite.CssClass.SUGGESTED);
