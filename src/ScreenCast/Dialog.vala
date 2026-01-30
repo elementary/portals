@@ -30,7 +30,6 @@ public class ScreenCast.Dialog : Granite.MessageDialog {
             hexpand = true,
             vexpand = true
         };
-        list_box.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         list_box.set_header_func (header_func);
 
         if (MONITOR in source_types) {
