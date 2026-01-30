@@ -134,7 +134,7 @@ public class AppChooser.Dialog : Gtk.Window {
         open_button = new Gtk.Button.with_label (_("Open")) {
             receives_default = true
         };
-        open_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        open_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
         var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             halign = Gtk.Align.END
