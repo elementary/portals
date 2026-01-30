@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-30 04:15+0000\n"
-"PO-Revision-Date: 2025-12-16 10:55+0000\n"
+"PO-Revision-Date: 2026-01-31 08:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
 "portals/fr/>\n"
@@ -30,25 +30,21 @@ msgstr "Autoriser l'accès"
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:57
 msgid "link"
-msgstr ""
+msgstr "lien"
 
 #: src/AppChooser/Dialog.vala:66
-#, fuzzy, c-format
-#| msgid "An application requested to open a %s."
+#, c-format
 msgid "An application wants to open a %s"
-msgstr "Une application a demandé l'autorisation d'ouvrir un %s."
+msgstr "Une application souhaite ouvrir un %s"
 
 #: src/AppChooser/Dialog.vala:68
-#, fuzzy, c-format
-#| msgid "“%s” requested to open a %s."
+#, c-format
 msgid "“%s” wants to open a %s"
-msgstr "« %s » a demandé l'autorisation d'ouvrir un %s."
+msgstr "« %s » souhaite ouvrir un %s"
 
 #: src/AppChooser/Dialog.vala:71
-#, fuzzy
-#| msgid "Open file with…"
 msgid "Open with…"
-msgstr "Ouvrir le fichier avec…"
+msgstr "Ouvrir avec…"
 
 #: src/AppChooser/Dialog.vala:73
 #, c-format
