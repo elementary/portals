@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
 "PO-Revision-Date: 2025-10-16 13:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
@@ -27,39 +27,48 @@ msgstr "Hozzáférés megtagadása"
 msgid "Grant Access"
 msgstr "Hozzáférés megadása"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Egy alkalmazás egy %s megnyitását kéri."
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "\"%s\" egy %s megnyitását kéri."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "Fájl megnyitása ezzel…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "\"%s\" megnyitása ezzel…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Egy alkalmazás egy %s megnyitását kéri."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "\"%s\" egy %s megnyitását kéri."
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Egyik telepített alkalmazás sem képes %s megnyitására"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr "Az Appközpontból telepíthetők új alkalmazások"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "Megnyitás"
 
@@ -84,23 +93,23 @@ msgstr "\"%s\" a háttérben fut megfelelő engedély nélkül"
 msgid "Custom Command"
 msgstr "Egyedi parancs"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "Egész kijelző"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "Megosztás"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "Ismeretlen ablak"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "Ablakok"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "Kijelzők"
 

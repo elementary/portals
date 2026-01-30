@@ -5,7 +5,7 @@
  * Authored by: Leonhard Kargl <leo.kargl@proton.me>
  */
 
-public class ScreenCast.Dialog : Granite.Dialog {
+public class ScreenCast.Dialog : Granite.MessageDialog {
     public SourceType source_types { get; construct; }
     public bool allow_multiple { get; construct; }
 
@@ -27,9 +27,9 @@ public class ScreenCast.Dialog : Granite.Dialog {
         monitor_rows = new List<SelectionRow> ();
 
         list_box = new Gtk.ListBox () {
+            hexpand = true,
             vexpand = true
         };
-        list_box.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         list_box.set_header_func (header_func);
 
         if (MONITOR in source_types) {
@@ -64,8 +64,9 @@ public class ScreenCast.Dialog : Granite.Dialog {
             child = scrolled_window
         };
 
-        get_content_area ().append (frame);
+        custom_bin.append (frame);
 
+        resizable = true;
         default_height = 400;
         default_width = 300;
 

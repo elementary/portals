@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
 "PO-Revision-Date: 2025-12-15 08:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
@@ -28,39 +28,48 @@ msgstr "Отклонить запрос"
 msgid "Grant Access"
 msgstr "Дать доступ"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Приложение запросило открыть %s."
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "Приложение «%s» запросило открыть %s."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "Открыть файл с помощью…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Открыть «%s» с помощью…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Приложение запросило открыть %s."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "Приложение «%s» запросило открыть %s."
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Ни одно из установленных приложений не может открыть %s"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr "Новые приложения можно установить из AppCenter"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "Открыть"
 
@@ -85,23 +94,23 @@ msgstr "«%s» запущено в фоновом режиме без соотв
 msgid "Custom Command"
 msgstr "Пользовательская команда"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "Весь экран"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "Начать демонстрацию"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "Неизвестное окно"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "Окна"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "Мониторы"
 

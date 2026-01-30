@@ -58,18 +58,22 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
             xalign = 0
         };
 
-        label_box = new Gtk.Box (VERTICAL, 0) {
-            margin_start = 6,
+        label_box = new Granite.Box (VERTICAL, NONE) {
             valign = CENTER
         };
+        label_box.add_css_class ("text-box");
         label_box.append (title_label);
 
-        var box = new Gtk.Box (HORIZONTAL, 0);
+        var box = new Granite.Box (HORIZONTAL, NONE);
         box.append (check_button);
         box.append (image);
         box.append (label_box);
 
-        child = box;
+        var list_item = new Granite.ListItem () {
+            child = box
+        };
+
+        child = list_item;
 
         check_button.bind_property ("active", this, "selected", DEFAULT);
     }

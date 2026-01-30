@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
 "PO-Revision-Date: 2025-12-20 15:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -27,39 +27,48 @@ msgstr "アクセスを拒否"
 msgid "Grant Access"
 msgstr "アクセスを許可"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "アプリが%sを開こうとしています。"
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "“%s”が%sを開こうとしています。"
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "ファイルを次で開く…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "“%s”を次で開く…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "アプリが%sを開こうとしています。"
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "“%s”が%sを開こうとしています。"
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "%sを開くアプリがインストールされていません"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr "AppCenter からアプリをインストールできます"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "開く"
 
@@ -84,23 +93,23 @@ msgstr "“%s”は適切な許可なくバックグラウンドで動作して�
 msgid "Custom Command"
 msgstr "カスタムコマンド"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "ディスプレイ全体"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "共有"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "不明なウィンドウ"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "ウィンドウ"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "モニター"
 

@@ -48,16 +48,29 @@ public class AppChooser.Dialog : Gtk.Window {
         buttons = new HashTable<string, AppButton> (str_hash, str_equal);
         AppInfo? info = app_id == "" ? null : new DesktopAppInfo (app_id + ".desktop");
 
-        var primary_text = _("Open file with…");
-        if (filename != "") {
-            primary_text = _("Open “%s” with…").printf (filename);
-        }
-
         var content_description = ContentType.get_description ("text/plain");
-        var content_icon = ContentType.get_icon ("text/plain");
+        Icon secondary_icon = new ThemedIcon ("document-open");
         if (content_type != "") {
             content_description = ContentType.get_description (content_type);
-            content_icon = ContentType.get_icon (content_type);
+            if (content_description.contains ("x-scheme-handler")) {
+                ///TRANSLATORS: An http link
+                content_description = _("link");
+            }
+
+            var content_icon = ContentType.get_icon (content_type);
+            if (Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).has_gicon (content_icon)) {
+                secondary_icon = content_icon;
+            }
+        }
+
+        var primary_text = _("An application wants to open a %s").printf (content_description);
+        if (info != null) {
+            primary_text = _("“%s” wants to open a %s").printf (info.get_display_name (), content_description);
+        }
+
+        var secondary_text = _("Open with…");
+        if (filename != "") {
+            secondary_text = _("Open “%s” with…").printf (filename);
         }
 
         var primary_label = new Gtk.Label (primary_text) {
@@ -69,11 +82,6 @@ public class AppChooser.Dialog : Gtk.Window {
         };
         primary_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
-        var secondary_text = _("An application requested to open a %s.").printf (content_description);
-        if (info != null) {
-            secondary_text = _("“%s” requested to open a %s.").printf (info.get_display_name (), content_description);
-        }
-
         var secondary_label = new Gtk.Label (secondary_text) {
             max_width_chars = 50,
             margin_bottom = 18,
@@ -82,7 +90,7 @@ public class AppChooser.Dialog : Gtk.Window {
             xalign = 0
         };
 
-        var mime_icon = new Gtk.Image.from_gicon (content_icon) {
+        var mime_icon = new Gtk.Image.from_gicon (secondary_icon) {
             pixel_size = 48
         };
 
@@ -110,7 +118,6 @@ public class AppChooser.Dialog : Gtk.Window {
             hexpand = true,
             vexpand = true
         };
-        listbox.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         listbox.set_placeholder (placeholder);
 
         var scrolled_window = new Gtk.ScrolledWindow () {

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
 "PO-Revision-Date: 2024-09-21 10:16+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/portals/"
@@ -27,39 +27,48 @@ msgstr "Erişimi Engelle"
 msgid "Grant Access"
 msgstr "Erişim İzni Ver"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Uygulama bir %s açmak istedi."
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "“%s” bir %s açmak istedi."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "Dosyayı şu uygulama ile aç…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "“%s” ile aç…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Uygulama bir %s açmak istedi."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "“%s” bir %s açmak istedi."
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Yüklü hiçbir uygulama %s açamaz"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr "Uygulama Merkezinden yeni uygulamalar yüklenebilir"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "Aç"
 
@@ -84,23 +93,23 @@ msgstr "“%s” uygun izin olmadan arka planda çalışıyor"
 msgid "Custom Command"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr ""
 

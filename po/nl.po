@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 06:07+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
 "PO-Revision-Date: 2025-12-20 15:55+0000\n"
 "Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/portals/"
@@ -27,39 +27,48 @@ msgstr "Weiger toegang"
 msgid "Grant Access"
 msgstr "Geef toegang"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Een applicatie vraagt om een %s te openen."
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "“%s” heeft gevraagd om een %s te openen."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "Open bestand met…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Open “%s” met…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Een applicatie vraagt om een %s te openen."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "“%s” heeft gevraagd om een %s te openen."
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Geen van de geïnstalleerde apps kunnen %s openen"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr "Nieuwe apps kunnen worden geïnstalleerd met AppCenter"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "Openen"
 
@@ -84,23 +93,23 @@ msgstr "\"%s\" draait in de achtergrond zonder de juiste toestemming"
 msgid "Custom Command"
 msgstr "Aangepast commando"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "Hele scherm"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "Deel"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "Onbekend venster"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "Vensters"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "Monitors"
 
