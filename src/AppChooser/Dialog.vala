@@ -65,7 +65,7 @@ public class AppChooser.Dialog : PortalDialog {
             primary_icon = info.get_icon ();
         }
 
-        secondary_text = _("Open file with…");
+        secondary_text = _("Open with…");
         if (filename != "") {
             secondary_text = _("Open “%s” with…").printf (filename);
         }
