@@ -73,7 +73,6 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
             child = check_button
         };
 
-
         child = list_item;
 
         check_button.bind_property ("active", this, "selected", DEFAULT);
