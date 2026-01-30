@@ -22,10 +22,14 @@ public class AppChooser.AppButton : Gtk.ListBoxRow {
             ellipsize = Pango.EllipsizeMode.END
         };
 
-        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+        var box = new Granite.Box (HORIZONTAL, HALF);
         box.append (icon);
         box.append (name);
 
-        child = box;
+        var list_item = new Granite.ListItem () {
+            child = box
+        };
+
+        child = list_item;
     }
 }
