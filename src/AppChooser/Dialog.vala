@@ -118,7 +118,6 @@ public class AppChooser.Dialog : Gtk.Window {
             hexpand = true,
             vexpand = true
         };
-        listbox.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         listbox.set_placeholder (placeholder);
 
         var scrolled_window = new Gtk.ScrolledWindow () {
