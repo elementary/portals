@@ -45,10 +45,6 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
     }
 
     construct {
-        check_button = new Gtk.CheckButton () {
-            group = group
-        };
-
         var image = new Gtk.Image.from_gicon (icon) {
             icon_size = LARGE
         };
@@ -65,13 +61,18 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
         label_box.append (title_label);
 
         var box = new Granite.Box (HORIZONTAL, NONE);
-        box.append (check_button);
         box.append (image);
         box.append (label_box);
 
-        var list_item = new Granite.ListItem () {
-            child = box
+        check_button = new Gtk.CheckButton () {
+            child = box,
+            group = group
         };
+
+        var list_item = new Granite.ListItem () {
+            child = check_button
+        };
+
 
         child = list_item;
 
