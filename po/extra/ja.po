@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
 "PO-Revision-Date: 2025-06-18 14:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -39,29 +39,29 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:31
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:53
+#: data/portals.metainfo.xml.in:65 data/portals.metainfo.xml.in:77
+#: data/portals.metainfo.xml.in:89 data/portals.metainfo.xml.in:101
+#: data/portals.metainfo.xml.in:115 data/portals.metainfo.xml.in:124
+#: data/portals.metainfo.xml.in:136 data/portals.metainfo.xml.in:149
+msgid "New Features:"
+msgstr "新機能:"
+
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:55
+#: data/portals.metainfo.xml.in:67 data/portals.metainfo.xml.in:79
+#: data/portals.metainfo.xml.in:91 data/portals.metainfo.xml.in:103
+#: data/portals.metainfo.xml.in:117 data/portals.metainfo.xml.in:126
+#: data/portals.metainfo.xml.in:138 data/portals.metainfo.xml.in:152
+msgid "Updated translations"
+msgstr "翻訳の更新"
+
+#: data/portals.metainfo.xml.in:44
 msgid ""
 "Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
 msgstr ""
 "未リリースの Granite と組み合わせた際に発生する 8.0.3 のリグレッションを修正"
 
-#: data/portals.metainfo.xml.in:40 data/portals.metainfo.xml.in:52
-#: data/portals.metainfo.xml.in:64 data/portals.metainfo.xml.in:76
-#: data/portals.metainfo.xml.in:88 data/portals.metainfo.xml.in:102
-#: data/portals.metainfo.xml.in:111 data/portals.metainfo.xml.in:123
-#: data/portals.metainfo.xml.in:136
-msgid "New Features:"
-msgstr "新機能:"
-
-#: data/portals.metainfo.xml.in:42 data/portals.metainfo.xml.in:54
-#: data/portals.metainfo.xml.in:66 data/portals.metainfo.xml.in:78
-#: data/portals.metainfo.xml.in:90 data/portals.metainfo.xml.in:104
-#: data/portals.metainfo.xml.in:113 data/portals.metainfo.xml.in:125
-#: data/portals.metainfo.xml.in:139
-msgid "Updated translations"
-msgstr "翻訳の更新"
-
-#: data/portals.metainfo.xml.in:138
+#: data/portals.metainfo.xml.in:151
 msgid "Support dialog parenting on wayland"
 msgstr ""
 "Wayland において、ポータルダイアログを親ウィンドウの上に表示できるように修正"

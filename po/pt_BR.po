@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
 "PO-Revision-Date: 2025-05-16 14:55+0000\n"
 "Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -27,40 +27,49 @@ msgstr "Negar o acesso"
 msgid "Grant Access"
 msgstr "Conceder acesso"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Uma aplicação solicitou abrir um %s."
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "“%s” solicitou abrir um %s."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "Abrir arquivo com…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Abrir “%s” com…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Uma aplicação solicitou abrir um %s."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "“%s” solicitou abrir um %s."
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Nenhuma aplicação instalada pode abrir %s"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr ""
 "Novas aplicações podem ser instaladas a partir da Central de Aplicativos"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "Abrir"
 
@@ -85,23 +94,23 @@ msgstr "“%s” está sendo executado em segundo plano sem permissão"
 msgid "Custom Command"
 msgstr "Comando personalizado"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "Tela inteira"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "Compartilhar"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "Janela desconhecida"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "Janelas"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "Monitores"
 
@@ -137,39 +146,45 @@ msgstr "Invertido no sentido anti-horário"
 msgid "None"
 msgstr "Nenhum"
 
-#: src/Screenshot/SetupDialog.vala:47
+#: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:70
+#: src/Screenshot/SetupDialog.vala:75
 #, fuzzy
 #| msgid "Windows"
 msgid "Window"
 msgstr "Janelas"
 
-#: src/Screenshot/SetupDialog.vala:93
+#: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
 msgstr ""
 
-#: src/Screenshot/SetupDialog.vala:120
+#: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
 msgstr "Capturar o ponteiro:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
 msgstr "Tempo de espera em segundos:"
 
-#: src/Screenshot/SetupDialog.vala:136
+#: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
 msgstr "Capturar tela"
 
-#: src/Screenshot/SetupDialog.vala:145
+#: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
 msgstr "Fechar"
 
-#: src/Screenshot/SetupDialog.vala:170
+#: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
 msgstr "Ocultar texto:"
+
+#: src/Screenshot/SetupDialog.vala:202
+#, fuzzy
+#| msgid "Take Screenshot"
+msgid "Screenshot"
+msgstr "Capturar tela"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Capturar toda a tela"

@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2024-12-24 00:16+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"PO-Revision-Date: 2025-12-19 00:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
+"Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -28,39 +28,48 @@ msgstr "Заборонити доступ"
 msgid "Grant Access"
 msgstr "Надати доступ"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Застосунок хоче відкрити %s."
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "«%s» хоче відкрити %s."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "Відкрити файл у…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Відкрити «%s» у…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Застосунок хоче відкрити %s."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "«%s» хоче відкрити %s."
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Жоден з установлених застосунків не може відкрити %s"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr "Нові застосунки можна встановити з Центру застосунків"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "Відкрити"
 
@@ -85,23 +94,23 @@ msgstr "«%s» запущено у фоновому режимі без відп
 msgid "Custom Command"
 msgstr "Користувацька команда"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "Весь екран"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "Поділитися"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "Невідоме вікно"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "Вікна"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "Монітори"
 
@@ -137,39 +146,41 @@ msgstr "Перевернуто проти годинникової стрілк�
 msgid "None"
 msgstr "Нічого"
 
-#: src/Screenshot/SetupDialog.vala:47
+#: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
-msgstr ""
+msgstr "Екран"
 
-#: src/Screenshot/SetupDialog.vala:70
-#, fuzzy
-#| msgid "Windows"
+#: src/Screenshot/SetupDialog.vala:75
 msgid "Window"
-msgstr "Вікна"
+msgstr "Вікно"
 
-#: src/Screenshot/SetupDialog.vala:93
+#: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
-msgstr ""
+msgstr "Ділянка"
 
-#: src/Screenshot/SetupDialog.vala:120
+#: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
 msgstr "Захопити вказівник:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
 msgstr "Затримка в секундах:"
 
-#: src/Screenshot/SetupDialog.vala:136
+#: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
 msgstr "Зробити знімок екрана"
 
-#: src/Screenshot/SetupDialog.vala:145
+#: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
 msgstr "Закрити"
 
-#: src/Screenshot/SetupDialog.vala:170
+#: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
 msgstr "Сховати текст:"
+
+#: src/Screenshot/SetupDialog.vala:202
+msgid "Screenshot"
+msgstr "Знімок екрана"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Захопити весь екран"

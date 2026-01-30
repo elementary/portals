@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2024-08-20 11:26+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/he/>\n"
+"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
+"portals-extra/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/portals.metainfo.xml.in:10
 msgid "Portals"
@@ -37,30 +37,30 @@ msgstr ""
 
 #: data/portals.metainfo.xml.in:23
 msgid "elementary, Inc."
-msgstr "elementary בע״מ"
+msgstr "elementary בע״מ."
 
-#: data/portals.metainfo.xml.in:31
-msgid ""
-"Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
-msgstr ""
-
-#: data/portals.metainfo.xml.in:40 data/portals.metainfo.xml.in:52
-#: data/portals.metainfo.xml.in:64 data/portals.metainfo.xml.in:76
-#: data/portals.metainfo.xml.in:88 data/portals.metainfo.xml.in:102
-#: data/portals.metainfo.xml.in:111 data/portals.metainfo.xml.in:123
-#: data/portals.metainfo.xml.in:136
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:53
+#: data/portals.metainfo.xml.in:65 data/portals.metainfo.xml.in:77
+#: data/portals.metainfo.xml.in:89 data/portals.metainfo.xml.in:101
+#: data/portals.metainfo.xml.in:115 data/portals.metainfo.xml.in:124
+#: data/portals.metainfo.xml.in:136 data/portals.metainfo.xml.in:149
 msgid "New Features:"
 msgstr "יכולות חדשות:"
 
-#: data/portals.metainfo.xml.in:42 data/portals.metainfo.xml.in:54
-#: data/portals.metainfo.xml.in:66 data/portals.metainfo.xml.in:78
-#: data/portals.metainfo.xml.in:90 data/portals.metainfo.xml.in:104
-#: data/portals.metainfo.xml.in:113 data/portals.metainfo.xml.in:125
-#: data/portals.metainfo.xml.in:139
+#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:55
+#: data/portals.metainfo.xml.in:67 data/portals.metainfo.xml.in:79
+#: data/portals.metainfo.xml.in:91 data/portals.metainfo.xml.in:103
+#: data/portals.metainfo.xml.in:117 data/portals.metainfo.xml.in:126
+#: data/portals.metainfo.xml.in:138 data/portals.metainfo.xml.in:152
 msgid "Updated translations"
 msgstr "התרגומים עודכנו"
 
-#: data/portals.metainfo.xml.in:138
+#: data/portals.metainfo.xml.in:44
+msgid ""
+"Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
+msgstr "מתקן תקלה חוזרת ב־8.0.3 שמתרחשת עם גרסה של Granite שלא ראתה אור"
+
+#: data/portals.metainfo.xml.in:151
 msgid "Support dialog parenting on wayland"
 msgstr "תמיכה בהורות של חלוניות ב־wayland"
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2025-09-26 21:55+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"PO-Revision-Date: 2025-12-20 15:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "portals/ja/>\n"
@@ -27,39 +27,48 @@ msgstr "アクセスを拒否"
 msgid "Grant Access"
 msgstr "アクセスを許可"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "アプリが%sを開こうとしています。"
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "“%s”が%sを開こうとしています。"
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "ファイルを次で開く…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "“%s”を次で開く…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "アプリが%sを開こうとしています。"
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "“%s”が%sを開こうとしています。"
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "%sを開くアプリがインストールされていません"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr "AppCenter からアプリをインストールできます"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "開く"
 
@@ -84,23 +93,23 @@ msgstr "“%s”は適切な許可なくバックグラウンドで動作して�
 msgid "Custom Command"
 msgstr "カスタムコマンド"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "ディスプレイ全体"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "共有"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "不明なウィンドウ"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "ウィンドウ"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "モニター"
 
@@ -136,37 +145,41 @@ msgstr "左右反転、左に 90 度回転"
 msgid "None"
 msgstr "なし"
 
-#: src/Screenshot/SetupDialog.vala:47
+#: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
 msgstr "画面"
 
-#: src/Screenshot/SetupDialog.vala:70
+#: src/Screenshot/SetupDialog.vala:75
 msgid "Window"
 msgstr "ウィンドウ"
 
-#: src/Screenshot/SetupDialog.vala:93
+#: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
 msgstr "選択範囲"
 
-#: src/Screenshot/SetupDialog.vala:120
+#: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
 msgstr "ポインター部分を取得:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
 msgstr "遅延する秒数:"
 
-#: src/Screenshot/SetupDialog.vala:136
+#: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
 msgstr "スクリーンショットを撮る"
 
-#: src/Screenshot/SetupDialog.vala:145
+#: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
 msgstr "閉じる"
 
-#: src/Screenshot/SetupDialog.vala:170
+#: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
 msgstr "テキストを隠す:"
+
+#: src/Screenshot/SetupDialog.vala:202
+msgid "Screenshot"
+msgstr "スクリーンショット"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "画面全体を取得します"

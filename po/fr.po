@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2025-09-23 06:55+0000\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"PO-Revision-Date: 2025-12-16 10:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
 "portals/fr/>\n"
@@ -27,41 +27,50 @@ msgstr "Refuser l'accès"
 msgid "Grant Access"
 msgstr "Autoriser l'accès"
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
+msgstr ""
+
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Une application a demandé l'autorisation d'ouvrir un %s."
+
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "« %s » a demandé l'autorisation d'ouvrir un %s."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
 msgstr "Ouvrir le fichier avec…"
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Ouvrir « %s » avec…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr "Une application a demandé l'autorisation d'ouvrir un %s."
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr "« %s » a demandé l'autorisation d'ouvrir un %s."
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "Aucune application installée ne peut ouvrir %s"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
 msgstr ""
 "De nouvelles applications peuvent être installées à partir du Centre "
 "d'Applications"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
 msgstr "Ouvrir"
 
@@ -86,23 +95,23 @@ msgstr "« %s » s'exécute en arrière-plan sans autorisation adéquate"
 msgid "Custom Command"
 msgstr "Commande personnalisée"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
 msgstr "Tout l'écran"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
 msgstr "Partager"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
 msgstr "Fenêtre inconnue"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "Fenêtres"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
 msgstr "Écrans"
 
@@ -138,37 +147,41 @@ msgstr "Retourné dans le sens antihoraire"
 msgid "None"
 msgstr "Aucun"
 
-#: src/Screenshot/SetupDialog.vala:47
+#: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
 msgstr "Écran"
 
-#: src/Screenshot/SetupDialog.vala:70
+#: src/Screenshot/SetupDialog.vala:75
 msgid "Window"
 msgstr "Fenêtre"
 
-#: src/Screenshot/SetupDialog.vala:93
+#: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
 msgstr "Zone"
 
-#: src/Screenshot/SetupDialog.vala:120
+#: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
 msgstr "Capturer le pointeur :"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
 msgstr "Délai en secondes :"
 
-#: src/Screenshot/SetupDialog.vala:136
+#: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
 msgstr "Prendre une capture d'écran"
 
-#: src/Screenshot/SetupDialog.vala:145
+#: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
 msgstr "Fermer"
 
-#: src/Screenshot/SetupDialog.vala:170
+#: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
 msgstr "Cacher le texte :"
+
+#: src/Screenshot/SetupDialog.vala:202
+msgid "Screenshot"
+msgstr "Capture d'écran"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Capturer tout l'écran"

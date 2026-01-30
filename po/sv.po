@@ -7,165 +7,176 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 03:51+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Swedish <https://l10n.elementary.io/projects/desktop/portals/"
-"sv/>\n"
+"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"PO-Revision-Date: 2025-12-15 08:55+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
+"portals/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
-msgstr ""
+msgstr "Neka åtkomst"
 
 #: src/Access/Dialog.vala:64
 msgid "Grant Access"
+msgstr "Bevilja åtkomst"
+
+#. /TRANSLATORS: An http link
+#: src/AppChooser/Dialog.vala:57
+msgid "link"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:51
-msgid "Open file with…"
-msgstr ""
+#: src/AppChooser/Dialog.vala:66
+#, fuzzy, c-format
+#| msgid "An application requested to open a %s."
+msgid "An application wants to open a %s"
+msgstr "Ett program begärde att öppna en %s."
 
-#: src/AppChooser/Dialog.vala:53
+#: src/AppChooser/Dialog.vala:68
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to open a %s"
+msgstr "\"%s\" begärdes för att öppna en %s."
+
+#: src/AppChooser/Dialog.vala:71
+#, fuzzy
+#| msgid "Open file with…"
+msgid "Open with…"
+msgstr "Öppna filen med…"
+
+#: src/AppChooser/Dialog.vala:73
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Öppna \"%s\" med…"
 
-#: src/AppChooser/Dialog.vala:72
-#, c-format
-msgid "An application requested to open a %s."
-msgstr ""
-
-#: src/AppChooser/Dialog.vala:74
-#, c-format
-msgid "“%s” requested to open a %s."
-msgstr ""
-
-#: src/AppChooser/Dialog.vala:104
+#: src/AppChooser/Dialog.vala:112
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Inga installerade appar kan öppna %s"
 
-#: src/AppChooser/Dialog.vala:105
+#: src/AppChooser/Dialog.vala:113
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Nya appar kan installeras från AppCenter"
 
-#: src/AppChooser/Dialog.vala:124 src/ScreenCast/Dialog.vala:72
+#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/AppChooser/Dialog.vala:126
+#: src/AppChooser/Dialog.vala:134
 msgid "Open"
-msgstr ""
+msgstr "Öppna"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
-msgstr ""
+msgstr "Tillåt"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Förbjud"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Bakgrundsaktivitet"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "\"%s\" körs i bakgrunden utan lämplig behörighet"
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Anpassat kommando"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
+#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
 msgid "Entire Display"
-msgstr ""
+msgstr "Hela skärmen"
 
-#: src/ScreenCast/Dialog.vala:74
+#: src/ScreenCast/Dialog.vala:76
 msgid "Share"
-msgstr ""
+msgstr "Dela"
 
-#: src/ScreenCast/Dialog.vala:98
+#: src/ScreenCast/Dialog.vala:100
 msgid "Unknown Window"
-msgstr ""
+msgstr "Okänt fönster"
 
-#: src/ScreenCast/Dialog.vala:154
+#: src/ScreenCast/Dialog.vala:156
 msgid "Windows"
 msgstr "Fönster"
 
-#: src/ScreenCast/Dialog.vala:158
+#: src/ScreenCast/Dialog.vala:160
 msgid "Monitors"
-msgstr ""
+msgstr "Skärmar"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Medurs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Upp och ner"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Moturs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Vänd"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Vänd medurs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Vänd upp och ner"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Vänd moturs"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
-#: src/Screenshot/SetupDialog.vala:47
+#: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
-msgstr ""
+msgstr "Skärm"
 
-#: src/Screenshot/SetupDialog.vala:70
-#, fuzzy
-#| msgid "Windows"
+#: src/Screenshot/SetupDialog.vala:75
 msgid "Window"
 msgstr "Fönster"
 
-#: src/Screenshot/SetupDialog.vala:93
+#: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
-msgstr ""
+msgstr "Område"
 
-#: src/Screenshot/SetupDialog.vala:120
+#: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
-msgstr ""
+msgstr "Fånga pekaren:"
 
-#: src/Screenshot/SetupDialog.vala:131
+#: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Fördröjning i sekunder:"
 
-#: src/Screenshot/SetupDialog.vala:136
+#: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
-msgstr ""
+msgstr "Ta skärmdump"
 
-#: src/Screenshot/SetupDialog.vala:145
+#: src/Screenshot/SetupDialog.vala:142
 msgid "Close"
 msgstr "Stäng"
 
-#: src/Screenshot/SetupDialog.vala:170
+#: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
-msgstr ""
+msgstr "Dölj text:"
+
+#: src/Screenshot/SetupDialog.vala:202
+msgid "Screenshot"
+msgstr "Skärmdump"
