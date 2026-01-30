@@ -114,7 +114,7 @@ public class ExternalWindowWayland : ExternalWindow, GLib.Object {
         }
 
         Gdk.set_allowed_backends ("wayland");
-        wayland_display = Gdk.Display.open ("");
+        wayland_display = Gdk.Display.open (null);
         Gdk.set_allowed_backends ("*");
 
         if (wayland_display == null) {
