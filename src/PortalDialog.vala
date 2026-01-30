@@ -5,6 +5,11 @@
 
 public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
     /**
+     * The {@link PortalDialo.ResponseType} that has been selected by the user
+     */
+    public signal void response (ResponseType response);
+
+    /**
      * The {@link GLib.Icon} that is used to display the primary_icon representing the app making the request
      */
     public GLib.Icon primary_icon { get; set; }
@@ -23,6 +28,29 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
      * The child widget for the content area
      */
     public Gtk.Widget content { get; set; }
+
+    /**
+     * The label of the button which denies access
+     */
+    public string cancel_label { get; set; }
+
+    /**
+     * The label of the button which allows access
+     */
+    public string allow_label { get; set; }
+
+    /**
+     * Whether the allow button should be disabled
+     */
+    public bool form_valid { get; set; default = true; }
+
+    public enum ResponseType {
+        ALLOW,
+        CANCEL
+    }
+
+    private Gtk.Button allow_button;
+    private Gtk.Button cancel_button;
 
     /**
      * The parent window identifier as described by https://flatpak.github.io/xdg-desktop-portal/docs/window-identifiers.html
@@ -56,9 +84,18 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
         header.append (overlay);
         header.append (header_label);
 
+        cancel_button = new Gtk.Button.with_label (_("Don't Allow"));
+
+        allow_button = new Gtk.Button.with_label (_("Allow")) {
+            receives_default = true
+        };
+        allow_button.add_css_class (Granite.CssClass.SUGGESTED);
+
         button_box = new Granite.Box (HORIZONTAL, HALF) {
             homogeneous = true
         };
+        button_box.append (cancel_button);
+        button_box.append (allow_button);
 
         var toolbarview = new Granite.ToolBox ();
         toolbarview.add_bottom_bar (button_box);
@@ -68,6 +105,7 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
         default_height = 425;
         default_width = 325;
+        default_widget = allow_button;
         modal = true;
 
         // We need to hide the title area
@@ -82,14 +120,14 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
         bind_property ("content", toolbarview, "content");
         bind_property ("title", header_label, "label");
         bind_property ("secondary-text", header_label, "secondary-text");
+        bind_property ("form-valid", allow_button, "sensitive");
+        bind_property ("allow-label", allow_button, "label");
+        bind_property ("cancel-label", cancel_button, "label");
+
         ((Gtk.Widget) this).realize.connect (on_realize);
-    }
 
-    public Gtk.Button add_button (string button_text) {
-        var button = new Gtk.Button.with_label (button_text);
-        button_box.append (button);
-
-        return button;
+        allow_button.clicked.connect (() => response (ResponseType.ALLOW));
+        cancel_button.clicked.connect (() => response (ResponseType.CANCEL));
     }
 
     private void on_realize () {
