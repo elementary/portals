@@ -133,7 +133,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         var take_btn = new Gtk.Button.with_label (_("Take Screenshot")) {
             receives_default = true
         };
-        take_btn.add_css_class (Granite.CssClass.DESTRUCTIVE);
+        take_btn.add_css_class (Granite.CssClass.SUGGESTED);
 
         take_btn.clicked.connect (() => {
             response (Gtk.ResponseType.OK);
