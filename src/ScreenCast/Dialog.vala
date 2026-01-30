@@ -6,8 +6,6 @@
  */
 
 public class ScreenCast.Dialog : PortalDialog {
-    public signal void response (string response);
-
     public SourceType source_types { get; construct; }
     public bool allow_multiple { get; construct; }
 
@@ -73,17 +71,12 @@ public class ScreenCast.Dialog : PortalDialog {
 
         content = frame;
 
-        var cancel_button = add_button (_("Cancel"));
+        allow_label = _("Share");
 
-        var accept_button = add_button (_("Share"));
-        accept_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
-        bind_property ("n-selected", accept_button, "sensitive", SYNC_CREATE, (binding, from_val, ref to_val) => {
+        bind_property ("n-selected", this, "form_valid", SYNC_CREATE, (binding, from_val, ref to_val) => {
             to_val.set_boolean (n_selected > 0);
             return true;
         });
-
-        accept_button.clicked.connect (() => response ("accept"));
-        cancel_button.clicked.connect (() => response ("cancel"));
     }
 
     private async void populate_windows () {

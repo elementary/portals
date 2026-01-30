@@ -23,7 +23,6 @@ public class AppChooser.Dialog : PortalDialog {
     public string filename { get; construct; }
 
     private HashTable<string, AppButton> buttons;
-    private Gtk.Button open_button;
     private Gtk.ListBox listbox;
 
     public Dialog (
@@ -93,22 +92,21 @@ public class AppChooser.Dialog : PortalDialog {
             margin_start = 12
         };
 
-        var cancel_button = add_button (_("Cancel"));
-
-        open_button = add_button (_("Open"));
-        open_button.receives_default = true;
-        open_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        allow_label = _("Open");
 
         content = frame;
-
-        default_widget = open_button;
 
         listbox.row_activated.connect ((row) => {
             choiced (((AppChooser.AppButton) row).app_id);
         });
 
-        open_button.clicked.connect (() => choiced (((AppChooser.AppButton) listbox.get_selected_row ()).app_id));
-        cancel_button.clicked.connect (() => choiced (""));
+        response.connect ((response) => {
+            if (response == CANCEL) {
+                choiced ("");
+            } else {
+                choiced (((AppChooser.AppButton) listbox.get_selected_row ()).app_id);
+            }
+        });
     }
 
     private void add_choice (string choice) {
@@ -129,7 +127,7 @@ public class AppChooser.Dialog : PortalDialog {
             buttons[last_choice].grab_focus ();
         }
 
-        open_button.sensitive = listbox.get_row_at_index (0) != null;
+        form_valid = listbox.get_row_at_index (0) != null;
     }
 
     [DBus (name = "Close")]
