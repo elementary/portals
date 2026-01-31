@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-30 04:15+0000\n"
-"PO-Revision-Date: 2025-12-16 10:55+0000\n"
+"PO-Revision-Date: 2026-01-31 08:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/desktop/"
 "portals/ca/>\n"
@@ -30,25 +30,21 @@ msgstr "Permet-hi l'accés"
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:57
 msgid "link"
-msgstr ""
+msgstr "enllaç"
 
 #: src/AppChooser/Dialog.vala:66
-#, fuzzy, c-format
-#| msgid "An application requested to open a %s."
+#, c-format
 msgid "An application wants to open a %s"
-msgstr "Una aplicació ha demanat obrir el següent: %s."
+msgstr "Una aplicació vol obrir un %s"
 
 #: src/AppChooser/Dialog.vala:68
-#, fuzzy, c-format
-#| msgid "“%s” requested to open a %s."
+#, c-format
 msgid "“%s” wants to open a %s"
-msgstr "%s ha demanat obrir això: %s."
+msgstr "%s vol obrir un %s"
 
 #: src/AppChooser/Dialog.vala:71
-#, fuzzy
-#| msgid "Open file with…"
 msgid "Open with…"
-msgstr "Obre el fitxer amb…"
+msgstr "Obre amb…"
 
 #: src/AppChooser/Dialog.vala:73
 #, c-format
