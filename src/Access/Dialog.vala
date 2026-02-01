@@ -64,10 +64,10 @@ public class Access.Dialog : Granite.MessageDialog, PantheonWayland.ExtendedBeha
         grant_button = add_button (_("Grant Access"), Gtk.ResponseType.OK) as Gtk.Button;
 
         if (action == ButtonAction.SUGGESTED) {
-            grant_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+            grant_button.add_css_class (Granite.CssClass.SUGGESTED);
             default_widget = grant_button;
         } else {
-            grant_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            grant_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
             default_widget = deny_button;
         }
 
