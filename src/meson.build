@@ -22,6 +22,7 @@ executable(
     configure_file(input: 'Config.vala.in', output: '@BASENAME@', configuration: conf_data),
     'DesktopIntegration.vala',
     'ExternalWindow.vala',
+    'PortalDialog.vala',
     'XdgDesktopPortalPantheon.vala',
     icon_res,
     dependencies: [
