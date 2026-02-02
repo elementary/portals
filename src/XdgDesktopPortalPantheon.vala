@@ -65,6 +65,10 @@ private void on_name_acquired () {
     watch_id = Bus.watch_name (BusType.SESSION, "org.freedesktop.portal.Desktop", BusNameWatcherFlags.NONE, () => {
         Granite.init ();
 
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("/io/elementary/xdg-desktop-portal-pantheon/Application.css");
+        Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         var granite_settings = Granite.Settings.get_default ();
         var gtk_settings = Gtk.Settings.get_default ();
 
@@ -92,7 +96,7 @@ int main (string[] args) {
     Gtk.init ();
 
     weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
-    default_theme.add_resource_path ("/io/elementary/xdg-desktop-portal-pantheon");
+    default_theme.add_resource_path ("/io/elementary/xdg-desktop-portal-pantheon/icons");
 
     try {
         var opt_context = new OptionContext ("- portal backends");

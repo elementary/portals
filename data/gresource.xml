@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/io/elementary/xdg-desktop-portal-pantheon">
+    <file compressed="true">Application.css</file>
+  </gresource>
+  <gresource prefix="/io/elementary/xdg-desktop-portal-pantheon/icons">
     <file alias="48x48/apps/accessories-screencast-tool.svg" compressed="true" preprocess="xml-stripblanks">icons/screencast.svg</file>
     <file alias="48x48@2/apps/accessories-screencast-tool.svg" compressed="true" preprocess="xml-stripblanks">icons/screencast.svg</file>
 
