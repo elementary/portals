@@ -73,7 +73,7 @@ public class ScreenCast.Dialog : Granite.MessageDialog {
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
         var accept_button = add_button (_("Share"), Gtk.ResponseType.ACCEPT);
-        accept_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        accept_button.add_css_class (Granite.CssClass.SUGGESTED);
         bind_property ("n-selected", accept_button, "sensitive", SYNC_CREATE, (binding, from_val, ref to_val) => {
             to_val.set_boolean (n_selected > 0);
             return true;

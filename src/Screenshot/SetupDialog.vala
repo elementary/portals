@@ -55,7 +55,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         };
 
         var all_label = new Gtk.Label (_("Screen")) ;
-        all_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        all_label.add_css_class (Granite.CssClass.SMALL);
 
         var all_box = new Gtk.Box (VERTICAL, 3);
         all_box.append (all_image);
@@ -73,7 +73,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         };
 
         var curr_label = new Gtk.Label (_("Window"));
-        curr_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        curr_label.add_css_class (Granite.CssClass.SMALL);
 
         var curr_box = new Gtk.Box (VERTICAL, 3);
         curr_box.append (curr_image);
@@ -92,7 +92,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         };
 
         var selection_label = new Gtk.Label (_("Area"));
-        selection_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        selection_label.add_css_class (Granite.CssClass.SMALL);
 
         var selection_box = new Gtk.Box (VERTICAL, 3);
         selection_box.append (selection_image);
@@ -133,7 +133,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         var take_btn = new Gtk.Button.with_label (_("Take Screenshot")) {
             receives_default = true
         };
-        take_btn.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        take_btn.add_css_class (Granite.CssClass.SUGGESTED);
 
         take_btn.clicked.connect (() => {
             response (Gtk.ResponseType.OK);
