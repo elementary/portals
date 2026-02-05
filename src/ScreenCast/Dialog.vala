@@ -5,7 +5,9 @@
  * Authored by: Leonhard Kargl <leo.kargl@proton.me>
  */
 
-public class ScreenCast.Dialog : Granite.MessageDialog {
+public class ScreenCast.Dialog : PortalDialog {
+    public signal void response (string response);
+
     public SourceType source_types { get; construct; }
     public bool allow_multiple { get; construct; }
 
@@ -61,23 +63,27 @@ public class ScreenCast.Dialog : Granite.MessageDialog {
         };
 
         var frame = new Gtk.Frame (null) {
-            child = scrolled_window
+            child = scrolled_window,
+            margin_top = 12,
+            margin_end = 12,
+            margin_bottom = 12,
+            margin_start = 12
         };
 
-        custom_bin.append (frame);
+        content = frame;
 
-        resizable = true;
-        default_height = 400;
-        default_width = 300;
+        var cancel_button = add_button (_("Cancel"));
 
-        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-
-        var accept_button = add_button (_("Share"), Gtk.ResponseType.ACCEPT);
+        var accept_button = add_button (_("Share"));
         accept_button.add_css_class (Granite.CssClass.SUGGESTED);
+
         bind_property ("n-selected", accept_button, "sensitive", SYNC_CREATE, (binding, from_val, ref to_val) => {
             to_val.set_boolean (n_selected > 0);
             return true;
         });
+
+        accept_button.clicked.connect (() => response ("accept"));
+        cancel_button.clicked.connect (() => response ("cancel"));
     }
 
     private async void populate_windows () {

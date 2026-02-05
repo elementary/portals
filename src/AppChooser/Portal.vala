@@ -40,11 +40,12 @@ public class AppChooser.Portal : Object {
 
         var dialog = new AppChooser.Dialog (
             app_id,
-            parent_window,
             last_choice,
             content_type,
             filename
-        );
+        ) {
+            parent_handle = parent_window
+        };
 
         if ("modal" in options && options["modal"].is_of_type (VariantType.BOOLEAN)) {
             dialog.modal = options["modal"].get_boolean ();

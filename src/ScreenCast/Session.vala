@@ -87,29 +87,24 @@ public class ScreenCast.Session : Object {
 
     internal void start (string app_id, string parent_window) {
         var dialog = new Dialog (source_types, allow_multiple) {
-            image_icon = new ThemedIcon ("accessories-screencast-tool"),
-            primary_text = _("An application wants to access the screen"),
-            secondary_text = _("Select which parts of the screen to share:")
+            title = _("An application wants to access the screen"),
+            secondary_icon = new ThemedIcon ("accessories-screencast-tool"),
+            secondary_text = _("Select which parts of the screen to share:"),
+            parent_handle = parent_window
         };
 
         if (app_id != "") {
             var app_info = new DesktopAppInfo (app_id + ".desktop");
             if (app_info != null) {
-                dialog.primary_text = _("“%s” wants to access the screen").printf (app_info.get_display_name ());
+                dialog.primary_icon = app_info.get_icon ();
+                dialog.title = _("“%s” wants to access the screen").printf (app_info.get_display_name ());
             }
         }
 
-        try {
-            var parent = ExternalWindow.from_handle (parent_window);
-            parent.set_parent_of (dialog.get_surface ());
-        } catch (Error e) {
-            warning ("Failed to set parent: %s", e.message);
-        }
-
         dialog.response.connect ((response) => {
-            dialog.destroy ();
+            dialog.close ();
 
-            if (response == Gtk.ResponseType.CANCEL) {
+            if (response == "cancel") {
                 started (1, streams);
             } else {
                 setup_recording.begin (dialog);
