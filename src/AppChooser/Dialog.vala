@@ -96,7 +96,7 @@ public class AppChooser.Dialog : PortalDialog {
 
         open_button = add_button (_("Open"));
         open_button.receives_default = true;
-        open_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        open_button.add_css_class (Granite.CssClass.SUGGESTED);
 
         content = frame;
 
