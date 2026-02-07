@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-30 04:15+0000\n"
-"PO-Revision-Date: 2025-12-15 08:55+0000\n"
+"PO-Revision-Date: 2026-02-08 07:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/ru/>\n"
@@ -31,25 +31,21 @@ msgstr "Дать доступ"
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:57
 msgid "link"
-msgstr ""
+msgstr "ссылку"
 
 #: src/AppChooser/Dialog.vala:66
-#, fuzzy, c-format
-#| msgid "An application requested to open a %s."
+#, c-format
 msgid "An application wants to open a %s"
-msgstr "Приложение запросило открыть %s."
+msgstr "Приложение хочет открыть %s"
 
 #: src/AppChooser/Dialog.vala:68
-#, fuzzy, c-format
-#| msgid "“%s” requested to open a %s."
+#, c-format
 msgid "“%s” wants to open a %s"
-msgstr "Приложение «%s» запросило открыть %s."
+msgstr "Приложение «%s» хочет открыть %s"
 
 #: src/AppChooser/Dialog.vala:71
-#, fuzzy
-#| msgid "Open file with…"
 msgid "Open with…"
-msgstr "Открыть файл с помощью…"
+msgstr "Открыть с помощью…"
 
 #: src/AppChooser/Dialog.vala:73
 #, c-format
