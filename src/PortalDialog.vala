@@ -5,7 +5,7 @@
 
 public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
     /**
-     * The {@link PortalDialo.ResponseType} that has been selected by the user
+     * The {@link PortalDialog.ResponseType} that has been selected by the user
      */
     public signal void response (ResponseType response);
 
