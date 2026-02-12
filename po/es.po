@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"POT-Creation-Date: 2026-02-12 19:41+0000\n"
 "PO-Revision-Date: 2026-02-09 22:56+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/desktop/"
@@ -28,43 +28,39 @@ msgid "Grant Access"
 msgstr "Conceder acceso"
 
 #. /TRANSLATORS: An http link
-#: src/AppChooser/Dialog.vala:57
+#: src/AppChooser/Dialog.vala:52
 msgid "link"
 msgstr "enlace"
 
-#: src/AppChooser/Dialog.vala:66
+#: src/AppChooser/Dialog.vala:61
 #, c-format
 msgid "An application wants to open a %s"
 msgstr "Una aplicación quiere abrir un %s"
 
-#: src/AppChooser/Dialog.vala:68
+#: src/AppChooser/Dialog.vala:63
 #, c-format
 msgid "“%s” wants to open a %s"
 msgstr "«%s» quiere abrir un %s"
 
-#: src/AppChooser/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:67
 msgid "Open with…"
 msgstr "Abrir con…"
 
-#: src/AppChooser/Dialog.vala:73
+#: src/AppChooser/Dialog.vala:69
 #, c-format
 msgid "Open “%s” with…"
 msgstr "Abrir «%s» con…"
 
-#: src/AppChooser/Dialog.vala:112
+#: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "No existen aplicaciones instaladas que puedan abrir %s"
 
-#: src/AppChooser/Dialog.vala:113
+#: src/AppChooser/Dialog.vala:73
 msgid "New apps can be installed from AppCenter"
 msgstr "Se pueden instalar nuevas aplicaciones desde el Centro de Aplicaciones"
 
-#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/AppChooser/Dialog.vala:134
+#: src/AppChooser/Dialog.vala:94
 msgid "Open"
 msgstr "Abrir"
 
@@ -89,23 +85,23 @@ msgstr "«%s» se está ejecutando en segundo plano sin los permisos adecuados"
 msgid "Custom Command"
 msgstr "Comando personalizado"
 
-#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
 msgid "Entire Display"
 msgstr "Toda la pantalla"
 
-#: src/ScreenCast/Dialog.vala:76
+#: src/ScreenCast/Dialog.vala:73
 msgid "Share"
 msgstr "Compartir"
 
-#: src/ScreenCast/Dialog.vala:100
+#: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
 msgstr "Ventana desconocida"
 
-#: src/ScreenCast/Dialog.vala:156
+#: src/ScreenCast/Dialog.vala:153
 msgid "Windows"
 msgstr "Ventanas"
 
-#: src/ScreenCast/Dialog.vala:160
+#: src/ScreenCast/Dialog.vala:157
 msgid "Monitors"
 msgstr "Monitores"
 
@@ -176,6 +172,9 @@ msgstr "Ofuscar texto:"
 #: src/Screenshot/SetupDialog.vala:202
 msgid "Screenshot"
 msgstr "Captura de pantalla"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "Capturar toda la pantalla"

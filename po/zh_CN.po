@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"POT-Creation-Date: 2026-02-12 19:41+0000\n"
 "PO-Revision-Date: 2025-08-10 04:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -28,47 +28,43 @@ msgid "Grant Access"
 msgstr "授予访问权限"
 
 #. /TRANSLATORS: An http link
-#: src/AppChooser/Dialog.vala:57
+#: src/AppChooser/Dialog.vala:52
 msgid "link"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:66
+#: src/AppChooser/Dialog.vala:61
 #, fuzzy, c-format
 #| msgid "An application requested to open a %s."
 msgid "An application wants to open a %s"
 msgstr "一个应用程序请求打开 %s。"
 
-#: src/AppChooser/Dialog.vala:68
+#: src/AppChooser/Dialog.vala:63
 #, fuzzy, c-format
 #| msgid "“%s” requested to open a %s."
 msgid "“%s” wants to open a %s"
 msgstr "“%s”请求打开 %s。"
 
-#: src/AppChooser/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:67
 #, fuzzy
 #| msgid "Open file with…"
 msgid "Open with…"
 msgstr "打开方式…"
 
-#: src/AppChooser/Dialog.vala:73
+#: src/AppChooser/Dialog.vala:69
 #, c-format
 msgid "Open “%s” with…"
 msgstr "选择打开“%s”的方式…"
 
-#: src/AppChooser/Dialog.vala:112
+#: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "没有安装的应用程序可以打开 %s"
 
-#: src/AppChooser/Dialog.vala:113
+#: src/AppChooser/Dialog.vala:73
 msgid "New apps can be installed from AppCenter"
 msgstr "可以从应用中心安装新的应用程序"
 
-#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
-msgid "Cancel"
-msgstr "取消"
-
-#: src/AppChooser/Dialog.vala:134
+#: src/AppChooser/Dialog.vala:94
 msgid "Open"
 msgstr "打开"
 
@@ -93,23 +89,23 @@ msgstr "“%s”没有合适的权限，但依然在后台运行"
 msgid "Custom Command"
 msgstr "自定义命令"
 
-#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
 msgid "Entire Display"
 msgstr "整个显示器"
 
-#: src/ScreenCast/Dialog.vala:76
+#: src/ScreenCast/Dialog.vala:73
 msgid "Share"
 msgstr "分享"
 
-#: src/ScreenCast/Dialog.vala:100
+#: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
 msgstr "未知窗口"
 
-#: src/ScreenCast/Dialog.vala:156
+#: src/ScreenCast/Dialog.vala:153
 msgid "Windows"
 msgstr "窗口"
 
-#: src/ScreenCast/Dialog.vala:160
+#: src/ScreenCast/Dialog.vala:157
 msgid "Monitors"
 msgstr "屏幕"
 
@@ -184,6 +180,9 @@ msgstr "隐藏文字："
 #| msgid "Take Screenshot"
 msgid "Screenshot"
 msgstr "截屏"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
 
 #~ msgid "Grab the whole screen"
 #~ msgstr "捕获整个屏幕"
