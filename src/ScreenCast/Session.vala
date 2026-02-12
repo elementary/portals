@@ -104,7 +104,7 @@ public class ScreenCast.Session : Object {
         dialog.response.connect ((response) => {
             dialog.close ();
 
-            if (response == "cancel") {
+            if (response == CANCEL) {
                 started (1, streams);
             } else {
                 setup_recording.begin (dialog);
