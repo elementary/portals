@@ -44,7 +44,7 @@ public class Access.Portal : Object {
 
         if ("icon" in options) {
             // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
-             dialog.secondary_icon = new ThemedIcon (options["icon"].get_string ().replace ("-symbolic", ""));
+            dialog.secondary_icon = new ThemedIcon (options["icon"].get_string ().replace ("-symbolic", ""));
         }
 
         if ("modal" in options) {
