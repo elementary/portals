@@ -140,14 +140,6 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
             }
         });
 
-        notify["content"].connect (() => {
-            if (content != null) {
-                default_height = 425;
-            } else {
-                default_height = -1;
-            }
-        });
-
         ((Gtk.Widget) this).realize.connect (on_realize);
 
         allow_button.clicked.connect (() => response (ResponseType.ALLOW));
