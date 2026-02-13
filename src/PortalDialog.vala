@@ -27,7 +27,7 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
     /**
      * The child widget for the content area
      */
-    public Gtk.Widget content { get; set; default = null; }
+    public Gtk.Widget content { get; set; }
 
     /**
      * The label of the button which denies access
