@@ -1,5 +1,6 @@
 src/XdgDesktopPortalPantheon.vala
 src/ExternalWindow.vala
+src/Access/LocationDialog.vala
 src/Access/Portal.vala
 src/Access/Dialog.vala
 src/AppChooser/Portal.vala

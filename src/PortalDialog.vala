@@ -100,7 +100,6 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
         child = toolbarview;
 
-        default_height = 425;
         default_width = 325;
         default_widget = allow_button;
         modal = true;
