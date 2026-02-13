@@ -22,35 +22,41 @@ public class Access.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
-        Dialog.ButtonAction action = Dialog.ButtonAction.SUGGESTED;
-        string icon = "dialog-information";
         uint register_id = 0;
 
+        var dialog = new Dialog () {
+            title = title,
+            secondary_text = sub_title,
+            body = body,
+            parent_handle = parent_window
+        };
+
+        if (app_id != "") {
+            dialog.primary_icon = new DesktopAppInfo (app_id + ".desktop").get_icon ();
+        } else {
+            // non-sandboxed access must be the system itself
+            dialog.primary_icon = new ThemedIcon ("io.elementary.settings");
+        }
+
         if ("destructive" in options && options["destructive"].get_boolean ()) {
-            action = Dialog.ButtonAction.DESTRUCTIVE;
+            dialog.action_type = DESTRUCTIVE;
         }
 
         if ("icon" in options) {
             // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
-            icon = options["icon"].get_string ().replace ("-symbolic", "");
+             dialog.secondary_icon = new ThemedIcon (options["icon"].get_string ().replace ("-symbolic", ""));
         }
-
-        var dialog = new Dialog (action, app_id, parent_window, icon) {
-            primary_text = title,
-            secondary_text = sub_title,
-            body = body
-        };
 
         if ("modal" in options) {
             dialog.modal = options["modal"].get_boolean ();
         }
 
         if ("deny_label" in options) {
-            dialog.deny_label = options["deny_label"].get_string ();
+            dialog.cancel_label = options["deny_label"].get_string ();
         }
 
         if ("grant_label" in options) {
-            dialog.grant_label = options["grant_label"].get_string ();
+            dialog.allow_label = options["grant_label"].get_string ();
         }
 
         if ("choices" in options) {
@@ -67,7 +73,7 @@ public class Access.Portal : Object {
 
         dialog.response.connect ((id) => {
             switch (id) {
-                case Gtk.ResponseType.OK:
+                case ALLOW:
                     var choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
 
                     dialog.get_choices ().foreach ((choice) => {
@@ -78,11 +84,11 @@ public class Access.Portal : Object {
                     _response = 0;
                     break;
 
-                case Gtk.ResponseType.CANCEL:
+                case CANCEL:
                     _response = 1;
                     break;
 
-                case Gtk.ResponseType.DELETE_EVENT:
+                case DELETE_EVENT:
                     _response = 2;
                     break;
             }

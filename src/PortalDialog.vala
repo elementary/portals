@@ -27,7 +27,7 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
     /**
      * The child widget for the content area
      */
-    public Gtk.Widget content { get; set; }
+    public Gtk.Widget content { get; set; default = null; }
 
     /**
      * The label of the button which denies access
@@ -44,9 +44,17 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
      */
     public bool form_valid { get; set; default = true; }
 
+    public ActionType action_type { get; set; default = SUGGESTED; }
+
+    public enum ActionType {
+        SUGGESTED,
+        DESTRUCTIVE
+    }
+
     public enum ResponseType {
         ALLOW,
-        CANCEL
+        CANCEL,
+        DELETE_EVENT
     }
 
     /**
@@ -100,7 +108,6 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
         child = toolbarview;
 
-        default_height = 425;
         default_width = 325;
         default_widget = allow_button;
         modal = true;
@@ -121,10 +128,31 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
         bind_property ("allow-label", allow_button, "label");
         bind_property ("cancel-label", cancel_button, "label");
 
+        notify["action-type"].connect (() => {
+            if (action_type == SUGGESTED) {
+                allow_button.add_css_class (Granite.CssClass.SUGGESTED);
+                allow_button.receives_default = true;
+                default_widget = allow_button;
+            } else {
+                allow_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
+                cancel_button.receives_default = true;
+                default_widget = cancel_button;
+            }
+        });
+
+        notify["content"].connect (() => {
+            if (content != null) {
+                default_height = 425;
+            } else {
+                default_height = -1;
+            }
+        });
+
         ((Gtk.Widget) this).realize.connect (on_realize);
 
         allow_button.clicked.connect (() => response (ResponseType.ALLOW));
         cancel_button.clicked.connect (() => response (ResponseType.CANCEL));
+        close_request.connect (() => { response (ResponseType.CANCEL); });
     }
 
     private void on_realize () {
