@@ -131,10 +131,12 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
         notify["action-type"].connect (() => {
             if (action_type == SUGGESTED) {
                 allow_button.add_css_class (Granite.CssClass.SUGGESTED);
+                cancel_button.receives_default = false;
                 allow_button.receives_default = true;
                 default_widget = allow_button;
             } else {
                 allow_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
+                allow_button.receives_default = false;
                 cancel_button.receives_default = true;
                 default_widget = cancel_button;
             }
