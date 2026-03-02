@@ -3,6 +3,7 @@ executable(
     'Access/Choice.vala',
     'Access/Dialog.vala',
     'Access/Portal.vala',
+    'Account' / 'Portal.vala',
     'AppChooser/AppButton.vala',
     'AppChooser/Dialog.vala',
     'AppChooser/Portal.vala',

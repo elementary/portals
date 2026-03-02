@@ -2,6 +2,7 @@ src/XdgDesktopPortalPantheon.vala
 src/ExternalWindow.vala
 src/Access/Portal.vala
 src/Access/Dialog.vala
+src/Account/Portal.vala
 src/AppChooser/Portal.vala
 src/AppChooser/Dialog.vala
 src/AppChooser/AppButton.vala
