@@ -28,6 +28,8 @@ executable(
     'XdgDesktopPortalPantheon.vala',
     icon_res,
     dependencies: [
+        act_dep,
+        adw_dep,
         glib_dep,
         gobject_dep,
         gio_dep,

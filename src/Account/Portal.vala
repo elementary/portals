@@ -22,12 +22,11 @@ public class Account.Portal : Object {
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
         var dialog = new Dialog (app_id) {
-            parent_handle = parent_window,
-            secondary_text = _("It did not provide a reason for this request.")
+            parent_handle = parent_window
         };
 
         if ("reason" in options) {
-            dialog.secondary_text = _("It provided the following reason, “%s”").printf (options["reason"].get_string ());
+            dialog.reason = options["reason"].get_string ();
         }
 
         try {
@@ -42,6 +41,10 @@ public class Account.Portal : Object {
         dialog.response.connect ((id) => {
             switch (id) {
                 case ALLOW:
+                    _results["id"] = dialog.user_name;
+                    _results["name"] = dialog.real_name;
+                    _results["image"] = dialog.image_uri;
+
                     _response = 0;
                     break;
 
