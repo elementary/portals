@@ -30,7 +30,7 @@ public class Account.Dialog : PortalDialog {
     construct {
         default_height = -1;
         title = _("An application wants to access your personal information");
-        secondary_icon = new ThemedIcon ("x-office-address-book");
+        secondary_icon = new ThemedIcon ("emblem-portal-account");
         secondary_text = _("It did not provide a reason for this request.");
 
         if (app_id != "") {
