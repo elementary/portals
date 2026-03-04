@@ -100,4 +100,9 @@ public class Account.Dialog : PortalDialog {
             debug ("unable to set avatar");
         }
     }
+
+    [DBus (name = "Close")]
+    public void on_close () throws DBusError, IOError {
+        response (DELETE_EVENT);
+    }
 }

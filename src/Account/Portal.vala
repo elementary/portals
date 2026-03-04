@@ -5,7 +5,6 @@
 
 [DBus (name = "org.freedesktop.impl.portal.Account")]
 public class Account.Portal : Object {
-    private HashTable<ObjectPath, Dialog> handles;
     private DBusConnection connection;
 
     public Portal (DBusConnection connection) {
@@ -51,12 +50,15 @@ public class Account.Portal : Object {
                 case CANCEL:
                     _response = 1;
                     break;
+
+                case DELETE_EVENT:
+                    _response = 2;
+                    break;
             }
 
             get_user_information.callback ();
         });
 
-        handles[handle] = dialog;
         dialog.present ();
         yield;
 
