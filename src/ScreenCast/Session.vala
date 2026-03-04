@@ -88,7 +88,7 @@ public class ScreenCast.Session : Object {
     internal void start (string app_id, string parent_window) {
         var dialog = new Dialog (source_types, allow_multiple) {
             title = _("An application wants to access the screen"),
-            secondary_icon = new ThemedIcon ("accessories-screencast-tool"),
+            secondary_icon = new ThemedIcon ("emblem-portal-screencast"),
             secondary_text = _("Select which parts of the screen to share:"),
             parent_handle = parent_window
         };
