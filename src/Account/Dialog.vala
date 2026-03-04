@@ -12,7 +12,7 @@ public class Account.Dialog : PortalDialog {
     public string app_id { get; construct; }
 
     public string user_name;
-    public string image_uri;
+    public string image_filename;
     public string real_name;
 
     private Adw.Avatar avatar;
@@ -93,9 +93,9 @@ public class Account.Dialog : PortalDialog {
     }
 
     private void on_user_loaded (Act.User user) {
-        image_uri = user.get_icon_file ();
+        image_filename = user.get_icon_file ();
         try {
-            avatar.custom_image = Gdk.Texture.from_filename (image_uri);
+            avatar.custom_image = Gdk.Texture.from_filename (image_filename);
         } catch {
             debug ("unable to set avatar");
         }

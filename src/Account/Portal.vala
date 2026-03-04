@@ -42,7 +42,7 @@ public class Account.Portal : Object {
                 case ALLOW:
                     _results["id"] = dialog.user_name;
                     _results["name"] = dialog.real_name;
-                    _results["image"] = dialog.image_uri;
+                    _results["image"] = Filename.to_uri (dialog.image_filename);
 
                     _response = 0;
                     break;
