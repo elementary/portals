@@ -76,7 +76,7 @@ public class Account.Dialog : PortalDialog {
 
         var usermanager = Act.UserManager.get_default ();
         if (usermanager.is_loaded) {
-            on_usermanager_loaded (usermanager); 
+            on_usermanager_loaded (usermanager);
         } else {
             usermanager.notify["is-loaded"].connect (() => on_usermanager_loaded (usermanager));
         }
