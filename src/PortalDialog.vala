@@ -46,7 +46,8 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
     public enum ResponseType {
         ALLOW,
-        CANCEL
+        CANCEL,
+        DELETE_EVENT
     }
 
     /**
@@ -100,7 +101,6 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
         child = toolbarview;
 
-        default_height = 425;
         default_width = 325;
         default_widget = allow_button;
         modal = true;
@@ -123,8 +123,9 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
 
         ((Gtk.Widget) this).realize.connect (on_realize);
 
-        allow_button.clicked.connect (() => response (ResponseType.ALLOW));
-        cancel_button.clicked.connect (() => response (ResponseType.CANCEL));
+        allow_button.clicked.connect (() => response (ALLOW));
+        cancel_button.clicked.connect (() => response (CANCEL));
+        close_request.connect (() => { response (DELETE_EVENT); });
     }
 
     private void on_realize () {

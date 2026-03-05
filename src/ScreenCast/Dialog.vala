@@ -69,6 +69,7 @@ public class ScreenCast.Dialog : PortalDialog {
         };
 
         content = frame;
+        default_height = 425;
 
         allow_label = _("Share");
 

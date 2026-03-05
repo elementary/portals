@@ -2,6 +2,7 @@ executable(
     meson.project_name(),
     'Access/Choice.vala',
     'Access/Dialog.vala',
+    'Access/LocationDialog.vala',
     'Access/Portal.vala',
     'AppChooser/AppButton.vala',
     'AppChooser/Dialog.vala',
