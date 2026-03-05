@@ -14,7 +14,7 @@ public class Access.LocationDialog : PortalDialog {
     construct {
         title = _("An application wants to access your location");
         secondary_text = _("Permissions can be changed in <a href='settings://security/privacy/location'>Location Settings…</a>");
-        secondary_icon = new ThemedIcon ("preferences-system-privacy-location");
+        secondary_icon = new ThemedIcon ("emblem-portal-location");
 
         if (app_id != "") {
             var app_info = new DesktopAppInfo (app_id + ".desktop");
@@ -23,5 +23,10 @@ public class Access.LocationDialog : PortalDialog {
                 title = _("“%s” wants to access your location").printf (app_info.get_display_name ());
             }
         }
+    }
+
+    [DBus (name = "Close")]
+    public void on_close () throws DBusError, IOError {
+        response (DELETE_EVENT);
     }
 }

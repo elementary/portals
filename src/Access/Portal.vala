@@ -39,10 +39,16 @@ public class Access.Portal : Object {
             };
 
             dialog.response.connect ((response) => {
-                if (response == CANCEL) {
-                    _response = 1;
-                } else {
-                    _response = 0;
+                switch (response) {
+                    case ALLOW:
+                        _response = 0;
+                        break;
+                    case CANCEL:
+                        _response = 1;
+                        break;
+                    case DELETE_EVENT:
+                        _response = 2;
+                        break;
                 }
 
                 access_dialog.callback ();
