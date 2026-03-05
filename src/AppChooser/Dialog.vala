@@ -94,6 +94,7 @@ public class AppChooser.Dialog : PortalDialog {
         allow_label = _("Open");
 
         content = frame;
+        default_height = 425;
 
         listbox.row_activated.connect ((row) => {
             choiced (((AppChooser.AppButton) row).app_id);
