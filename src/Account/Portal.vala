@@ -37,24 +37,18 @@ public class Account.Portal : Object {
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
         uint _response = 2;
 
-        dialog.response.connect ((id) => {
-            switch (id) {
+        dialog.response.connect ((response) => {
+            switch (response) {
                 case ALLOW:
                     _results["id"] = dialog.user_name;
                     _results["name"] = dialog.real_name;
                     _results["image"] = Filename.to_uri (dialog.image_filename);
-
-                    _response = 0;
                     break;
-
-                case CANCEL:
-                    _response = 1;
-                    break;
-
-                case DELETE_EVENT:
-                    _response = 2;
+                default:
                     break;
             }
+
+            _response = response.to_id ();
 
             get_user_information.callback ();
         });
