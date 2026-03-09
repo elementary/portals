@@ -24,7 +24,7 @@ public class Usb.Dialog : PortalDialog {
     construct {
         default_height = -1;
         title = _("An application wants to access the following USB devices");
-        secondary_icon = new ThemedIcon ("emblem-portal-account");
+        secondary_icon = new ThemedIcon ("emblem-portal-usb");
         secondary_text = _("It did not provide a reason for this request.");
 
         if (app_id != "") {
