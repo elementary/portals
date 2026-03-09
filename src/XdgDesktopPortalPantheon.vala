@@ -44,6 +44,9 @@ private void on_bus_acquired (DBusConnection connection, string name) {
         connection.register_object ("/org/freedesktop/portal/desktop", new Screenshot.Portal (connection));
         debug ("Screenshot Portal registered!");
 
+        connection.register_object ("/org/freedesktop/portal/desktop", new Usb.Portal (connection));
+        debug ("USB Portal registered!");
+
         connection.register_object ("/org/freedesktop/portal/desktop", new Wallpaper.Portal (connection));
         debug ("Wallpaper Portal registered!");
 

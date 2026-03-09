@@ -10,3 +10,5 @@ src/Background/Portal.vala
 src/ScreenCast/Dialog.vala
 src/ScreenCast/MonitorTracker/Interface.vala
 src/Screenshot/SetupDialog.vala
+src/Usb/Dialog.vala
+src/Usb/Portal.vala
