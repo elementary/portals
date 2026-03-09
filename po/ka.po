@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 04:15+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Georgian <https://l10n.elementary.io/projects/desktop/portals/"
-"ka/>\n"
+"POT-Creation-Date: 2026-02-12 19:41+0000\n"
+"PO-Revision-Date: 2026-02-05 03:55+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://l10n.elementaryos.org/projects/desktop/"
+"portals/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/Access/Dialog.vala:63
 msgid "Deny Access"
@@ -28,47 +28,41 @@ msgid "Grant Access"
 msgstr "უარი წვდომაზე"
 
 #. /TRANSLATORS: An http link
-#: src/AppChooser/Dialog.vala:57
+#: src/AppChooser/Dialog.vala:52
 msgid "link"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:66
-#, fuzzy, c-format
-#| msgid "An application requested to open a %s."
+#: src/AppChooser/Dialog.vala:61
+#, c-format
 msgid "An application wants to open a %s"
-msgstr "აპლიკაციამ %s-ის გახსნა მოინდომა."
+msgstr "აპლიკაციას უნდა, %s გახსნას"
 
-#: src/AppChooser/Dialog.vala:68
-#, fuzzy, c-format
-#| msgid "“%s” requested to open a %s."
+#: src/AppChooser/Dialog.vala:63
+#, c-format
 msgid "“%s” wants to open a %s"
-msgstr "\"%s\"-მა %s-ის გახსნა მოინდომა."
+msgstr "\"%s\"-ს უნდა, %s გახსნას"
 
-#: src/AppChooser/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:67
 #, fuzzy
 #| msgid "Open file with…"
 msgid "Open with…"
 msgstr "ფაილის გახსნა პროგრამით…"
 
-#: src/AppChooser/Dialog.vala:73
+#: src/AppChooser/Dialog.vala:69
 #, c-format
 msgid "Open “%s” with…"
 msgstr "\"%s\"-ის გახსნა პროგრამით…"
 
-#: src/AppChooser/Dialog.vala:112
+#: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "No installed apps can open %s"
 msgstr "%s-ის გასახსნელი აპი დაყენებული არ გაქვთ"
 
-#: src/AppChooser/Dialog.vala:113
+#: src/AppChooser/Dialog.vala:73
 msgid "New apps can be installed from AppCenter"
 msgstr "ახალი აპები შეგიძლიათ AppCenter-დან დააყენოთ"
 
-#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
-msgid "Cancel"
-msgstr "გაუქმება"
-
-#: src/AppChooser/Dialog.vala:134
+#: src/AppChooser/Dialog.vala:94
 msgid "Open"
 msgstr "გახსნა"
 
@@ -93,23 +87,23 @@ msgstr ""
 msgid "Custom Command"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
 msgid "Entire Display"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:76
+#: src/ScreenCast/Dialog.vala:73
 msgid "Share"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:100
+#: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:156
+#: src/ScreenCast/Dialog.vala:153
 msgid "Windows"
 msgstr "Windows"
 
-#: src/ScreenCast/Dialog.vala:160
+#: src/ScreenCast/Dialog.vala:157
 msgid "Monitors"
 msgstr ""
 
@@ -184,3 +178,6 @@ msgstr ""
 #| msgid "Take Screenshot"
 msgid "Screenshot"
 msgstr "ეკრანის ანაბეჭდის გადაღება"
+
+#~ msgid "Cancel"
+#~ msgstr "გაუქმება"

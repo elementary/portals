@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 04:15+0000\n"
+"POT-Creation-Date: 2026-02-12 19:41+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Malay <https://l10n.elementary.io/projects/desktop/portals/ms/"
@@ -28,43 +28,39 @@ msgid "Grant Access"
 msgstr ""
 
 #. /TRANSLATORS: An http link
-#: src/AppChooser/Dialog.vala:57
+#: src/AppChooser/Dialog.vala:52
 msgid "link"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:66
+#: src/AppChooser/Dialog.vala:61
 #, c-format
 msgid "An application wants to open a %s"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:68
+#: src/AppChooser/Dialog.vala:63
 #, c-format
 msgid "“%s” wants to open a %s"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:71
+#: src/AppChooser/Dialog.vala:67
 msgid "Open with…"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:73
+#: src/AppChooser/Dialog.vala:69
 #, c-format
 msgid "Open “%s” with…"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:112
+#: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "No installed apps can open %s"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:113
+#: src/AppChooser/Dialog.vala:73
 msgid "New apps can be installed from AppCenter"
 msgstr ""
 
-#: src/AppChooser/Dialog.vala:132 src/ScreenCast/Dialog.vala:74
-msgid "Cancel"
-msgstr ""
-
-#: src/AppChooser/Dialog.vala:134
+#: src/AppChooser/Dialog.vala:94
 msgid "Open"
 msgstr ""
 
@@ -89,23 +85,23 @@ msgstr ""
 msgid "Custom Command"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:54 src/ScreenCast/Dialog.vala:164
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
 msgid "Entire Display"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:76
+#: src/ScreenCast/Dialog.vala:73
 msgid "Share"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:100
+#: src/ScreenCast/Dialog.vala:97
 msgid "Unknown Window"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:156
+#: src/ScreenCast/Dialog.vala:153
 msgid "Windows"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:160
+#: src/ScreenCast/Dialog.vala:157
 msgid "Monitors"
 msgstr ""
 

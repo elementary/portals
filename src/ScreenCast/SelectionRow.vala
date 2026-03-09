@@ -12,7 +12,7 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
     public Icon icon { get; construct; }
     public Gtk.CheckButton? group { get; construct; }
 
-    public Gtk.CheckButton check_button { get; construct; }
+    public Gtk.CheckButton check_button { get; private set; }
 
     public bool selected { get; set; default = false; }
 
@@ -25,8 +25,8 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
                 wrap = true,
                 xalign = 0
             };
-            description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
-            description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+            description_label.add_css_class (Granite.CssClass.DIM);
+            description_label.add_css_class (Granite.CssClass.SMALL);
 
             label_box.append (description_label);
         }
@@ -45,10 +45,6 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
     }
 
     construct {
-        check_button = new Gtk.CheckButton () {
-            group = group
-        };
-
         var image = new Gtk.Image.from_gicon (icon) {
             icon_size = LARGE
         };
@@ -65,12 +61,16 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
         label_box.append (title_label);
 
         var box = new Granite.Box (HORIZONTAL, NONE);
-        box.append (check_button);
         box.append (image);
         box.append (label_box);
 
+        check_button = new Gtk.CheckButton () {
+            child = box,
+            group = group
+        };
+
         var list_item = new Granite.ListItem () {
-            child = box
+            child = check_button
         };
 
         child = list_item;
