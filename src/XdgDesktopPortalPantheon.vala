@@ -35,6 +35,9 @@ private void on_bus_acquired (DBusConnection connection, string name) {
         connection.register_object ("/org/freedesktop/portal/desktop", new Access.Portal (connection));
         debug ("Access Portal registered!");
 
+        connection.register_object ("/org/freedesktop/portal/desktop", new Account.Portal (connection));
+        debug ("Account Portal registered!");
+
         connection.register_object ("/org/freedesktop/portal/desktop", new AppChooser.Portal (connection));
         debug ("AppChooser Portal registered!");
 

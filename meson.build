@@ -10,6 +10,8 @@ localedir = prefix / get_option('localedir')
 
 systemd_dep = dependency('systemd')
 
+act_dep = dependency('accountsservice')
+adw_dep = dependency('libadwaita-1')
 glib_dep = dependency('glib-2.0')
 gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
