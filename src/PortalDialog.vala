@@ -54,7 +54,20 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
     public enum ResponseType {
         ALLOW,
         CANCEL,
-        DELETE_EVENT
+        DELETE_EVENT;
+
+        // Convert to response ID expected by portal backends
+        public uint32 to_id () {
+            switch (this) {
+                case ALLOW:
+                    return 0;
+                case CANCEL:
+                    return 1;
+                default:
+                case DELETE_EVENT:
+                    return 2;
+            }
+        }
     }
 
     /**
