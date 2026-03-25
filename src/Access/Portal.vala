@@ -69,10 +69,10 @@ public class Access.Portal : Object {
         }
 
         var _results = new HashTable<string, Variant> (str_hash, str_equal);
-        var _response = 2;
+        uint32 _response = 2;
 
-        dialog.response.connect ((id) => {
-            switch (id) {
+        dialog.response.connect ((response) => {
+            switch (response) {
                 case ALLOW:
                     var choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
 
@@ -81,17 +81,12 @@ public class Access.Portal : Object {
                     });
 
                     _results["choices"] = choices_builder.end ();
-                    _response = 0;
                     break;
-
-                case CANCEL:
-                    _response = 1;
-                    break;
-
-                case DELETE_EVENT:
-                    _response = 2;
+                default:
                     break;
             }
+
+            _response = response.to_id ();
 
             access_dialog.callback ();
         });
