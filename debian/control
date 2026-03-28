@@ -9,6 +9,7 @@ Build-Depends: debhelper (>= 10.5.1),
                libgtk-4-dev,
                libpantheon-wayland-1-dev,
                meson,
+               systemd-dev,
                valac (>= 0.40.0)
 Standards-Version: 4.1.1
 
