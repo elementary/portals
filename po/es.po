@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 19:41+0000\n"
+"POT-Creation-Date: 2026-03-28 18:21+0000\n"
 "PO-Revision-Date: 2026-02-09 22:56+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/desktop/"
@@ -19,13 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/Access/Dialog.vala:63
-msgid "Deny Access"
-msgstr "Denegar acceso"
+#: src/Account/Dialog.vala:22
+#, c-format
+msgid "It provided the following reason, “%s”"
+msgstr ""
 
-#: src/Access/Dialog.vala:64
-msgid "Grant Access"
-msgstr "Conceder acceso"
+#: src/Account/Dialog.vala:32
+#, fuzzy
+#| msgid "An application wants to open a %s"
+msgid "An application wants to access your name and photo"
+msgstr "Una aplicación quiere abrir un %s"
+
+#: src/Account/Dialog.vala:34
+msgid "It did not provide a reason for this request."
+msgstr ""
+
+#: src/Account/Dialog.vala:40
+#, fuzzy, c-format
+#| msgid "“%s” wants to open a %s"
+msgid "“%s” wants to access your name and photo"
+msgstr "«%s» quiere abrir un %s"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
@@ -85,23 +98,23 @@ msgstr "«%s» se está ejecutando en segundo plano sin los permisos adecuados"
 msgid "Custom Command"
 msgstr "Comando personalizado"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Toda la pantalla"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Compartir"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Ventana desconocida"
 
-#: src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Ventanas"
 
-#: src/ScreenCast/Dialog.vala:157
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Monitores"
 
@@ -172,6 +185,12 @@ msgstr "Ofuscar texto:"
 #: src/Screenshot/SetupDialog.vala:202
 msgid "Screenshot"
 msgstr "Captura de pantalla"
+
+#~ msgid "Deny Access"
+#~ msgstr "Denegar acceso"
+
+#~ msgid "Grant Access"
+#~ msgstr "Conceder acceso"
 
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 19:41+0000\n"
+"POT-Creation-Date: 2026-03-28 18:21+0000\n"
 "PO-Revision-Date: 2026-01-31 08:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/desktop/"
@@ -19,13 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/Access/Dialog.vala:63
-msgid "Deny Access"
-msgstr "Denega-hi l'accés"
+#: src/Account/Dialog.vala:22
+#, c-format
+msgid "It provided the following reason, “%s”"
+msgstr ""
 
-#: src/Access/Dialog.vala:64
-msgid "Grant Access"
-msgstr "Permet-hi l'accés"
+#: src/Account/Dialog.vala:32
+#, fuzzy
+#| msgid "An application wants to open a %s"
+msgid "An application wants to access your name and photo"
+msgstr "Una aplicació vol obrir un %s"
+
+#: src/Account/Dialog.vala:34
+msgid "It did not provide a reason for this request."
+msgstr ""
+
+#: src/Account/Dialog.vala:40
+#, fuzzy, c-format
+#| msgid "“%s” wants to open a %s"
+msgid "“%s” wants to access your name and photo"
+msgstr "%s vol obrir un %s"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
@@ -85,23 +98,23 @@ msgstr "%s s'executa en segon pla sense el permís adequat."
 msgid "Custom Command"
 msgstr "Odre personalitzada"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Tota la pantalla"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Comparteix"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Finestra desconeguda"
 
-#: src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Finestres"
 
-#: src/ScreenCast/Dialog.vala:157
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Monitors"
 
@@ -172,6 +185,12 @@ msgstr "Amaga el text:"
 #: src/Screenshot/SetupDialog.vala:202
 msgid "Screenshot"
 msgstr "Captura de pantalla"
+
+#~ msgid "Deny Access"
+#~ msgstr "Denega-hi l'accés"
+
+#~ msgid "Grant Access"
+#~ msgstr "Permet-hi l'accés"
 
 #~ msgid "Cancel"
 #~ msgstr "Cancel·la"

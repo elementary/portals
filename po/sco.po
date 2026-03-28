@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 19:41+0000\n"
+"POT-Creation-Date: 2026-03-28 18:21+0000\n"
 "PO-Revision-Date: 2025-04-18 05:47+0000\n"
 "Last-Translator: Ben Gordon Agnew <ben.gordon@posteo.de>\n"
 "Language-Team: Scots <https://l10n.elementaryos.org/projects/desktop/portals/"
@@ -19,12 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.10.4\n"
 
-#: src/Access/Dialog.vala:63
-msgid "Deny Access"
+#: src/Account/Dialog.vala:22
+#, c-format
+msgid "It provided the following reason, “%s”"
 msgstr ""
 
-#: src/Access/Dialog.vala:64
-msgid "Grant Access"
+#: src/Account/Dialog.vala:32
+msgid "An application wants to access your name and photo"
+msgstr ""
+
+#: src/Account/Dialog.vala:34
+msgid "It did not provide a reason for this request."
+msgstr ""
+
+#: src/Account/Dialog.vala:40
+#, c-format
+msgid "“%s” wants to access your name and photo"
 msgstr ""
 
 #. /TRANSLATORS: An http link
@@ -85,23 +95,23 @@ msgstr ""
 msgid "Custom Command"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Windas"
 
-#: src/ScreenCast/Dialog.vala:157
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr ""
 

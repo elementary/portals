@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 19:41+0000\n"
+"POT-Creation-Date: 2026-03-28 18:21+0000\n"
 "PO-Revision-Date: 2026-01-31 08:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
@@ -19,13 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/Access/Dialog.vala:63
-msgid "Deny Access"
-msgstr "Refuser l'accès"
+#: src/Account/Dialog.vala:22
+#, c-format
+msgid "It provided the following reason, “%s”"
+msgstr ""
 
-#: src/Access/Dialog.vala:64
-msgid "Grant Access"
-msgstr "Autoriser l'accès"
+#: src/Account/Dialog.vala:32
+#, fuzzy
+#| msgid "An application wants to open a %s"
+msgid "An application wants to access your name and photo"
+msgstr "Une application souhaite ouvrir un %s"
+
+#: src/Account/Dialog.vala:34
+msgid "It did not provide a reason for this request."
+msgstr ""
+
+#: src/Account/Dialog.vala:40
+#, fuzzy, c-format
+#| msgid "“%s” wants to open a %s"
+msgid "“%s” wants to access your name and photo"
+msgstr "« %s » souhaite ouvrir un %s"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
@@ -87,23 +100,23 @@ msgstr "« %s » s'exécute en arrière-plan sans autorisation adéquate"
 msgid "Custom Command"
 msgstr "Commande personnalisée"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Tout l'écran"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Partager"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Fenêtre inconnue"
 
-#: src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Fenêtres"
 
-#: src/ScreenCast/Dialog.vala:157
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Écrans"
 
@@ -174,6 +187,12 @@ msgstr "Cacher le texte :"
 #: src/Screenshot/SetupDialog.vala:202
 msgid "Screenshot"
 msgstr "Capture d'écran"
+
+#~ msgid "Deny Access"
+#~ msgstr "Refuser l'accès"
+
+#~ msgid "Grant Access"
+#~ msgstr "Autoriser l'accès"
 
 #~ msgid "Cancel"
 #~ msgstr "Annuler"

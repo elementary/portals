@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 19:41+0000\n"
+"POT-Creation-Date: 2026-03-28 18:21+0000\n"
 "PO-Revision-Date: 2024-12-19 16:04+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -19,13 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.8.4\n"
 
-#: src/Access/Dialog.vala:63
-msgid "Deny Access"
-msgstr "ڕێگریکردن لە دەستگەیشتن"
+#: src/Account/Dialog.vala:22
+#, c-format
+msgid "It provided the following reason, “%s”"
+msgstr ""
 
-#: src/Access/Dialog.vala:64
-msgid "Grant Access"
-msgstr "ڕێگەدان بە دەستگەیشتن"
+#: src/Account/Dialog.vala:32
+#, fuzzy
+#| msgid "An application requested to open a %s."
+msgid "An application wants to access your name and photo"
+msgstr "بەرنامەیەک داوای کردنەوەی %s دەکات."
+
+#: src/Account/Dialog.vala:34
+msgid "It did not provide a reason for this request."
+msgstr ""
+
+#: src/Account/Dialog.vala:40
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to access your name and photo"
+msgstr "\"%s\" داوای کردنەوەی %s کردووە."
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
@@ -87,23 +100,23 @@ msgstr ""
 msgid "Custom Command"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr ""
 
-#: src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "پەنجەرەکان"
 
-#: src/ScreenCast/Dialog.vala:157
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr ""
 
@@ -178,6 +191,12 @@ msgstr ""
 #| msgid "Take Screenshot"
 msgid "Screenshot"
 msgstr "سکرینشوت بکە"
+
+#~ msgid "Deny Access"
+#~ msgstr "ڕێگریکردن لە دەستگەیشتن"
+
+#~ msgid "Grant Access"
+#~ msgstr "ڕێگەدان بە دەستگەیشتن"
 
 #~ msgid "Cancel"
 #~ msgstr "هەڵوەشاندنەوە"
