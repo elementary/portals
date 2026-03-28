@@ -1,7 +1,7 @@
 Source: io.elementary.portals
 Section: x11
 Priority: optional
-Maintainer: elementary, Inc. <builds@elementary.io>
+Maintainer: elementary <builds@elementary.io>
 Build-Depends: debhelper (>= 10.5.1),
                libaccountsservice-dev,
                libadwaita-1-dev,
