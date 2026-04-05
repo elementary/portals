@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-28 18:21+0000\n"
-"PO-Revision-Date: 2026-02-08 07:55+0000\n"
+"PO-Revision-Date: 2026-04-06 02:02+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/ru/>\n"
@@ -23,23 +23,20 @@ msgstr ""
 #: src/Account/Dialog.vala:22
 #, c-format
 msgid "It provided the following reason, “%s”"
-msgstr ""
+msgstr "Запрос предъявлён по причине «%s»"
 
 #: src/Account/Dialog.vala:32
-#, fuzzy
-#| msgid "An application wants to open a %s"
 msgid "An application wants to access your name and photo"
-msgstr "Приложение хочет открыть %s"
+msgstr "Приложение хочет получить доступ к вашим имени и фотографии"
 
 #: src/Account/Dialog.vala:34
 msgid "It did not provide a reason for this request."
-msgstr ""
+msgstr "Причина запроса не была предъявлена."
 
 #: src/Account/Dialog.vala:40
-#, fuzzy, c-format
-#| msgid "“%s” wants to open a %s"
+#, c-format
 msgid "“%s” wants to access your name and photo"
-msgstr "Приложение «%s» хочет открыть %s"
+msgstr "Приложение «%s» хочет получить доступ к вашим имени и фотографии"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
