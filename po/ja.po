@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-28 18:21+0000\n"
-"PO-Revision-Date: 2026-02-01 14:55+0000\n"
+"PO-Revision-Date: 2026-04-11 11:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "portals/ja/>\n"
@@ -22,23 +22,20 @@ msgstr ""
 #: src/Account/Dialog.vala:22
 #, c-format
 msgid "It provided the following reason, “%s”"
-msgstr ""
+msgstr "次の理由が提示されています: “%s”"
 
 #: src/Account/Dialog.vala:32
-#, fuzzy
-#| msgid "An application wants to open a %s"
 msgid "An application wants to access your name and photo"
-msgstr "アプリが%sを開こうとしています"
+msgstr "アプリがあなたの名前とアバター画像にアクセスしようとしています"
 
 #: src/Account/Dialog.vala:34
 msgid "It did not provide a reason for this request."
-msgstr ""
+msgstr "この要求に対する理由は提示されていません。"
 
 #: src/Account/Dialog.vala:40
-#, fuzzy, c-format
-#| msgid "“%s” wants to open a %s"
+#, c-format
 msgid "“%s” wants to access your name and photo"
-msgstr "“%s”が%sを開こうとしています"
+msgstr "“%s”があなたの名前とアバター画像にアクセスしようとしています"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
