@@ -4,6 +4,8 @@ executable(
     'Access/Dialog.vala',
     'Access/LocationDialog.vala',
     'Access/Portal.vala',
+    'Account' / 'Dialog.vala',
+    'Account' / 'Portal.vala',
     'AppChooser/AppButton.vala',
     'AppChooser/Dialog.vala',
     'AppChooser/Portal.vala',
@@ -27,6 +29,8 @@ executable(
     'XdgDesktopPortalPantheon.vala',
     icon_res,
     dependencies: [
+        act_dep,
+        adw_dep,
         glib_dep,
         gobject_dep,
         gio_dep,

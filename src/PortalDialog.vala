@@ -44,10 +44,30 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
      */
     public bool form_valid { get; set; default = true; }
 
+    public ActionType action_type { get; set; default = SUGGESTED; }
+
+    public enum ActionType {
+        SUGGESTED,
+        DESTRUCTIVE
+    }
+
     public enum ResponseType {
         ALLOW,
         CANCEL,
-        DELETE_EVENT
+        DELETE_EVENT;
+
+        // Convert to response ID expected by portal backends
+        public uint32 to_id () {
+            switch (this) {
+                case ALLOW:
+                    return 0;
+                case CANCEL:
+                    return 1;
+                default:
+                case DELETE_EVENT:
+                    return 2;
+            }
+        }
     }
 
     /**
@@ -120,6 +140,20 @@ public class PortalDialog : Gtk.Window, PantheonWayland.ExtendedBehavior {
         bind_property ("form-valid", allow_button, "sensitive");
         bind_property ("allow-label", allow_button, "label");
         bind_property ("cancel-label", cancel_button, "label");
+
+        notify["action-type"].connect (() => {
+            if (action_type == SUGGESTED) {
+                allow_button.add_css_class (Granite.CssClass.SUGGESTED);
+                cancel_button.receives_default = false;
+                allow_button.receives_default = true;
+                default_widget = allow_button;
+            } else {
+                allow_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
+                allow_button.receives_default = false;
+                cancel_button.receives_default = true;
+                default_widget = cancel_button;
+            }
+        });
 
         ((Gtk.Widget) this).realize.connect (on_realize);
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 19:41+0000\n"
+"POT-Creation-Date: 2026-03-28 18:21+0000\n"
 "PO-Revision-Date: 2025-05-16 14:55+0000\n"
 "Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -19,13 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/Access/Dialog.vala:63
-msgid "Deny Access"
-msgstr "Negar o acesso"
+#: src/Account/Dialog.vala:22
+#, c-format
+msgid "It provided the following reason, “%s”"
+msgstr ""
 
-#: src/Access/Dialog.vala:64
-msgid "Grant Access"
-msgstr "Conceder acesso"
+#: src/Account/Dialog.vala:32
+#, fuzzy
+#| msgid "An application requested to open a %s."
+msgid "An application wants to access your name and photo"
+msgstr "Uma aplicação solicitou abrir um %s."
+
+#: src/Account/Dialog.vala:34
+msgid "It did not provide a reason for this request."
+msgstr ""
+
+#: src/Account/Dialog.vala:40
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to access your name and photo"
+msgstr "“%s” solicitou abrir um %s."
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
@@ -90,23 +103,23 @@ msgstr "“%s” está sendo executado em segundo plano sem permissão"
 msgid "Custom Command"
 msgstr "Comando personalizado"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
 msgstr "Tela inteira"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
 msgstr "Compartilhar"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
 msgstr "Janela desconhecida"
 
-#: src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Janelas"
 
-#: src/ScreenCast/Dialog.vala:157
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
 msgstr "Monitores"
 
@@ -181,6 +194,12 @@ msgstr "Ocultar texto:"
 #| msgid "Take Screenshot"
 msgid "Screenshot"
 msgstr "Capturar tela"
+
+#~ msgid "Deny Access"
+#~ msgstr "Negar o acesso"
+
+#~ msgid "Grant Access"
+#~ msgstr "Conceder acesso"
 
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"

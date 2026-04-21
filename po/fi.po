@@ -7,25 +7,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 19:41+0000\n"
-"PO-Revision-Date: 2024-12-19 16:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Finnish <https://l10n.elementary.io/projects/desktop/portals/"
-"fi/>\n"
+"POT-Creation-Date: 2026-03-28 18:21+0000\n"
+"PO-Revision-Date: 2026-03-22 15:55+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://l10n.elementaryos.org/projects/desktop/"
+"portals/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
-#: src/Access/Dialog.vala:63
-msgid "Deny Access"
-msgstr "Estä pääsy"
+#: src/Account/Dialog.vala:22
+#, c-format
+msgid "It provided the following reason, “%s”"
+msgstr ""
 
-#: src/Access/Dialog.vala:64
-msgid "Grant Access"
-msgstr "Myönnä pääsy"
+#: src/Account/Dialog.vala:32
+#, fuzzy
+#| msgid "An application wants to open a %s"
+msgid "An application wants to access your name and photo"
+msgstr "Sovellus haluaa avata %s"
+
+#: src/Account/Dialog.vala:34
+msgid "It did not provide a reason for this request."
+msgstr ""
+
+#: src/Account/Dialog.vala:40
+#, fuzzy, c-format
+#| msgid "“%s” wants to open a %s"
+msgid "“%s” wants to access your name and photo"
+msgstr "“%s” haluaa avata %s"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
@@ -33,20 +46,16 @@ msgid "link"
 msgstr ""
 
 #: src/AppChooser/Dialog.vala:61
-#, fuzzy, c-format
-#| msgid "An application requested to open a %s."
+#, c-format
 msgid "An application wants to open a %s"
-msgstr "Sovellus haluaa avata %s."
+msgstr "Sovellus haluaa avata %s"
 
 #: src/AppChooser/Dialog.vala:63
-#, fuzzy, c-format
-#| msgid "“%s” requested to open a %s."
+#, c-format
 msgid "“%s” wants to open a %s"
-msgstr "“%s” pyysi avata %s."
+msgstr "“%s” haluaa avata %s"
 
 #: src/AppChooser/Dialog.vala:67
-#, fuzzy
-#| msgid "Open file with…"
 msgid "Open with…"
 msgstr "Avaa sovelluksella…"
 
@@ -87,73 +96,71 @@ msgstr "“%s” on käynnissä taustalla ilman soveltuvaa käyttöoikeutta"
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Mukautettu komento"
 
-#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:161
+#: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
-msgstr ""
+msgstr "Koko näyttö"
 
-#: src/ScreenCast/Dialog.vala:73
+#: src/ScreenCast/Dialog.vala:74
 msgid "Share"
-msgstr ""
+msgstr "Jaa"
 
-#: src/ScreenCast/Dialog.vala:97
+#: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
-msgstr ""
+msgstr "Tuntematon ikkuna"
 
-#: src/ScreenCast/Dialog.vala:153
+#: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
 msgstr "Ikkunat"
 
-#: src/ScreenCast/Dialog.vala:157
+#: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
-msgstr ""
+msgstr "Näytöt"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Myötäpäivään"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
-msgstr ""
+msgstr "Ylösalaisin"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:62
 msgid "Counterclockwise"
-msgstr ""
+msgstr "Vastapäivään"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:64
 msgid "Flipped"
-msgstr ""
+msgstr "Peilattu"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:66
 msgid "Flipped Clockwise"
-msgstr ""
+msgstr "Peilattu myötäpäivään"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:68
 msgid "Flipped Upside-down"
-msgstr ""
+msgstr "Peilattu ylösalaisin"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Peilattu vastapäivään"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
-msgstr ""
+msgstr "Näyttö"
 
 #: src/Screenshot/SetupDialog.vala:75
-#, fuzzy
-#| msgid "Windows"
 msgid "Window"
-msgstr "Ikkunat"
+msgstr "Ikkuna"
 
 #: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
-msgstr ""
+msgstr "Alue"
 
 #: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
@@ -176,10 +183,14 @@ msgid "Conceal text:"
 msgstr "Kätke teksti:"
 
 #: src/Screenshot/SetupDialog.vala:202
-#, fuzzy
-#| msgid "Take Screenshot"
 msgid "Screenshot"
-msgstr "Ota kuvakaappaus"
+msgstr "Kuvakaappaus"
+
+#~ msgid "Deny Access"
+#~ msgstr "Estä pääsy"
+
+#~ msgid "Grant Access"
+#~ msgstr "Myönnä pääsy"
 
 #~ msgid "Cancel"
 #~ msgstr "Peru"

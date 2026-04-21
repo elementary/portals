@@ -22,94 +22,81 @@ public class Access.Portal : Object {
         out uint32 response,
         out HashTable<string, Variant> results
     ) throws DBusError, IOError {
-        Dialog.ButtonAction action = Dialog.ButtonAction.SUGGESTED;
-        string icon = "dialog-information";
         uint register_id = 0;
-        var _results = new HashTable<string, Variant> (str_hash, str_equal);
-        var _response = 2;
+
+        var dialog = new Dialog () {
+            title = title,
+            secondary_text = sub_title,
+            body = body,
+            parent_handle = parent_window
+        };
 
         if ("icon" in options) {
-            // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
-            icon = options["icon"].get_string ().replace ("-symbolic", "");
+            var icon = options["icon"].get_string ().replace ("-symbolic", "");
+            if (icon == "find-location") {
+                dialog = new LocationDialog (app_id) {
+                    parent_handle = parent_window
+                };
+            } else {
+                // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
+                dialog.secondary_icon = new ThemedIcon (icon);
+            }
         }
 
-        // if (icon == "find-location") {
-            var dialog = new LocationDialog (app_id) {
-                parent_handle = parent_window
-            };
+        if (app_id != "") {
+            dialog.primary_icon = new DesktopAppInfo (app_id + ".desktop").get_icon ();
+        } else {
+            // non-sandboxed access must be the system itself
+            dialog.primary_icon = new ThemedIcon ("io.elementary.settings");
+        }
 
-            dialog.response.connect ((response) => {
-                switch (response) {
-                    case ALLOW:
-                        _response = 0;
-                        break;
-                    case CANCEL:
-                        _response = 1;
-                        break;
-                    case DELETE_EVENT:
-                        _response = 2;
-                        break;
-                }
+        if ("destructive" in options && options["destructive"].get_boolean ()) {
+            dialog.action_type = DESTRUCTIVE;
+        }
 
-                access_dialog.callback ();
-            });
-        // }
+        if ("modal" in options) {
+            dialog.modal = options["modal"].get_boolean ();
+        }
 
-        // if ("destructive" in options && options["destructive"].get_boolean ()) {
-        //     action = Dialog.ButtonAction.DESTRUCTIVE;
-        // }
+        if ("deny_label" in options && !(dialog is LocationDialog)) {
+            dialog.cancel_label = options["deny_label"].get_string ();
+        }
 
-        // var dialog = new Dialog (action, app_id, parent_window, icon) {
-        //     primary_text = title,
-        //     secondary_text = sub_title,
-        //     body = body
-        // };
+        if ("grant_label" in options && !(dialog is LocationDialog)) {
+            dialog.allow_label = options["grant_label"].get_string ();
+        }
 
-        // if ("modal" in options) {
-        //     dialog.modal = options["modal"].get_boolean ();
-        // }
+        var _results = new HashTable<string, Variant> (str_hash, str_equal);
+        uint32 _response = 2;
 
-        // if ("deny_label" in options) {
-        //     dialog.deny_label = options["deny_label"].get_string ();
-        // }
+        if ("choices" in options) {
+            var choices_iter = options["choices"].iterator ();
+            Variant choice_variant;
 
-        // if ("grant_label" in options) {
-        //     dialog.grant_label = options["grant_label"].get_string ();
-        // }
+            while ((choice_variant = choices_iter.next_value ()) != null) {
+                dialog.add_choice (new Choice.from_variant (choice_variant));
+            }
+        }
 
-        // if ("choices" in options) {
-        //     var choices_iter = options["choices"].iterator ();
-        //     Variant choice_variant;
+        dialog.response.connect ((response) => {
+            switch (response) {
+                case ALLOW:
+                    var choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
 
-        //     while ((choice_variant = choices_iter.next_value ()) != null) {
-        //         dialog.add_choice (new Choice.from_variant (choice_variant));
-        //     }
-        // }
+                    dialog.get_choices ().foreach ((choice) => {
+                        choices_builder.add ("(ss)", choice.name, choice.selected);
+                    });
 
-        // dialog.response.connect ((id) => {
-        //     switch (id) {
-        //         case Gtk.ResponseType.OK:
-        //             var choices_builder = new VariantBuilder (new VariantType ("a(ss)"));
+                    _results["choices"] = choices_builder.end ();
+                    break;
+                default:
+                    break;
+            }
 
-        //             dialog.get_choices ().foreach ((choice) => {
-        //                 choices_builder.add ("(ss)", choice.name, choice.selected);
-        //             });
+            _response = response.to_id ();
 
-        //             _results["choices"] = choices_builder.end ();
-        //             _response = 0;
-        //             break;
-
-        //         case Gtk.ResponseType.CANCEL:
-        //             _response = 1;
-        //             break;
-
-        //         case Gtk.ResponseType.DELETE_EVENT:
-        //             _response = 2;
-        //             break;
-        //     }
-
-        //     access_dialog.callback ();
-        // });
+            access_dialog.callback ();
+        });
 
         try {
             register_id = connection.register_object (handle, dialog);

@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-[DBus (name = "org.freedesktop.impl.portal.Request")]
-public class Access.LocationDialog : PortalDialog {
+public class Access.LocationDialog : Access.Dialog {
     public string app_id { get; construct; }
 
     public LocationDialog (string app_id) {
@@ -19,14 +18,8 @@ public class Access.LocationDialog : PortalDialog {
         if (app_id != "") {
             var app_info = new DesktopAppInfo (app_id + ".desktop");
             if (app_info != null) {
-                primary_icon = app_info.get_icon ();
                 title = _("“%s” wants to access your location").printf (app_info.get_display_name ());
             }
         }
-    }
-
-    [DBus (name = "Close")]
-    public void on_close () throws DBusError, IOError {
-        response (DELETE_EVENT);
     }
 }

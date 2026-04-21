@@ -14,3 +14,8 @@
 .dialog toolbox .bottom button {
     min-width: 5em;
 }
+
+.flat avatar {
+    border: none;
+    box-shadow: none;
+}

@@ -102,14 +102,24 @@ public class ScreenCast.Session : Object {
         }
 
         dialog.response.connect ((response) => {
-            dialog.close ();
+            switch (response) {
+                case ALLOW:
+                    setup_recording.begin (
+                        dialog.get_selected_windows (),
+                        dialog.get_selected_monitors (),
+                        dialog.get_virtual ()
+                    );
+                    break;
 
-            if (response == CANCEL) {
-                started (1, streams);
-            } else {
-                setup_recording.begin (dialog);
+                case CANCEL:
+                case DELETE_EVENT:
+                    started (1, streams);
+                    break;
             }
+
+            dialog.destroy ();
         });
+
         dialog.present ();
     }
 
@@ -126,21 +136,21 @@ public class ScreenCast.Session : Object {
         return 0;
     }
 
-    private async void setup_recording (Dialog dialog) {
+    private async void setup_recording (uint64[] selected_windows, string[] selected_monitors, bool is_virtual) {
         //Should we fail if one fails or if all fail? Currently it's all
-        foreach (var window in dialog.get_selected_windows ()) {
+        foreach (var window in selected_windows) {
             if (yield record_window (window)) {
                 required_streams++;
             }
         }
 
-        foreach (var connector in dialog.get_selected_monitors ()) {
+        foreach (var connector in selected_monitors) {
             if (yield record_monitor (connector)) {
                 required_streams++;
             }
         }
 
-        if (dialog.get_virtual () && yield record_virtual ()) {
+        if (is_virtual && yield record_virtual ()) {
             required_streams++;
         }
 

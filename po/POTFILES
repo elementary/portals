@@ -3,6 +3,8 @@ src/ExternalWindow.vala
 src/Access/LocationDialog.vala
 src/Access/Portal.vala
 src/Access/Dialog.vala
+src/Account/Dialog.vala
+src/Account/Portal.vala
 src/AppChooser/Portal.vala
 src/AppChooser/Dialog.vala
 src/AppChooser/AppButton.vala
