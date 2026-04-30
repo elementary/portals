@@ -26,6 +26,22 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
+    <release version="8.2.0" data="2026-04-30" urgency="medium">
+      <description>
+        <p>New Features:</p>
+        <ul>
+          <li>A new design for Portals</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/portals/issues/164">Keep dialogs centered, dim the background, and prevent focus loss</issue>
+        <issue url="https://github.com/elementary/portals/issues/165">Radio button label not activable in screen sharing selector</issue>
+        <issue url="https://github.com/elementary/portals/issues/173">Account Portal</issue>
+        <issue url="https://github.com/elementary/portals/issues/182">Screen sharing stopped working on Wayland; xdg-desktop-portal-pantheon crashes after selecting a monitor</issue>
+      </issues>
+    </release>
+
     <release version="8.1.0" data="2026-01-22" urgency="medium">
       <description>
         <p>New Features:</p>
