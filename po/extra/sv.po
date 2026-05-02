@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-30 18:16+0000\n"
-"PO-Revision-Date: 2025-10-22 05:26+0000\n"
+"PO-Revision-Date: 2026-05-02 08:56+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "portals-extra/sv/>\n"
@@ -50,7 +50,7 @@ msgstr "Nya funktioner:"
 
 #: data/portals.metainfo.xml.in:33
 msgid "A new design for Portals"
-msgstr ""
+msgstr "En ny design för Portaler"
 
 #: data/portals.metainfo.xml.in:34 data/portals.metainfo.xml.in:49
 #: data/portals.metainfo.xml.in:71 data/portals.metainfo.xml.in:83
