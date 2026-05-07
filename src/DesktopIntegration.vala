@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-[DBus (name = "org.pantheon.gala.DesktopIntegration")]
+[DBus (name = "io.elementary.gala.DesktopIntegration")]
 public interface Gala.DesktopIntegration : Object {
     public struct RunningApplications {
         string app_id;
@@ -15,8 +15,8 @@ public interface Gala.DesktopIntegration : Object {
         HashTable<string, Variant> details;
     }
 
-    private const string NAME = "org.pantheon.gala";
-    private const string PATH = "/org/pantheon/gala/DesktopInterface";
+    private const string NAME = "io.elementary.gala";
+    private const string PATH = "/io/elementary/gala/DesktopInterface";
 
     public signal void running_applications_changed ();
 
