@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-30 18:16+0000\n"
 "PO-Revision-Date: 2026-06-29 05:56+0000\n"
-"Last-Translator: kalligator <kalligator+github@gmail.com>\n"
+"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/portals-"
 "extra/el/>\n"
 "Language: el\n"
@@ -44,7 +44,7 @@ msgstr "elementary, Inc."
 #: data/portals.metainfo.xml.in:140 data/portals.metainfo.xml.in:152
 #: data/portals.metainfo.xml.in:165
 msgid "New Features:"
-msgstr ""
+msgstr "Νέες λειτουργίες:"
 
 #: data/portals.metainfo.xml.in:33
 msgid "A new design for Portals"
