@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-30 18:16+0000\n"
-"PO-Revision-Date: 2026-06-29 05:56+0000\n"
+"PO-Revision-Date: 2026-07-10 08:09+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/portals/"
 "el/>\n"
@@ -40,7 +40,7 @@ msgstr ""
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
 msgid "link"
-msgstr ""
+msgstr "σύνδεσμος"
 
 #: src/AppChooser/Dialog.vala:61
 #, c-format
@@ -54,12 +54,12 @@ msgstr ""
 
 #: src/AppChooser/Dialog.vala:67
 msgid "Open with…"
-msgstr ""
+msgstr "Άνοιγμα με…"
 
 #: src/AppChooser/Dialog.vala:69
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Άνοιγμα του «%s» με…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
@@ -84,7 +84,7 @@ msgstr "Απαγόρευση"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Δραστηριότητα παρασκηνίου"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
@@ -93,7 +93,7 @@ msgstr ""
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Προσαρμοσμένη εντολή"
 
 #: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
@@ -105,7 +105,7 @@ msgstr "Κοινή χρήση"
 
 #: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
-msgstr ""
+msgstr "Άγνωστο παράθυρο"
 
 #: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
@@ -149,15 +149,15 @@ msgstr ""
 
 #: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
-msgstr ""
+msgstr "Οθόνη"
 
 #: src/Screenshot/SetupDialog.vala:75
 msgid "Window"
-msgstr ""
+msgstr "Παράθυρο"
 
 #: src/Screenshot/SetupDialog.vala:94
 msgid "Area"
-msgstr ""
+msgstr "Περιοχή"
 
 #: src/Screenshot/SetupDialog.vala:117
 msgid "Grab pointer:"
@@ -165,7 +165,7 @@ msgstr ""
 
 #: src/Screenshot/SetupDialog.vala:128
 msgid "Delay in seconds:"
-msgstr ""
+msgstr "Καθυστέρηση σε δευτερόλεπτα:"
 
 #: src/Screenshot/SetupDialog.vala:133
 msgid "Take Screenshot"
@@ -177,11 +177,11 @@ msgstr "Κλείσιμο"
 
 #: src/Screenshot/SetupDialog.vala:167
 msgid "Conceal text:"
-msgstr ""
+msgstr "Απόκρυψη κειμένου:"
 
 #: src/Screenshot/SetupDialog.vala:202
 msgid "Screenshot"
-msgstr ""
+msgstr "Στιγμιότυπο οθόνης"
 
 #~ msgid "Cancel"
 #~ msgstr "Ακύρωση"
