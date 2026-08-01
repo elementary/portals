@@ -23,6 +23,7 @@ public enum ScreenCast.CursorMode {
 public class ScreenCast.Portal : Object {
     public SourceType available_source_types { get; default = MONITOR | WINDOW | VIRTUAL; }
     public CursorMode available_cursor_modes { get; default = HIDDEN | EMBEDDED | METADATA; }
+    [DBus (name = "version")]
     public uint version { get; default = 3; }
 
     private DBusConnection connection;

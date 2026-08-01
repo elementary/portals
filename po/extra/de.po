@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-28 18:21+0000\n"
+"POT-Creation-Date: 2026-04-30 18:16+0000\n"
 "PO-Revision-Date: 2023-06-14 19:07+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/portals-"
@@ -39,28 +39,34 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:53
-#: data/portals.metainfo.xml.in:65 data/portals.metainfo.xml.in:77
-#: data/portals.metainfo.xml.in:89 data/portals.metainfo.xml.in:101
-#: data/portals.metainfo.xml.in:115 data/portals.metainfo.xml.in:124
-#: data/portals.metainfo.xml.in:136 data/portals.metainfo.xml.in:149
+#: data/portals.metainfo.xml.in:31 data/portals.metainfo.xml.in:47
+#: data/portals.metainfo.xml.in:69 data/portals.metainfo.xml.in:81
+#: data/portals.metainfo.xml.in:93 data/portals.metainfo.xml.in:105
+#: data/portals.metainfo.xml.in:117 data/portals.metainfo.xml.in:131
+#: data/portals.metainfo.xml.in:140 data/portals.metainfo.xml.in:152
+#: data/portals.metainfo.xml.in:165
 msgid "New Features:"
 msgstr "Neue Funktionen:"
 
-#: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:55
-#: data/portals.metainfo.xml.in:67 data/portals.metainfo.xml.in:79
-#: data/portals.metainfo.xml.in:91 data/portals.metainfo.xml.in:103
-#: data/portals.metainfo.xml.in:117 data/portals.metainfo.xml.in:126
-#: data/portals.metainfo.xml.in:138 data/portals.metainfo.xml.in:152
+#: data/portals.metainfo.xml.in:33
+msgid "A new design for Portals"
+msgstr ""
+
+#: data/portals.metainfo.xml.in:34 data/portals.metainfo.xml.in:49
+#: data/portals.metainfo.xml.in:71 data/portals.metainfo.xml.in:83
+#: data/portals.metainfo.xml.in:95 data/portals.metainfo.xml.in:107
+#: data/portals.metainfo.xml.in:119 data/portals.metainfo.xml.in:133
+#: data/portals.metainfo.xml.in:142 data/portals.metainfo.xml.in:154
+#: data/portals.metainfo.xml.in:168
 msgid "Updated translations"
 msgstr "Aktualisierte Übersetzungen"
 
-#: data/portals.metainfo.xml.in:44
+#: data/portals.metainfo.xml.in:60
 msgid ""
 "Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
 msgstr ""
 
-#: data/portals.metainfo.xml.in:151
+#: data/portals.metainfo.xml.in:167
 msgid "Support dialog parenting on wayland"
 msgstr ""
 
