@@ -66,9 +66,6 @@ public class Access.Portal : Object {
             dialog.allow_label = options["grant_label"].get_string ();
         }
 
-        var _results = new HashTable<string, Variant> (str_hash, str_equal);
-        uint32 _response = 2;
-
         if ("choices" in options) {
             var choices_iter = options["choices"].iterator ();
             Variant choice_variant;
@@ -77,6 +74,9 @@ public class Access.Portal : Object {
                 dialog.add_choice (new Choice.from_variant (choice_variant));
             }
         }
+
+        var _results = new HashTable<string, Variant> (str_hash, str_equal);
+        uint32 _response = 2;
 
         dialog.response.connect ((response) => {
             switch (response) {
