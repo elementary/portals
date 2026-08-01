@@ -32,13 +32,13 @@ public class Access.Portal : Object {
         };
 
         if ("icon" in options) {
+            // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
             var icon = options["icon"].get_string ().replace ("-symbolic", "");
             if (icon == "find-location") {
                 dialog = new LocationDialog (app_id) {
                     parent_handle = parent_window
                 };
             } else {
-                // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
                 dialog.secondary_icon = new ThemedIcon (icon);
             }
         }
