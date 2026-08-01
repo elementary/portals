@@ -31,6 +31,18 @@ public class Access.Portal : Object {
             parent_handle = parent_window
         };
 
+        if ("icon" in options) {
+            // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
+            var icon = options["icon"].get_string ().replace ("-symbolic", "");
+            if (icon == "find-location") {
+                dialog = new LocationDialog (app_id) {
+                    parent_handle = parent_window
+                };
+            } else {
+                dialog.secondary_icon = new ThemedIcon (icon);
+            }
+        }
+
         if (app_id != "") {
             dialog.primary_icon = new DesktopAppInfo (app_id + ".desktop").get_icon ();
         } else {
@@ -42,20 +54,15 @@ public class Access.Portal : Object {
             dialog.action_type = DESTRUCTIVE;
         }
 
-        if ("icon" in options) {
-            // elementary HIG use non-symbolic icon, while portals ask for symbolic ones.
-            dialog.secondary_icon = new ThemedIcon (options["icon"].get_string ().replace ("-symbolic", ""));
-        }
-
         if ("modal" in options) {
             dialog.modal = options["modal"].get_boolean ();
         }
 
-        if ("deny_label" in options) {
+        if ("deny_label" in options && !(dialog is LocationDialog)) {
             dialog.cancel_label = options["deny_label"].get_string ();
         }
 
-        if ("grant_label" in options) {
+        if ("grant_label" in options && !(dialog is LocationDialog)) {
             dialog.allow_label = options["grant_label"].get_string ();
         }
 
