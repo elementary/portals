@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-30 18:16+0000\n"
+"POT-Creation-Date: 2026-08-01 21:40+0000\n"
 "PO-Revision-Date: 2026-01-19 15:55+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementaryos.org/projects/desktop/"
@@ -19,6 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 5.11.4\n"
+
+#: src/Access/LocationDialog.vala:14
+#, fuzzy
+#| msgid "An application requested to open a %s."
+msgid "An application wants to access your location"
+msgstr "Aplikacija je zahtevala odprtje %s."
+
+#: src/Access/LocationDialog.vala:15
+msgid ""
+"Permissions can be changed in <a href='settings://security/privacy/"
+"location'>Location Settings…</a>"
+msgstr ""
+
+#: src/Access/LocationDialog.vala:21
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to access your location"
+msgstr "“%s” zahteva odprtje %s."
 
 #: src/Account/Dialog.vala:22
 #, c-format

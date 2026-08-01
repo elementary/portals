@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-30 18:16+0000\n"
+"POT-Creation-Date: 2026-08-01 21:40+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Sami (Southern) <https://l10n.elementary.io/projects/desktop/"
@@ -18,6 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 2) ? 1 : 2);\n"
 "X-Generator: Weblate 5.6.2\n"
+
+#: src/Access/LocationDialog.vala:14
+msgid "An application wants to access your location"
+msgstr ""
+
+#: src/Access/LocationDialog.vala:15
+msgid ""
+"Permissions can be changed in <a href='settings://security/privacy/"
+"location'>Location Settings…</a>"
+msgstr ""
+
+#: src/Access/LocationDialog.vala:21
+#, c-format
+msgid "“%s” wants to access your location"
+msgstr ""
 
 #: src/Account/Dialog.vala:22
 #, c-format

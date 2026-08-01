@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-30 18:16+0000\n"
+"POT-Creation-Date: 2026-08-01 21:40+0000\n"
 "PO-Revision-Date: 2026-05-28 03:56+0000\n"
 "Last-Translator: Automatic translation add-on <noreply-addon-"
 "autotranslate@weblate.org>\n"
@@ -19,6 +19,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2026.5\n"
+
+#: src/Access/LocationDialog.vala:14
+#, fuzzy
+#| msgid "An application requested to open a %s."
+msgid "An application wants to access your location"
+msgstr "Uygulama bir %s açmak istedi."
+
+#: src/Access/LocationDialog.vala:15
+msgid ""
+"Permissions can be changed in <a href='settings://security/privacy/"
+"location'>Location Settings…</a>"
+msgstr ""
+
+#: src/Access/LocationDialog.vala:21
+#, fuzzy, c-format
+#| msgid "“%s” requested to open a %s."
+msgid "“%s” wants to access your location"
+msgstr "“%s” bir %s açmak istedi."
 
 #: src/Account/Dialog.vala:22
 #, c-format
