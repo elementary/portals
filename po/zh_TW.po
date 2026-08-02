@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-01 21:40+0000\n"
-"PO-Revision-Date: 2026-04-07 11:54+0000\n"
+"PO-Revision-Date: 2026-08-03 05:01+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/desktop/portals/zh_TW/>\n"
@@ -17,25 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/Access/LocationDialog.vala:14
-#, fuzzy
-#| msgid "An application wants to access your name and photo"
 msgid "An application wants to access your location"
-msgstr "有應用程式希望存取您的名字和頭貼"
+msgstr "有應用程式希望存取您的位置"
 
 #: src/Access/LocationDialog.vala:15
 msgid ""
 "Permissions can be changed in <a href='settings://security/privacy/"
 "location'>Location Settings…</a>"
 msgstr ""
+"權限可以在<a href='settings://security/privacy/location'>位置設定值…</a>進行"
+"變更"
 
 #: src/Access/LocationDialog.vala:21
-#, fuzzy, c-format
-#| msgid "“%s” wants to access your name and photo"
+#, c-format
 msgid "“%s” wants to access your location"
-msgstr "「%s」希望存取您的名字與頭貼"
+msgstr "「%s」希望存取您的位置"
 
 #: src/Account/Dialog.vala:22
 #, c-format
