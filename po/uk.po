@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2026-06-30 20:56+0000\n"
+"PO-Revision-Date: 2026-08-06 12:01+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/uk/>\n"
@@ -33,10 +33,9 @@ msgid ""
 msgstr ""
 
 #: src/Access/LocationDialog.vala:21
-#, fuzzy, c-format
-#| msgid "“%s” wants to open a %s"
+#, c-format
 msgid "“%s” wants to access your location"
-msgstr "«%s» хоче відкрити %s"
+msgstr "«%s» хоче отримати доступ до вашого розташування"
 
 #: src/Account/Dialog.vala:22
 #, c-format
@@ -54,10 +53,9 @@ msgid "It did not provide a reason for this request."
 msgstr ""
 
 #: src/Account/Dialog.vala:40
-#, fuzzy, c-format
-#| msgid "“%s” wants to open a %s"
+#, c-format
 msgid "“%s” wants to access your name and photo"
-msgstr "«%s» хоче відкрити %s"
+msgstr "«%s» хоче отримати доступ до вашого імені та світлини"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
