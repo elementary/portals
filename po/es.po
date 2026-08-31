@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2026-04-19 23:56+0000\n"
+"PO-Revision-Date: 2026-09-01 17:01+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/desktop/"
 "portals/es/>\n"
@@ -17,25 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/Access/LocationDialog.vala:14
-#, fuzzy
-#| msgid "An application wants to access your name and photo"
 msgid "An application wants to access your location"
-msgstr "Una aplicación quiere acceder a su nombre y foto"
+msgstr "Una aplicación quiere acceder a ubicación"
 
 #: src/Access/LocationDialog.vala:15
 msgid ""
 "Permissions can be changed in <a href='settings://security/privacy/"
 "location'>Location Settings…</a>"
 msgstr ""
+"Los permisos se pueden cambiar en <a href='settings://security/privacy/"
+"location'>Configuración de ubicación…</a>"
 
 #: src/Access/LocationDialog.vala:21
-#, fuzzy, c-format
-#| msgid "“%s” wants to access your name and photo"
+#, c-format
 msgid "“%s” wants to access your location"
-msgstr "«%s» quiere acceder a su nombre y foto"
+msgstr "«%s» quiere acceder a su ubicación"
 
 #: src/Account/Dialog.vala:22
 #, c-format
