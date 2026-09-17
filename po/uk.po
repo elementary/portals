@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2026-09-11 23:01+0000\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "portals/uk/>\n"
@@ -29,6 +29,8 @@ msgid ""
 "Permissions can be changed in <a href='settings://security/privacy/"
 "location'>Location Settings…</a>"
 msgstr ""
+"Дозвіл можна змінити в <a href='settings://security/privacy/location'>"
+"Налаштуваннях розташування…</a>"
 
 #: src/Access/LocationDialog.vala:21
 #, c-format
@@ -46,7 +48,7 @@ msgstr "Застосунок хоче отримати доступ до ваш�
 
 #: src/Account/Dialog.vala:34
 msgid "It did not provide a reason for this request."
-msgstr ""
+msgstr "Причину цього запиту не вказано."
 
 #: src/Account/Dialog.vala:40
 #, c-format
