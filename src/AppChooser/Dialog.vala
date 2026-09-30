@@ -80,11 +80,8 @@ public class AppChooser.Dialog : PortalDialog {
         listbox.set_placeholder (placeholder);
 
         var scrolled_window = new Gtk.ScrolledWindow () {
-            child = listbox
-        };
-
-        var frame = new Gtk.Frame (null) {
-            child = scrolled_window,
+            child = listbox,
+            has_frame = true,
             margin_top = 12,
             margin_end = 12,
             margin_bottom = 12,
@@ -93,7 +90,7 @@ public class AppChooser.Dialog : PortalDialog {
 
         allow_label = _("Open");
 
-        content = frame;
+        content = scrolled_window;
         default_height = 425;
 
         listbox.row_activated.connect ((row) => {
