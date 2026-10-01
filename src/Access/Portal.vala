@@ -71,7 +71,7 @@ public class Access.Portal : Object {
             Variant choice_variant;
 
             while ((choice_variant = choices_iter.next_value ()) != null) {
-                dialog.add_choice (new Choice.from_variant (choice_variant));
+                dialog.add_choice (new Choice (choice_variant));
             }
         }
 

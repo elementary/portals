@@ -54,10 +54,10 @@ public class Screenshot.SetupDialog : Gtk.Window {
             icon_size = LARGE
         };
 
-        var all_label = new Gtk.Label (_("Screen")) ;
+        var all_label = new Gtk.Label (_("Screen"));
         all_label.add_css_class (Granite.CssClass.SMALL);
 
-        var all_box = new Gtk.Box (VERTICAL, 3);
+        var all_box = new Granite.Box (VERTICAL, HALF);
         all_box.append (all_image);
         all_box.append (all_label);
 
@@ -75,7 +75,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         var curr_label = new Gtk.Label (_("Window"));
         curr_label.add_css_class (Granite.CssClass.SMALL);
 
-        var curr_box = new Gtk.Box (VERTICAL, 3);
+        var curr_box = new Granite.Box (VERTICAL, HALF);
         curr_box.append (curr_image);
         curr_box.append (curr_label);
 
@@ -94,7 +94,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         var selection_label = new Gtk.Label (_("Area"));
         selection_label.add_css_class (Granite.CssClass.SMALL);
 
-        var selection_box = new Gtk.Box (VERTICAL, 3);
+        var selection_box = new Granite.Box (VERTICAL, HALF);
         selection_box.append (selection_image);
         selection_box.append (selection_label);
 
@@ -141,7 +141,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
 
         var close_btn = new Gtk.Button.with_label (_("Close"));
 
-        var radio_box = new Gtk.Box (HORIZONTAL, 18) {
+        var radio_box = new Granite.Box (HORIZONTAL) {
             halign = CENTER
         };
         radio_box.append (all);
@@ -176,14 +176,14 @@ public class Screenshot.SetupDialog : Gtk.Window {
         option_grid.attach (delay_label, 0, 2);
         option_grid.attach (delay_spin, 1, 2);
 
-        var actions = new Gtk.Box (HORIZONTAL, 6) {
+        var actions = new Granite.Box (HORIZONTAL, HALF) {
             halign = END,
             homogeneous = true
         };
         actions.append (close_btn);
         actions.append (take_btn);
 
-        var box = new Gtk.Box (VERTICAL, 24) {
+        var box = new Granite.Box (VERTICAL, DOUBLE) {
             margin_top = 24,
             margin_end = 12,
             margin_bottom = 12,

@@ -32,7 +32,7 @@ public class ScreenCast.SelectionRow : Gtk.ListBoxRow {
         }
     }
 
-    private Gtk.Box label_box;
+    private Granite.Box label_box;
 
     public SelectionRow (SourceType source_type, Variant id, string label, Icon icon, Gtk.CheckButton? group) {
         Object (

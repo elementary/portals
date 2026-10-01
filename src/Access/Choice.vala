@@ -3,12 +3,12 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-public class Access.Choice : Gtk.Box {
+public class Access.Choice : Granite.Box {
     public Variant? options { get; construct; }
     public string label { get; set; }
     public string selected { get; set; }
 
-    public Choice.from_variant (Variant variant) requires (
+    public Choice (Variant variant) requires (
         variant.is_of_type (new VariantType ("(ssa(ss)s)"))
     ) {
         string id, label, selected;
@@ -20,9 +20,9 @@ public class Access.Choice : Gtk.Box {
     }
 
     construct {
-        orientation = Gtk.Orientation.VERTICAL;
+        child_spacing = HALF;
+        orientation = VERTICAL;
         halign = Gtk.Align.START;
-        spacing = 6;
 
         var label = new Gtk.Label (label);
         bind_property ("label", label, "label", BindingFlags.DEFAULT);
