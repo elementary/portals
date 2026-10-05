@@ -57,18 +57,15 @@ public class ScreenCast.Dialog : PortalDialog {
 
         var scrolled_window = new Gtk.ScrolledWindow () {
             child = list_box,
-            hscrollbar_policy = NEVER
-        };
-
-        var frame = new Gtk.Frame (null) {
-            child = scrolled_window,
+            has_frame = true,
+            hscrollbar_policy = NEVER,
             margin_top = 12,
             margin_end = 12,
             margin_bottom = 12,
             margin_start = 12
         };
 
-        content = frame;
+        content = scrolled_window;
         default_height = 425;
 
         allow_label = _("Share");
