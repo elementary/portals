@@ -207,7 +207,7 @@ public class Screenshot.SetupDialog : Gtk.Window {
         };
 
         add_css_class ("dialog");
-        add_css_class (Granite.STYLE_CLASS_MESSAGE_DIALOG);
+        add_css_class ("message");
 
         close_btn.clicked.connect (() => {
             response (Gtk.ResponseType.CLOSE);
