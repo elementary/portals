@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2024-08-15 23:47+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Danish <https://l10n.elementary.io/projects/desktop/portals-"
-"extra/da/>\n"
+"PO-Revision-Date: 2026-10-28 06:12+0000\n"
+"Last-Translator: CodeBeats <nicholai67@hotmail.com>\n"
+"Language-Team: Danish <https://l10n.elementaryos.org/projects/desktop/"
+"portals-extra/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: data/portals.metainfo.xml.in:10
 msgid "Portals"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: data/portals.metainfo.xml.in:11
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "Tilgå systemfunktioner på en sikker måde"
 
 #: data/portals.metainfo.xml.in:13
 msgid ""
