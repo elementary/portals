@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2026-10-24 20:04+0000\n"
+"PO-Revision-Date: 2026-10-28 06:12+0000\n"
 "Last-Translator: CodeBeats <nicholai67@hotmail.com>\n"
 "Language-Team: Danish <https://l10n.elementaryos.org/projects/desktop/"
 "portals/da/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: src/Access/LocationDialog.vala:14
 msgid "An application wants to access your location"
-msgstr ""
+msgstr "En applikation ønsker at få adgang til din placering"
 
 #: src/Access/LocationDialog.vala:15
 msgid ""
