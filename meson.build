@@ -15,7 +15,7 @@ adw_dep = dependency('libadwaita-1')
 glib_dep = dependency('glib-2.0')
 gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
-granite_dep = dependency('granite-7')
+granite_dep = dependency('granite-9')
 
 gtk_deps = [
     dependency('gtk4')
