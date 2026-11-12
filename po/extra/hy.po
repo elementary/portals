@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2026-11-09 21:04+0000\n"
+"PO-Revision-Date: 2026-11-13 20:04+0000\n"
 "Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
 "Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
 "portals-extra/hy/>\n"
@@ -21,17 +21,20 @@ msgstr ""
 
 #: data/portals.metainfo.xml.in:10
 msgid "Portals"
-msgstr ""
+msgstr "Portals"
 
 #: data/portals.metainfo.xml.in:11
 msgid "Access system features in a secure way"
-msgstr ""
+msgstr "Համակարգի հնարավորություններին անվտանգ հասանելիություն"
 
 #: data/portals.metainfo.xml.in:13
 msgid ""
 "Portals provide APIs to secure apps which enable them to access system "
 "features while requiring informed consent."
 msgstr ""
+"Portals-ը տրամադրում է API-ներ անվտանգ հավելվածների համար, որոնք թույլ են "
+"տալիս նրանց օգտվել համակարգի հնարավորություններից՝ պահանջելով տեղեկացված "
+"համաձայնություն։"
 
 #: data/portals.metainfo.xml.in:23
 msgid "elementary, Inc."
@@ -44,7 +47,7 @@ msgstr "elementary, Inc."
 #: data/portals.metainfo.xml.in:144 data/portals.metainfo.xml.in:153
 #: data/portals.metainfo.xml.in:165 data/portals.metainfo.xml.in:178
 msgid "New Features:"
-msgstr ""
+msgstr "Նոր հնարավորություններ՝"
 
 #: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:47
 #: data/portals.metainfo.xml.in:62 data/portals.metainfo.xml.in:84
@@ -57,13 +60,15 @@ msgstr "Թարմացված թարգմանություններ"
 
 #: data/portals.metainfo.xml.in:46
 msgid "A new design for Portals"
-msgstr ""
+msgstr "Portals-ի նոր դիզայն"
 
 #: data/portals.metainfo.xml.in:73
 msgid ""
 "Fixes a regression in 8.0.3 that happens with unreleased version of Granite"
 msgstr ""
+"Շտկում է 8.0.3 տարբերակի հետընթացը, որը տեղի է ունենում Granite-ի չթողարկված "
+"տարբերակի դեպքում"
 
 #: data/portals.metainfo.xml.in:180
 msgid "Support dialog parenting on wayland"
-msgstr ""
+msgstr "Երկխոսությունների ծնող պատուհանի աջակցություն Wayland-ում"
