@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2026-10-28 06:12+0000\n"
+"PO-Revision-Date: 2026-11-13 20:04+0000\n"
 "Last-Translator: CodeBeats <nicholai67@hotmail.com>\n"
 "Language-Team: Danish <https://l10n.elementaryos.org/projects/desktop/"
 "portals-extra/da/>\n"
@@ -44,7 +44,7 @@ msgstr "elementary, Inc."
 #: data/portals.metainfo.xml.in:144 data/portals.metainfo.xml.in:153
 #: data/portals.metainfo.xml.in:165 data/portals.metainfo.xml.in:178
 msgid "New Features:"
-msgstr ""
+msgstr "Nye Funktioner:"
 
 #: data/portals.metainfo.xml.in:33 data/portals.metainfo.xml.in:47
 #: data/portals.metainfo.xml.in:62 data/portals.metainfo.xml.in:84
