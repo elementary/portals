@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-pantheon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 15:01+0000\n"
-"PO-Revision-Date: 2026-10-28 06:12+0000\n"
+"PO-Revision-Date: 2026-11-13 20:04+0000\n"
 "Last-Translator: CodeBeats <nicholai67@hotmail.com>\n"
 "Language-Team: Danish <https://l10n.elementaryos.org/projects/desktop/"
 "portals/da/>\n"
@@ -41,16 +41,16 @@ msgstr ""
 
 #: src/Account/Dialog.vala:32
 msgid "An application wants to access your name and photo"
-msgstr ""
+msgstr "En applikation ønsker adgang til dit navn og billede"
 
 #: src/Account/Dialog.vala:34
 msgid "It did not provide a reason for this request."
-msgstr ""
+msgstr "Den angav ikke en begrundelse for denne anmodning."
 
 #: src/Account/Dialog.vala:40
 #, c-format
 msgid "“%s” wants to access your name and photo"
-msgstr ""
+msgstr "“%s” ønsker adgang til dit navn og billede"
 
 #. /TRANSLATORS: An http link
 #: src/AppChooser/Dialog.vala:52
@@ -60,67 +60,67 @@ msgstr ""
 #: src/AppChooser/Dialog.vala:61
 #, c-format
 msgid "An application wants to open a %s"
-msgstr ""
+msgstr "En applikation ønsker at åbne en %s"
 
 #: src/AppChooser/Dialog.vala:63
 #, c-format
 msgid "“%s” wants to open a %s"
-msgstr ""
+msgstr "“%s” ønsker at åbne en %s"
 
 #: src/AppChooser/Dialog.vala:67
 msgid "Open with…"
-msgstr ""
+msgstr "Åben med…"
 
 #: src/AppChooser/Dialog.vala:69
 #, c-format
 msgid "Open “%s” with…"
-msgstr ""
+msgstr "Åben “%s” med…"
 
 #: src/AppChooser/Dialog.vala:72
 #, c-format
 msgid "No installed apps can open %s"
-msgstr ""
+msgstr "Ingen installerede apps kan åbne %s"
 
 #: src/AppChooser/Dialog.vala:73
 msgid "New apps can be installed from AppCenter"
-msgstr ""
+msgstr "Nye apps kan installeres fra AppCenter"
 
 #: src/AppChooser/Dialog.vala:94
 msgid "Open"
-msgstr ""
+msgstr "Åben"
 
 #: src/Background/NotificationRequest.vala:102
 msgid "Allow"
-msgstr ""
+msgstr "Tillad"
 
 #: src/Background/NotificationRequest.vala:104
 msgid "Forbid"
-msgstr ""
+msgstr "Forbyd"
 
 #: src/Background/NotificationRequest.vala:113
 msgid "Background activity"
-msgstr ""
+msgstr "Baggrundsaktivitet"
 
 #: src/Background/NotificationRequest.vala:114
 #, c-format
 msgid "“%s” is running in the background without appropriate permission"
-msgstr ""
+msgstr "“%s” kører i baggrunden uden den nødvendige tilladelse"
 
 #: src/Background/Portal.vala:164
 msgid "Custom Command"
-msgstr ""
+msgstr "Brugerdefineret Kommando"
 
 #: src/ScreenCast/Dialog.vala:53 src/ScreenCast/Dialog.vala:162
 msgid "Entire Display"
-msgstr ""
+msgstr "Hele Skærmen"
 
 #: src/ScreenCast/Dialog.vala:74
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 #: src/ScreenCast/Dialog.vala:98
 msgid "Unknown Window"
-msgstr ""
+msgstr "Ukendt Vindue"
 
 #: src/ScreenCast/Dialog.vala:154
 msgid "Windows"
@@ -128,11 +128,11 @@ msgstr "Vinduer"
 
 #: src/ScreenCast/Dialog.vala:158
 msgid "Monitors"
-msgstr ""
+msgstr "Skærme"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:58
 msgid "Clockwise"
-msgstr ""
+msgstr "Med uret"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:60
 msgid "Upside-down"
@@ -156,11 +156,11 @@ msgstr "Vendt på hovedet"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:70
 msgid "Flipped Counterclockwise"
-msgstr ""
+msgstr "Spejlvendt mod uret"
 
 #: src/ScreenCast/MonitorTracker/Interface.vala:72
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: src/Screenshot/SetupDialog.vala:57
 msgid "Screen"
